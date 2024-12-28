@@ -7,7 +7,7 @@
 ### 一、源代码
 ```bash
 # 克隆本项目
-git clone https://github.com/ThinkerWen/TicketMonitoring.git
+git clone https://github.com/HokageYeah/PYTicketMonitoring
 cd TicketMonitoring
 # 安装python运行需要的包
 python3 -m pip install -r requirements.txt
