@@ -151,7 +151,7 @@
                 },
                 {
                   "title": "实名购票规则",
-                  "content": "一张门票对应一个证件；证件支持：身份证/台湾居民来往大陆通行证/外国人永久居留身份证/港澳台居民居住证/护照/港澳居民来往内地通行证"
+                  "content": "一张门票对应一个证件；证件支持：外国人永久居留身份证/护照/港澳居民来往内地通行证/台湾居民来往大陆通行证/身份证/港澳台居民居住证"
                 },
                 {
                   "title": "异常排单说明",
@@ -248,7 +248,7 @@
           "lng": 116.280728,
           "lat": 39.910216,
           "venueAddr": "复兴路69号",
-          "showCountText": "共有3个演出",
+          "showCountText": "共有2个演出",
           "region": "1",
           "venueType": "0"
         },
@@ -258,7 +258,7 @@
         },
         "sharingBar": {
           "sharingIcon": "",
-          "sharingBtnBubbleText": "要不要看呢？去问问ta吧😊"
+          "sharingBtnBubbleText": "问问ta，要不要一起去看😊"
         },
         "faqs": [
           "有座位图可以查看吗",
@@ -307,21 +307,21 @@
           "showWant": "true",
           "subFlag": "false",
           "title": "想看人数",
-          "wantNum": "5204",
-          "wantNumStr": "5204",
+          "wantNum": "5411",
+          "wantNumStr": "5411",
           "wantNumSuffix": "人",
           "wantDesc": "人气飙升中",
           "userImgs": [
-            "https://img.alicdn.com/imgextra/i4/O1CN013n7KRC1TtZ5bYGxgR_!!6000000002440-0-tps-500-500.jpg",
-            "http://perico.damai.cn/userheadphotosnew/2686907/537381595_1735193315784.jpg",
-            "https://img.alicdn.com/imgextra/i4/O1CN01q2JN4O1fyr3OT2Q3J_!!6000000004076-0-tps-500-500.jpg",
-            "http://perico.damai.cn/userheadphotos/124516/24903338.jpg",
-            "https://img.alicdn.com/imgextra/i1/O1CN01HRvUZB1lBHsggFFau_!!6000000004780-0-tps-500-500.jpg"
+            "https://img.alicdn.com/imgextra/i3/O1CN01I4kws71HYFGQ5pDY3_!!6000000000769-0-tps-500-500.jpg",
+            "http://perico.damai.cn/userheadphotosnew/815660/163132170_1660984961021.jpg",
+            "https://img.alicdn.com/imgextra/i3/O1CN01tskbWG1hZKCvp2bX3_!!6000000004291-0-tps-500-500.jpg",
+            "http://perico.damai.cn/userheadphotosnew/1162647/232529498_1680948970355.jpg",
+            "https://img.alicdn.com/imgextra/i1/O1CN01KzqXrr1vW1ysOe3mS_!!6000000006179-0-tps-500-500.jpg"
           ],
           "thresholdNum": "10000",
-          "tips": "火爆热抢中，速买～",
+          "tips": "<span style='color:red;'>设置「缺货登记」</span>到货第一时候知道~",
           "tipsTitle": "已加入 [我的-想看]",
-          "tipsSubTitle": "抢手热卖中，别忘了及时购票哦～",
+          "tipsSubTitle": "别忘了登记哦，可购票时会通知你～",
           "guideTipTitle": "标 [想看] ，订阅最新优惠信息～",
           "guideTipSubTitle": "在 [想看] 列表记录心动演出",
           "guideTipShareTitle": "你的好友邀你标 [想看] 哦～",
@@ -332,11 +332,11 @@
         "sharingBtnBubbleText": "问问ta，要不要一起去看😊"
       },
       "item": {
-        "buyBtnStatus": "204",
-        "buyBtnText": "立即购票",
-        "buyBtnOrigin": "12",
-        "sellStartTime": "1735296541000",
-        "sellStartTimeStr": "12月27日 18:49",
+        "buyBtnStatus": "91",
+        "buyBtnText": "缺货登记",
+        "buyBtnOrigin": "16",
+        "sellStartTime": "1735608949000",
+        "sellStartTimeStr": "12月31日 09:35",
         "priceRange": "¥180 - ¥580",
         "performBases": [
           {

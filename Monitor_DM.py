@@ -10,10 +10,10 @@ from requests import Response
 from Monitor import Monitor
 
 
-_m_h5_tk = "9b95ba33c6f76368754477392763a785_1735378724483"
-_m_h5_tk_enc = "80bf055a74deaee1e441ab9760137fea"
-cookie2 = "12f638562826222299599e475cdd39e1"
-sgcookie = "E100%2BcUPFBhYsGevVrtacjzRm5YQQ5n5JuMbLX07MmFVefW6%2F9AF3%2B%2BLp50F6uTCNz0HgNvgHVURIrFKlXJkkYorG%2F%2FVJ2S5e%2Fzwec5xne7XsN8%3D"
+_m_h5_tk = "b5b19fa8c5ffa32cd654972f32db4ddb_1735644970965"
+_m_h5_tk_enc = "9a01c8fdb26daccf9d8e3771d033e188"
+cookie2 = "1c1f0f2f03cad5559fd93b6afc8ef4d4"
+sgcookie = "E100yEqPPb7ui1QE0%2FB99Q0wMHDsqKauE%2BCdZhac%2BDCIMY9wUaMCCD8zcXBHIU16OldHPv2YuMI1XwK7lc%2F%2BxOflfaw6d7jmnT9JNQBmHw2lqzU%3D"
 
 class DM(Monitor):
 

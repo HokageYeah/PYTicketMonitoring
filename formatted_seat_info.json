@@ -1,8 +1,8 @@
 {
   "itemBuyBtn": {
-    "btnStatus": "204",
-    "btnText": "立即购票",
-    "btnOrigin": "12"
+    "btnStatus": "91",
+    "btnText": "缺货登记",
+    "btnOrigin": "16"
   },
   "actionControl": {
     "calculatePriceControl": {
@@ -23,7 +23,7 @@
     "serviceFeeAgreementURL": "https://m.taopiaopiao.com/tickets/dianying/pages/alfheim/content.html?id=2204793&displayType=plain&hidetitle=yes&hsb=yes&interact=no&hideAuthorInfo=yes"
   },
   "performCalendar": {
-    "today": "20241228",
+    "today": "20241231",
     "currentPerformId": "217373074",
     "showDates": "false",
     "performViews": [
@@ -36,10 +36,19 @@
         "mainText": "2025-01-01  周三 19:30",
         "buyPermission": "true",
         "chooseSeatType": "5",
-        "salable": "true",
+        "salable": "false",
         "clickable": "true",
-        "tags": [],
-        "mktPromotionTips": "",
+        "tags": [
+          {
+            "tag": "1",
+            "tagDesc": "无票"
+          }
+        ],
+        "otherTag": {
+          "tag": "1",
+          "tagOrientation": "2",
+          "tagDesc": "无票"
+        },
         "remark": "",
         "dateKey": "20250101",
         "performType": "1"
@@ -58,7 +67,7 @@
     "itemLimitPerOrder": "6",
     "buyPermission": "true",
     "hasPromotion": "false",
-    "performSalable": "true",
+    "performSalable": "false",
     "presale": "false",
     "hasFreePackage": "false",
     "skuList": [
@@ -164,8 +173,8 @@
         "tips": {
           "tagTip": "暂时无票，若到货，平台会根据票量，按照提交顺序，给部分用户推送通知；若始终缺货，将不做另外通知"
         },
-        "followRelationTargetType": "16",
-        "followRelationTargetTypeName": "MANUAL_OOS",
+        "followRelationTargetType": "8",
+        "followRelationTargetTypeName": "SKU",
         "otherTag": {
           "tag": "1",
           "tagOrientation": "2",
@@ -179,21 +188,35 @@
         "priceId": "291551448",
         "priceIdOfTC": "291551448",
         "status": "1",
-        "frontEndStatus": "1",
+        "frontEndStatus": "2",
         "priceName": "480元",
         "price": "480.00",
         "dashPrice": "480.00",
-        "salableQuantity": "6",
-        "mq": "6",
-        "skuSalable": "true",
+        "salableQuantity": "0",
+        "mq": "0",
+        "skuSalable": "false",
         "packagesFlag": "false",
         "freePackage": "false",
         "auctionUnit": "1",
         "hasPromotion": "false",
         "buyPermission": "true",
         "clickable": "true",
-        "tags": [],
-        "mktPromotionTips": "",
+        "tags": [
+          {
+            "tag": "1",
+            "tagDesc": "缺货登记"
+          }
+        ],
+        "tips": {
+          "tagTip": "暂时无票，若到货，平台会根据票量，按照提交顺序，给部分用户推送通知；若始终缺货，将不做另外通知"
+        },
+        "followRelationTargetType": "8",
+        "followRelationTargetTypeName": "SKU",
+        "otherTag": {
+          "tag": "1",
+          "tagOrientation": "2",
+          "tagDesc": "缺货登记"
+        },
         "mqw": "0"
       },
       {
@@ -202,21 +225,35 @@
         "priceId": "291539461",
         "priceIdOfTC": "291539461",
         "status": "1",
-        "frontEndStatus": "1",
+        "frontEndStatus": "2",
         "priceName": "580元",
         "price": "580.00",
         "dashPrice": "580.00",
-        "salableQuantity": "6",
-        "mq": "6",
-        "skuSalable": "true",
+        "salableQuantity": "0",
+        "mq": "0",
+        "skuSalable": "false",
         "packagesFlag": "false",
         "freePackage": "false",
         "auctionUnit": "1",
         "hasPromotion": "false",
         "buyPermission": "true",
         "clickable": "true",
-        "tags": [],
-        "mktPromotionTips": "",
+        "tags": [
+          {
+            "tag": "1",
+            "tagDesc": "缺货登记"
+          }
+        ],
+        "tips": {
+          "tagTip": "暂时无票，若到货，平台会根据票量，按照提交顺序，给部分用户推送通知；若始终缺货，将不做另外通知"
+        },
+        "followRelationTargetType": "16",
+        "followRelationTargetTypeName": "MANUAL_OOS",
+        "otherTag": {
+          "tag": "1",
+          "tagOrientation": "2",
+          "tagDesc": "缺货登记"
+        },
         "mqw": "0"
       }
     ],
@@ -248,7 +285,7 @@
     "categoryId": "50019085",
     "itemTitle": "【北京】2025鹿先森乐队“十”新年专场",
     "priceRange": "￥180.00 - ￥580.00",
-    "sellingStartTime": "202412271801",
+    "sellingStartTime": "202412310949",
     "hasPromotion": "false",
     "hasPrivilegeTag": "false",
     "hasExclusivePrivilegeTag": "false",
@@ -380,7 +417,7 @@
       "2939586",
       "3419842"
     ],
-    "t": "clh+Z3BfWw9hTFh1S1tufXVad29zWV4JY0dOfU5LY3t3X3xqd1hfDXA7IxMqMBMEBjUcCgA5PGs="
+    "t": "clh+Z3BfWw9hTFh1S1tufXVad29zWV4JY0dOfU5LY35zXHtueF1QAXA7IxMqMBMEBjUcCgA5PGs="
   },
   "responseInfo": {
     "responseSuccess": "true",
