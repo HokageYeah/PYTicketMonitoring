@@ -1,5 +1,6 @@
 import json
 import logging
+from pathlib import Path
 from time import time
 
 import requests
@@ -16,7 +17,9 @@ class Monitor:
     # 频繁请求请添加代理，自建代理见GitHub: https://github.com/ThinkerWen/ProxyServer
 
     def __init__(self):
-        file = open("config.json", "r", encoding="utf-8")
+        # 获取当前文件的绝对路径
+        current_dir = Path(__file__).resolve().parent
+        file = open(current_dir / 'config' / "config.json", "r", encoding="utf-8")
         proxy = json.load(file).get("proxy")
         self._proxy = proxy if proxy else None
         file.close()

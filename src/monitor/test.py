@@ -1,5 +1,6 @@
 import json
 import logging
+from pathlib import Path
 import threading
 import time
 from collections import defaultdict
@@ -138,7 +139,9 @@ class Runner:
 
     def start(self):
         try:
-            with open("config.json", "r", encoding="utf-8") as file:
+            # 获取当前文件的绝对路径
+            current_dir = Path(__file__).resolve().parent
+            with open(current_dir / 'config' / "config.json", "r", encoding="utf-8") as file:
                 show_list = json.load(file).get("monitor_list")
 
             for show in show_list:

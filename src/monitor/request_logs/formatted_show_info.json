@@ -27,7 +27,7 @@
             "https://item-cdn.damai.cn/38cae7f7a53a43788f5614bd90c07f0e.jpg"
           ],
           "performSeatImages": [],
-          "showTime": "2025.01.01 周三 19:30",
+          "showTime": "时间待定",
           "showDuration": "以现场为准",
           "serviceNotes": [
             {
@@ -38,31 +38,6 @@
               "renderType": "2",
               "tagDescJson": "{\"generalNote\":\"该演出支持退票，您可以在【我的-订单详情页】中申请退票，退票需要收取手续费，具体规则如下：\",\"performRules\":[{\"rules\":[{\"endTime\":1733029200000,\"ruleStage\":3,\"ruleType\":2,\"startTime\":1732856400000},{\"endTime\":1735016400000,\"ruleFeeBP\":2000,\"ruleStage\":3,\"ruleType\":1,\"startTime\":1733029200000},{\"ruleStage\":2,\"ruleType\":4,\"startTime\":1735016400000}]}],\"refundProcedureFeeRule\":1}",
               "icon": "https://gw.alicdn.com/imgextra/i4/O1CN01U4xvGO1qlzvKaYVze_!!6000000005537-2-tps-45-45.png"
-            },
-            {
-              "isSupport": "true",
-              "tagName": "实名制购票和入场",
-              "tagDesc": "本项目需实名制购票及入场，购票完成后观演人信息不可更改，须购票时填写的实名观演人携带本人有效证件验证入场。",
-              "tagType": "1",
-              "renderType": "1",
-              "icon": "https://gw.alicdn.com/imgextra/i3/O1CN01W71UiF1LeRIVqb1Ci_!!6000000001324-2-tps-45-45.png"
-            },
-            {
-              "isSupport": "false",
-              "tagName": "不支持选座",
-              "tagDesc": "本项目不支持自主选座，同一个订单优先连座",
-              "tagType": "3",
-              "renderType": "1",
-              "icon": "https://gw.alicdn.com/imgextra/i4/O1CN01U4xvGO1qlzvKaYVze_!!6000000005537-2-tps-45-45.png"
-            },
-            {
-              "isSupport": "true",
-              "tagName": "电子票",
-              "tagDesc": "通过身份证验票入场",
-              "tagDescWithStyle": "通过身份证验票入场",
-              "tagType": "4",
-              "renderType": "1",
-              "icon": "https://gw.alicdn.com/imgextra/i3/O1CN01W71UiF1LeRIVqb1Ci_!!6000000001324-2-tps-45-45.png"
             },
             {
               "isSupport": "true",
@@ -87,7 +62,7 @@
         },
         "itemExtendInfo": {
           "itemDescTitle": "演出介绍",
-          "itemExtend": "<!DOCTYPE html><html><head></head><body><p><img src=\"https://img.alicdn.com/imgextra/i2/2251059038/O1CN01ty7P7D2GdSeoA4xdx_!!2251059038.png\" width=\"976\" height=\"1212\" damai_width=\"976\" damai_height=\"1212\"><img src=\"https://img.alicdn.com/imgextra/i4/2251059038/O1CN01X9kwk12GdSeqC6ZP7_!!2251059038.png\" width=\"978\" height=\"142\" damai_width=\"978\" damai_height=\"142\"></p>\n<p>鹿先森乐队「十」新年专场将于2025年1月1日来到北京M空间。继2023年4月「后毕业时代」专场之后，鹿先森终于回到阔别已久的北京，带着祝福和乐迷朋友一起迎接新年。</p>\n<p><img src=\"https://img.alicdn.com/imgextra/i3/2251059038/O1CN01tEjioc2GdSedHQqGa_!!2251059038.jpg\" width=\"2881\" height=\"1919\" damai_width=\"4528\" damai_height=\"3016\"><img src=\"https://img.alicdn.com/imgextra/i1/2251059038/O1CN01Jap9zr2GdSecr14wy_!!2251059038.jpg\" width=\"2880\" height=\"1921\" damai_width=\"2880\" damai_height=\"1921\"></p>\n<p>这是鹿先森第一次在M空间演出。他们根据场地情况，做了适配环境的舞美焕新升级，把鹿的专场独有的魅力发挥到极致——他们的音乐本身就极具情绪感染力，除了欢快热烈的气氛能够让人在跳跃欢呼中释放之外，音乐本身的真挚更能够触动内心深处的柔软角落，你会被他们真诚的旋律打动，也会在充满诗意的歌词中代入自己，找到共鸣。加上视觉画面与音乐语言的适配，情绪氛围也更加浓厚，你会在鹿先森的live现场中感受到不一样的感动。</p>\n<p><img src=\"https://img.alicdn.com/imgextra/i1/2251059038/O1CN015tvvUE2GdSeamcHOC_!!2251059038.jpg\" width=\"2880\" height=\"1921\" damai_width=\"2880\" damai_height=\"1921\"><img src=\"https://img.alicdn.com/imgextra/i1/2251059038/O1CN01XVtzqi2GdSeamexrg_!!2251059038.jpg\" width=\"2871\" height=\"1911\" damai_width=\"4528\" damai_height=\"3016\"><img src=\"https://img.alicdn.com/imgextra/i1/2251059038/O1CN01o5ZTu92GdSeVienE3_!!2251059038.jpg\" width=\"2865\" height=\"1908\" damai_width=\"4528\" damai_height=\"3016\"></p>\n<p>迈入2025年，鹿先森乐队即将一起走过十年时光。乐队成军十年纪念日逐渐临近，这次新年专场也成为迎接与奔赴「十周年」的起点。10年前众筹制作《春风十里》和《所有的酒都不如你》专辑的鹿先森，已经积累了近300场舞台经验，完成4张专辑，53首歌曲。面对自己热爱的音乐，他们的态度始终是“尽管有自我怀疑与自我否定，但那缕春风始终在眼前，指引我们一米一米向前走”。如今，春风已真的吹过「十」里，未来还将去向更远的地方。</p>\n<p><img src=\"https://img.alicdn.com/imgextra/i4/2251059038/O1CN01VsWfRl2GdSec8b6QI_!!2251059038.jpg\" width=\"2880\" height=\"1921\" damai_width=\"2880\" damai_height=\"1921\"></p>\n<p><img src=\"https://img.alicdn.com/imgextra/i2/2251059038/O1CN01uy6fWh2GdSeVii117_!!2251059038.jpg\" width=\"2880\" height=\"1921\" damai_width=\"2880\" damai_height=\"1921\"></p>\n<p><img src=\"https://img.alicdn.com/imgextra/i2/2251059038/O1CN01wYQrBZ2GdSeb00OmA_!!2251059038.jpg\" width=\"2880\" height=\"1921\" damai_width=\"2880\" damai_height=\"1921\"><img src=\"https://img.alicdn.com/imgextra/i4/2251059038/O1CN01vil8752GdSedHUju8_!!2251059038.jpg\" width=\"2880\" height=\"1921\" damai_width=\"2880\" damai_height=\"1921\"><img src=\"https://img.alicdn.com/imgextra/i2/2251059038/O1CN01miPufD2GdSeamhW3z_!!2251059038.jpg\" width=\"2880\" height=\"1921\" damai_width=\"2880\" damai_height=\"1921\"></p>\n<p>「十」是从四面八方汇聚的「交点」，是乐队成员以及每位乐迷这10年来音乐记忆的交集；也是向各个方向发散的「起点」，是鹿先森音乐生涯中的十字路口，是对未知的未来进行的广阔想象。无论是乐队成员还是乐迷，大家的人生轨迹都因为音乐而交汇，也正因为这种交汇带来的化学反应，每个人的生活在彼此的磁场影响下，或多或少地呈现出不一样的状态。在音乐世界里，鹿先森陪你一起长大了。2025年伊始，鹿先森聚集各地乐迷共同庆祝新年，也庆祝这些年来的共同成长，为十周年纪念巡演的预热和序篇。</p>\n<p><img src=\"https://img.alicdn.com/imgextra/i4/2251059038/O1CN01xINKjE2GdSedcs6ju_!!2251059038.jpg\" width=\"2880\" height=\"1921\" damai_width=\"2880\" damai_height=\"1921\"></p>\n<p><img src=\"https://img.alicdn.com/imgextra/i2/2251059038/O1CN01TDGGmb2GdSec8iccM_!!2251059038.jpg\" width=\"2880\" height=\"1918\" damai_width=\"4528\" damai_height=\"3016\"><img src=\"https://img.alicdn.com/imgextra/i2/2251059038/O1CN01sAYVyT2GdSeeOwQ4Q_!!2251059038.jpg\" width=\"2879\" height=\"1916\" damai_width=\"4528\" damai_height=\"3016\"></p>\n<p>即将发行的新歌是本次专场演出的亮点。在鹿先森新的音乐计划中，他们将关注点放在最小单元的生活切片上，看见宏大中的微小、日常中的细碎，为每个细小的情绪发声呐喊。鹿先森在近10年的成长中不断变换观察世界的视角，迈入第10年，他们在回归生活本质的同时，从更广阔的天地中感知万物，吸收养分，并与每个“你”共鸣。</p>\n<p><img src=\"https://img.alicdn.com/imgextra/i3/2251059038/O1CN01NQL2eN2GdSecLMsdn_!!2251059038.jpg\" width=\"2880\" height=\"1920\" damai_width=\"2880\" damai_height=\"1920\"></p>\n<p><img src=\"https://img.alicdn.com/imgextra/i4/2251059038/O1CN01fJ1uHW2GdSeb09zsP_!!2251059038.jpg\" width=\"2880\" height=\"1921\" damai_width=\"2880\" damai_height=\"1921\"></p>\n<p>除了演绎新的作品，这十年来发行过的歌曲也会按照音乐情绪的走势放入专场歌单中，一些老歌会以新的方式和心境重新演绎，期待给北京的乐迷带来新鲜感和眼前一亮的惊喜，一同感受鹿先森的音乐创作心路。</p>\n<p><img src=\"https://img.alicdn.com/imgextra/i1/2251059038/O1CN01HGsT942GdSedHiACK_!!2251059038.jpg\" width=\"2875\" height=\"1915\" damai_width=\"4528\" damai_height=\"3016\"></p>\n<p><img src=\"https://img.alicdn.com/imgextra/i1/2251059038/O1CN01wZVvDp2GdSechNOWN_!!2251059038.jpg\" width=\"2880\" height=\"1921\" damai_width=\"2880\" damai_height=\"1921\"></p>\n<p>「十」是鹿先森过往10年音乐日常拼成的圆满，也是面向未来展开的新起点和新期许。期待2025年鹿先森为乐迷朋友带来更多新作品、新惊喜。2025年1月1日，新年首日，北京见！</p>\n<p><img src=\"https://img.alicdn.com/imgextra/i3/2251059038/O1CN01lhm7de2GdSedcJ8ax_!!2251059038.jpg\" width=\"2871\" height=\"1911\" damai_width=\"4528\" damai_height=\"3016\"><img src=\"https://img.alicdn.com/imgextra/i1/2251059038/O1CN01lYjRSt2GdSedcNMhS_!!2251059038.jpg\" width=\"2871\" height=\"1912\" damai_width=\"4528\" damai_height=\"3016\"></p>\n<p><img src=\"https://img.alicdn.com/imgextra/i1/2251059038/O1CN01gVvkCB2GdSeVitQmD_!!2251059038.jpg\" width=\"2880\" height=\"1921\" damai_width=\"2880\" damai_height=\"1921\"></p>\n<p>&nbsp;</p></body></html>",
+          "itemExtend": "<!DOCTYPE html><html><head></head><body><p>&nbsp;</p>\n<p><img src=\"https://img.alicdn.com/imgextra/i4/2251059038/O1CN01ifsKhX2GdSfPfDn4G_!!2251059038.jpg\" width=\"751\" height=\"12000\" damai_width=\"751\" damai_height=\"12000\"></p>\n<p><img src=\"https://img.alicdn.com/imgextra/i2/2251059038/O1CN01ty7P7D2GdSeoA4xdx_!!2251059038.png\" width=\"976\" height=\"1212\" damai_width=\"976\" damai_height=\"1212\"><img src=\"https://img.alicdn.com/imgextra/i4/2251059038/O1CN01X9kwk12GdSeqC6ZP7_!!2251059038.png\" width=\"978\" height=\"142\" damai_width=\"978\" damai_height=\"142\"></p>\n<p>鹿先森乐队「十」新年专场将于2025年1月1日来到北京M空间。继2023年4月「后毕业时代」专场之后，鹿先森终于回到阔别已久的北京，带着祝福和乐迷朋友一起迎接新年。</p>\n<p><img src=\"https://img.alicdn.com/imgextra/i3/2251059038/O1CN01tEjioc2GdSedHQqGa_!!2251059038.jpg\" width=\"2881\" height=\"1919\" damai_width=\"4528\" damai_height=\"3016\"><img src=\"https://img.alicdn.com/imgextra/i1/2251059038/O1CN01Jap9zr2GdSecr14wy_!!2251059038.jpg\" width=\"2880\" height=\"1921\" damai_width=\"2880\" damai_height=\"1921\"></p>\n<p>这是鹿先森第一次在M空间演出。他们根据场地情况，做了适配环境的舞美焕新升级，把鹿的专场独有的魅力发挥到极致——他们的音乐本身就极具情绪感染力，除了欢快热烈的气氛能够让人在跳跃欢呼中释放之外，音乐本身的真挚更能够触动内心深处的柔软角落，你会被他们真诚的旋律打动，也会在充满诗意的歌词中代入自己，找到共鸣。加上视觉画面与音乐语言的适配，情绪氛围也更加浓厚，你会在鹿先森的live现场中感受到不一样的感动。</p>\n<p><img src=\"https://img.alicdn.com/imgextra/i1/2251059038/O1CN015tvvUE2GdSeamcHOC_!!2251059038.jpg\" width=\"2880\" height=\"1921\" damai_width=\"2880\" damai_height=\"1921\"><img src=\"https://img.alicdn.com/imgextra/i1/2251059038/O1CN01XVtzqi2GdSeamexrg_!!2251059038.jpg\" width=\"2871\" height=\"1911\" damai_width=\"4528\" damai_height=\"3016\"><img src=\"https://img.alicdn.com/imgextra/i1/2251059038/O1CN01o5ZTu92GdSeVienE3_!!2251059038.jpg\" width=\"2865\" height=\"1908\" damai_width=\"4528\" damai_height=\"3016\"></p>\n<p>迈入2025年，鹿先森乐队即将一起走过十年时光。乐队成军十年纪念日逐渐临近，这次新年专场也成为迎接与奔赴「十周年」的起点。10年前众筹制作《春风十里》和《所有的酒都不如你》专辑的鹿先森，已经积累了近300场舞台经验，完成4张专辑，53首歌曲。面对自己热爱的音乐，他们的态度始终是“尽管有自我怀疑与自我否定，但那缕春风始终在眼前，指引我们一米一米向前走”。如今，春风已真的吹过「十」里，未来还将去向更远的地方。</p>\n<p><img src=\"https://img.alicdn.com/imgextra/i4/2251059038/O1CN01VsWfRl2GdSec8b6QI_!!2251059038.jpg\" width=\"2880\" height=\"1921\" damai_width=\"2880\" damai_height=\"1921\"></p>\n<p><img src=\"https://img.alicdn.com/imgextra/i2/2251059038/O1CN01uy6fWh2GdSeVii117_!!2251059038.jpg\" width=\"2880\" height=\"1921\" damai_width=\"2880\" damai_height=\"1921\"></p>\n<p><img src=\"https://img.alicdn.com/imgextra/i2/2251059038/O1CN01wYQrBZ2GdSeb00OmA_!!2251059038.jpg\" width=\"2880\" height=\"1921\" damai_width=\"2880\" damai_height=\"1921\"><img src=\"https://img.alicdn.com/imgextra/i4/2251059038/O1CN01vil8752GdSedHUju8_!!2251059038.jpg\" width=\"2880\" height=\"1921\" damai_width=\"2880\" damai_height=\"1921\"><img src=\"https://img.alicdn.com/imgextra/i2/2251059038/O1CN01miPufD2GdSeamhW3z_!!2251059038.jpg\" width=\"2880\" height=\"1921\" damai_width=\"2880\" damai_height=\"1921\"></p>\n<p>「十」是从四面八方汇聚的「交点」，是乐队成员以及每位乐迷这10年来音乐记忆的交集；也是向各个方向发散的「起点」，是鹿先森音乐生涯中的十字路口，是对未知的未来进行的广阔想象。无论是乐队成员还是乐迷，大家的人生轨迹都因为音乐而交汇，也正因为这种交汇带来的化学反应，每个人的生活在彼此的磁场影响下，或多或少地呈现出不一样的状态。在音乐世界里，鹿先森陪你一起长大了。2025年伊始，鹿先森聚集各地乐迷共同庆祝新年，也庆祝这些年来的共同成长，为十周年纪念巡演的预热和序篇。</p>\n<p><img src=\"https://img.alicdn.com/imgextra/i4/2251059038/O1CN01xINKjE2GdSedcs6ju_!!2251059038.jpg\" width=\"2880\" height=\"1921\" damai_width=\"2880\" damai_height=\"1921\"></p>\n<p><img src=\"https://img.alicdn.com/imgextra/i2/2251059038/O1CN01TDGGmb2GdSec8iccM_!!2251059038.jpg\" width=\"2880\" height=\"1918\" damai_width=\"4528\" damai_height=\"3016\"><img src=\"https://img.alicdn.com/imgextra/i2/2251059038/O1CN01sAYVyT2GdSeeOwQ4Q_!!2251059038.jpg\" width=\"2879\" height=\"1916\" damai_width=\"4528\" damai_height=\"3016\"></p>\n<p>即将发行的新歌是本次专场演出的亮点。在鹿先森新的音乐计划中，他们将关注点放在最小单元的生活切片上，看见宏大中的微小、日常中的细碎，为每个细小的情绪发声呐喊。鹿先森在近10年的成长中不断变换观察世界的视角，迈入第10年，他们在回归生活本质的同时，从更广阔的天地中感知万物，吸收养分，并与每个“你”共鸣。</p>\n<p><img src=\"https://img.alicdn.com/imgextra/i3/2251059038/O1CN01NQL2eN2GdSecLMsdn_!!2251059038.jpg\" width=\"2880\" height=\"1920\" damai_width=\"2880\" damai_height=\"1920\"></p>\n<p><img src=\"https://img.alicdn.com/imgextra/i4/2251059038/O1CN01fJ1uHW2GdSeb09zsP_!!2251059038.jpg\" width=\"2880\" height=\"1921\" damai_width=\"2880\" damai_height=\"1921\"></p>\n<p>除了演绎新的作品，这十年来发行过的歌曲也会按照音乐情绪的走势放入专场歌单中，一些老歌会以新的方式和心境重新演绎，期待给北京的乐迷带来新鲜感和眼前一亮的惊喜，一同感受鹿先森的音乐创作心路。</p>\n<p><img src=\"https://img.alicdn.com/imgextra/i1/2251059038/O1CN01HGsT942GdSedHiACK_!!2251059038.jpg\" width=\"2875\" height=\"1915\" damai_width=\"4528\" damai_height=\"3016\"></p>\n<p><img src=\"https://img.alicdn.com/imgextra/i1/2251059038/O1CN01wZVvDp2GdSechNOWN_!!2251059038.jpg\" width=\"2880\" height=\"1921\" damai_width=\"2880\" damai_height=\"1921\"></p>\n<p>「十」是鹿先森过往10年音乐日常拼成的圆满，也是面向未来展开的新起点和新期许。期待2025年鹿先森为乐迷朋友带来更多新作品、新惊喜。2025年1月1日，新年首日，北京见！</p>\n<p><img src=\"https://img.alicdn.com/imgextra/i3/2251059038/O1CN01lhm7de2GdSedcJ8ax_!!2251059038.jpg\" width=\"2871\" height=\"1911\" damai_width=\"4528\" damai_height=\"3016\"><img src=\"https://img.alicdn.com/imgextra/i1/2251059038/O1CN01lYjRSt2GdSedcNMhS_!!2251059038.jpg\" width=\"2871\" height=\"1912\" damai_width=\"4528\" damai_height=\"3016\"></p>\n<p><img src=\"https://img.alicdn.com/imgextra/i1/2251059038/O1CN01gVvkCB2GdSeVitQmD_!!2251059038.jpg\" width=\"2880\" height=\"1921\" damai_width=\"2880\" damai_height=\"1921\"></p>\n<p>&nbsp;</p></body></html>",
           "otherContent": [],
           "approvalVO": {
             "approvalUrlList": [],
@@ -118,6 +93,10 @@
             "content": "以活动现场为准"
           },
           {
+            "title": "选座",
+            "content": "1.本项目部分场次支持自助选座。\r\n2.请根据具体场次进行先选座后支付或在支付完成之后根据订单页面提示选座。"
+          },
+          {
             "title": "发票说明",
             "content": "演出开始前，去【订单详情页】提交发票申请。我们会将电子发票发送至您的邮箱。"
           }
@@ -130,16 +109,8 @@
               "noteTitle": "购票须知",
               "ticketNoteList": [
                 {
-                  "title": "限购规则",
-                  "content": "每笔订单最多购买6张"
-                },
-                {
                   "title": "退票/换票规则",
                   "content": "本项目支持有条件退款，具体可申请退票的期间、退票手续费等退票条件以项目主办方提供的退票政策为准，详见服务说明或项目详情页公示的退票政策。"
-                },
-                {
-                  "title": "入场规则",
-                  "content": "须携带购票时对应证件验证入场。"
                 },
                 {
                   "title": "儿童购票",
@@ -148,10 +119,6 @@
                 {
                   "title": "发票说明",
                   "content": "演出开始前，去【订单详情页】提交发票申请。我们会将电子发票发送至您的邮箱。"
-                },
-                {
-                  "title": "实名购票规则",
-                  "content": "一张门票对应一个证件；证件支持：外国人永久居留身份证/护照/港澳居民来往内地通行证/台湾居民来往大陆通行证/身份证/港澳台居民居住证"
                 },
                 {
                   "title": "异常排单说明",
@@ -203,42 +170,9 @@
           ]
         },
         "realName": {
-          "type": "1",
-          "credentials": [
-            "1",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8"
-          ],
-          "credentialNames": [
-            {
-              "id": "7",
-              "name": "港澳台居民居住证"
-            },
-            {
-              "id": "6",
-              "name": "台湾通行证"
-            },
-            {
-              "id": "1",
-              "name": "身份证"
-            },
-            {
-              "id": "4",
-              "name": "护照"
-            },
-            {
-              "id": "8",
-              "name": "外国人永久居留身份证"
-            },
-            {
-              "id": "5",
-              "name": "港澳通行证"
-            }
-          ],
-          "description": "该项目需实名制认证，请认证后再进行购票"
+          "type": "3",
+          "credentials": [],
+          "credentialNames": []
         },
         "venue": {
           "venueId": "53764",
@@ -248,7 +182,6 @@
           "lng": 116.280728,
           "lat": 39.910216,
           "venueAddr": "复兴路69号",
-          "showCountText": "共有2个演出",
           "region": "1",
           "venueType": "0"
         },
@@ -307,68 +240,44 @@
           "showWant": "true",
           "subFlag": "false",
           "title": "想看人数",
-          "wantNum": "5411",
-          "wantNumStr": "5411",
+          "wantNum": "5457",
+          "wantNumStr": "5457",
           "wantNumSuffix": "人",
           "wantDesc": "人气飙升中",
           "userImgs": [
-            "https://img.alicdn.com/imgextra/i3/O1CN01I4kws71HYFGQ5pDY3_!!6000000000769-0-tps-500-500.jpg",
-            "http://perico.damai.cn/userheadphotosnew/815660/163132170_1660984961021.jpg",
-            "https://img.alicdn.com/imgextra/i3/O1CN01tskbWG1hZKCvp2bX3_!!6000000004291-0-tps-500-500.jpg",
-            "http://perico.damai.cn/userheadphotosnew/1162647/232529498_1680948970355.jpg",
-            "https://img.alicdn.com/imgextra/i1/O1CN01KzqXrr1vW1ysOe3mS_!!6000000006179-0-tps-500-500.jpg"
+            "https://img.alicdn.com/imgextra/i1/O1CN01bMZ0oW1WC0GXqoK9h_!!6000000002751-0-tps-500-500.jpg",
+            "http://perico.damai.cn/userheadphotos/729779/145955936.jpg",
+            "https://img.alicdn.com/imgextra/i4/O1CN01zFBvUY1YFmleJTIQm_!!6000000003030-0-tps-500-500.jpg",
+            "http://perico.damai.cn/userheadphotosnew/2664403/532880622_1733584774115.jpg",
+            "https://img.alicdn.com/imgextra/i4/O1CN01so1NLY1lEx3KreQfP_!!6000000004788-0-tps-500-500.jpg"
           ],
           "thresholdNum": "10000",
-          "tips": "<span style='color:red;'>设置「缺货登记」</span>到货第一时候知道~",
+          "tips": "我们将第一时间为您送上独家消息提醒～",
           "tipsTitle": "已加入 [我的-想看]",
-          "tipsSubTitle": "别忘了登记哦，可购票时会通知你～",
+          "tipsSubTitle": "可购票时会及时通知你的～",
           "guideTipTitle": "标 [想看] ，订阅最新优惠信息～",
           "guideTipSubTitle": "在 [想看] 列表记录心动演出",
           "guideTipShareTitle": "你的好友邀你标 [想看] 哦～",
           "guideTipShareSubTitle": "记录心动演出，和好友结伴观演",
           "useLocalCache": "false"
         },
+        "ipCard": {
+          "moments": {
+            "videoVOList": []
+          }
+        },
         "tribes": [],
-        "sharingBtnBubbleText": "问问ta，要不要一起去看😊"
+        "sharingBtnBubbleText": "要不要看呢？去问问ta吧😊"
       },
       "item": {
-        "buyBtnStatus": "91",
-        "buyBtnText": "缺货登记",
-        "buyBtnOrigin": "16",
-        "sellStartTime": "1735608949000",
-        "sellStartTimeStr": "12月31日 09:35",
-        "priceRange": "¥180 - ¥580",
-        "performBases": [
-          {
-            "name": "01.01 周三",
-            "type": "1",
-            "performBaseTagValue": "0",
-            "timeSpan": "1735660800000",
-            "performs": [
-              {
-                "performId": "217373074",
-                "performName": "2025-01-01  周三 19:30",
-                "itemId": "855081247103",
-                "projectId": "222931003",
-                "chooseSeatType": "5",
-                "saleForm": "1",
-                "supportGroup": "false",
-                "performDate": "1735731000000",
-                "performTime": "2025.01.01 19:30",
-                "performStartDate": "2025-01-01",
-                "performBeginTime": "19:30",
-                "singleLimit": "6",
-                "performTagValue": "0",
-                "promotionTags": [],
-                "permissionWithPrivilegeBuy": "true",
-                "privilegeLimitBuy": "99999"
-              }
-            ],
-            "promotionTags": [],
-            "permissionWithPrivilegeBuy": "true"
-          }
-        ],
-        "performCount": "1",
+        "buyBtnStatus": "303",
+        "buyBtnText": "已下架",
+        "buyBtnOrigin": "102",
+        "sellStartTime": "1735731001000",
+        "sellStartTimeStr": "01月01日 19:30",
+        "priceRange": "价格待定",
+        "performBases": [],
+        "performCount": "0",
         "hasItemCouponTag": "false",
         "hasItemPromotionTag": "false",
         "needRealNameCertified": "false",
@@ -404,7 +313,12 @@
           "33547",
           "33803",
           "658689",
+          "3060482",
+          "3001090",
           "3326722",
+          "3196418",
+          "3246850",
+          "3247106",
           "3581186",
           "89665",
           "36417",
@@ -436,6 +350,9 @@
           "37195",
           "704833",
           "2874946",
+          "3196226",
+          "3196482",
+          "3246658",
           "106881",
           "385",
           "260994",
@@ -456,9 +373,9 @@
           "9099",
           "14731",
           "16267",
-          "716673",
           "37259",
           "657793",
+          "716673",
           "12171",
           "9355",
           "8843",
@@ -466,6 +383,7 @@
           "2443",
           "395",
           "1163",
+          "3196290",
           "82369",
           "91585",
           "148674",
@@ -500,11 +418,14 @@
           "31947",
           "33739",
           "2939586",
+          "3196354",
+          "3246274",
+          "3246786",
+          "3247042",
           "3419842"
         ],
         "hasEarlyBird": "false",
         "hasWedHalfPrice": "false",
-        "purchaseLimitation": "6",
         "statusTips": [
           "<span style=\"color: #FE6D92\">当前已停止退票</span>"
         ],

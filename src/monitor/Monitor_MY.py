@@ -1,5 +1,6 @@
 import json
 import logging
+from pathlib import Path
 
 import requests
 from requests import Response
@@ -13,7 +14,9 @@ class MY(Monitor):
 
     def __init__(self, perform: dict) -> None:
         super().__init__()
-        file = open("config.json", "r", encoding="utf-8")
+        # 获取当前文件的绝对路径
+        current_dir = Path(__file__).resolve().parent
+        file = open(current_dir / 'config' / "config.json", "r", encoding="utf-8")
         self.token = json.load(file).get("token").get("my")
         file.close()
         self.performId = perform.get('show_id')

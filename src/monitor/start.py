@@ -1,5 +1,6 @@
 import json
 import logging
+from pathlib import Path
 import time
 from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime
@@ -44,7 +45,10 @@ class Runner:
                 time.sleep(1)
 
     def start(self):
-        file = open("config.json", "r", encoding="utf-8")
+        # 获取当前文件的绝对路径
+        current_dir = Path(__file__).resolve().parent
+        file = open(current_dir / 'config' / "config.json", "r", encoding="utf-8")
+        print('config.json', file)
         show_list = json.load(file).get("monitor_list")
         file.close()
 

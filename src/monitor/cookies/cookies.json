@@ -1,0 +1,84 @@
+{
+  "cookie": {
+    "tfstk": {
+      "value": "fSujbtfiKA3rWTl7IodzdCGwrBUscxTeW1NttfQV6rUv5fHZsZyaulPtVvD_0Imq6Ri_e8qZ0ZkZCOMqU-dDnKD1WYGLHquwiR9_Fve4HEYmUYo-9ouwoEfmqvlduq-07Na0SPpeLe8Fij4gWtuWIowmwbVTT3yAFjc0S_fPBHo-iOGI3kp_WAU825VQWsHTX8d765WAXZHtwQNgeZQTWZeJyWPdM5L-bdNOcWGXG9lUJU-R-jw5WN1UGoep-8_OW4NjNJhYxNQtPSZxSzuH-U4tDjk7Ym9ClylxxAVKHtpbNqGI5DHJzZaswD3_y4pRa-nnNVaqkC8YyqMjkuMO1gZxxxoLV4JfrJn-NfrSqCj4QDVtIk0wKZ2x6X0nYyT117iIwzsPbwyCD6SNNkbTNJRWNGjwnqMHJ9D_JYqYZS_2NQ60joFuNyuwNGU_D7Vj9QO5xPf..",
+      "domain": ".damai.cn",
+      "path": "/",
+      "expires": null,
+      "size": null,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    "xlly_s": {
+      "value": "1",
+      "domain": ".damai.cn",
+      "path": "/",
+      "expires": null,
+      "size": null,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "None"
+    },
+    "_tb_token_": {
+      "value": "3bae95438e531",
+      "domain": ".damai.cn",
+      "path": "/",
+      "expires": null,
+      "size": null,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "None"
+    },
+    "cookie2": {
+      "value": "1615fb6c56981548cf516dfa62f32722",
+      "domain": ".damai.cn",
+      "path": "/",
+      "expires": null,
+      "size": null,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    "isg": {
+      "value": "BICAetZR8zXcc48xwGsaTLfiUQhSCWTTtZvidfoRTBsudSCfohk0Y1bHjdy1RRyr",
+      "domain": ".damai.cn",
+      "path": "/",
+      "expires": null,
+      "size": null,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "None"
+    },
+    "t": {
+      "value": "f9eb45bb4eb58e9d6e3d1b96f403bf10",
+      "domain": ".damai.cn",
+      "path": "/",
+      "expires": null,
+      "size": null,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "None"
+    },
+    "_samesite_flag_": {
+      "value": "true",
+      "domain": ".damai.cn",
+      "path": "/",
+      "expires": null,
+      "size": null,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    "cna": {
+      "value": "RFj9HyOqrD4CAasPEWv5HBXv",
+      "domain": ".damai.cn",
+      "path": "/",
+      "expires": null,
+      "size": null,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "None"
+    }
+  }
+}

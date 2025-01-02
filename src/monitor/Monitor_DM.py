@@ -1,5 +1,7 @@
 import json
 import logging
+import os
+from pathlib import Path
 import urllib.parse
 from hashlib import md5
 from time import time
@@ -10,15 +12,21 @@ from requests import Response
 from Monitor import Monitor
 
 
-_m_h5_tk = "b5b19fa8c5ffa32cd654972f32db4ddb_1735644970965"
-_m_h5_tk_enc = "9a01c8fdb26daccf9d8e3771d033e188"
+_m_h5_tk = "43ff24f7591b1df657a1aedbc96c2bf0_1735792427035"
+_m_h5_tk_enc = "7f7e7d8cad4ab3833b42eabbf4b63afe"
 cookie2 = "1c1f0f2f03cad5559fd93b6afc8ef4d4"
 sgcookie = "E100yEqPPb7ui1QE0%2FB99Q0wMHDsqKauE%2BCdZhac%2BDCIMY9wUaMCCD8zcXBHIU16OldHPv2YuMI1XwK7lc%2F%2BxOflfaw6d7jmnT9JNQBmHw2lqzU%3D"
 
 class DM(Monitor):
-
     def __init__(self, perform: dict) -> None:
         super().__init__()
+        # 获取当前文件的绝对路径
+        self.current_dir = Path(__file__).resolve().parent
+        print('current_dir---', Path(__file__).resolve())
+        print('current_dir---os.getcwd()', os.getcwd())
+        # 记录请求信息的路径
+        self.seat_info_dir = self.current_dir / 'request_logs' / 'formatted_seat_info.json'
+        self.show_info_dir = self.current_dir / 'request_logs' / 'formatted_show_info.json'
         self.show_url = DM.get_show_url()
         self.seat_url = DM.get_seat_url()
         self.request = self.do_request()
@@ -102,12 +110,12 @@ class DM(Monitor):
         data = json.loads(response.json().get("data",{}).get("legacy",{})) if ext == "show" else json.loads(response.json().get("data").get("result"))
         # 判断data的数据格式，并打印
         print('get_data_from_response----data----1', type(data))
-        fileName = 'formatted_show_info.json' if ext == "show" else 'formatted_seat_info.json'
+        fileName = self.show_info_dir if ext == "show" else self.seat_info_dir
         self.save_formatted_json(data, fileName)
         return data
     
     # 将数据处理成文件好查看
-    def save_formatted_json(self, data, filename='formatted_show_info.json'):
+    def save_formatted_json(self, data, filename=None):
         try:
             # 如果data是DM类实例，转换为字典
             if isinstance(data, DM):
