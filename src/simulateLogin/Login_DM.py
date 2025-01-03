@@ -15,7 +15,10 @@ class Login_DM:
         self.ck = ''
         self.mini_data = self.get_mini_login_url()
         # self.post_check_login() 此逻辑没有走通
+        # 生成二维码
         self.get_generate_code()
+        # 验证查询是否扫码登录
+        self.post_query_login()
         print('mini_data----', self._csrf_token, self.umidToken, self.hsiz)
     def get_mini_login_url(self):
        url = "https://ipassport.damai.cn/mini_login.htm?lang=zh_cn&appName=damai&appEntrance=default&styleType=vertical&bizParams=&notLoadSsoView=true&notKeepLogin=false&isMobile=false&showSnsLogin=false&regUrl=https%3A%2F%2Fpassport.damai.cn%2Fregister&plainReturnUrl=https%3A%2F%2Fpassport.damai.cn%2Flogin&returnUrl=https%3A%2F%2Fpassport.damai.cn%2Fdologin.htm%3FredirectUrl%3Dhttps%253A%252F%252Fwww.damai.cn%26platform%3D106002&rnd=0.08763263121488252"
@@ -59,6 +62,9 @@ class Login_DM:
         img = qr.make_image(fill_color="black", back_color="white")
         img.save('qrcode.png')
         img.show()
+    # 验证查询是否扫码登录
+    def post_query_login(self):
+        pass
     # 下面的方法是滑块验证、此逻辑没有走通
     def post_check_login(self):
         url = 'https://ipassport.damai.cn/newlogin/account/check.do?appName=damai&fromSite=18'
