@@ -89,7 +89,7 @@ def open_browser_get_cookie():
             return formatted_cookies
         else:
             print("获取cookie失败")
-            # 这段代码延迟执行，为了等待滑块出现
+            # 这段代码延迟执行，为了等待滑块出现 此代码无法实现滑块登录
             time.sleep(10)
             execute_slider(driver, wait, login_button)
 
@@ -111,7 +111,7 @@ def execute_slider(driver, wait, login_button):
     # 获取滑块（滑块可能有、可能没有）
     try:
         # 隐式等待元素出现
-        sloider_span = driver.find_element(By.ID, "nc_1_n1z")
+        sloider_span = driver.find_element_by_id(By.ID, "nc_1_n1z")
         # sloider_span = wait.until(
         #     EC.presence_of_element_located((By.ID, "nc_1_n1z"))
         # )
