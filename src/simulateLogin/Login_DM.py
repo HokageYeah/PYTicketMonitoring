@@ -2,7 +2,7 @@
 import json
 import re
 import requests
-
+import qrcode
 login_id = 18838280615
 class Login_DM:
     def __init__(self):
@@ -11,8 +11,11 @@ class Login_DM:
         self._csrf_token = ''
         self.umidToken = ''
         self.hsiz = ''
+        self.t = ''
+        self.ck = ''
         self.mini_data = self.get_mini_login_url()
-        self.post_check_login()
+        # self.post_check_login() 此逻辑没有走通
+        self.get_generate_code()
         print('mini_data----', self._csrf_token, self.umidToken, self.hsiz)
     def get_mini_login_url(self):
        url = "https://ipassport.damai.cn/mini_login.htm?lang=zh_cn&appName=damai&appEntrance=default&styleType=vertical&bizParams=&notLoadSsoView=true&notKeepLogin=false&isMobile=false&showSnsLogin=false&regUrl=https%3A%2F%2Fpassport.damai.cn%2Fregister&plainReturnUrl=https%3A%2F%2Fpassport.damai.cn%2Flogin&returnUrl=https%3A%2F%2Fpassport.damai.cn%2Fdologin.htm%3FredirectUrl%3Dhttps%253A%252F%252Fwww.damai.cn%26platform%3D106002&rnd=0.08763263121488252"
@@ -35,7 +38,27 @@ class Login_DM:
        return {}
     # 生成验证码
     def get_generate_code(self):
-        pass
+        bx_ua = ''
+        url = f'https://ipassport.damai.cn/newlogin/qrcode/generate.do?appName=damai&fromSite=18&appName=damai&appEntrance=damai&_csrf_token={self._csrf_token}&umidToken={self.umidToken}&hsiz={self.hsiz}&bizParams=renderRefer%3Dhttps%253A%252F%252Fpassport.damai.cn%252F&mainPage=false&isMobile=false&lang=zh_CN&returnUrl=https:%2F%2Fpassport.damai.cn%2Fdologin.htm%3FredirectUrl%3Dhttps%253A%252F%252Fwww.damai.cn%26platform%3D106002&fromSite=18&umidTag=SERVER&bx-ua={bx_ua}&bx-umidtoken=T2gAkU3yFuVBJv8dESfbSoVMOXs7jU3HoShZPJWjOBDaWVJEUvr7S1kYDT1b6p8nfAg%3D'
+        response = requests.get(
+            url=url,
+            headers={
+                'Referer': 'https://passport.damai.cn/',
+                'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
+            },
+        )
+        print('get_generate_code----response----', response.text)
+        result = response.json()
+        codeContent = result.get('content',{}).get('data', {}).get('codeContent', '')
+        self.t = result.get('content',{}).get('data', {}).get('t', '')
+        self.ck = result.get('content',{}).get('data', {}).get('ck', '')
+        # 生成一个二维码
+        qr = qrcode.QRCode(version=1, error_correction=qrcode.constants.ERROR_CORRECT_L, box_size=10, border=4)
+        qr.add_data(codeContent)
+        qr.make(fit=True)
+        img = qr.make_image(fill_color="black", back_color="white")
+        img.save('qrcode.png')
+        img.show()
     # 下面的方法是滑块验证、此逻辑没有走通
     def post_check_login(self):
         url = 'https://ipassport.damai.cn/newlogin/account/check.do?appName=damai&fromSite=18'
