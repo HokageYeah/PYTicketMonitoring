@@ -1,8 +1,11 @@
 
+from datetime import datetime
 from hashlib import md5
 import json
+import os
 from pathlib import Path
 import re
+import sys
 import time
 import requests
 import qrcode
@@ -25,6 +28,7 @@ class Login_DM:
         self.h5token = ''
         self.loginkey = ''
         self.user_id = ''
+        self._tb_token_ = ''
         self.mini_data = self.get_mini_login_url()
         # self.post_check_login() 此逻辑没有走通
         # 生成二维码
@@ -35,6 +39,10 @@ class Login_DM:
         self.get_dologin()
         # 验证通过后：获取_m_h5_tk 和 _m_h5_tk_enc
         self.get_m_h5_tk()
+        # 拿到大麦登录信息后将信息写入到config.json中
+        self.write_dm_config_json()
+        # 调用票务监控开始
+        self.start_monitor()
         print('mini_data----', self._csrf_token, self.umidToken, self.hsiz)
     def get_mini_login_url(self):
        url = "https://ipassport.damai.cn/mini_login.htm?lang=zh_cn&appName=damai&appEntrance=default&styleType=vertical&bizParams=&notLoadSsoView=true&notKeepLogin=false&isMobile=false&showSnsLogin=false&regUrl=https%3A%2F%2Fpassport.damai.cn%2Fregister&plainReturnUrl=https%3A%2F%2Fpassport.damai.cn%2Flogin&returnUrl=https%3A%2F%2Fpassport.damai.cn%2Fdologin.htm%3FredirectUrl%3Dhttps%253A%252F%252Fwww.damai.cn%26platform%3D106002&rnd=0.08763263121488252"
@@ -48,8 +56,11 @@ class Login_DM:
        #根据正则获取到window.viewData 中包裹的数据
        view_data = re.search(r'window\.viewData\s*=\s*({.*})', response.text)
        print('get_mini_login_url----response', response)
-       # 从响应头获取pageTraceId 数据
+       # 从响应头获取pageTraceId 数据f
        self.pageTraceId = response.headers.get('eagleeye-traceid', '')
+       # 获取_tb_token_从cookies中获取
+       self._tb_token_ = response.cookies.get('_tb_token_', '')
+       print('get_mini_login_url----_tb_token_----', self._tb_token_)
        if view_data:
            view_data = json.loads(view_data.group(1))
            self.loginFormData = view_data.get('loginFormData', {})
@@ -140,7 +151,6 @@ class Login_DM:
         print("get_dologin----Cookies字典:", cookies_dict)
         print("get_dologin----response:", response)
         print('get_dologin----response.cookies----', response.cookies)
-        print('get_dologin----response.headers----', response.headers)
         # print('get_dologin----response.text----', response.text)
         self.h5token = cookies.get('h5token', '')
         self.loginkey = cookies.get('loginkey', '')
@@ -149,6 +159,31 @@ class Login_DM:
         print('get_dologin----loginkey----', self.loginkey)
         print('get_dologin----user_id----', self.user_id)
         # print('get_dologin----response----', response.text)
+    def write_dm_config_json(self):
+        # 获取当前文件的绝对路径
+        current_dir = Path(__file__).resolve().parent.parent
+        # 获取config.json文件的路径
+        config_path =  current_dir / 'monitor/config/config.json'
+        # 读取config.json文件
+        with open(config_path, 'r', encoding='utf-8') as f:
+            config = json.load(f)
+            print('write_dm_config_json----config----', config)
+            config.get('monitor_list',[])[0]['_m_h5_tk'] = self._m_h5_tk
+            config.get('monitor_list',[])[0]['_m_h5_tk_enc'] = self._m_h5_tk_enc
+            config.get('monitor_list',[])[0]['cookie2'] = self.cookie2
+            config.get('monitor_list',[])[0]['sgcookie'] = self.sgcookie
+            # 将config.json文件写入到config.json中
+            with open(config_path, 'w', encoding='utf-8') as f:
+                json.dump(config, f, ensure_ascii=False)
+    # 调用票务监控开始
+    def start_monitor(self):
+        # 添加项目根目录到 Python 路径
+        project_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+        sys.path.append(project_root)
+        # sys.path.append(project_root)
+        from src.monitor.start import Runner
+        runner = Runner()
+        runner.start()
     @staticmethod
     def get_sign(c: str, t: str, data: dict):
         plain = f"{c}&{t}&12574478&{data}"
@@ -157,20 +192,48 @@ class Login_DM:
     def get_m_h5_tk(self):
         print('get_m_h5_tk----self.t----', self.t)
         # current_time_ms = str(int(time.time() * 1000) + 3600000)
-        # 当前时间戳往后推迟半个小时
-        current_time_ms = str(int(time.time() * 1000) + 1800000)
-        sign = Login_DM.get_sign('undefined', self.t, {})
+        # 当前时间戳
+        current_time_ms = str(int(time.time() * 1000))
+        print('current_time_ms----', current_time_ms)
+        # 时间转换成年月日时分秒
+        date_time = datetime.fromtimestamp(int(current_time_ms) / 1000)
+        formatted_date1 = date_time.strftime('%Y-%m-%d %H:%M:%S')
+        date_time2 = datetime.fromtimestamp(int(self.t) / 1000)
+        formatted_date2 = date_time2.strftime('%Y-%m-%d %H:%M:%S')
+        print('formatted_date1----', formatted_date1)
+        print('formatted_date2----', formatted_date2)
+        sign = Login_DM.get_sign('undefined', formatted_date1, {})
         print('get_m_h5_tk----sign----', sign)
-        url = f'https://mtop.damai.cn/h5/mtop.damai.mxm.user.accesstoken.getbytbs/1.0/?jsv=2.7.2&appKey=12574478&t={self.t}&sign={sign}&api=mtop.damai.mxm.user.accesstoken.getbytbs&v=1.0&type=jsonp&dataType=jsonp&callback=mtopjsonp1&data=%7B%7D'
+        url = f'https://mtop.damai.cn/h5/mtop.damai.mxm.user.accesstoken.getbytbs/1.0/?jsv=2.7.2&appKey=12574478&t={date_time}&sign={sign}&api=mtop.damai.mxm.user.accesstoken.getbytbs&v=1.0&type=jsonp&dataType=jsonp&callback=mtopjsonp1&data=%7B%7D'
         response = requests.get(
             url=url,
             headers={
-                'Referer': 'https://passport.damai.cn/',
-                'origin': 'https://passport.damai.cn',
-                'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
+                'referer': 'https://www.damai.cn/',
+                'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
+                'sec-ch-ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"',
+                'sec-ch-ua-mobile': '?0',
+                'accept': '*/*',
+                'sec-fetch-site': 'same-site',
+                'sec-fetch-mode': 'no-cors',
+                'sec-fetch-dest': 'script',
+                'accept-language': 'zh-CN,zh;q=0.9',
+                'accept-encoding': 'gzip, deflate, br, zstd',
+                'cookie': f'mtop_partitioned_detect=1; cna=Duf/H9GMc0QCAasPEWs/gUzO; xlly_s=1; _samesite_flag_=true; cookie2={self.cookie2};_tb_token_={self._tb_token_}; sgcookie={self.sgcookie};h5token={self.h5token};loginkey={self.loginkey}; user_id={self.user_id};'
             },
         )
         print('get_m_h5_tk----response----', response.text)
+        # 正则处理数据
+        data = re.search(r'mtopjsonp1\((.*)\)', response.text)
+        if data:
+            data = json.loads(data.group(1))
+            print('get_m_h5_tk----data----', data)
+        if "FAIL_SYS_TOKEN_EMPTY::令牌为空" in data.get('ret', []):
+            print('get_m_h5_tk----response----ret', data.get('ret', [])[0])
+            #  <RequestsCookieJar[] 转字符串
+            self._m_h5_tk = response.cookies.get('_m_h5_tk', '')
+            self._m_h5_tk_enc = response.cookies.get('_m_h5_tk_enc', '')
+            print('get_m_h5_tk----_m_h5_tk----', self._m_h5_tk)
+            print('get_m_h5_tk----_m_h5_tk_enc----', self._m_h5_tk_enc)
         pass
     def post_check_login(self):
         url = 'https://ipassport.damai.cn/newlogin/account/check.do?appName=damai&fromSite=18'
@@ -197,8 +260,6 @@ class Login_DM:
             print('post_check_login----error----', e)
 
 
-from hashlib import md5
-
 def get_sign(c, t, data):
     # c: token (undefined 转为空字符串)
     # t: 1735981325984
@@ -212,5 +273,5 @@ if __name__ == '__main__':
     # login_dm =  Login_DM.get_sign('', '1735981325984', "{}")
     print('login_dm----', login_dm)
     # 测试
-    # result = get_sign('undefined', '1735981325984', '{}')
-    # print('result----', result)
+    result = get_sign('undefined', '1736144551550', '{}')
+    print('result----', result)

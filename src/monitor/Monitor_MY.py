@@ -5,7 +5,7 @@ from pathlib import Path
 import requests
 from requests import Response
 
-from Monitor import Monitor
+from src.monitor.Monitor import Monitor
 
 
 class MY(Monitor):

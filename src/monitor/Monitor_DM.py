@@ -9,13 +9,13 @@ from time import time
 import requests
 from requests import Response
 
-from Monitor import Monitor
+from src.monitor.Monitor import Monitor
 
 
-_m_h5_tk = "43ff24f7591b1df657a1aedbc96c2bf0_1735792427035"
-_m_h5_tk_enc = "7f7e7d8cad4ab3833b42eabbf4b63afe"
-cookie2 = "1c1f0f2f03cad5559fd93b6afc8ef4d4"
-sgcookie = "E100yEqPPb7ui1QE0%2FB99Q0wMHDsqKauE%2BCdZhac%2BDCIMY9wUaMCCD8zcXBHIU16OldHPv2YuMI1XwK7lc%2F%2BxOflfaw6d7jmnT9JNQBmHw2lqzU%3D"
+# _m_h5_tk = "b7abff586651e36b8adb7f386dfdae82_1736156531034"
+# _m_h5_tk_enc = "2ebd2007350c6461032cfc3b2dc63db5"
+# cookie2 = "1c1f0f2f03cad5559fd93b6afc8ef4d4"
+# sgcookie = "E100yEqPPb7ui1QE0%2FB99Q0wMHDsqKauE%2BCdZhac%2BDCIMY9wUaMCCD8zcXBHIU16OldHPv2YuMI1XwK7lc%2F%2BxOflfaw6d7jmnT9JNQBmHw2lqzU%3D"
 
 class DM(Monitor):
     def __init__(self, perform: dict) -> None:
@@ -30,6 +30,10 @@ class DM(Monitor):
         self.show_url = DM.get_show_url()
         self.seat_url = DM.get_seat_url()
         self.request = self.do_request()
+        self._m_h5_tk = perform.get('_m_h5_tk') or ''
+        self._m_h5_tk_enc = perform.get('_m_h5_tk_enc') or ''
+        self.cookie2 = perform.get('cookie2') or ''
+        self.sgcookie = perform.get('sgcookie') or ''
         self.show_info = {
             "platform": "大麦",
             "seat_info": list(),
@@ -43,9 +47,9 @@ class DM(Monitor):
 
     def get_show_infos(self):
         show_id = self.show_info.get('show_id')
-        response = self.request(self.show_url(show_id, _m_h5_tk+';'+_m_h5_tk_enc), {
-            '_m_h5_tk': _m_h5_tk,
-            '_m_h5_tk_enc': _m_h5_tk_enc,
+        response = self.request(self.show_url(show_id, self._m_h5_tk+';'+self._m_h5_tk_enc), {
+            '_m_h5_tk': self._m_h5_tk,
+            '_m_h5_tk_enc': self._m_h5_tk_enc,
         })
         data = self.get_data_from_response(response)
         show_info = data.get("detailViewComponentMap").get("item")
@@ -57,10 +61,10 @@ class DM(Monitor):
                 "session_name": session_name,
             })
             response = self.request(self.seat_url(show_id, session_id, _m_h5_tk), {
-                '_m_h5_tk': _m_h5_tk,
-                '_m_h5_tk_enc': _m_h5_tk_enc,
-                'cookie2': cookie2,
-                'sgcookie': sgcookie,
+                '_m_h5_tk': self._m_h5_tk,
+                '_m_h5_tk_enc': self._m_h5_tk_enc,
+                'cookie2': self.cookie2,
+                'sgcookie': self.sgcookie,
             })
             show_session_info = self.get_data_from_response(response, session_id)
             for seat in show_session_info.get("perform").get("skuList"):

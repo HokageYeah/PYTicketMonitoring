@@ -191,7 +191,89 @@
         },
         "sharingBar": {
           "sharingIcon": "",
-          "sharingBtnBubbleText": "问问ta，要不要一起去看😊"
+          "sharingBtnBubbleText": "要不要看呢？去问问ta吧😊"
+        },
+        "rating": {
+          "name": "大麦评分",
+          "desc": "大麦购票用户",
+          "rating": "9.3",
+          "ratting": "9.3",
+          "star": "9",
+          "starDesc": "极好",
+          "contentTags": [],
+          "userId": "151768467",
+          "userImg": "https://perico.damai.cn/userheadphotosnew/758842/151768467_1736054162776.jpg",
+          "content": "倍倍唱功太好了，每一首歌都像一首诗，听完一整场演出，就像看了一本诗集。\n朝嘉哥还给外地来的小伙伴准备了礼物，我拿到了一张签名海报和稻香村的糕点呜呜呜太好了，李斯也给大家准备了小礼物。\n散场之后刷微博还看到力丸也去了哈哈哈，而且离我很近，可惜我没向后看。\n\n鹿的歌词真的太好了，当年就是一句『你裙摆绽放走向我，脚步轻松』入坑的，后来『希望你的明天，比昨天更自由，无论这是你第几场寒冬』又陪我走过了失业的日子。今天来看演出，最触动我的一句，也就是我现在的头像『今夜月光又抱着你和我』非常适合形容当下的感受，也适合享受当下的时候用。\n鹿先森！特别值得！",
+          "commentUrl": "https://t.damai.cn/yep/page/m/nowscore",
+          "commentTitle": "评分说明",
+          "ratingNumDesc": "30条",
+          "ratingSource": "",
+          "userRatingVOS": [
+            {
+              "contentId": "100011052154",
+              "content": "倍倍唱功太好了，每一首歌都像一首诗，听完一整场演出，就像看了一本诗集。\n朝嘉哥还给外地来的小伙伴准备了礼物，我拿到了一张签名海报和稻香村的糕点呜呜呜太好了，李斯也给大家准备了小礼物。\n散场之后刷微博还看到力丸也去了哈哈哈，而且离我很近，可惜我没向后看。\n\n鹿的歌词真的太好了，当年就是一句『你裙摆绽放走向我，脚步轻松』入坑的，后来『希望你的明天，比昨天更自由，无论这是你第几场寒冬』又陪我走过了失业的日子。今天来看演出，最触动我的一句，也就是我现在的头像『今夜月光又抱着你和我』非常适合形容当下的感受，也适合享受当下的时候用。\n鹿先森！特别值得！",
+              "userId": "151768467",
+              "userImg": "https://perico.damai.cn/userheadphotosnew/758842/151768467_1736054162776.jpg",
+              "userNick": "爱酱可可黑哈与铁柱",
+              "userStar": "10.0"
+            },
+            {
+              "contentId": "100011020725",
+              "content": "第一次看🦌鹿先森的现场，情绪里夹杂着开心与些许惭愧，惭愧在于除了「华年」「我想当风」「春风十里」，其他歌几乎都不太会唱，开心在于成功安利了一个真诚又有趣的乐队，也算是从一个纯路人转成微粉了 hhhh（以后会越来越粉的吧）。今天有在好好看你们的词，写的都好好。 dream一个 今年的北京专场，到时候一定会去看也一定会全程跟唱的！",
+              "userId": "118552951",
+              "userImg": "https://perico.damai.cn/userheadphotos/592764/118552951.jpg",
+              "userNick": "麦子086Ej",
+              "userStar": "10.0"
+            },
+            {
+              "contentId": "100011058351",
+              "content": "牛",
+              "userId": "461685833",
+              "userImg": "https://perico.damai.cn/userheadphotosnew/2308429/461685833_1697247531661.jpg",
+              "userNick": "麦子5QxNo",
+              "userStar": "10.0"
+            },
+            {
+              "contentId": "100011013182",
+              "content": "挺好",
+              "userId": "122153336",
+              "userImg": "https://perico.damai.cn/userheadphotosnew/610766/122153336_1728606583017.jpg",
+              "userNick": "睡不醒的我",
+              "userStar": "10.0"
+            },
+            {
+              "contentId": "100011027960",
+              "content": "       喜欢一支乐队的歌，你就要去现场听，所以2025年元旦鹿先森十年专场我来了。\n       鹿先森的歌有《春风十里》的深情，也有《华年》的激情，听到最后还会剩下《再唱一次这首歌好吗》的意犹未尽。不是每个乐队都会又有硕士又有博士，但这样一支乐队的存在一定是因为对音乐的热爱，这种热爱、激情、深情通过歌曲传递给每一个喜欢鹿先森的你。\n         在现场与一群同样喜欢鹿先森乐队的朋友吟唱鹿先森的歌，一同与主唱倍倍的互动，体验倍倍的幽默风趣，这感觉会让你很爽。\n        期待约定好的八月的演出！\n📍地点：北京·五棵松·M空间\n📅日期：2025年1月1日\n💡最爱歌曲：再唱一次这首歌好吗？\n",
+              "userId": "452998813",
+              "userImg": "https://perico.damai.cn/userheadphotosnew/2264994/452998813_1693990265999.jpg",
+              "userNick": "麦子5zfKo",
+              "userStar": "10.0"
+            }
+          ],
+          "contentLabelDOS": [
+            {
+              "labelId": "1610659115219687210-11",
+              "labelName": "唱的也好",
+              "labelType": "99"
+            }
+          ]
+        },
+        "ratingComment": {
+          "title": "评分说明",
+          "commentDetails": [
+            {
+              "title": "• 如何得出该演出评分",
+              "desc": "基于大麦真实用户观演后评价计算而得"
+            },
+            {
+              "title": "• 为什么演出没开演就有评分",
+              "desc": "通过该剧在其他城市站的评价计算而得，如该演出开演后，会结合该演出的最新评价计算得分"
+            },
+            {
+              "title": "• 为什么有的演出没有评分",
+              "desc": "目前评分仅在话剧音乐剧类展示，每个演出评分需要有足够的有效评价量计算得出"
+            }
+          ]
         },
         "faqs": [
           "有座位图可以查看吗",
@@ -237,20 +319,11 @@
         ],
         "subFlag": "false",
         "wantVO": {
-          "showWant": "true",
+          "showWant": "false",
           "subFlag": "false",
-          "title": "想看人数",
-          "wantNum": "5457",
-          "wantNumStr": "5457",
+          "wantNum": "5446",
+          "wantNumStr": "5446",
           "wantNumSuffix": "人",
-          "wantDesc": "人气飙升中",
-          "userImgs": [
-            "https://img.alicdn.com/imgextra/i1/O1CN01bMZ0oW1WC0GXqoK9h_!!6000000002751-0-tps-500-500.jpg",
-            "http://perico.damai.cn/userheadphotos/729779/145955936.jpg",
-            "https://img.alicdn.com/imgextra/i4/O1CN01zFBvUY1YFmleJTIQm_!!6000000003030-0-tps-500-500.jpg",
-            "http://perico.damai.cn/userheadphotosnew/2664403/532880622_1733584774115.jpg",
-            "https://img.alicdn.com/imgextra/i4/O1CN01so1NLY1lEx3KreQfP_!!6000000004788-0-tps-500-500.jpg"
-          ],
           "thresholdNum": "10000",
           "tips": "我们将第一时间为您送上独家消息提醒～",
           "tipsTitle": "已加入 [我的-想看]",
