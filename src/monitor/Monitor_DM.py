@@ -60,7 +60,7 @@ class DM(Monitor):
                 "session_id": session_id,
                 "session_name": session_name,
             })
-            response = self.request(self.seat_url(show_id, session_id, _m_h5_tk), {
+            response = self.request(self.seat_url(show_id, session_id, self._m_h5_tk), {
                 '_m_h5_tk': self._m_h5_tk,
                 '_m_h5_tk_enc': self._m_h5_tk_enc,
                 'cookie2': self.cookie2,

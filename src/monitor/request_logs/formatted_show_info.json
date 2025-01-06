@@ -3,9 +3,8 @@
     "item": {
       "staticData": {
         "itemBase": {
-          "itemId": "855081247103",
-          "itemName": "【北京】2025鹿先森乐队“十”新年专场",
-          "subTitle": "",
+          "itemId": "872032893944",
+          "itemName": "【北京】海阔天空 怀念家驹【海山】致敬BEYOND金曲演唱会",
           "generalAgent": {
             "generalAgent": "true",
             "description": "总票代",
@@ -14,36 +13,47 @@
           "nationalStandardCityId": "110100",
           "cityName": "北京市",
           "categoryId": "50019085",
-          "itemPic": "https://img.alicdn.com/bao/uploaded/https://img.alicdn.com/imgextra/i3/2251059038/O1CN01IlF5sV2GdSeen2T4y_!!2251059038.jpg",
+          "itemPic": "https://img.alicdn.com/bao/uploaded/i1/2251059038/O1CN01oIdLMi2GdSfMsFfgR_!!4611686018427383646-0-item_pic.jpg",
           "itemPics": {
             "itemPicList": [
               {
-                "picUrl": "https://img.alicdn.com/imgextra/i3/2251059038/O1CN01IlF5sV2GdSeen2T4y_!!2251059038.jpg"
+                "picUrl": "http://img.alicdn.com/imgextra/i1/2251059038/O1CN01oIdLMi2GdSfMsFfgR_!!4611686018427383646-0-item_pic.jpg"
               }
             ]
           },
-          "seatImg": "https://item-cdn.damai.cn/38cae7f7a53a43788f5614bd90c07f0e.jpg",
-          "seatImages": [
-            "https://item-cdn.damai.cn/38cae7f7a53a43788f5614bd90c07f0e.jpg"
-          ],
-          "performSeatImages": [],
-          "showTime": "时间待定",
-          "showDuration": "以现场为准",
+          "showTime": "2025.03.29 周六 19:30",
+          "showDuration": "约120分钟，仅供参考，最终以现场实际时长为准",
           "serviceNotes": [
             {
               "isSupport": "false",
-              "tagName": "条件退",
-              "tagDesc": "本项目支持有条件退款，若需要收取退票手续费，将以用户实际支付票款为基准收取。基于项目主办方提供的退票政策不同，具体可支持用户申请退款的情形请详见该项目详情页退票政策相关说明或公告。",
+              "tagName": "不支持退",
+              "tagDesc": "票品为有价票券，非普通商品，其背后承载的文化服务具有时效性，稀缺性等特征，不支持退换。",
               "tagType": "2",
-              "renderType": "2",
-              "tagDescJson": "{\"generalNote\":\"该演出支持退票，您可以在【我的-订单详情页】中申请退票，退票需要收取手续费，具体规则如下：\",\"performRules\":[{\"rules\":[{\"endTime\":1733029200000,\"ruleStage\":3,\"ruleType\":2,\"startTime\":1732856400000},{\"endTime\":1735016400000,\"ruleFeeBP\":2000,\"ruleStage\":3,\"ruleType\":1,\"startTime\":1733029200000},{\"ruleStage\":2,\"ruleType\":4,\"startTime\":1735016400000}]}],\"refundProcedureFeeRule\":1}",
+              "renderType": "1",
               "icon": "https://gw.alicdn.com/imgextra/i4/O1CN01U4xvGO1qlzvKaYVze_!!6000000005537-2-tps-45-45.png"
             },
             {
               "isSupport": "true",
+              "tagName": "可选座",
+              "tagDesc": "本项目支持自主选座\r\n1. 选择演出时间，并点击“选座购票”进入选座页面\r\n2. 选座后，在确认订单页支付成功，则选座生效\r\n",
+              "tagType": "3",
+              "renderType": "1",
+              "icon": "https://gw.alicdn.com/imgextra/i3/O1CN01W71UiF1LeRIVqb1Ci_!!6000000001324-2-tps-45-45.png"
+            },
+            {
+              "isSupport": "true",
+              "tagName": "快递票、自助换票",
+              "tagDesc": "快递票：纸质票会在开票后快递到您留下的收货地址，需您承担邮寄费用。发货前支持修改一次收货地址。\r\n注：距开演时间仅3天时，不再寄送快递票，支持在指定取票地点取票（具体以下单后票夹信息为准）\r\n\r\n需要您在指定的取票地点取票，下单后可通过票夹中的二维码或身份证换取纸质票",
+              "tagDescWithStyle": "快递票：纸质票会在开票后快递到您留下的收货地址，需您承担邮寄费用。<b>发货前支持修改一次收货地址。</b><br/>注：距开演时间仅3天时，不再寄送快递票，支持在指定取票地点取票（具体以下单后票夹信息为准）<br/>需要您在指定的取票地点取票，下单后可通过票夹中的二维码或身份证换取纸质票",
+              "tagType": "4",
+              "renderType": "1",
+              "icon": "https://gw.alicdn.com/imgextra/i3/O1CN01W71UiF1LeRIVqb1Ci_!!6000000001324-2-tps-45-45.png"
+            },
+            {
+              "isSupport": "true",
               "tagName": "电子发票",
-              "tagDesc": "发票开具方：北京木火彤明文化传播有限公司\r\n本项目支持开具电子发票。需要在演出开始前在订单详情页提交发票申请，一般演出结束后1个月左右开具并发送至您的邮箱。",
-              "tagDescWithStyle": "<b>发票开具方：北京木火彤明文化传播有限公司</b><br>本项目支持开具电子发票。需要在演出开始前在订单详情页提交发票申请，一般演出结束后1个月左右开具并发送至您的邮箱。",
+              "tagDesc": "发票开具方：秀动互娱(北京)文化发展有限公司\r\n本项目支持开具电子发票。需要在演出开始前在订单详情页提交发票申请，一般演出结束后1个月左右开具并发送至您的邮箱。",
+              "tagDescWithStyle": "<b>发票开具方：秀动互娱(北京)文化发展有限公司</b><br>本项目支持开具电子发票。需要在演出开始前在订单详情页提交发票申请，一般演出结束后1个月左右开具并发送至您的邮箱。",
               "tagType": "5",
               "renderType": "1",
               "icon": "https://gw.alicdn.com/imgextra/i3/O1CN01W71UiF1LeRIVqb1Ci_!!6000000001324-2-tps-45-45.png"
@@ -51,7 +61,7 @@
           ],
           "oldCompanyId": "852",
           "atomSplit": "1",
-          "isHotProject": "true",
+          "isHotProject": "false",
           "isShowHotProjectModel": "false",
           "isShowGrabTicketGuide": "false",
           "isShowGrabTicketGuideLink": "false",
@@ -62,20 +72,20 @@
         },
         "itemExtendInfo": {
           "itemDescTitle": "演出介绍",
-          "itemExtend": "<!DOCTYPE html><html><head></head><body><p>&nbsp;</p>\n<p><img src=\"https://img.alicdn.com/imgextra/i4/2251059038/O1CN01ifsKhX2GdSfPfDn4G_!!2251059038.jpg\" width=\"751\" height=\"12000\" damai_width=\"751\" damai_height=\"12000\"></p>\n<p><img src=\"https://img.alicdn.com/imgextra/i2/2251059038/O1CN01ty7P7D2GdSeoA4xdx_!!2251059038.png\" width=\"976\" height=\"1212\" damai_width=\"976\" damai_height=\"1212\"><img src=\"https://img.alicdn.com/imgextra/i4/2251059038/O1CN01X9kwk12GdSeqC6ZP7_!!2251059038.png\" width=\"978\" height=\"142\" damai_width=\"978\" damai_height=\"142\"></p>\n<p>鹿先森乐队「十」新年专场将于2025年1月1日来到北京M空间。继2023年4月「后毕业时代」专场之后，鹿先森终于回到阔别已久的北京，带着祝福和乐迷朋友一起迎接新年。</p>\n<p><img src=\"https://img.alicdn.com/imgextra/i3/2251059038/O1CN01tEjioc2GdSedHQqGa_!!2251059038.jpg\" width=\"2881\" height=\"1919\" damai_width=\"4528\" damai_height=\"3016\"><img src=\"https://img.alicdn.com/imgextra/i1/2251059038/O1CN01Jap9zr2GdSecr14wy_!!2251059038.jpg\" width=\"2880\" height=\"1921\" damai_width=\"2880\" damai_height=\"1921\"></p>\n<p>这是鹿先森第一次在M空间演出。他们根据场地情况，做了适配环境的舞美焕新升级，把鹿的专场独有的魅力发挥到极致——他们的音乐本身就极具情绪感染力，除了欢快热烈的气氛能够让人在跳跃欢呼中释放之外，音乐本身的真挚更能够触动内心深处的柔软角落，你会被他们真诚的旋律打动，也会在充满诗意的歌词中代入自己，找到共鸣。加上视觉画面与音乐语言的适配，情绪氛围也更加浓厚，你会在鹿先森的live现场中感受到不一样的感动。</p>\n<p><img src=\"https://img.alicdn.com/imgextra/i1/2251059038/O1CN015tvvUE2GdSeamcHOC_!!2251059038.jpg\" width=\"2880\" height=\"1921\" damai_width=\"2880\" damai_height=\"1921\"><img src=\"https://img.alicdn.com/imgextra/i1/2251059038/O1CN01XVtzqi2GdSeamexrg_!!2251059038.jpg\" width=\"2871\" height=\"1911\" damai_width=\"4528\" damai_height=\"3016\"><img src=\"https://img.alicdn.com/imgextra/i1/2251059038/O1CN01o5ZTu92GdSeVienE3_!!2251059038.jpg\" width=\"2865\" height=\"1908\" damai_width=\"4528\" damai_height=\"3016\"></p>\n<p>迈入2025年，鹿先森乐队即将一起走过十年时光。乐队成军十年纪念日逐渐临近，这次新年专场也成为迎接与奔赴「十周年」的起点。10年前众筹制作《春风十里》和《所有的酒都不如你》专辑的鹿先森，已经积累了近300场舞台经验，完成4张专辑，53首歌曲。面对自己热爱的音乐，他们的态度始终是“尽管有自我怀疑与自我否定，但那缕春风始终在眼前，指引我们一米一米向前走”。如今，春风已真的吹过「十」里，未来还将去向更远的地方。</p>\n<p><img src=\"https://img.alicdn.com/imgextra/i4/2251059038/O1CN01VsWfRl2GdSec8b6QI_!!2251059038.jpg\" width=\"2880\" height=\"1921\" damai_width=\"2880\" damai_height=\"1921\"></p>\n<p><img src=\"https://img.alicdn.com/imgextra/i2/2251059038/O1CN01uy6fWh2GdSeVii117_!!2251059038.jpg\" width=\"2880\" height=\"1921\" damai_width=\"2880\" damai_height=\"1921\"></p>\n<p><img src=\"https://img.alicdn.com/imgextra/i2/2251059038/O1CN01wYQrBZ2GdSeb00OmA_!!2251059038.jpg\" width=\"2880\" height=\"1921\" damai_width=\"2880\" damai_height=\"1921\"><img src=\"https://img.alicdn.com/imgextra/i4/2251059038/O1CN01vil8752GdSedHUju8_!!2251059038.jpg\" width=\"2880\" height=\"1921\" damai_width=\"2880\" damai_height=\"1921\"><img src=\"https://img.alicdn.com/imgextra/i2/2251059038/O1CN01miPufD2GdSeamhW3z_!!2251059038.jpg\" width=\"2880\" height=\"1921\" damai_width=\"2880\" damai_height=\"1921\"></p>\n<p>「十」是从四面八方汇聚的「交点」，是乐队成员以及每位乐迷这10年来音乐记忆的交集；也是向各个方向发散的「起点」，是鹿先森音乐生涯中的十字路口，是对未知的未来进行的广阔想象。无论是乐队成员还是乐迷，大家的人生轨迹都因为音乐而交汇，也正因为这种交汇带来的化学反应，每个人的生活在彼此的磁场影响下，或多或少地呈现出不一样的状态。在音乐世界里，鹿先森陪你一起长大了。2025年伊始，鹿先森聚集各地乐迷共同庆祝新年，也庆祝这些年来的共同成长，为十周年纪念巡演的预热和序篇。</p>\n<p><img src=\"https://img.alicdn.com/imgextra/i4/2251059038/O1CN01xINKjE2GdSedcs6ju_!!2251059038.jpg\" width=\"2880\" height=\"1921\" damai_width=\"2880\" damai_height=\"1921\"></p>\n<p><img src=\"https://img.alicdn.com/imgextra/i2/2251059038/O1CN01TDGGmb2GdSec8iccM_!!2251059038.jpg\" width=\"2880\" height=\"1918\" damai_width=\"4528\" damai_height=\"3016\"><img src=\"https://img.alicdn.com/imgextra/i2/2251059038/O1CN01sAYVyT2GdSeeOwQ4Q_!!2251059038.jpg\" width=\"2879\" height=\"1916\" damai_width=\"4528\" damai_height=\"3016\"></p>\n<p>即将发行的新歌是本次专场演出的亮点。在鹿先森新的音乐计划中，他们将关注点放在最小单元的生活切片上，看见宏大中的微小、日常中的细碎，为每个细小的情绪发声呐喊。鹿先森在近10年的成长中不断变换观察世界的视角，迈入第10年，他们在回归生活本质的同时，从更广阔的天地中感知万物，吸收养分，并与每个“你”共鸣。</p>\n<p><img src=\"https://img.alicdn.com/imgextra/i3/2251059038/O1CN01NQL2eN2GdSecLMsdn_!!2251059038.jpg\" width=\"2880\" height=\"1920\" damai_width=\"2880\" damai_height=\"1920\"></p>\n<p><img src=\"https://img.alicdn.com/imgextra/i4/2251059038/O1CN01fJ1uHW2GdSeb09zsP_!!2251059038.jpg\" width=\"2880\" height=\"1921\" damai_width=\"2880\" damai_height=\"1921\"></p>\n<p>除了演绎新的作品，这十年来发行过的歌曲也会按照音乐情绪的走势放入专场歌单中，一些老歌会以新的方式和心境重新演绎，期待给北京的乐迷带来新鲜感和眼前一亮的惊喜，一同感受鹿先森的音乐创作心路。</p>\n<p><img src=\"https://img.alicdn.com/imgextra/i1/2251059038/O1CN01HGsT942GdSedHiACK_!!2251059038.jpg\" width=\"2875\" height=\"1915\" damai_width=\"4528\" damai_height=\"3016\"></p>\n<p><img src=\"https://img.alicdn.com/imgextra/i1/2251059038/O1CN01wZVvDp2GdSechNOWN_!!2251059038.jpg\" width=\"2880\" height=\"1921\" damai_width=\"2880\" damai_height=\"1921\"></p>\n<p>「十」是鹿先森过往10年音乐日常拼成的圆满，也是面向未来展开的新起点和新期许。期待2025年鹿先森为乐迷朋友带来更多新作品、新惊喜。2025年1月1日，新年首日，北京见！</p>\n<p><img src=\"https://img.alicdn.com/imgextra/i3/2251059038/O1CN01lhm7de2GdSedcJ8ax_!!2251059038.jpg\" width=\"2871\" height=\"1911\" damai_width=\"4528\" damai_height=\"3016\"><img src=\"https://img.alicdn.com/imgextra/i1/2251059038/O1CN01lYjRSt2GdSedcNMhS_!!2251059038.jpg\" width=\"2871\" height=\"1912\" damai_width=\"4528\" damai_height=\"3016\"></p>\n<p><img src=\"https://img.alicdn.com/imgextra/i1/2251059038/O1CN01gVvkCB2GdSeVitQmD_!!2251059038.jpg\" width=\"2880\" height=\"1921\" damai_width=\"2880\" damai_height=\"1921\"></p>\n<p>&nbsp;</p></body></html>",
+          "itemExtend": "<!DOCTYPE html><html><head></head><body><p><img src=\"https://img.alicdn.com/imgextra/i2/2251059038/O1CN01YHIpPb2GdSfUX0J00_!!2251059038.jpg\" width=\"960\" height=\"569\" damai_width=\"960\" damai_height=\"569\"></p>\n<p><img src=\"https://img.alicdn.com/imgextra/i3/2251059038/O1CN01a9gfJI2GdSfUPcisU_!!2251059038.jpg\" width=\"960\" height=\"569\" damai_width=\"960\" damai_height=\"569\"></p>\n<p><img src=\"https://img.alicdn.com/imgextra/i4/2251059038/O1CN01cAMZ2D2GdSfW4qj1D_!!2251059038.jpg\" width=\"960\" height=\"569\" damai_width=\"960\" damai_height=\"569\"></p>\n<p><img src=\"https://img.alicdn.com/imgextra/i3/2251059038/O1CN01HpoZWp2GdSfTLqHhf_!!2251059038.jpg\" width=\"960\" height=\"569\" damai_width=\"960\" damai_height=\"569\"></p>\n<p><img src=\"https://img.alicdn.com/imgextra/i1/2251059038/O1CN01Bi2HXY2GdSfV3ytR9_!!2251059038.jpg\" width=\"960\" height=\"569\" damai_width=\"960\" damai_height=\"569\"></p>\n<p><img src=\"https://img.alicdn.com/imgextra/i2/2251059038/O1CN01JZxYNu2GdSfTvPufm_!!2251059038.jpg\" width=\"960\" height=\"569\" damai_width=\"960\" damai_height=\"569\"></p>\n<p><img src=\"https://img.alicdn.com/imgextra/i2/2251059038/O1CN01Sm3YpF2GdSfTUsX6C_!!2251059038.jpg\" width=\"960\" height=\"569\" damai_width=\"960\" damai_height=\"569\"></p>\n<p><img src=\"https://img.alicdn.com/imgextra/i1/2251059038/O1CN01SbHGGa2GdSfTUv16U_!!2251059038.png\" width=\"942\" height=\"558\" damai_width=\"942\" damai_height=\"558\"></p>\n<p><img src=\"https://img.alicdn.com/imgextra/i4/2251059038/O1CN01cVO0Tj2GdSfTZtpmd_!!2251059038.jpg\" width=\"960\" height=\"569\" damai_width=\"960\" damai_height=\"569\"></p>\n<p><img src=\"https://img.alicdn.com/imgextra/i4/2251059038/O1CN01C2zUQJ2GdSfUPe4Er_!!2251059038.jpg\" width=\"960\" height=\"569\" damai_width=\"960\" damai_height=\"569\"></p>\n<p><img src=\"https://img.alicdn.com/imgextra/i3/2251059038/O1CN01hGZ6XU2GdSfTa0sb0_!!2251059038.jpg\" width=\"960\" height=\"569\" damai_width=\"960\" damai_height=\"569\"></p>\n<p><img src=\"https://img.alicdn.com/imgextra/i4/2251059038/O1CN01uPTtPA2GdSfRDXeum_!!2251059038.jpg\" width=\"960\" height=\"569\" damai_width=\"960\" damai_height=\"569\"></p></body></html>",
           "otherContent": [],
           "approvalVO": {
             "approvalUrlList": [],
             "approvalAuthorizationUrlList": [],
             "enterpriseInfo": {
-              "cpName": "北京木火彤明文化传播有限公司",
-              "socialCreditCode": "91110111MADBY5YQ9W",
-              "legalPerson": "吴云萍",
-              "regCapStr": "300万人民币",
+              "cpName": "秀动互娱(北京)文化发展有限公司",
+              "socialCreditCode": "91110112MA7FBNA34H",
+              "legalPerson": "王芳",
+              "regCapStr": "30万人民币",
               "opFrom": "",
-              "opTo": "",
+              "opTo": "2072-01-23",
               "entType": "有限责任公司(自然人投资或控股)",
-              "entAddress": "北京市房山区西潞街道长虹西路73号1幢1层B615(集群注册)"
+              "entAddress": "北京市通州区榆西一街1号院4号楼6层602室63828"
             }
           }
         },
@@ -86,7 +96,7 @@
           },
           {
             "title": "退换说明",
-            "content": "本项目支持有条件退款，若需要收取退票手续费，将以用户实际支付票款为基准收取。基于项目主办方提供的退票政策不同，具体可支持用户申请退款的情形请详见该项目详情页退票政策相关说明或公告。"
+            "content": "票品为有价票券，非普通商品，其背后承载的文化服务具有时效性，稀缺性等特征，不支持退换。"
           },
           {
             "title": "入场时间",
@@ -97,8 +107,16 @@
             "content": "1.本项目部分场次支持自助选座。\r\n2.请根据具体场次进行先选座后支付或在支付完成之后根据订单页面提示选座。"
           },
           {
+            "title": "快递费",
+            "content": "1.同城10.0元，发货后1-3天到达；省内12.0元，发货后1-3天到达；其他地区18.0元，发货后1-3天到达；澳门、香港、台湾40.0元，发货后1-5天到达。\r\n2.演出前4天不支持快递。"
+          },
+          {
             "title": "发票说明",
             "content": "演出开始前，去【订单详情页】提交发票申请。我们会将电子发票发送至您的邮箱。"
+          },
+          {
+            "title": "转送说明",
+            "content": "本项目支持电子票转送，转送功能将在演出前24小时关闭。（注：当前仅支持大麦下单用户，暂不支持淘宝／天猫，支付宝本地生活下单用户发起转送，仅支持大麦APP发起和接收转送票品）"
           }
         ],
         "tips": [],
@@ -109,8 +127,16 @@
               "noteTitle": "购票须知",
               "ticketNoteList": [
                 {
+                  "title": "限购规则",
+                  "content": "每笔订单最多购买6张"
+                },
+                {
                   "title": "退票/换票规则",
-                  "content": "本项目支持有条件退款，具体可申请退票的期间、退票手续费等退票条件以项目主办方提供的退票政策为准，详见服务说明或项目详情页公示的退票政策。"
+                  "content": "票品为有价票券，非普通商品，其背后承载的文化服务具有时效性，稀缺性等特征，不支持退换。"
+                },
+                {
+                  "title": "入场规则",
+                  "content": "支持多种票品验票后入场，如二维码电子票、纸质票。"
                 },
                 {
                   "title": "儿童购票",
@@ -119,6 +145,10 @@
                 {
                   "title": "发票说明",
                   "content": "演出开始前，去【订单详情页】提交发票申请。我们会将电子发票发送至您的邮箱。"
+                },
+                {
+                  "title": "实名购票规则",
+                  "content": "无需实名购票"
                 },
                 {
                   "title": "异常排单说明",
@@ -135,23 +165,23 @@
               "ticketNoteList": [
                 {
                   "title": "演出时长",
-                  "content": "以现场为准"
+                  "content": "约120分钟，仅供参考，最终以现场实际时长为准"
                 },
                 {
                   "title": "入场时间",
-                  "content": "请于演出前约120分钟入场"
+                  "content": "提前30-60分钟，仅供参考，最终以现场实际入场时间为准"
                 },
                 {
                   "title": "最低演出曲目",
-                  "content": "20"
+                  "content": "10"
                 },
                 {
                   "title": "主要演员",
-                  "content": "鹿先森乐队"
+                  "content": "黄海山"
                 },
                 {
                   "title": "最低演出时长",
-                  "content": "100分钟"
+                  "content": "120分钟"
                 },
                 {
                   "title": "禁止携带物品",
@@ -159,11 +189,15 @@
                 },
                 {
                   "title": "寄存说明",
-                  "content": "以现场为准"
+                  "content": "无寄存处,请自行保管携带物品，谨防贵重物品丢失。"
                 },
                 {
                   "title": "大麦网初始开售时全场可售门票总张数",
-                  "content": "1256"
+                  "content": "1608"
+                },
+                {
+                  "title": "转送说明",
+                  "content": "本项目支持电子票转送，转送功能将在演出前24小时关闭。（注：当前仅支持大麦下单用户，暂不支持淘宝／天猫，支付宝本地生活下单用户发起转送，仅支持大麦APP发起和接收转送票品）"
                 }
               ]
             }
@@ -175,105 +209,56 @@
           "credentialNames": []
         },
         "venue": {
-          "venueId": "53764",
-          "venueName": "M空间",
+          "venueId": "107",
+          "venueName": "世纪剧院",
           "venueProvinceName": "北京",
           "venueCityName": "北京市",
-          "lng": 116.280728,
-          "lat": 39.910216,
-          "venueAddr": "复兴路69号",
+          "lng": 116.472307,
+          "lat": 39.951774,
+          "venueAddr": "北京市朝阳区麦子店街道世纪剧院中日青年交流中心",
+          "showCountText": "共有6个演出",
           "region": "1",
           "venueType": "0"
         },
         "returnPolicy": {
-          "supportReturn": "true",
-          "returnPolicy": "本项目支持有条件退款，若需要收取退票手续费，将以用户实际支付票款为基准收取。基于项目主办方提供的退票政策不同，具体可支持用户申请退款的情形请详见该项目详情页退票政策相关说明或公告。"
+          "supportReturn": "false",
+          "returnPolicy": "票品为有价票券，非普通商品，其背后承载的文化服务具有时效性，稀缺性等特征，不支持退换。"
         },
+        "tourProjects": [
+          {
+            "itemId": "864113365286",
+            "cityName": "东莞站",
+            "showTime": "01.19",
+            "tourId": "3652"
+          },
+          {
+            "itemId": "868158396573",
+            "cityName": "北京站",
+            "showTime": "02.01",
+            "tourId": "3652"
+          },
+          {
+            "itemId": "869898162079",
+            "cityName": "广州站",
+            "showTime": "02.16",
+            "tourId": "3652"
+          },
+          {
+            "itemId": "872032893944",
+            "cityName": "北京站",
+            "showTime": "03.29",
+            "tourId": "3652"
+          },
+          {
+            "itemId": "867163090411",
+            "cityName": "河源站",
+            "showTime": "时间待定",
+            "tourId": "3652"
+          }
+        ],
         "sharingBar": {
           "sharingIcon": "",
           "sharingBtnBubbleText": "要不要看呢？去问问ta吧😊"
-        },
-        "rating": {
-          "name": "大麦评分",
-          "desc": "大麦购票用户",
-          "rating": "9.3",
-          "ratting": "9.3",
-          "star": "9",
-          "starDesc": "极好",
-          "contentTags": [],
-          "userId": "151768467",
-          "userImg": "https://perico.damai.cn/userheadphotosnew/758842/151768467_1736054162776.jpg",
-          "content": "倍倍唱功太好了，每一首歌都像一首诗，听完一整场演出，就像看了一本诗集。\n朝嘉哥还给外地来的小伙伴准备了礼物，我拿到了一张签名海报和稻香村的糕点呜呜呜太好了，李斯也给大家准备了小礼物。\n散场之后刷微博还看到力丸也去了哈哈哈，而且离我很近，可惜我没向后看。\n\n鹿的歌词真的太好了，当年就是一句『你裙摆绽放走向我，脚步轻松』入坑的，后来『希望你的明天，比昨天更自由，无论这是你第几场寒冬』又陪我走过了失业的日子。今天来看演出，最触动我的一句，也就是我现在的头像『今夜月光又抱着你和我』非常适合形容当下的感受，也适合享受当下的时候用。\n鹿先森！特别值得！",
-          "commentUrl": "https://t.damai.cn/yep/page/m/nowscore",
-          "commentTitle": "评分说明",
-          "ratingNumDesc": "30条",
-          "ratingSource": "",
-          "userRatingVOS": [
-            {
-              "contentId": "100011052154",
-              "content": "倍倍唱功太好了，每一首歌都像一首诗，听完一整场演出，就像看了一本诗集。\n朝嘉哥还给外地来的小伙伴准备了礼物，我拿到了一张签名海报和稻香村的糕点呜呜呜太好了，李斯也给大家准备了小礼物。\n散场之后刷微博还看到力丸也去了哈哈哈，而且离我很近，可惜我没向后看。\n\n鹿的歌词真的太好了，当年就是一句『你裙摆绽放走向我，脚步轻松』入坑的，后来『希望你的明天，比昨天更自由，无论这是你第几场寒冬』又陪我走过了失业的日子。今天来看演出，最触动我的一句，也就是我现在的头像『今夜月光又抱着你和我』非常适合形容当下的感受，也适合享受当下的时候用。\n鹿先森！特别值得！",
-              "userId": "151768467",
-              "userImg": "https://perico.damai.cn/userheadphotosnew/758842/151768467_1736054162776.jpg",
-              "userNick": "爱酱可可黑哈与铁柱",
-              "userStar": "10.0"
-            },
-            {
-              "contentId": "100011020725",
-              "content": "第一次看🦌鹿先森的现场，情绪里夹杂着开心与些许惭愧，惭愧在于除了「华年」「我想当风」「春风十里」，其他歌几乎都不太会唱，开心在于成功安利了一个真诚又有趣的乐队，也算是从一个纯路人转成微粉了 hhhh（以后会越来越粉的吧）。今天有在好好看你们的词，写的都好好。 dream一个 今年的北京专场，到时候一定会去看也一定会全程跟唱的！",
-              "userId": "118552951",
-              "userImg": "https://perico.damai.cn/userheadphotos/592764/118552951.jpg",
-              "userNick": "麦子086Ej",
-              "userStar": "10.0"
-            },
-            {
-              "contentId": "100011058351",
-              "content": "牛",
-              "userId": "461685833",
-              "userImg": "https://perico.damai.cn/userheadphotosnew/2308429/461685833_1697247531661.jpg",
-              "userNick": "麦子5QxNo",
-              "userStar": "10.0"
-            },
-            {
-              "contentId": "100011013182",
-              "content": "挺好",
-              "userId": "122153336",
-              "userImg": "https://perico.damai.cn/userheadphotosnew/610766/122153336_1728606583017.jpg",
-              "userNick": "睡不醒的我",
-              "userStar": "10.0"
-            },
-            {
-              "contentId": "100011027960",
-              "content": "       喜欢一支乐队的歌，你就要去现场听，所以2025年元旦鹿先森十年专场我来了。\n       鹿先森的歌有《春风十里》的深情，也有《华年》的激情，听到最后还会剩下《再唱一次这首歌好吗》的意犹未尽。不是每个乐队都会又有硕士又有博士，但这样一支乐队的存在一定是因为对音乐的热爱，这种热爱、激情、深情通过歌曲传递给每一个喜欢鹿先森的你。\n         在现场与一群同样喜欢鹿先森乐队的朋友吟唱鹿先森的歌，一同与主唱倍倍的互动，体验倍倍的幽默风趣，这感觉会让你很爽。\n        期待约定好的八月的演出！\n📍地点：北京·五棵松·M空间\n📅日期：2025年1月1日\n💡最爱歌曲：再唱一次这首歌好吗？\n",
-              "userId": "452998813",
-              "userImg": "https://perico.damai.cn/userheadphotosnew/2264994/452998813_1693990265999.jpg",
-              "userNick": "麦子5zfKo",
-              "userStar": "10.0"
-            }
-          ],
-          "contentLabelDOS": [
-            {
-              "labelId": "1610659115219687210-11",
-              "labelName": "唱的也好",
-              "labelType": "99"
-            }
-          ]
-        },
-        "ratingComment": {
-          "title": "评分说明",
-          "commentDetails": [
-            {
-              "title": "• 如何得出该演出评分",
-              "desc": "基于大麦真实用户观演后评价计算而得"
-            },
-            {
-              "title": "• 为什么演出没开演就有评分",
-              "desc": "通过该剧在其他城市站的评价计算而得，如该演出开演后，会结合该演出的最新评价计算得分"
-            },
-            {
-              "title": "• 为什么有的演出没有评分",
-              "desc": "目前评分仅在话剧音乐剧类展示，每个演出评分需要有足够的有效评价量计算得出"
-            }
-          ]
         },
         "faqs": [
           "有座位图可以查看吗",
@@ -291,16 +276,16 @@
         "announcementVO": {
           "detailList": []
         },
-        "alipayDetailUrl": "alipays://platformapi/startapp?appId=2021001110648550&page=pages%2Fhome%2Findex&query=url%3Dhttps%253A%252F%252Fm.taopiaopiao.com%252Fapp%252Fdamai%252Fdamai-msite%252Fdetail%252Fitem.html%253FitemId%253D855081247103%2526dmc%253Dcj_ZLife",
+        "alipayDetailUrl": "alipays://platformapi/startapp?appId=2021001110648550&page=pages%2Fhome%2Findex&query=url%3Dhttps%253A%252F%252Fm.taopiaopiao.com%252Fapp%252Fdamai%252Fdamai-msite%252Fdetail%252Fitem.html%253FitemId%253D872032893944%2526dmc%253Dcj_ZLife",
         "alipayLandingPageUrl": "https://render.alipay.com/p/s/i"
       },
       "dynamicExtData": {
         "artists": [
           {
-            "artistId": "71744",
-            "artistName": "鹿先森乐队",
-            "archives": "鹿先森乐队，中国内地民谣乐队，由主唱郭倍倍（倍倍）、主音吉他手董斌（董三角）、节奏吉他手杨松霖（杨博士）、键盘手董荔冰（冰冰）、鼓手田芳茗（PP）、贝斯手李斯组成。",
-            "picUrl": "https://intercms.damai.cn/artist/pic/1684307141558/1684307141558-main.jpg",
+            "artistId": "118493273",
+            "artistName": "黄海山",
+            "archives": "",
+            "picUrl": "https://intercms.damai.cn/artist/pic/1646820707903/1646820707903-main.jpg",
             "tag": "歌手",
             "type": "1"
           }
@@ -309,10 +294,10 @@
         "brands": [],
         "brandArtists": [
           {
-            "id": "71744",
-            "name": "鹿先森乐队",
-            "desc": "鹿先森乐队，中国内地民谣乐队，由主唱郭倍倍（倍倍）、主音吉他手董斌（董三角）、节奏吉他手杨松霖（杨博士）、键盘手董荔冰（冰冰）、鼓手田芳茗（PP）、贝斯手李斯组成。",
-            "picUrl": "https://intercms.damai.cn/artist/pic/1684307141558/1684307141558-main.jpg",
+            "id": "118493273",
+            "name": "黄海山",
+            "desc": "",
+            "picUrl": "https://intercms.damai.cn/artist/pic/1646820707903/1646820707903-main.jpg",
             "tag": "歌手",
             "type": "1"
           }
@@ -321,13 +306,11 @@
         "wantVO": {
           "showWant": "false",
           "subFlag": "false",
-          "wantNum": "5446",
-          "wantNumStr": "5446",
           "wantNumSuffix": "人",
           "thresholdNum": "10000",
-          "tips": "我们将第一时间为您送上独家消息提醒～",
+          "tips": "火爆热抢中，速买～",
           "tipsTitle": "已加入 [我的-想看]",
-          "tipsSubTitle": "可购票时会及时通知你的～",
+          "tipsSubTitle": "抢手热卖中，别忘了及时购票哦～",
           "guideTipTitle": "标 [想看] ，订阅最新优惠信息～",
           "guideTipSubTitle": "在 [想看] 列表记录心动演出",
           "guideTipShareTitle": "你的好友邀你标 [想看] 哦～",
@@ -335,24 +318,68 @@
           "useLocalCache": "false"
         },
         "ipCard": {
+          "ipId": "26764788229",
+          "ipPic": "https://intercms.damai.cn/ip/pic/1692239907355/1692239907355-main.jpg",
+          "note": "黄海山：海山&HS乐队的主唱，国内多个城市致敬Beyond专场演唱会演出巡演40+场2.Beyond 歌曲演出经验丰富,多次受邀参加纪念BEYOND演唱会及电视晚会录制,赴东南亚地区举办致敬BEYOND演唱会，场场爆满,无一差评正 整场演出个人几乎无间断演唱30+曲目，毫无水分；圈内公认声线和黄家驹契合度99%",
+          "categoryName": "演唱会",
+          "title": "“海阔天空”怀念家驹-【海山】致敬Beyond演唱会",
+          "bgPic": "https://intercms.damai.cn/card/bg-card.png",
           "moments": {
-            "videoVOList": []
+            "picVOList": []
           }
         },
         "tribes": [],
         "sharingBtnBubbleText": "要不要看呢？去问问ta吧😊"
       },
       "item": {
-        "buyBtnStatus": "303",
-        "buyBtnText": "已下架",
-        "buyBtnOrigin": "102",
-        "sellStartTime": "1735731001000",
-        "sellStartTimeStr": "01月01日 19:30",
-        "priceRange": "价格待定",
-        "performBases": [],
-        "performCount": "0",
+        "buyBtnStatus": "206",
+        "buyBtnText": "选座购票",
+        "buyBtnOrigin": "11",
+        "sellStartTime": "1735888743000",
+        "sellStartTimeStr": "01月03日 15:19",
+        "priceRange": "¥58 - ¥480",
+        "performBases": [
+          {
+            "name": "03.29 周六",
+            "type": "1",
+            "performBaseTagValue": "0",
+            "timeSpan": "1743177600000",
+            "performs": [
+              {
+                "performId": "221004703",
+                "performName": "2025-03-29  周六 19:30",
+                "itemId": "872032893944",
+                "projectId": "224077455",
+                "chooseSeatType": "1",
+                "saleForm": "1",
+                "supportGroup": "false",
+                "performDate": "1743247800000",
+                "performTime": "2025.03.29 19:30",
+                "performStartDate": "2025-03-29",
+                "performBeginTime": "19:30",
+                "singleLimit": "6",
+                "performTagValue": "0",
+                "promotionTags": [],
+                "permissionWithPrivilegeBuy": "true",
+                "privilegeLimitBuy": "99999"
+              }
+            ],
+            "promotionTags": [],
+            "permissionWithPrivilegeBuy": "true"
+          }
+        ],
+        "performCount": "1",
         "hasItemCouponTag": "false",
-        "hasItemPromotionTag": "false",
+        "itemPromotionTag": [
+          "单人票可省222元"
+        ],
+        "hasItemPromotionTag": "true",
+        "promotions": [
+          {
+            "tag": "单人票",
+            "content": "单人优惠58元（原价120），可省62元\n单人优惠88元（原价180），可省92元\n单人优惠138元（原价280），可省142元\n单人优惠188元（原价380），可省192元\n单人优惠258元（原价480），可省222元"
+          }
+        ],
         "needRealNameCertified": "false",
         "appNeedUpGrade": "false",
         "showQRCode": "false",
@@ -380,19 +407,13 @@
           "544257",
           "724993",
           "9995",
+          "22027",
           "8459",
           "16651",
-          "22027",
           "33547",
           "33803",
           "658689",
-          "3060482",
-          "3001090",
-          "3326722",
-          "3196418",
-          "3246850",
-          "3247106",
-          "3581186",
+          "1481986",
           "89665",
           "36417",
           "51009",
@@ -406,7 +427,6 @@
           "303681",
           "4166",
           "478785",
-          "388674",
           "591425",
           "622913",
           "632129",
@@ -422,10 +442,8 @@
           "34379",
           "37195",
           "704833",
+          "2602306",
           "2874946",
-          "3196226",
-          "3196482",
-          "3246658",
           "106881",
           "385",
           "260994",
@@ -443,23 +461,21 @@
           "409985",
           "622977",
           "725121",
-          "9099",
-          "14731",
-          "16267",
-          "37259",
-          "657793",
-          "716673",
-          "12171",
           "9355",
-          "8843",
-          "9867",
           "2443",
           "395",
           "1163",
-          "3196290",
+          "9867",
+          "14731",
+          "12171",
+          "9099",
+          "8843",
+          "16267",
+          "716673",
+          "37259",
+          "657793",
           "82369",
           "91585",
-          "148674",
           "28353",
           "37569",
           "260033",
@@ -490,19 +506,12 @@
           "19403",
           "31947",
           "33739",
-          "2939586",
-          "3196354",
-          "3246274",
-          "3246786",
-          "3247042",
-          "3419842"
+          "2939586"
         ],
         "hasEarlyBird": "false",
         "hasWedHalfPrice": "false",
-        "statusTips": [
-          "<span style=\"color: #FE6D92\">当前已停止退票</span>"
-        ],
-        "mstationQRCode": "https://item-cdn.damai.cn/projQcode/8550812471/2/855081247103.jpg"
+        "statusTips": [],
+        "mstationQRCode": "https://item-cdn.damai.cn/projQcode/8720328939/2/872032893944.jpg"
       }
     }
   }

@@ -177,10 +177,6 @@ class Login_DM:
                 json.dump(config, f, ensure_ascii=False)
     # 调用票务监控开始
     def start_monitor(self):
-        # 添加项目根目录到 Python 路径
-        project_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-        sys.path.append(project_root)
-        # sys.path.append(project_root)
         from src.monitor.start import Runner
         runner = Runner()
         runner.start()
