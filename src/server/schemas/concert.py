@@ -4,7 +4,7 @@ from enum import Enum
 
 class PlatformEnum(Enum):
     DM = "DM" # 大麦
-    MM = "MM" # 猫眼
+    MY = "MY" # 猫眼
 
 class City(BaseModel):
     city_id: int
