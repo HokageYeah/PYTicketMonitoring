@@ -23,7 +23,7 @@
     "serviceFeeAgreementURL": "https://m.taopiaopiao.com/tickets/dianying/pages/alfheim/content.html?id=2204793&displayType=plain&hidetitle=yes&hsb=yes&interact=no&hideAuthorInfo=yes"
   },
   "performCalendar": {
-    "today": "20250106",
+    "today": "20250108",
     "currentPerformId": "221004703",
     "showDates": "false",
     "performViews": [
@@ -72,21 +72,35 @@
         "priceId": "296404500",
         "priceIdOfTC": "296404500",
         "status": "1",
-        "frontEndStatus": "1",
+        "frontEndStatus": "2",
         "priceName": "单人优惠58元（原价120）",
         "price": "58.00",
         "dashPrice": "58.00",
-        "salableQuantity": "6",
-        "mq": "6",
-        "skuSalable": "true",
+        "salableQuantity": "0",
+        "mq": "0",
+        "skuSalable": "false",
         "packagesFlag": "true",
-        "freePackage": "true",
+        "freePackage": "false",
         "auctionUnit": "1",
         "hasPromotion": "false",
         "buyPermission": "true",
         "clickable": "true",
-        "tags": [],
-        "mktPromotionTips": "",
+        "tags": [
+          {
+            "tag": "1",
+            "tagDesc": "缺货登记"
+          }
+        ],
+        "tips": {
+          "tagTip": "暂时无票，若到货，平台会根据票量，按照提交顺序，给部分用户推送通知；若始终缺货，将不做另外通知"
+        },
+        "followRelationTargetType": "8",
+        "followRelationTargetTypeName": "SKU",
+        "otherTag": {
+          "tag": "1",
+          "tagOrientation": "2",
+          "tagDesc": "缺货登记"
+        },
         "mqw": "0"
       },
       {
@@ -118,21 +132,35 @@
         "priceId": "296406433",
         "priceIdOfTC": "296406433",
         "status": "1",
-        "frontEndStatus": "1",
+        "frontEndStatus": "2",
         "priceName": "120元",
         "price": "120.00",
         "dashPrice": "120.00",
-        "salableQuantity": "6",
-        "mq": "6",
-        "skuSalable": "true",
+        "salableQuantity": "0",
+        "mq": "0",
+        "skuSalable": "false",
         "packagesFlag": "false",
         "freePackage": "false",
         "auctionUnit": "1",
         "hasPromotion": "false",
         "buyPermission": "true",
         "clickable": "true",
-        "tags": [],
-        "mktPromotionTips": "",
+        "tags": [
+          {
+            "tag": "1",
+            "tagDesc": "缺货登记"
+          }
+        ],
+        "tips": {
+          "tagTip": "暂时无票，若到货，平台会根据票量，按照提交顺序，给部分用户推送通知；若始终缺货，将不做另外通知"
+        },
+        "followRelationTargetType": "8",
+        "followRelationTargetTypeName": "SKU",
+        "otherTag": {
+          "tag": "1",
+          "tagOrientation": "2",
+          "tagDesc": "缺货登记"
+        },
         "mqw": "0"
       },
       {
@@ -394,6 +422,7 @@
       "34379",
       "37195",
       "704833",
+      "2028098",
       "2602306",
       "2874946",
       "106881",
@@ -426,6 +455,7 @@
       "716673",
       "37259",
       "657793",
+      "2028162",
       "82369",
       "91585",
       "28353",
@@ -460,7 +490,7 @@
       "33739",
       "2939586"
     ],
-    "t": "clh+Z3BfWw9hTFh1S1tuf3JafGx5VFoBZ0BOfU5LYHl1UntmdFRdCnA7IxMqMBMEBjUcCgA5PGs="
+    "t": "clh+Z3BfWw9hTFh1S1tuf3JafGx5VFoBZ0BOfU5LYHp5XX5rdFxeCnA7IxMqMBMEBjUcCgA5PGs="
   },
   "responseInfo": {
     "responseSuccess": "true",
