@@ -1,1 +1,36 @@
-{"proxy": null, "token": {"my": "登陆小程序后抓包获取token"}, "monitor_list": [{"show_id": "872032893944", "show_name": "海阔天空 怀念家驹【海山】致敬BEYOND金曲演唱会", "platform": 0, "deadline": "2025-01-08 00:00:00", "_m_h5_tk": "6c2d77acfcfcf982bb3aecc630ccb05c_1736305434713", "_m_h5_tk_enc": "b69f30337ea0c448af405c3b30791413", "cookie2": "1a78f9925270fba22a6ac5564a29af03", "sgcookie": "E100St%2FBBng95rAnn4fGNQw5AWWHStaCV86i2fep9k0SJq6NEnQZDukiAGN2N5f9HaHkOnVRWQ7wczSRTWdjHoQDsROTVOiYh2Yjhpf%2BErJb4h8%3D"}, {"show_id": "360282", "show_name": "【北京】Jessie J 演唱会-北京站", "platform": 6, "deadline": "2024-12-01 00:00:00"}, {"show_id": "3191333934", "show_name": "【深圳】陈奕迅FEAR and DREAMS世界巡回演唱会－深圳站", "platform": 6, "deadline": "2024-12-15 00:00:00"}, {"show_id": "67107aebae5e8300012f5444", "show_name": "【北京】Jessie J 演唱会-北京站", "platform": 6, "deadline": "2024-12-01 00:00:00"}]}
+{
+    "proxy": null,
+    "token": {
+        "my": "登陆小程序后抓包获取token"
+    },
+    "monitor_list": [
+        {
+            "show_id": "872032893944",
+            "show_name": "海阔天空 怀念家驹【海山】致敬BEYOND金曲演唱会",
+            "platform": 0,
+            "deadline": "2025-01-08 00:00:00",
+            "_m_h5_tk": "6c2d77acfcfcf982bb3aecc630ccb05c_1736305434713",
+            "_m_h5_tk_enc": "b69f30337ea0c448af405c3b30791413",
+            "cookie2": "1a78f9925270fba22a6ac5564a29af03",
+            "sgcookie": "E100St%2FBBng95rAnn4fGNQw5AWWHStaCV86i2fep9k0SJq6NEnQZDukiAGN2N5f9HaHkOnVRWQ7wczSRTWdjHoQDsROTVOiYh2Yjhpf%2BErJb4h8%3D"
+        },
+        {
+            "show_id": "360282",
+            "show_name": "【北京】Jessie J 演唱会-北京站",
+            "platform": 6,
+            "deadline": "2024-12-01 00:00:00"
+        },
+        {
+            "show_id": "3191333934",
+            "show_name": "【深圳】陈奕迅FEAR and DREAMS世界巡回演唱会－深圳站",
+            "platform": 6,
+            "deadline": "2024-12-15 00:00:00"
+        },
+        {
+            "show_id": "67107aebae5e8300012f5444",
+            "show_name": "【北京】Jessie J 演唱会-北京站",
+            "platform": 6,
+            "deadline": "2024-12-01 00:00:00"
+        }
+    ]
+}

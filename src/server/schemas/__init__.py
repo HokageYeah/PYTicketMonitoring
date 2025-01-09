@@ -1,3 +1,3 @@
-from src.server.schemas.concert import Concert, City, PlatformEnum
+from src.server.schemas.concert import City, PlatformEnum, SearchConcert
 
-__all__ = ["Concert", "City", "PlatformEnum"]
+__all__ = ["City", "PlatformEnum", "SearchConcert"]

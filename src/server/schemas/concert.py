@@ -11,5 +11,6 @@ class City(BaseModel):
     name: str
     platform: PlatformEnum # 这个类型是枚举
 
-class Concert(BaseModel):
-    cities: List[City]
+class SearchConcert(BaseModel):
+    platform: PlatformEnum
+    body: dict

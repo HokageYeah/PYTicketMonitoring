@@ -29,21 +29,22 @@ class Login_DM:
         self.loginkey = ''
         self.user_id = ''
         self._tb_token_ = ''
+        self.appKey = '12574478'
         self.mini_data = self.get_mini_login_url()
-        # self.post_check_login() 此逻辑没有走通
-        # 生成二维码
-        self.get_generate_code()
-        # 验证查询是否扫码登录
-        self.post_query_login()
-        # 调用登录
-        self.get_dologin()
-        # 验证通过后：获取_m_h5_tk 和 _m_h5_tk_enc
-        self.get_m_h5_tk()
-        # 拿到大麦登录信息后将信息写入到config.json中
-        self.write_dm_config_json()
-        # 调用票务监控开始
-        self.start_monitor()
-        print('mini_data----', self._csrf_token, self.umidToken, self.hsiz)
+        # # self.post_check_login() 此逻辑没有走通
+        # # 生成二维码
+        # self.get_generate_code()
+        # # 验证查询是否扫码登录
+        # self.post_query_login()
+        # # 调用登录
+        # self.get_dologin()
+        # # 验证通过后：获取_m_h5_tk 和 _m_h5_tk_enc
+        # self.get_m_h5_tk()
+        # # 拿到大麦登录信息后将信息写入到config.json中
+        # self.write_dm_config_json()
+        # # 调用票务监控开始
+        # self.start_monitor()
+        # print('mini_data----', self._csrf_token, self.umidToken, self.hsiz)
     def get_mini_login_url(self):
        url = "https://ipassport.damai.cn/mini_login.htm?lang=zh_cn&appName=damai&appEntrance=default&styleType=vertical&bizParams=&notLoadSsoView=true&notKeepLogin=false&isMobile=false&showSnsLogin=false&regUrl=https%3A%2F%2Fpassport.damai.cn%2Fregister&plainReturnUrl=https%3A%2F%2Fpassport.damai.cn%2Flogin&returnUrl=https%3A%2F%2Fpassport.damai.cn%2Fdologin.htm%3FredirectUrl%3Dhttps%253A%252F%252Fwww.damai.cn%26platform%3D106002&rnd=0.08763263121488252"
        response = requests.get(
@@ -108,6 +109,8 @@ class Login_DM:
             'pageTraceId': self.pageTraceId,
         }
         try:
+            start_time = time.time()
+            res_all_data = {}
             # 轮询查询是否登录成功
             while True:
                 response = requests.post(
@@ -129,10 +132,23 @@ class Login_DM:
                     print('扫码登录成功----sgcookie', self.sgcookie)
                     print('扫码登录成功----cookie2', self.cookie2)
                     print('扫码登录成功----st', self.st)
+                    res_all_data['status'] = 'success'
+                    res_all_data['msg'] = '扫码登录成功'
+                    break
+                # 轮训最长30秒
+                if time.time() - start_time > 10:
+                    print('轮训超时')
+                    res_all_data['status'] = 'error'
+                    res_all_data['msg'] = '轮训超时'
                     break
                 time.sleep(2)
+            print('post_query_login----res_all_data----', res_all_data)
+            return res_all_data
         except Exception as e:
             print('post_query_login----error----', e)
+            res_all_data['status'] = 'error'
+            res_all_data['msg'] = str(e)
+            return res_all_data
     # 调用登录
     def get_dologin(self):
         url = f'https://passport.damai.cn/dologin.htm?st={self.st}&redirectUrl=https%253A%252F%252Fwww.damai.cn%252F&platform=106002'
@@ -172,6 +188,8 @@ class Login_DM:
             config.get('monitor_list',[])[0]['_m_h5_tk_enc'] = self._m_h5_tk_enc
             config.get('monitor_list',[])[0]['cookie2'] = self.cookie2
             config.get('monitor_list',[])[0]['sgcookie'] = self.sgcookie
+            config.get('monitor_list',[])[0]['appKey'] = self.appKey
+            config.get('monitor_list',[])[0]['t'] = self.t
             # 将config.json文件写入到config.json中
             with open(config_path, 'w', encoding='utf-8') as f:
                 json.dump(config, f, ensure_ascii=False)
@@ -200,7 +218,7 @@ class Login_DM:
         print('formatted_date2----', formatted_date2)
         sign = Login_DM.get_sign('undefined', formatted_date1, {})
         print('get_m_h5_tk----sign----', sign)
-        url = f'https://mtop.damai.cn/h5/mtop.damai.mxm.user.accesstoken.getbytbs/1.0/?jsv=2.7.2&appKey=12574478&t={date_time}&sign={sign}&api=mtop.damai.mxm.user.accesstoken.getbytbs&v=1.0&type=jsonp&dataType=jsonp&callback=mtopjsonp1&data=%7B%7D'
+        url = f'https://mtop.damai.cn/h5/mtop.damai.mxm.user.accesstoken.getbytbs/1.0/?jsv=2.7.2&appKey={self.appKey}&t={date_time}&sign={sign}&api=mtop.damai.mxm.user.accesstoken.getbytbs&v=1.0&type=jsonp&dataType=jsonp&callback=mtopjsonp1&data=%7B%7D'
         response = requests.get(
             url=url,
             headers={
