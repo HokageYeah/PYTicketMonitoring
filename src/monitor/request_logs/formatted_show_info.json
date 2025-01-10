@@ -226,12 +226,6 @@
         },
         "tourProjects": [
           {
-            "itemId": "864113365286",
-            "cityName": "东莞站",
-            "showTime": "01.19",
-            "tourId": "3652"
-          },
-          {
             "itemId": "868158396573",
             "cityName": "北京站",
             "showTime": "02.01",
@@ -254,11 +248,17 @@
             "cityName": "河源站",
             "showTime": "时间待定",
             "tourId": "3652"
+          },
+          {
+            "itemId": "864113365286",
+            "cityName": "东莞站",
+            "showTime": "时间待定",
+            "tourId": "3652"
           }
         ],
         "sharingBar": {
           "sharingIcon": "",
-          "sharingBtnBubbleText": "问问ta，要不要一起去看😊"
+          "sharingBtnBubbleText": "要不要看呢？去问问ta吧😊"
         },
         "faqs": [
           "有座位图可以查看吗",
@@ -304,9 +304,20 @@
         ],
         "subFlag": "false",
         "wantVO": {
-          "showWant": "false",
+          "showWant": "true",
           "subFlag": "false",
+          "title": "想看人数",
+          "wantNum": "46",
+          "wantNumStr": "46",
           "wantNumSuffix": "人",
+          "wantDesc": "人气飙升中",
+          "userImgs": [
+            "https://img.alicdn.com/imgextra/i1/O1CN0167wNGr1OXyL74kuTP_!!6000000001716-0-tps-500-500.jpg",
+            "http://perico.damai.cn/userheadphotosnew/450176/90035219_1696385516223.jpg",
+            "https://img.alicdn.com/imgextra/i3/O1CN014QIdE01itlV068vLP_!!6000000004471-0-tps-500-500.jpg",
+            "http://perico.damai.cn/userheadphotosnew/2694804/538960867_1736416979372.jpg",
+            "https://img.alicdn.com/imgextra/i1/O1CN01EILqiN1Fsjkn9nzCb_!!6000000000543-0-tps-500-500.jpg"
+          ],
           "thresholdNum": "10000",
           "tips": "火爆热抢中，速买～",
           "tipsTitle": "已加入 [我的-想看]",
@@ -335,8 +346,8 @@
         "buyBtnStatus": "206",
         "buyBtnText": "选座购票",
         "buyBtnOrigin": "11",
-        "sellStartTime": "1735888743000",
-        "sellStartTimeStr": "01月03日 15:19",
+        "sellStartTime": "1736493543000",
+        "sellStartTimeStr": "01月10日 15:19",
         "priceRange": "¥58 - ¥480",
         "performBases": [
           {

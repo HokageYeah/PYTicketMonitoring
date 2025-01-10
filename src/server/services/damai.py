@@ -59,14 +59,30 @@ class DamaiService:
             response = requests.get(url, headers=self.headers,timeout=10)
             if response.status_code != 200:
                 logger.error(f"获取大麦网数据失败，\n接口: {self.BASE_URL}, \n错误: {response.status_code}")
-                raise Exception(f"获取大麦网数据失败，\n接口: {self.BASE_URL}, \n错误: {response.status_code}")
+                return {
+                    "platform": PlatformEnum.DM,
+                    "api": 'search.concert.by.platform',
+                    "data": {},
+                    "ret": [f"ERROR::获取大麦网数据失败{response.status_code}"],
+                    "v": 1
+                }
+                # raise Exception(f"获取大麦网数据失败，\n接口: {self.BASE_URL}, \n错误: {response.status_code}")
             return {
                 "platform": PlatformEnum.DM,
-                "body": response.json()
+                "api": 'search.concert.by.platform',
+                "data": response.json(),
+                "ret": ["SUCCESS::调用成功"],
+                "v": 1
             }
         except Exception as e:
             logger.error(f"获取大麦网数据失败，\n接口: {self.BASE_URL}, \n错误: {e}")
-            return None
+            return {
+                "platform": PlatformEnum.DM,
+                "api": 'search.concert.by.platform',
+                "data": {},
+                "ret": [f"ERROR::获取大麦网数据失败{e}"],
+                "v": 1
+            }
     # 网站生成二维码接口
     def get_generate_code_web(self):
         # 先删除存放二维码文件的目录
@@ -83,15 +99,139 @@ class DamaiService:
                 # 将文件转换为base64
                 with open(save_img_path, 'rb') as file:
                     base64_data = base64.b64encode(file.read()).decode('utf-8')
-                return base64_data
+                return {
+                    "platform": PlatformEnum.DM,
+                    "api": 'login.qrcode.by.platform',
+                    "data": {
+                        "base64_data": base64_data
+                    },
+                    "ret": ["SUCCESS::调用成功"],
+                    "v": 1
+                }
+            else:
+                return {
+                    "platform": PlatformEnum.DM,
+                    "api": 'login.qrcode.by.platform',
+                    "data": {},
+                    "ret": ["ERROR::二维码文件不存在"],
+                    "v": 1
+                }
         except Exception as e:
             logger.error(f"获取大麦网数据失败，\n接口: get_generate_code_web, \n错误: {e}")
-            return None
+            return {
+                "platform": PlatformEnum.DM,
+                "api": 'login.qrcode.by.platform',
+                "data": {},
+                "ret": [f"ERROR::获取大麦网数据失败{e}"],
+                "v": 1
+            }
     # 网站验证查询是否扫码登录
     def post_login_query_web(self):
         try:
             res_data = self.login_dm.post_query_login()
-            return res_data
+            msg = res_data.get('msg')
+            if res_data.get('satus') == 'error':
+                return {
+                    "platform": PlatformEnum.DM,
+                    "api": 'login.query.by.platform',
+                    "data": res_data,
+                    "ret": [f"ERROR::调用失败{msg}"],
+                    "v": 1
+                }
+            return {
+                "platform": PlatformEnum.DM,
+                "api": 'login.query.by.platform',
+                "data": res_data,
+                "ret": [f"SUCCESS::{msg}"],
+                "v": 1
+            }
         except Exception as e:
             logger.error(f"获取大麦网数据失败，\n接口: get_login_query_web, \n错误: {e}")
-            return None
+            return {
+                "platform": PlatformEnum.DM,
+                "api": 'login.query.by.platform',
+                "data": {},
+                "ret": [f"ERROR::获取大麦网数据失败{e}"],
+                "v": 1
+            }
+    # 扫码成功后调用登录
+    def get_dologin_web(self):
+        try:
+            res_data = self.login_dm.get_dologin()
+            msg = res_data.get('msg')
+            if res_data.get('status') == 'error':
+                return {
+                    "platform": PlatformEnum.DM,
+                    "api": 'login.dologin.by.platform',
+                    "data": res_data,
+                    "ret": [f"ERROR::{msg}"],
+                    "v": 1
+                }
+            return {
+                "platform": PlatformEnum.DM,
+                "api": 'login.dologin.by.platform',
+                "data": res_data,
+                "ret": [f"SUCCESS::{msg}"],
+                "v": 1
+            }
+        except Exception as e:
+            logger.error(f"获取大麦网数据失败，\n接口: get_dologin_web, \n错误: {e}")
+            return {
+                "platform": PlatformEnum.DM,
+                "api": 'login.dologin.by.platform',
+                "data": {},
+                "ret": [f"ERROR::获取大麦网数据失败{e}"],
+                "v": 1
+            }
+    # 获取大麦网用户信息(主要获取_m_h5_tk 和 _m_h5_tk_enc) 用户信息写入到config.json文件中
+    def get_user_info_web(self):
+        try:
+            res_data = self.login_dm.get_m_h5_tk()
+            msg = res_data.get('msg')
+            if res_data.get('status') == 'error':
+                return {
+                    "platform": PlatformEnum.DM,
+                    "api": 'login.userinfo.by.platform',
+                    "data": res_data,
+                    "ret": [f"ERROR::{msg}"],
+                    "v": 1
+                }
+            return {
+                "platform": PlatformEnum.DM,
+                "api": 'login.userinfo.by.platform',
+                "data": res_data,
+                "ret": [f"SUCCESS::{msg}"],
+                "v": 1
+            }
+        except Exception as e:
+            logger.error(f"获取大麦网数据失败，\n接口: get_user_info_web, \n错误: {e}")
+            return {
+                "platform": PlatformEnum.DM,
+                "api": 'login.userinfo.by.platform',
+                "data": {},
+                "ret": [f"ERROR::获取大麦网数据失败{e}"],
+                "v": 1
+            }
+    # 获取单个演唱会详情信息（鉴权、需要登录）
+    def get_item_detail_web(self, show_id):
+        try:
+            pass
+        except Exception as e:
+            logger.error(f"获取大麦网数据失败，\n接口: get_item_detail_web, \n错误: {e}")
+            return {}
+    # 调用票务监控开始 测试代码需要更改
+    def post_start_monitor_web(self, show_id, show_name, deadline):
+        try:
+            # 测试代码
+            from src.monitor.start import Runner
+            runner = Runner()
+            runner.start()
+        except Exception as e:
+            logger.error(f"获取大麦网数据失败，\n接口: start_monitor_web, \n错误: {e}")
+            return {
+                "platform": PlatformEnum.DM,
+                "api": 'start.monitor.by.platform',
+                "data": {},
+                "ret": [f"ERROR::获取大麦网数据失败{e}"],
+                "v": 1
+            }

@@ -11,6 +11,9 @@ class City(BaseModel):
     name: str
     platform: PlatformEnum # 这个类型是枚举
 
-class SearchConcert(BaseModel):
+class ApiResponseData(BaseModel):
     platform: PlatformEnum
-    body: dict
+    api: str
+    data: dict
+    ret: list
+    v: int

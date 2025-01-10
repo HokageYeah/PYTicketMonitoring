@@ -44,7 +44,7 @@ class Login_DM:
         # self.write_dm_config_json()
         # # 调用票务监控开始
         # self.start_monitor()
-        # print('mini_data----', self._csrf_token, self.umidToken, self.hsiz)
+        print('mini_data----', self._csrf_token, self.umidToken, self.hsiz)
     def get_mini_login_url(self):
        url = "https://ipassport.damai.cn/mini_login.htm?lang=zh_cn&appName=damai&appEntrance=default&styleType=vertical&bizParams=&notLoadSsoView=true&notKeepLogin=false&isMobile=false&showSnsLogin=false&regUrl=https%3A%2F%2Fpassport.damai.cn%2Fregister&plainReturnUrl=https%3A%2F%2Fpassport.damai.cn%2Flogin&returnUrl=https%3A%2F%2Fpassport.damai.cn%2Fdologin.htm%3FredirectUrl%3Dhttps%253A%252F%252Fwww.damai.cn%26platform%3D106002&rnd=0.08763263121488252"
        response = requests.get(
@@ -162,6 +162,7 @@ class Login_DM:
             # allow_redirects=False, # 禁止重定向
         )
         cookies = response.cookies
+        print('get_dologin----response----', cookies)
         # 方法1：转换为字典
         cookies_dict = requests.utils.dict_from_cookiejar(cookies)
         print("get_dologin----Cookies字典:", cookies_dict)
@@ -174,6 +175,10 @@ class Login_DM:
         print('get_dologin----h5token----', self.h5token)
         print('get_dologin----loginkey----', self.loginkey)
         print('get_dologin----user_id----', self.user_id)
+        return {
+            "status": "success",
+            "msg": "登录成功"
+        }
         # print('get_dologin----response----', response.text)
     def write_dm_config_json(self):
         # 获取当前文件的绝对路径
@@ -248,7 +253,17 @@ class Login_DM:
             self._m_h5_tk_enc = response.cookies.get('_m_h5_tk_enc', '')
             print('get_m_h5_tk----_m_h5_tk----', self._m_h5_tk)
             print('get_m_h5_tk----_m_h5_tk_enc----', self._m_h5_tk_enc)
-        pass
+            # 拿到数据后写入到config.json中
+            self.write_dm_config_json()
+            return {
+                "status": "success",
+                "msg": "获取_m_h5_tk 和 _m_h5_tk_enc成功"
+            }
+        return {
+            "status": "error",
+            "msg": "获取_m_h5_tk 和 _m_h5_tk_enc失败"
+        }
+    # 验证查询是否扫码登录
     def post_check_login(self):
         url = 'https://ipassport.damai.cn/newlogin/account/check.do?appName=damai&fromSite=18'
         data = {

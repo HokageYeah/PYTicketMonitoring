@@ -23,7 +23,7 @@
     "serviceFeeAgreementURL": "https://m.taopiaopiao.com/tickets/dianying/pages/alfheim/content.html?id=2204793&displayType=plain&hidetitle=yes&hsb=yes&interact=no&hideAuthorInfo=yes"
   },
   "performCalendar": {
-    "today": "20250108",
+    "today": "20250110",
     "currentPerformId": "221004703",
     "showDates": "false",
     "performViews": [
@@ -359,7 +359,7 @@
     "categoryId": "50019085",
     "itemTitle": "【北京】海阔天空 怀念家驹【海山】致敬BEYOND金曲演唱会",
     "priceRange": "￥58.00 - ￥480.00",
-    "sellingStartTime": "202501031503",
+    "sellingStartTime": "202501101503",
     "hasPromotion": "false",
     "hasPrivilegeTag": "false",
     "hasExclusivePrivilegeTag": "false",
@@ -490,7 +490,7 @@
       "33739",
       "2939586"
     ],
-    "t": "clh+Z3BfWw9hTFh1S1tuf3JafGx5VFoBZ0BOfU5LYHp5XX5rdFxeCnA7IxMqMBMEBjUcCgA5PGs="
+    "t": "clh+Z3BfWw9hTFh1S1tuf3JafGx5VFoBZ0BOfU5LYH1wW3lpc1xZC3A7IxMqMBMEBjUcCgA5PGs="
   },
   "responseInfo": {
     "responseSuccess": "true",
