@@ -9,6 +9,9 @@ import sys
 import time
 import requests
 import qrcode
+from src import monitor
+import logging
+logger = logging.getLogger(__name__)
 login_id = 18838280615
 class Login_DM:
     def __init__(self):
@@ -185,10 +188,11 @@ class Login_DM:
         current_dir = Path(__file__).resolve().parent.parent
         # 获取config.json文件的路径
         config_path =  current_dir / 'monitor/config/config.json'
-        # 读取config.json文件
-        with open(config_path, 'r', encoding='utf-8') as f:
-            config = json.load(f)
-            print('write_dm_config_json----config----', config)
+        try:
+            # 读取config.json文件
+            with open(config_path, 'r', encoding='utf-8') as f:
+                config = json.load(f)
+            # print('write_dm_config_json----config----', config)
             config.get('monitor_list',[])[0]['_m_h5_tk'] = self._m_h5_tk
             config.get('monitor_list',[])[0]['_m_h5_tk_enc'] = self._m_h5_tk_enc
             config.get('monitor_list',[])[0]['cookie2'] = self.cookie2
@@ -198,6 +202,35 @@ class Login_DM:
             # 将config.json文件写入到config.json中
             with open(config_path, 'w', encoding='utf-8') as f:
                 json.dump(config, f, ensure_ascii=False)
+        except Exception as e:
+            logger.error(f"\n写入config.json文件失败，\n方法：write_dm_config_json，\n错误: {e}")
+    # 写入db_config.json
+    def write_db_config_json(self):
+        # 获取db_config.json文件的绝对路径
+        db_config_path = Path(monitor.__file__).resolve().parent / 'config' / 'db_config.json'
+        print('write_db_config_json----db_config_path----', db_config_path)
+        if os.path.exists(db_config_path):
+            try:
+                # 读取文件
+                with open(db_config_path, 'r', encoding='utf-8') as f:
+                    print('write_db_config_json----f----', f)
+                    print('write_db_config_json----f----db_config---', f.read())
+                    # 如果f为空，没有内容则不进行json.load
+                    db_config = json.load(f) if f.read().strip() else {}
+                    print('write_db_config_json----db_config----', db_config)
+                    if not db_config.get('DM', {}):
+                        db_config['DM'] = {}
+                    db_config.get('DM', {})['_m_h5_tk'] = self._m_h5_tk
+                    db_config.get('DM', {})['_m_h5_tk_enc'] = self._m_h5_tk_enc
+                    db_config.get('DM', {})['cookie2'] = self.cookie2
+                    db_config.get('DM', {})['sgcookie'] = self.sgcookie
+                    db_config.get('DM', {})['appKey'] = self.appKey
+                    db_config.get('DM', {})['t'] = self.t
+                    # 将db_config.json文件写入到db_config.json中
+                    with open(db_config_path, 'w', encoding='utf-8') as f:
+                        json.dump(db_config, f, ensure_ascii=False)
+            except Exception as e:
+                logger.error(f"\n写入db_config.json文件失败，\n方法：write_db_config_json，\n错误: {e}")
     # 调用票务监控开始
     def start_monitor(self):
         from src.monitor.start import Runner
@@ -255,6 +288,8 @@ class Login_DM:
             print('get_m_h5_tk----_m_h5_tk_enc----', self._m_h5_tk_enc)
             # 拿到数据后写入到config.json中
             self.write_dm_config_json()
+            # 拿到登录后的数据写入到db_config.json中（此文件后续替换成数据库）
+            self.write_db_config_json()
             return {
                 "status": "success",
                 "msg": "获取_m_h5_tk 和 _m_h5_tk_enc成功"

@@ -307,16 +307,16 @@
           "showWant": "true",
           "subFlag": "false",
           "title": "想看人数",
-          "wantNum": "46",
-          "wantNumStr": "46",
+          "wantNum": "49",
+          "wantNumStr": "49",
           "wantNumSuffix": "人",
           "wantDesc": "人气飙升中",
           "userImgs": [
-            "https://img.alicdn.com/imgextra/i1/O1CN0167wNGr1OXyL74kuTP_!!6000000001716-0-tps-500-500.jpg",
-            "http://perico.damai.cn/userheadphotosnew/450176/90035219_1696385516223.jpg",
-            "https://img.alicdn.com/imgextra/i3/O1CN014QIdE01itlV068vLP_!!6000000004471-0-tps-500-500.jpg",
-            "http://perico.damai.cn/userheadphotosnew/2694804/538960867_1736416979372.jpg",
-            "https://img.alicdn.com/imgextra/i1/O1CN01EILqiN1Fsjkn9nzCb_!!6000000000543-0-tps-500-500.jpg"
+            "https://img.alicdn.com/imgextra/i1/O1CN017sq23P1nF4O5uJsRB_!!6000000005059-0-tps-500-500.jpg",
+            "http://perico.damai.cn/userheadphotosnew/2223926/444785290_1690771985477.jpg",
+            "https://img.alicdn.com/imgextra/i1/O1CN01Z4KBGi1TVkUeB77To_!!6000000002388-0-tps-500-500.jpg",
+            "http://perico.damai.cn/userheadphotosnew/2468057/493611556_1714314677270.jpg",
+            "https://img.alicdn.com/imgextra/i2/O1CN01oExvMe1ZSRKI2YUn4_!!6000000003193-0-tps-500-500.jpg"
           ],
           "thresholdNum": "10000",
           "tips": "火爆热抢中，速买～",
@@ -340,7 +340,7 @@
           }
         },
         "tribes": [],
-        "sharingBtnBubbleText": "问问ta，要不要一起去看😊"
+        "sharingBtnBubbleText": "要不要看呢？去问问ta吧😊"
       },
       "item": {
         "buyBtnStatus": "206",
@@ -417,6 +417,7 @@
           "623105",
           "544257",
           "724993",
+          "770817",
           "9995",
           "22027",
           "8459",

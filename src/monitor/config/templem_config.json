@@ -1,0 +1,54 @@
+{
+    "DM": {
+        "_m_h5_tk": "bee185c7a15486ef0b13b061bc6a0297_1736509580902",
+        "_m_h5_tk_enc": "cd8687b3f446653df65662f9561bdc90",
+        "cookie2": "15b78ffe1c213bd83fc10b67f1a9b3f9",
+        "sgcookie": "E100UM4t3HOxm8uH4f2VMzoQNh2yxQSmGrNNf7fIx95gCkHet84Xl%2Bows6VbIjklVKmezwwHq9alS8tgtasfXeGFAd%2F7IcJATudBM%2BP4m13eLCE%3D",
+        "appKey": "12574478",
+        "t": 1736501633657,
+        "monitor_list": [
+            {
+                "show_id": "872032893944",
+                "show_name": "海阔天空 怀念家驹【海山】致敬BEYOND金曲演唱会",
+                "monitor_person": [
+                    {
+                        "wx_token": "123456",
+                        "deadline": "2025-01-18 00:00:00",
+                        "ticket_session": [
+                            {
+                                "session_id": "123456",
+                                "session_name": "123456",
+                                "session_price": [
+                                    {
+                                        "price_id": "123456",
+                                        "price_name": "2380元"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "wx_token": "123456",
+                        "deadline": "2025-01-18 00:00:00",
+                        "ticket_session": [
+                            {
+                                "session_id": "123456",
+                                "session_name": "123456",
+                                "session_price": [
+                                    {
+                                        "price_id": "3456",
+                                        "price_name": "380元"
+                                    },
+                                    {
+                                        "price_id": "36",
+                                        "price_name": "80元"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}

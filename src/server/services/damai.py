@@ -8,12 +8,21 @@ import os
 from pathlib import Path
 from src import simulateLogin
 import base64
+from time import time
+import json
+from src.monitor.Monitor_DM import DM
+from src import monitor
+from requests import Response
 logger = logging.getLogger(__name__)
 class DamaiService:
     # 大麦的base url（初步，不同服务的base url不一样）
     BASE_URL = "https://search.damai.cn/searchajax.html"
     def __init__(self):
         self.login_dm = Login_DM()
+        # 读取获取db_config.json文件
+        db_config_path = Path(monitor.__file__).resolve().parent / 'config' / 'db_config.json'
+        with open(db_config_path, 'r', encoding='utf-8') as f:
+            self.db_config = json.load(f)
         self.headers = {
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
             "Referer": "https://search.damai.cn/searchajax.html",
@@ -24,6 +33,26 @@ class DamaiService:
             "Host": "search.damai.cn"
         }
         pass
+    def do_request(self):
+        inner_cookies = dict()
+        def inner_request(url: str, cookies=None) -> Response:
+            nonlocal inner_cookies
+            inner_cookies = inner_cookies if not cookies else cookies
+            return requests.get(
+                url=url,
+                headers={
+                    'x-tap': 'wx',
+                    'Host': 'mtop.damai.cn',
+                    'Accept': 'application/json',
+                    'content-type': 'application/x-www-form-urlencoded',
+                    'Referer': 'https://servicewechat.com/wx938b41d0d7e8def0/350/page-frame.html',
+                    'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 17_5_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.53(0x18003531) NetType/WIFI Language/zh_CN',
+                },
+                cookies=inner_cookies,
+                verify=False,
+                timeout=10
+            )
+        return inner_request
     # 网站搜索演唱会接口请求
     def search_concert_web(
             self, 
@@ -32,12 +61,12 @@ class DamaiService:
             ctl: Optional[str] = '演唱会',
             sctl: Optional[str] = '', 
             tsg: Optional[int] = 0, # 表示是否有其他限制条件，通常为 0 表示没有额外的条件。
-            st: Optional[int] = 0, # 为空，表示没有开始时间。
-            et: Optional[int] = 0, # 为空，表示没有结束时间。
+            st: Optional[int] = '', # 为空，表示没有开始时间。
+            et: Optional[int] = '', # 为空，表示没有结束时间。
             order: Optional[int] = 1, # 通常表示排序方式，1 可能代表按某种默认方式排序。
             currPage: Optional[int] = 1,
-            pageSize: Optional[int] = 10,
-            tn: Optional[int] = 0, # 通常表示是否需要返回总数，0 表示不需要。
+            pageSize: Optional[int] = 30,
+            tn: Optional[int] = '', # 通常表示是否需要返回总数，0 表示不需要。
             ):
         try:
             params = {
@@ -215,10 +244,68 @@ class DamaiService:
     # 获取单个演唱会详情信息（鉴权、需要登录）
     def get_item_detail_web(self, show_id):
         try:
-            pass
+            url = DM.get_show_url()
+            _m_h5_tk_str = self.db_config["DM"]["_m_h5_tk"]+';'+self.db_config["DM"]["_m_h5_tk_enc"]
+            response = self.do_request()(url(show_id, _m_h5_tk_str), {
+                '_m_h5_tk': self.db_config["DM"]["_m_h5_tk"],
+                '_m_h5_tk_enc': self.db_config["DM"]["_m_h5_tk_enc"],
+                'cookie2': self.db_config["DM"]["cookie2"],
+                'sgcookie': self.db_config["DM"]["sgcookie"],
+            })
+            print('response----', response)
+            res_data = response.json()
+            ret = res_data.get('ret')
+            if response.status_code != 200 or 'SUCCESS::调用成功' not in ret:
+                return {
+                    "platform": PlatformEnum.DM,
+                    "api": 'item.detail.by.platform',
+                    "data": {},
+                    "ret": [f"ERROR::获取大麦网数据失败{ret}"],
+                    "v": 1
+                }
+            legacy = res_data.get('data',{}).get('legacy','')
+            # 去除转义自负
+            legacy = json.loads(legacy)
+            return {
+                "platform": PlatformEnum.DM,
+                "api": 'item.detail.by.platform',
+                "data": {
+                    "legacy": legacy,
+                    "traceId": res_data.get('traceId','')
+                },
+                "ret": ["SUCCESS::调用成功"],
+                "v": 1
+            }
         except Exception as e:
             logger.error(f"获取大麦网数据失败，\n接口: get_item_detail_web, \n错误: {e}")
-            return {}
+            return {
+                "platform": PlatformEnum.DM,
+                "api": 'item.detail.by.platform',
+                "data": {},
+                "ret": [f"ERROR::获取大麦网数据失败{e}"],
+                "v": 1
+            }
+    # 检测当前场次是否有坐次（是否又票）
+    def check_ticket_web(self, show_id, session_id):
+        try:
+            url = DM.get_seat_url()
+            _m_h5_tk_str = self.db_config["DM"]["_m_h5_tk"]
+            response = self.do_request()(url(show_id, session_id, _m_h5_tk_str),{
+                '_m_h5_tk': self.db_config["DM"]["_m_h5_tk"],
+                '_m_h5_tk_enc': self.db_config["DM"]["_m_h5_tk_enc"],
+                'cookie2': self.db_config["DM"]["cookie2"],
+                'sgcookie': self.db_config["DM"]["sgcookie"],
+            })
+            print('response----', response)
+        except Exception as e:
+            logger.error(f"获取大麦网数据失败，\n接口: check_ticket_web, \n错误: {e}")
+            return {
+                "platform": PlatformEnum.DM,
+                "api": 'check.ticket.by.platform',
+                "data": {},
+                "ret": [f"ERROR::获取大麦网数据失败{e}"],
+                "v": 1
+            }
     # 调用票务监控开始 测试代码需要更改
     def post_start_monitor_web(self, show_id, show_name, deadline):
         try:

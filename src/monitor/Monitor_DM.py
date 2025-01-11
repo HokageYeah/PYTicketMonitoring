@@ -212,7 +212,6 @@ class DM(Monitor):
     def get_sign(c: str, t: str, data: str):
         plain = f"{c.split('_')[0]}&{t}&12574478&{data}"
         return md5(plain.encode(encoding='utf-8')).hexdigest()
-
     def do_request(self):
         inner_cookies = dict()
         def inner_request(url: str, cookies=None) -> Response:

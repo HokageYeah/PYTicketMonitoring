@@ -67,7 +67,16 @@ async def get_concert_detail(
     if platform == PlatformEnum.DM:
         return damai.get_item_detail_web(show_id)
     return None
-
+# 检测当前场次是否有坐次（是否又票）
+@router.get('/web/check.ticket.by.platform', response_model=ApiResponseData)
+async def get_check_ticket(
+    platform: PlatformEnum = Query(PlatformEnum.DM, description="平台名称"),
+    show_id: str = Query('', description="演唱会ID"),
+    session_id: str = Query('', description="场次ID")
+    ):
+    if platform == PlatformEnum.DM:
+        return damai.check_ticket_web(show_id, session_id)
+    return None
 # 调用票务监控开始 测试需要更改
 @router.post('/web/start.monitor.by.platform')
 async def post_start_monitor(
