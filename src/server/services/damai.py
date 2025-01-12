@@ -306,6 +306,8 @@ class DamaiService:
                 "ret": [f"ERROR::获取大麦网数据失败{e}"],
                 "v": 1
             }
+    # 检测当前演唱会的当前场次是否有票
+
     # 调用票务监控开始 测试代码需要更改
     def post_start_monitor_web(self, show_id, show_name, deadline):
         try:
