@@ -216,7 +216,7 @@
           "lng": 116.472307,
           "lat": 39.951774,
           "venueAddr": "北京市朝阳区麦子店街道世纪剧院中日青年交流中心",
-          "showCountText": "共有6个演出",
+          "showCountText": "共有7个演出",
           "region": "1",
           "venueType": "0"
         },
@@ -307,16 +307,16 @@
           "showWant": "true",
           "subFlag": "false",
           "title": "想看人数",
-          "wantNum": "49",
-          "wantNumStr": "49",
+          "wantNum": "58",
+          "wantNumStr": "58",
           "wantNumSuffix": "人",
           "wantDesc": "人气飙升中",
           "userImgs": [
-            "https://img.alicdn.com/imgextra/i1/O1CN017sq23P1nF4O5uJsRB_!!6000000005059-0-tps-500-500.jpg",
-            "http://perico.damai.cn/userheadphotosnew/2223926/444785290_1690771985477.jpg",
-            "https://img.alicdn.com/imgextra/i1/O1CN01Z4KBGi1TVkUeB77To_!!6000000002388-0-tps-500-500.jpg",
-            "http://perico.damai.cn/userheadphotosnew/2468057/493611556_1714314677270.jpg",
-            "https://img.alicdn.com/imgextra/i2/O1CN01oExvMe1ZSRKI2YUn4_!!6000000003193-0-tps-500-500.jpg"
+            "https://img.alicdn.com/imgextra/i3/O1CN01prjtaq1EkCl1Unc3U_!!6000000000389-0-tps-500-500.jpg",
+            "http://perico.damai.cn/userheadphotos/19571/3914355.jpg",
+            "https://img.alicdn.com/imgextra/i4/O1CN01AFdO1d1QyedvCel2W_!!6000000002045-0-tps-500-500.jpg",
+            "http://perico.damai.cn/userheadphotosnew/2695924/539184924_1736688745615.jpg",
+            "https://img.alicdn.com/imgextra/i3/O1CN01r0ZMup1vQzcdFJguf_!!6000000006168-0-tps-500-500.jpg"
           ],
           "thresholdNum": "10000",
           "tips": "火爆热抢中，速买～",

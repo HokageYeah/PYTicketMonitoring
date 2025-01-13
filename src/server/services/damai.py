@@ -13,16 +13,18 @@ import json
 from src.monitor.Monitor_DM import DM
 from src import monitor
 from requests import Response
+from src.server.schemas.concert import RecordMonitorParams
 logger = logging.getLogger(__name__)
+
 class DamaiService:
     # 大麦的base url（初步，不同服务的base url不一样）
     BASE_URL = "https://search.damai.cn/searchajax.html"
     def __init__(self):
         self.login_dm = Login_DM()
         # 读取获取db_config.json文件
-        db_config_path = Path(monitor.__file__).resolve().parent / 'config' / 'db_config.json'
-        with open(db_config_path, 'r', encoding='utf-8') as f:
-            self.db_config = json.load(f)
+        self.db_config_path = Path(monitor.__file__).resolve().parent / 'config' / 'db_config.json'
+        self.db_config = {}
+        self.get_db_config()
         self.headers = {
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
             "Referer": "https://search.damai.cn/searchajax.html",
@@ -33,11 +35,23 @@ class DamaiService:
             "Host": "search.damai.cn"
         }
         pass
+    # 读取获取db_config.json文件中的数据信息
+    def get_db_config(self):
+        with open(self.db_config_path, 'r', encoding='utf-8') as f:
+            self.db_config = json.load(f)
     def do_request(self):
         inner_cookies = dict()
         def inner_request(url: str, cookies=None) -> Response:
             nonlocal inner_cookies
-            inner_cookies = inner_cookies if not cookies else cookies
+            # 更新获取大麦网写入到db_config.json文件中的数据信息
+            self.get_db_config()
+            inner_cookies['_m_h5_tk'] = self.db_config["DM"]["_m_h5_tk"]
+            inner_cookies['_m_h5_tk_enc'] = self.db_config["DM"]["_m_h5_tk_enc"]
+            inner_cookies['cookie2'] = self.db_config["DM"]["cookie2"]
+            inner_cookies['sgcookie'] = self.db_config["DM"]["sgcookie"]
+            # 有cookies则更新，没有则使用默认的，有cookies将cookies追加到inner_cookies中
+            inner_cookies = inner_cookies if not cookies else { **inner_cookies, **cookies }
+            # print('inner_cookies----', inner_cookies)
             return requests.get(
                 url=url,
                 headers={
@@ -246,12 +260,7 @@ class DamaiService:
         try:
             url = DM.get_show_url()
             _m_h5_tk_str = self.db_config["DM"]["_m_h5_tk"]+';'+self.db_config["DM"]["_m_h5_tk_enc"]
-            response = self.do_request()(url(show_id, _m_h5_tk_str), {
-                '_m_h5_tk': self.db_config["DM"]["_m_h5_tk"],
-                '_m_h5_tk_enc': self.db_config["DM"]["_m_h5_tk_enc"],
-                'cookie2': self.db_config["DM"]["cookie2"],
-                'sgcookie': self.db_config["DM"]["sgcookie"],
-            })
+            response = self.do_request()(url(show_id, _m_h5_tk_str))
             print('response----', response)
             res_data = response.json()
             ret = res_data.get('ret')
@@ -259,7 +268,7 @@ class DamaiService:
                 return {
                     "platform": PlatformEnum.DM,
                     "api": 'item.detail.by.platform',
-                    "data": {},
+                    "data": response.json(),
                     "ret": [f"ERROR::获取大麦网数据失败{ret}"],
                     "v": 1
                 }
@@ -290,13 +299,30 @@ class DamaiService:
         try:
             url = DM.get_seat_url()
             _m_h5_tk_str = self.db_config["DM"]["_m_h5_tk"]
-            response = self.do_request()(url(show_id, session_id, _m_h5_tk_str),{
-                '_m_h5_tk': self.db_config["DM"]["_m_h5_tk"],
-                '_m_h5_tk_enc': self.db_config["DM"]["_m_h5_tk_enc"],
-                'cookie2': self.db_config["DM"]["cookie2"],
-                'sgcookie': self.db_config["DM"]["sgcookie"],
-            })
+            response = self.do_request()(url(show_id, session_id, _m_h5_tk_str))
             print('response----', response)
+            res_data = response.json()
+            ret = res_data.get('ret')
+            if response.status_code != 200 or 'SUCCESS::调用成功' not in ret:
+                return {
+                    "platform": PlatformEnum.DM,
+                    "api": 'check.ticket.by.platform',
+                    "data": response.json(),
+                    "ret": [f"ERROR::获取大麦网数据失败{ret}"],
+                    "v": 1
+                }
+            result = res_data.get('data',{}).get('result','')
+            result = json.loads(result)
+            return {
+                "platform": PlatformEnum.DM,
+                "api": 'check.ticket.by.platform',
+                "data": {
+                    "result": result,
+                    "traceId": res_data.get('traceId','')
+                },
+                "ret": ["SUCCESS::调用成功"],
+                "v": 1
+            }
         except Exception as e:
             logger.error(f"获取大麦网数据失败，\n接口: check_ticket_web, \n错误: {e}")
             return {
@@ -306,7 +332,52 @@ class DamaiService:
                 "ret": [f"ERROR::获取大麦网数据失败{e}"],
                 "v": 1
             }
-    # 检测当前演唱会的当前场次是否有票
+    # 转换参数为指定格式
+    def convert_params_to_format(self, params: RecordMonitorParams):
+        return {
+            "show_id": params.show_id,
+            "show_name": params.show_name,
+            "monitor_person": [
+                {
+                    "wx_token": params.wx_token,
+                    "deadline": params.deadline,
+                    "ticket_perform": params.ticket_perform
+                }
+            ]
+        }
+    # 记录用户需要监控的演唱会、场次、座次、时间、微信token、 监控时间
+    def post_record_monitor_web(self, params: RecordMonitorParams):
+        # 更新获取大麦网写入到db_config.json文件中的数据信息
+        self.get_db_config()
+        if not self.db_config["DM"].get("monitor_list",[]):
+            self.db_config["DM"]["monitor_list"] = []
+        monitor_list = self.db_config["DM"]["monitor_list"]
+        # 判断monitor_list中是否存在params.show_id
+        # 使用 enumerate 找到第一个符合条件的元素的下标
+        show_id_item_index = next((i for i, item in enumerate(monitor_list) if item.get('show_id') == params.show_id), -1)
+        if show_id_item_index == -1:
+            monitor_item = self.convert_params_to_format(params)
+            monitor_list.append(monitor_item)
+        else:
+            monitor_person_list = monitor_list[show_id_item_index].get('monitor_person',[])
+            monitor_item = self.convert_params_to_format(params)
+            if not monitor_person_list:
+                monitor_list[show_id_item_index]['monitor_person'] = [monitor_item.get('monitor_person')]
+            else:
+                wx_token_item_index = next((i for i, item in enumerate(monitor_person_list) if item.get('wx_token') == params.wx_token), -1)
+                if wx_token_item_index == -1:
+                    monitor_person_list.append(monitor_item.get('monitor_person'))
+                else:
+                    monitor_person_list[wx_token_item_index]['ticket_perform'] = monitor_item.get('monitor_person')[0].get('ticket_perform')
+                monitor_list[show_id_item_index]['monitor_person'] = monitor_person_list
+        print('post_record_monitor_web----monitor_list----', monitor_list)
+        return {
+            "platform": PlatformEnum.DM,
+            "api": 'record.monitor.by.platform',
+            "data": {},
+            "ret": ["SUCCESS::调用成功"],
+            "v": 1
+        }
 
     # 调用票务监控开始 测试代码需要更改
     def post_start_monitor_web(self, show_id, show_name, deadline):

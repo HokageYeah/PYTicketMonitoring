@@ -1,9 +1,11 @@
-from fastapi import APIRouter, Query
+from fastapi import APIRouter, Body, Query, Depends
 import logging
 import json
+from src.server.schemas.concert import RecordMonitorParams
 from src.server.schemas import PlatformEnum, ApiResponseData
 from src.server.services.damai import DamaiService
 from typing import Optional
+from src.server.api.endpoints.validate_params import validate_record_monitor_params
 logger = logging.getLogger(__name__)
 router = APIRouter()
 damai = DamaiService()
@@ -76,6 +78,16 @@ async def get_check_ticket(
     ):
     if platform == PlatformEnum.DM:
         return damai.check_ticket_web(show_id, session_id)
+    return None
+# 记录用户需要监控的演唱会、场次、座次、时间、微信token、 监控时间
+@router.post('/web/record.monitor.by.platform', response_model=ApiResponseData)
+async def post_record_monitor(
+    platform: PlatformEnum = Query(PlatformEnum.DM, description="平台名称"),
+    params: RecordMonitorParams = Depends(validate_record_monitor_params)
+    ):
+    if platform == PlatformEnum.DM:
+        print('params---------', params)
+        return damai.post_record_monitor_web(params)
     return None
 # 调用票务监控开始 测试需要更改
 @router.post('/web/start.monitor.by.platform')

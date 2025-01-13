@@ -14,34 +14,15 @@
                     {
                         "wx_token": "123456",
                         "deadline": "2025-01-18 00:00:00",
-                        "ticket_session": [
+                        "ticket_perform": [
                             {
-                                "session_id": "123456",
-                                "session_name": "123456",
-                                "session_price": [
+                                "perform_id": "218391320",
+                                "perform_name": "2025-02-15  周六 18:00",
+                                "sku_list": [
                                     {
-                                        "price_id": "123456",
-                                        "price_name": "2380元"
-                                    }
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "wx_token": "123456",
-                        "deadline": "2025-01-18 00:00:00",
-                        "ticket_session": [
-                            {
-                                "session_id": "123456",
-                                "session_name": "123456",
-                                "session_price": [
-                                    {
-                                        "price_id": "3456",
-                                        "price_name": "380元"
-                                    },
-                                    {
-                                        "price_id": "36",
-                                        "price_name": "80元"
+                                        "sku_id": "5688561388157",
+                                        "price_id": "293432024",
+                                        "price_name": "799元"
                                     }
                                 ]
                             }
