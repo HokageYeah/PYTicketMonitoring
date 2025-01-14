@@ -8,12 +8,14 @@ import os
 from pathlib import Path
 from src import simulateLogin
 import base64
-from time import time
+from datetime import datetime
 import json
 from src.monitor.Monitor_DM import DM
-from src import monitor
 from requests import Response
-from src.server.schemas.concert import RecordMonitorParams
+from src.server.schemas.concert import RecordMonitorParams, TicketPerform
+from pydantic import BaseModel
+from src.server.services.Ticket_Monitor import Ticket_Monitor
+import asyncio
 logger = logging.getLogger(__name__)
 
 class DamaiService:
@@ -22,9 +24,7 @@ class DamaiService:
     def __init__(self):
         self.login_dm = Login_DM()
         # 读取获取db_config.json文件
-        self.db_config_path = Path(monitor.__file__).resolve().parent / 'config' / 'db_config.json'
-        self.db_config = {}
-        self.get_db_config()
+        self.ticket_monitor = Ticket_Monitor()
         self.headers = {
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
             "Referer": "https://search.damai.cn/searchajax.html",
@@ -35,33 +35,16 @@ class DamaiService:
             "Host": "search.damai.cn"
         }
         pass
-    # 查询读取获取db_config.json文件中的数据信息
-    def get_db_config(self):
-        with open(self.db_config_path, 'r', encoding='utf-8') as f:
-            # 将f转为字符串 在转换为json
-            self.db_config = json.load(f)
-    # 更新获取大麦网写入到db_config.json文件中的数据信息
-    def update_db_config(self):
-        # 将RecordMonitorParams类型转换为字典
-        json_str = str(self.db_config)
-        # 将json_str转换为字典
-        config_dict = json.loads(json_str)
-        print('update_db_config----json_str----', config_dict)
-        # config_dict = {}
-        # for key, value in self.db_config.items():
-        #     config_dict[key] = value
-        with open(self.db_config_path, 'w', encoding='utf-8') as f:
-            json.dump(config_dict, f, ensure_ascii=False)
     def do_request(self):
         inner_cookies = dict()
         def inner_request(url: str, cookies=None) -> Response:
             nonlocal inner_cookies
             # 更新获取大麦网写入到db_config.json文件中的数据信息
-            self.get_db_config()
-            inner_cookies['_m_h5_tk'] = self.db_config["DM"]["_m_h5_tk"]
-            inner_cookies['_m_h5_tk_enc'] = self.db_config["DM"]["_m_h5_tk_enc"]
-            inner_cookies['cookie2'] = self.db_config["DM"]["cookie2"]
-            inner_cookies['sgcookie'] = self.db_config["DM"]["sgcookie"]
+            self.ticket_monitor.get_db_config()
+            inner_cookies['_m_h5_tk'] = self.ticket_monitor.db_config["DM"]["_m_h5_tk"]
+            inner_cookies['_m_h5_tk_enc'] = self.ticket_monitor.db_config["DM"]["_m_h5_tk_enc"]
+            inner_cookies['cookie2'] = self.ticket_monitor.db_config["DM"]["cookie2"]
+            inner_cookies['sgcookie'] = self.ticket_monitor.db_config["DM"]["sgcookie"]
             # 有cookies则更新，没有则使用默认的，有cookies将cookies追加到inner_cookies中
             inner_cookies = inner_cookies if not cookies else { **inner_cookies, **cookies }
             # print('inner_cookies----', inner_cookies)
@@ -272,7 +255,7 @@ class DamaiService:
     def get_item_detail_web(self, show_id):
         try:
             url = DM.get_show_url()
-            _m_h5_tk_str = self.db_config["DM"]["_m_h5_tk"]+';'+self.db_config["DM"]["_m_h5_tk_enc"]
+            _m_h5_tk_str = self.ticket_monitor.db_config["DM"]["_m_h5_tk"]+';'+self.ticket_monitor.db_config["DM"]["_m_h5_tk_enc"]
             response = self.do_request()(url(show_id, _m_h5_tk_str))
             print('response----', response)
             res_data = response.json()
@@ -311,7 +294,7 @@ class DamaiService:
     def check_ticket_web(self, show_id, session_id):
         try:
             url = DM.get_seat_url()
-            _m_h5_tk_str = self.db_config["DM"]["_m_h5_tk"]
+            _m_h5_tk_str = self.ticket_monitor.db_config["DM"]["_m_h5_tk"]
             response = self.do_request()(url(show_id, session_id, _m_h5_tk_str))
             print('response----', response)
             res_data = response.json()
@@ -360,60 +343,82 @@ class DamaiService:
         }
     # 记录用户需要监控的演唱会、场次、座次、时间、微信token、 监控时间
     def post_record_monitor_web(self, params: RecordMonitorParams):
-        # 更新获取大麦网写入到db_config.json文件中的数据信息
-        self.get_db_config()
-        if not self.db_config["DM"].get("monitor_list",[]):
-            self.db_config["DM"]["monitor_list"] = []
-        monitor_list = self.db_config["DM"]["monitor_list"]
-        # params转字符串
-        # params_str = json.dumps(params)
-        # params转字典
-        # params_dict = json.loads(params_str)
-        # 判断monitor_list中是否存在params.show_id
-        # 使用 enumerate 找到第一个符合条件的元素的下标
-        show_id_item_index = next((i for i, item in enumerate(monitor_list) if item.get('show_id') == params.show_id), -1)
-        if show_id_item_index == -1:
-            monitor_item = self.convert_params_to_format(params)
-            monitor_list.append(monitor_item)
-        else:
-            monitor_person_list = monitor_list[show_id_item_index].get('monitor_person',[])
-            monitor_item = self.convert_params_to_format(params)
-            if not monitor_person_list:
-                monitor_list[show_id_item_index]['monitor_person'] = [monitor_item.get('monitor_person')]
-            else:
-                wx_token_item_index = next((i for i, item in enumerate(monitor_person_list) if item.get('wx_token') == params.wx_token), -1)
-                if wx_token_item_index == -1:
-                    monitor_person_list.append(monitor_item.get('monitor_person'))
-                else:
-                    monitor_person_list[wx_token_item_index]['ticket_perform'] = monitor_item.get('monitor_person')[0].get('ticket_perform')
-                monitor_list[show_id_item_index]['monitor_person'] = monitor_person_list
-        # 将monitor_list转换为字符串
-        self.db_config["DM"]["monitor_list"] = monitor_list
-        print('post_record_monitor_web----db_config----', self.db_config)
-        print('post_record_monitor_web----monitor_list----', type(self.db_config))
-        # 更新获取大麦网写入到db_config.json文件中的数据信息
-        self.update_db_config()
-        return {
-            "platform": PlatformEnum.DM,
-            "api": 'record.monitor.by.platform',
-            "data": {},
-            "ret": ["SUCCESS::调用成功"],
-            "v": 1
-        }
-
-    # 调用票务监控开始 测试代码需要更改
-    def post_start_monitor_web(self, show_id, show_name, deadline):
         try:
-            # 测试代码
-            from src.monitor.start import Runner
-            runner = Runner()
-            runner.start()
+            # 更新获取大麦网写入到db_config.json文件中的数据信息
+            self.ticket_monitor.get_db_config()
+            if not self.ticket_monitor.db_config["DM"].get("monitor_list",[]):
+                self.ticket_monitor.db_config["DM"]["monitor_list"] = []
+            monitor_list = self.ticket_monitor.db_config["DM"]["monitor_list"]
+            # 使用 enumerate 找到第一个符合条件的元素的下标
+            show_id_item_index = next((i for i, item in enumerate(monitor_list) if item.get('show_id') == params.show_id), -1)
+            if show_id_item_index == -1:
+                monitor_item = self.convert_params_to_format(params)
+                monitor_list.append(monitor_item)
+            else:
+                monitor_person_list = monitor_list[show_id_item_index].get('monitor_person',[])
+                monitor_item = self.convert_params_to_format(params)
+                if not monitor_person_list:
+                    monitor_list[show_id_item_index]['monitor_person'] = [monitor_item.get('monitor_person')]
+                else:
+                    wx_token_item_index = next((i for i, item in enumerate(monitor_person_list) if item.get('wx_token') == params.wx_token), -1)
+                    if wx_token_item_index == -1:
+                        monitor_person_list.append(monitor_item.get('monitor_person')[0])
+                    else:
+                        monitor_person_list[wx_token_item_index]['ticket_perform'] = monitor_item.get('monitor_person')[0].get('ticket_perform',[])
+                    monitor_list[show_id_item_index]['monitor_person'] = monitor_person_list
+            # 将monitor_list转换为字符串
+            self.ticket_monitor.db_config["DM"]["monitor_list"] = monitor_list
+            # 更新获取大麦网写入到db_config.json文件中的数据信息
+            self.ticket_monitor.update_db_config()
+            return {
+                "platform": PlatformEnum.DM,
+                "api": 'record.monitor.by.platform',
+                "data": {
+                    "monitor_list": monitor_list
+                },
+                "ret": ["SUCCESS::调用成功"],
+                "v": 1
+                }
         except Exception as e:
-            logger.error(f"获取大麦网数据失败，\n接口: start_monitor_web, \n错误: {e}")
+            logger.error(f"获取大麦网数据失败，\n接口: post_record_monitor_web, \n错误: {e}")
+            return {
+                "platform": PlatformEnum.DM,
+                "api": 'record.monitor.by.platform',
+                "data": {},
+                "ret": [f"ERROR::获取大麦网数据失败{e}"],
+                "v": 1
+            }
+    def monitor_ticket(self, show_id, ticket_perform: TicketPerform):
+        # 获取大麦网监控对象
+        logging.info(f"大麦 {self.show_info.get('show_name')} 监控中")
+        can_buy_list = list()
+        for ticket_perform_item in ticket_perform:
+            # 获取ticket_perform中的perform_id
+            perform_id = ticket_perform_item.get('perform_id')
+            response = self.check_ticket_web(show_id, perform_id)
+            if response.json().get("ret") == ["SUCCESS::调用成功"]:
+                result = json.loads(response.json().get("data").get("result"))  
+                # 遍历result
+                for sku_item in result.get("perform").get("skuList"):
+                    # 获取sku_item中的sku_id
+                    sku_id = sku_item.get('skuId')
+                    # 获取sku_item中的skuSalable
+                    skuSalable = sku_item.get('skuSalable')
+                    if skuSalable == "false":
+                        continue
+                    can_buy_list.append(sku_id)
+        return can_buy_list
+
+    # 调用票务监控开始、检测数据库中存储的演唱会票务情况
+    def post_start_monitor_web(self):
+        try:
+            self.ticket_monitor.monitor(self)  
+        except Exception as e:
+            logger.error(f"调用票务监控失败，\n接口: start_monitor_web, \n错误: {e}")
             return {
                 "platform": PlatformEnum.DM,
                 "api": 'start.monitor.by.platform',
                 "data": {},
-                "ret": [f"ERROR::获取大麦网数据失败{e}"],
+                "ret": [f"ERROR::调用票务监控数据失败{e}"],
                 "v": 1
             }

@@ -23,21 +23,21 @@ async def get_search_concerts(
     platform: PlatformEnum = Query(PlatformEnum.DM, description="平台名称")
     ):
     print('platform---------', platform)
-    if platform == PlatformEnum.DM:
+    if platform.value == PlatformEnum.DM.value:
         return damai.search_concert_web(cty, keyword, ctl)
     return None
 
 # 调用网站登录生成二维码接口，返回二维码图片
 @router.get('/web/login.qrcode.by.platform', response_model=ApiResponseData)
 async def get_login_qrcode(platform: PlatformEnum = Query(PlatformEnum.DM, description="平台名称")):
-    if platform == PlatformEnum.DM:
+    if platform.value == PlatformEnum.DM.value:
         return damai.get_generate_code_web()
     return None
 
 # 调用网站验证查询是否扫码登录
 @router.post('/web/login.query.by.platform', response_model=ApiResponseData)
 async def post_login_query(platform: PlatformEnum = Query(PlatformEnum.DM, description="平台名称")):
-    if platform == PlatformEnum.DM:
+    if platform.value == PlatformEnum.DM.value:
         json_data = damai.post_login_query_web()
         # # 判断是否登录成功，登录成功直接调用登录 get_dologin接口
         # print('json_data---------', json_data)
@@ -51,13 +51,13 @@ async def post_login_query(platform: PlatformEnum = Query(PlatformEnum.DM, descr
 # 扫码成功后调用登录
 @router.get('/web/dologin.by.platform', response_model=ApiResponseData)
 async def get_dologin(platform: PlatformEnum = Query(PlatformEnum.DM, description="平台名称")):
-    if platform == PlatformEnum.DM:
+    if platform.value == PlatformEnum.DM.value:
         return damai.get_dologin_web()
     return None
 # 获取大麦网用户信息(主要获取_m_h5_tk 和 _m_h5_tk_enc)
 @router.get('/web/userinfo.by.platform', response_model=ApiResponseData)
 async def get_userinfo(platform: PlatformEnum = Query(PlatformEnum.DM, description="平台名称")):
-    if platform == PlatformEnum.DM:
+    if platform.value == PlatformEnum.DM.value:
         return damai.get_user_info_web()
     return None
 # 获取单个演唱会详情信息（鉴权、需要登录）
@@ -66,7 +66,7 @@ async def get_concert_detail(
     platform: PlatformEnum = Query(PlatformEnum.DM, description="平台名称"),
     show_id: Optional[str] = Query(None, description="演唱会ID"), # show_id演唱会id必须有
     ):
-    if platform == PlatformEnum.DM:
+    if platform.value == PlatformEnum.DM.value:
         return damai.get_item_detail_web(show_id)
     return None
 # 检测当前场次是否有坐次（是否又票）
@@ -76,7 +76,7 @@ async def get_check_ticket(
     show_id: str = Query('', description="演唱会ID"),
     session_id: str = Query('', description="场次ID")
     ):
-    if platform == PlatformEnum.DM:
+    if platform.value == PlatformEnum.DM.value:
         return damai.check_ticket_web(show_id, session_id)
     return None
 # 记录用户需要监控的演唱会、场次、座次、时间、微信token、 监控时间
@@ -85,7 +85,7 @@ async def post_record_monitor(
     platform: PlatformEnum = Query(PlatformEnum.DM, description="平台名称"),
     params: RecordMonitorParams = Depends(validate_record_monitor_params)
     ):
-    if platform == PlatformEnum.DM:
+    if platform.value == PlatformEnum.DM.value:
         print('params---------', params)
         return damai.post_record_monitor_web(params)
     return None
@@ -93,10 +93,9 @@ async def post_record_monitor(
 @router.post('/web/start.monitor.by.platform')
 async def post_start_monitor(
     platform: PlatformEnum = Query(PlatformEnum.DM, description="平台名称"),
-    show_id: str = Query('', description="演出ID"),
-    show_name: str = Query('', description="演出名称"),
-    deadline: str = Query('', description="轮训截止时间") # 轮训截止时间
     ):
-    if platform == PlatformEnum.DM:
-        return damai.post_start_monitor_web(show_id, show_name, deadline)
+    print('new---platform------', platform.value)
+    print('new---platform------PlatformEnum', PlatformEnum.DM.value)
+    if platform.value == PlatformEnum.DM.value:
+        return damai.post_start_monitor_web()
     return None
