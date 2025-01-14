@@ -343,3 +343,428 @@
 2025-01-14 18:37:04.260 [main.py:63] : FastAPI 搴旂敤鍏抽棴
 2025-01-14 18:37:05.032 [main.py:59] : FastAPI 搴旂敤鍚姩
 2025-01-14 18:38:49.248 [main.py:63] : FastAPI 搴旂敤鍏抽棴
+2025-01-14 22:11:42.423 [main.py:59] : FastAPI 应用启动
+2025-01-14 22:16:10.309 [Ticket_Monitor.py:46] : 开始监控演唱会...
+2025-01-14 22:16:10.311 [Ticket_Monitor.py:113] : DM 监控中
+2025-01-14 22:16:10.521 [Ticket_Monitor.py:113] : DM 监控中
+2025-01-14 22:16:10.736 [Ticket_Monitor.py:113] : DM 监控中
+2025-01-14 22:16:10.940 [Ticket_Monitor.py:113] : DM 监控中
+2025-01-14 22:16:11.134 [Ticket_Monitor.py:113] : DM 监控中
+2025-01-14 22:16:32.198 [main.py:63] : FastAPI 应用关闭
+2025-01-14 22:25:23.411 [main.py:59] : FastAPI 应用启动
+2025-01-14 22:35:56.304 [main.py:63] : FastAPI 应用关闭
+2025-01-14 22:35:58.470 [main.py:59] : FastAPI 应用启动
+2025-01-14 22:36:00.922 [Ticket_Monitor.py:46] : 开始监控演唱会...
+2025-01-14 22:36:00.923 [Ticket_Monitor.py:114] : DM 监控中
+2025-01-14 22:36:01.145 [Ticket_Monitor.py:114] : DM 监控中
+2025-01-14 22:36:01.337 [Ticket_Monitor.py:114] : DM 监控中
+2025-01-14 22:36:01.554 [Ticket_Monitor.py:114] : DM 监控中
+2025-01-14 22:36:01.758 [Ticket_Monitor.py:114] : DM 监控中
+2025-01-14 22:36:01.954 [Ticket_Monitor.py:60] : 监控平台 DM 时出错: 
+2025-01-14 22:36:49.243 [main.py:63] : FastAPI 应用关闭
+2025-01-14 22:36:51.275 [main.py:59] : FastAPI 应用启动
+2025-01-14 22:36:54.284 [Ticket_Monitor.py:46] : 开始监控演唱会...
+2025-01-14 22:36:54.285 [Ticket_Monitor.py:114] : DM 监控中
+2025-01-14 22:36:54.496 [Ticket_Monitor.py:114] : DM 监控中
+2025-01-14 22:36:54.683 [Ticket_Monitor.py:114] : DM 监控中
+2025-01-14 22:36:54.868 [Ticket_Monitor.py:114] : DM 监控中
+2025-01-14 22:36:55.072 [Ticket_Monitor.py:114] : DM 监控中
+2025-01-14 22:36:55.270 [Ticket_Monitor.py:60] : 监控平台 DM 时出错: 
+2025-01-14 22:38:42.984 [main.py:63] : FastAPI 应用关闭
+2025-01-14 22:38:45.300 [main.py:59] : FastAPI 应用启动
+2025-01-14 22:38:52.559 [main.py:63] : FastAPI 应用关闭
+2025-01-14 22:38:54.793 [main.py:59] : FastAPI 应用启动
+2025-01-14 22:38:58.082 [Ticket_Monitor.py:46] : 开始监控演唱会...
+2025-01-14 22:38:58.082 [Ticket_Monitor.py:115] : DM 监控中
+2025-01-14 22:38:58.269 [Ticket_Monitor.py:115] : DM 监控中
+2025-01-14 22:38:58.534 [Ticket_Monitor.py:115] : DM 监控中
+2025-01-14 22:38:58.712 [Ticket_Monitor.py:115] : DM 监控中
+2025-01-14 22:38:58.929 [Ticket_Monitor.py:115] : DM 监控中
+2025-01-14 22:38:59.143 [Ticket_Monitor.py:60] : 监控平台 DM 时出错: 
+2025-01-14 22:46:58.765 [main.py:63] : FastAPI 应用关闭
+2025-01-14 22:47:01.166 [main.py:59] : FastAPI 应用启动
+2025-01-14 22:47:09.913 [Ticket_Monitor.py:46] : 开始监控演唱会...
+2025-01-14 22:47:09.914 [Ticket_Monitor.py:115] : DM 监控中
+2025-01-14 22:47:10.134 [Ticket_Monitor.py:115] : DM 监控中
+2025-01-14 22:47:10.308 [Ticket_Monitor.py:115] : DM 监控中
+2025-01-14 22:47:10.481 [Ticket_Monitor.py:115] : DM 监控中
+2025-01-14 22:47:10.673 [Ticket_Monitor.py:115] : DM 监控中
+2025-01-14 22:47:10.886 [Ticket_Monitor.py:60] : 监控平台 DM 时出错: too many values to unpack (expected 2)
+2025-01-14 22:49:43.296 [main.py:63] : FastAPI 应用关闭
+2025-01-14 22:49:45.342 [main.py:59] : FastAPI 应用启动
+2025-01-14 22:50:11.440 [main.py:63] : FastAPI 应用关闭
+2025-01-14 22:50:13.240 [main.py:59] : FastAPI 应用启动
+2025-01-14 22:50:14.679 [Ticket_Monitor.py:46] : 开始监控演唱会...
+2025-01-14 22:50:14.679 [Ticket_Monitor.py:115] : DM 监控中
+2025-01-14 22:50:14.921 [Ticket_Monitor.py:115] : DM 监控中
+2025-01-14 22:50:15.126 [Ticket_Monitor.py:115] : DM 监控中
+2025-01-14 22:50:15.320 [Ticket_Monitor.py:115] : DM 监控中
+2025-01-14 22:50:15.506 [Ticket_Monitor.py:115] : DM 监控中
+2025-01-14 22:50:15.708 [Ticket_Monitor.py:60] : 监控平台 DM 时出错: too many values to unpack (expected 2)
+2025-01-14 22:51:41.871 [main.py:63] : FastAPI 应用关闭
+2025-01-14 22:51:44.201 [main.py:59] : FastAPI 应用启动
+2025-01-14 22:52:27.983 [main.py:63] : FastAPI 应用关闭
+2025-01-14 22:52:30.152 [main.py:59] : FastAPI 应用启动
+2025-01-14 22:52:30.659 [Ticket_Monitor.py:46] : 开始监控演唱会...
+2025-01-14 22:52:30.660 [Ticket_Monitor.py:115] : DM 监控中
+2025-01-14 22:52:30.890 [Ticket_Monitor.py:115] : DM 监控中
+2025-01-14 22:52:31.093 [Ticket_Monitor.py:115] : DM 监控中
+2025-01-14 22:52:31.288 [Ticket_Monitor.py:115] : DM 监控中
+2025-01-14 22:52:31.485 [Ticket_Monitor.py:115] : DM 监控中
+2025-01-14 22:53:26.430 [main.py:63] : FastAPI 应用关闭
+2025-01-14 22:53:29.402 [main.py:59] : FastAPI 应用启动
+2025-01-14 22:53:29.729 [Ticket_Monitor.py:46] : 开始监控演唱会...
+2025-01-14 22:53:29.736 [Ticket_Monitor.py:114] : DM 监控中
+2025-01-14 22:53:30.023 [Ticket_Monitor.py:114] : DM 监控中
+2025-01-14 22:53:30.204 [Ticket_Monitor.py:114] : DM 监控中
+2025-01-14 22:53:30.409 [Ticket_Monitor.py:114] : DM 监控中
+2025-01-14 22:53:30.595 [Ticket_Monitor.py:114] : DM 监控中
+2025-01-14 22:54:43.301 [main.py:63] : FastAPI 应用关闭
+2025-01-14 22:54:45.190 [main.py:59] : FastAPI 应用启动
+2025-01-14 22:54:46.949 [Ticket_Monitor.py:46] : 开始监控演唱会...
+2025-01-14 22:54:46.951 [Ticket_Monitor.py:115] : DM 监控中
+2025-01-14 22:54:47.142 [Ticket_Monitor.py:115] : DM 监控中
+2025-01-14 22:54:47.363 [Ticket_Monitor.py:115] : DM 监控中
+2025-01-14 22:54:47.556 [Ticket_Monitor.py:115] : DM 监控中
+2025-01-14 22:54:47.767 [Ticket_Monitor.py:115] : DM 监控中
+2025-01-14 23:15:36.879 [main.py:63] : FastAPI 应用关闭
+2025-01-14 23:15:38.715 [main.py:59] : FastAPI 应用启动
+2025-01-14 23:17:27.156 [main.py:63] : FastAPI 应用关闭
+2025-01-14 23:25:02.027 [main.py:59] : FastAPI 应用启动
+2025-01-14 23:25:52.075 [main.py:63] : FastAPI 应用关闭
+2025-01-14 23:25:53.973 [main.py:59] : FastAPI 应用启动
+2025-01-14 23:25:59.535 [Ticket_Monitor.py:46] : 开始监控演唱会...
+2025-01-14 23:25:59.538 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:25:59.770 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:25:59.958 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:26:00.131 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:26:00.338 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:26:00.523 [Ticket_Monitor.py:60] : 监控平台 DM 时出错: unhashable type: 'list'
+2025-01-14 23:26:28.706 [main.py:63] : FastAPI 应用关闭
+2025-01-14 23:26:30.982 [main.py:59] : FastAPI 应用启动
+2025-01-14 23:26:35.632 [Ticket_Monitor.py:46] : 开始监控演唱会...
+2025-01-14 23:26:35.633 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:26:35.821 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:26:36.000 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:26:36.189 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:26:36.395 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:26:36.595 [Ticket_Monitor.py:60] : 监控平台 DM 时出错: unhashable type: 'list'
+2025-01-14 23:29:26.810 [main.py:63] : FastAPI 应用关闭
+2025-01-14 23:29:29.369 [main.py:59] : FastAPI 应用启动
+2025-01-14 23:29:31.434 [Ticket_Monitor.py:46] : 开始监控演唱会...
+2025-01-14 23:29:31.436 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:29:31.633 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:29:31.812 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:29:31.993 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:29:32.177 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:29:32.366 [Ticket_Monitor.py:60] : 监控平台 DM 时出错: unhashable type: 'list'
+2025-01-14 23:30:31.839 [main.py:63] : FastAPI 应用关闭
+2025-01-14 23:30:33.922 [main.py:59] : FastAPI 应用启动
+2025-01-14 23:30:42.576 [Ticket_Monitor.py:46] : 开始监控演唱会...
+2025-01-14 23:30:42.577 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:30:42.774 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:30:42.962 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:30:43.172 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:30:43.355 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:30:55.337 [main.py:63] : FastAPI 应用关闭
+2025-01-14 23:30:57.253 [main.py:59] : FastAPI 应用启动
+2025-01-14 23:32:55.528 [Ticket_Monitor.py:46] : 开始监控演唱会...
+2025-01-14 23:32:55.529 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:32:55.743 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:32:55.931 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:32:56.141 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:32:56.372 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:32:56.585 [Ticket_Monitor.py:60] : 监控平台 DM 时出错: unhashable type: 'list'
+2025-01-14 23:33:49.950 [main.py:63] : FastAPI 应用关闭
+2025-01-14 23:33:51.922 [main.py:59] : FastAPI 应用启动
+2025-01-14 23:33:52.189 [Ticket_Monitor.py:46] : 开始监控演唱会...
+2025-01-14 23:33:52.190 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:33:52.422 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:33:52.610 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:33:52.794 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:33:53.017 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:33:53.223 [Ticket_Monitor.py:60] : 监控平台 DM 时出错: unhashable type: 'list'
+2025-01-14 23:34:03.787 [main.py:63] : FastAPI 应用关闭
+2025-01-14 23:34:06.104 [main.py:59] : FastAPI 应用启动
+2025-01-14 23:34:06.292 [Ticket_Monitor.py:46] : 开始监控演唱会...
+2025-01-14 23:34:06.293 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:34:06.503 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:34:06.683 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:34:06.864 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:34:07.042 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:34:13.890 [main.py:63] : FastAPI 应用关闭
+2025-01-14 23:34:16.111 [main.py:59] : FastAPI 应用启动
+2025-01-14 23:34:16.174 [Ticket_Monitor.py:46] : 开始监控演唱会...
+2025-01-14 23:34:16.175 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:34:16.359 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:34:16.559 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:34:16.789 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:34:16.969 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:34:30.986 [main.py:63] : FastAPI 应用关闭
+2025-01-14 23:34:32.884 [main.py:59] : FastAPI 应用启动
+2025-01-14 23:34:35.442 [main.py:63] : FastAPI 应用关闭
+2025-01-14 23:34:37.764 [main.py:59] : FastAPI 应用启动
+2025-01-14 23:34:37.823 [Ticket_Monitor.py:46] : 开始监控演唱会...
+2025-01-14 23:34:37.823 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:34:38.028 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:34:38.211 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:34:38.403 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:34:38.591 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:34:38.799 [Ticket_Monitor.py:60] : 监控平台 DM 时出错: unhashable type: 'list'
+2025-01-14 23:35:02.396 [main.py:63] : FastAPI 应用关闭
+2025-01-14 23:35:04.294 [main.py:59] : FastAPI 应用启动
+2025-01-14 23:36:11.023 [main.py:63] : FastAPI 应用关闭
+2025-01-14 23:36:12.907 [main.py:59] : FastAPI 应用启动
+2025-01-14 23:36:13.914 [Ticket_Monitor.py:46] : 开始监控演唱会...
+2025-01-14 23:36:13.914 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:36:14.125 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:36:14.330 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:36:14.532 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:36:14.735 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:36:14.949 [Ticket_Monitor.py:60] : 监控平台 DM 时出错: unhashable type: 'list'
+2025-01-14 23:40:14.288 [main.py:63] : FastAPI 应用关闭
+2025-01-14 23:40:16.069 [main.py:59] : FastAPI 应用启动
+2025-01-14 23:40:43.097 [main.py:63] : FastAPI 应用关闭
+2025-01-14 23:40:45.053 [main.py:59] : FastAPI 应用启动
+2025-01-14 23:40:45.112 [Ticket_Monitor.py:46] : 开始监控演唱会...
+2025-01-14 23:40:45.113 [Ticket_Monitor.py:168] : DM 监控中
+2025-01-14 23:40:45.328 [Ticket_Monitor.py:168] : DM 监控中
+2025-01-14 23:40:45.528 [Ticket_Monitor.py:168] : DM 监控中
+2025-01-14 23:40:45.728 [Ticket_Monitor.py:168] : DM 监控中
+2025-01-14 23:40:45.930 [Ticket_Monitor.py:168] : DM 监控中
+2025-01-14 23:40:46.114 [Ticket_Monitor.py:60] : 监控平台 DM 时出错: unhashable type: 'list'
+2025-01-14 23:41:08.550 [main.py:63] : FastAPI 应用关闭
+2025-01-14 23:41:10.767 [main.py:59] : FastAPI 应用启动
+2025-01-14 23:41:13.168 [Ticket_Monitor.py:46] : 开始监控演唱会...
+2025-01-14 23:41:13.169 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:41:13.382 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:41:13.572 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:41:13.763 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:41:13.950 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:41:14.155 [Ticket_Monitor.py:60] : 监控平台 DM 时出错: unhashable type: 'list'
+2025-01-14 23:43:35.013 [main.py:63] : FastAPI 应用关闭
+2025-01-14 23:43:37.273 [main.py:59] : FastAPI 应用启动
+2025-01-14 23:43:41.269 [main.py:63] : FastAPI 应用关闭
+2025-01-14 23:43:43.660 [main.py:59] : FastAPI 应用启动
+2025-01-14 23:43:44.086 [Ticket_Monitor.py:46] : 开始监控演唱会...
+2025-01-14 23:43:44.111 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:43:44.320 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:43:44.520 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:43:44.693 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:43:44.891 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:43:45.072 [Ticket_Monitor.py:60] : 监控平台 DM 时出错: unhashable type: 'dict'
+2025-01-14 23:43:51.932 [main.py:63] : FastAPI 应用关闭
+2025-01-14 23:43:53.780 [main.py:59] : FastAPI 应用启动
+2025-01-14 23:43:56.333 [main.py:63] : FastAPI 应用关闭
+2025-01-14 23:43:58.872 [main.py:59] : FastAPI 应用启动
+2025-01-14 23:43:58.977 [Ticket_Monitor.py:46] : 开始监控演唱会...
+2025-01-14 23:43:58.980 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:43:59.248 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:43:59.427 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:43:59.616 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:43:59.796 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:44:00.005 [Ticket_Monitor.py:60] : 监控平台 DM 时出错: unhashable type: 'list'
+2025-01-14 23:44:07.603 [main.py:63] : FastAPI 应用关闭
+2025-01-14 23:44:09.606 [main.py:59] : FastAPI 应用启动
+2025-01-14 23:44:28.826 [main.py:63] : FastAPI 应用关闭
+2025-01-14 23:44:31.367 [main.py:59] : FastAPI 应用启动
+2025-01-14 23:44:31.576 [Ticket_Monitor.py:46] : 开始监控演唱会...
+2025-01-14 23:44:31.577 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:44:31.779 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:44:31.975 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:44:32.176 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:44:32.399 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:44:32.582 [Ticket_Monitor.py:60] : 监控平台 DM 时出错: unhashable type: 'list'
+2025-01-14 23:45:31.057 [main.py:63] : FastAPI 应用关闭
+2025-01-14 23:45:32.933 [main.py:59] : FastAPI 应用启动
+2025-01-14 23:45:57.141 [Ticket_Monitor.py:46] : 开始监控演唱会...
+2025-01-14 23:45:57.142 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:45:57.325 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:45:57.520 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:45:57.716 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:45:57.916 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:45:58.099 [Ticket_Monitor.py:60] : 监控平台 DM 时出错: unhashable type: 'list'
+2025-01-14 23:46:14.468 [Ticket_Monitor.py:46] : 开始监控演唱会...
+2025-01-14 23:46:14.469 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:46:14.664 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:46:14.846 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:46:15.024 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:46:15.241 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:46:15.431 [Ticket_Monitor.py:60] : 监控平台 DM 时出错: unhashable type: 'list'
+2025-01-14 23:46:21.527 [main.py:63] : FastAPI 应用关闭
+2025-01-14 23:46:23.499 [main.py:59] : FastAPI 应用启动
+2025-01-14 23:46:24.734 [Ticket_Monitor.py:46] : 开始监控演唱会...
+2025-01-14 23:46:24.735 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:46:24.935 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:46:25.118 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:46:25.313 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:46:25.482 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:46:47.797 [main.py:63] : FastAPI 应用关闭
+2025-01-14 23:46:50.541 [main.py:59] : FastAPI 应用启动
+2025-01-14 23:46:50.600 [Ticket_Monitor.py:46] : 开始监控演唱会...
+2025-01-14 23:46:50.601 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:46:50.787 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:46:50.970 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:46:51.154 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:46:51.336 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:46:51.513 [Ticket_Monitor.py:60] : 监控平台 DM 时出错: unhashable type: 'list'
+2025-01-14 23:47:00.209 [main.py:63] : FastAPI 应用关闭
+2025-01-14 23:47:02.164 [main.py:59] : FastAPI 应用启动
+2025-01-14 23:47:02.345 [Ticket_Monitor.py:46] : 开始监控演唱会...
+2025-01-14 23:47:02.345 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:47:02.540 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:47:02.711 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:47:02.891 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:47:03.068 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:47:03.245 [Ticket_Monitor.py:60] : 监控平台 DM 时出错: unhashable type: 'list'
+2025-01-14 23:47:37.149 [main.py:63] : FastAPI 应用关闭
+2025-01-14 23:47:38.884 [main.py:59] : FastAPI 应用启动
+2025-01-14 23:48:06.793 [main.py:63] : FastAPI 应用关闭
+2025-01-14 23:48:08.712 [main.py:59] : FastAPI 应用启动
+2025-01-14 23:48:08.811 [Ticket_Monitor.py:46] : 开始监控演唱会...
+2025-01-14 23:48:08.812 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:48:09.003 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:48:09.187 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:48:09.363 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:48:09.607 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:48:09.816 [Ticket_Monitor.py:60] : 监控平台 DM 时出错: unhashable type: 'list'
+2025-01-14 23:48:15.248 [main.py:63] : FastAPI 应用关闭
+2025-01-14 23:48:17.100 [main.py:59] : FastAPI 应用启动
+2025-01-14 23:48:33.953 [main.py:63] : FastAPI 应用关闭
+2025-01-14 23:48:36.426 [main.py:59] : FastAPI 应用启动
+2025-01-14 23:48:36.483 [Ticket_Monitor.py:46] : 开始监控演唱会...
+2025-01-14 23:48:36.484 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:48:36.678 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:48:36.866 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:48:37.047 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:48:37.240 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:48:54.839 [main.py:63] : FastAPI 应用关闭
+2025-01-14 23:48:56.999 [main.py:59] : FastAPI 应用启动
+2025-01-14 23:48:57.183 [Ticket_Monitor.py:46] : 开始监控演唱会...
+2025-01-14 23:48:57.184 [Ticket_Monitor.py:151] : DM 监控中
+2025-01-14 23:48:57.375 [Ticket_Monitor.py:151] : DM 监控中
+2025-01-14 23:48:57.548 [Ticket_Monitor.py:151] : DM 监控中
+2025-01-14 23:48:57.719 [Ticket_Monitor.py:151] : DM 监控中
+2025-01-14 23:48:57.910 [Ticket_Monitor.py:151] : DM 监控中
+2025-01-14 23:49:07.438 [main.py:63] : FastAPI 应用关闭
+2025-01-14 23:49:18.579 [main.py:59] : FastAPI 应用启动
+2025-01-14 23:49:18.633 [Ticket_Monitor.py:46] : 开始监控演唱会...
+2025-01-14 23:49:18.633 [Ticket_Monitor.py:152] : DM 监控中
+2025-01-14 23:49:18.829 [Ticket_Monitor.py:152] : DM 监控中
+2025-01-14 23:49:19.030 [Ticket_Monitor.py:152] : DM 监控中
+2025-01-14 23:49:19.225 [Ticket_Monitor.py:152] : DM 监控中
+2025-01-14 23:49:19.432 [Ticket_Monitor.py:152] : DM 监控中
+2025-01-14 23:49:19.617 [Ticket_Monitor.py:60] : 监控平台 DM 时出错: unhashable type: 'list'
+2025-01-14 23:49:20.765 [Ticket_Monitor.py:46] : 开始监控演唱会...
+2025-01-14 23:49:20.766 [Ticket_Monitor.py:152] : DM 监控中
+2025-01-14 23:49:20.950 [Ticket_Monitor.py:152] : DM 监控中
+2025-01-14 23:49:21.131 [Ticket_Monitor.py:152] : DM 监控中
+2025-01-14 23:49:21.310 [Ticket_Monitor.py:152] : DM 监控中
+2025-01-14 23:49:21.479 [Ticket_Monitor.py:152] : DM 监控中
+2025-01-14 23:49:21.657 [Ticket_Monitor.py:60] : 监控平台 DM 时出错: unhashable type: 'list'
+2025-01-14 23:49:59.086 [main.py:63] : FastAPI 应用关闭
+2025-01-14 23:50:01.756 [main.py:59] : FastAPI 应用启动
+2025-01-14 23:50:02.879 [Ticket_Monitor.py:46] : 开始监控演唱会...
+2025-01-14 23:50:02.982 [Ticket_Monitor.py:152] : DM 监控中
+2025-01-14 23:50:03.373 [Ticket_Monitor.py:152] : DM 监控中
+2025-01-14 23:50:03.567 [Ticket_Monitor.py:152] : DM 监控中
+2025-01-14 23:50:03.741 [Ticket_Monitor.py:152] : DM 监控中
+2025-01-14 23:50:03.927 [Ticket_Monitor.py:152] : DM 监控中
+2025-01-14 23:50:04.113 [Ticket_Monitor.py:60] : 监控平台 DM 时出错: unhashable type: 'list'
+2025-01-14 23:51:11.445 [main.py:63] : FastAPI 应用关闭
+2025-01-14 23:51:13.653 [main.py:59] : FastAPI 应用启动
+2025-01-14 23:51:15.782 [Ticket_Monitor.py:46] : 开始监控演唱会...
+2025-01-14 23:51:15.783 [Ticket_Monitor.py:163] : DM 监控中
+2025-01-14 23:51:15.978 [Ticket_Monitor.py:163] : DM 监控中
+2025-01-14 23:51:16.168 [Ticket_Monitor.py:163] : DM 监控中
+2025-01-14 23:51:16.368 [Ticket_Monitor.py:163] : DM 监控中
+2025-01-14 23:51:16.578 [Ticket_Monitor.py:163] : DM 监控中
+2025-01-14 23:51:16.774 [Ticket_Monitor.py:60] : 监控平台 DM 时出错: unhashable type: 'list'
+2025-01-14 23:51:35.922 [main.py:63] : FastAPI 应用关闭
+2025-01-14 23:51:38.326 [main.py:59] : FastAPI 应用启动
+2025-01-14 23:51:38.380 [Ticket_Monitor.py:46] : 开始监控演唱会...
+2025-01-14 23:51:38.381 [Ticket_Monitor.py:156] : DM 监控中
+2025-01-14 23:51:38.582 [Ticket_Monitor.py:156] : DM 监控中
+2025-01-14 23:51:38.766 [Ticket_Monitor.py:156] : DM 监控中
+2025-01-14 23:51:38.935 [Ticket_Monitor.py:156] : DM 监控中
+2025-01-14 23:51:39.134 [Ticket_Monitor.py:156] : DM 监控中
+2025-01-14 23:51:39.326 [Ticket_Monitor.py:60] : 监控平台 DM 时出错: unhashable type: 'list'
+2025-01-14 23:52:05.031 [main.py:63] : FastAPI 应用关闭
+2025-01-14 23:52:06.914 [main.py:59] : FastAPI 应用启动
+2025-01-14 23:52:06.972 [Ticket_Monitor.py:46] : 开始监控演唱会...
+2025-01-14 23:52:06.973 [Ticket_Monitor.py:152] : DM 监控中
+2025-01-14 23:52:07.189 [Ticket_Monitor.py:152] : DM 监控中
+2025-01-14 23:52:07.382 [Ticket_Monitor.py:152] : DM 监控中
+2025-01-14 23:52:07.565 [Ticket_Monitor.py:152] : DM 监控中
+2025-01-14 23:52:07.762 [Ticket_Monitor.py:152] : DM 监控中
+2025-01-14 23:52:07.950 [Ticket_Monitor.py:60] : 监控平台 DM 时出错: unhashable type: 'list'
+2025-01-14 23:54:22.485 [main.py:63] : FastAPI 应用关闭
+2025-01-14 23:54:24.545 [main.py:59] : FastAPI 应用启动
+2025-01-14 23:54:28.900 [Ticket_Monitor.py:46] : 开始监控演唱会...
+2025-01-14 23:54:28.901 [Ticket_Monitor.py:156] : DM 监控中
+2025-01-14 23:54:29.125 [Ticket_Monitor.py:156] : DM 监控中
+2025-01-14 23:54:29.300 [Ticket_Monitor.py:156] : DM 监控中
+2025-01-14 23:54:29.500 [Ticket_Monitor.py:156] : DM 监控中
+2025-01-14 23:54:29.691 [Ticket_Monitor.py:156] : DM 监控中
+2025-01-14 23:54:29.882 [Ticket_Monitor.py:60] : 监控平台 DM 时出错: unhashable type: 'list'
+2025-01-14 23:55:32.603 [main.py:63] : FastAPI 应用关闭
+2025-01-14 23:55:34.678 [main.py:59] : FastAPI 应用启动
+2025-01-14 23:55:36.343 [Ticket_Monitor.py:46] : 开始监控演唱会...
+2025-01-14 23:55:36.343 [Ticket_Monitor.py:156] : DM 监控中
+2025-01-14 23:55:36.541 [Ticket_Monitor.py:156] : DM 监控中
+2025-01-14 23:55:36.714 [Ticket_Monitor.py:156] : DM 监控中
+2025-01-14 23:55:36.907 [Ticket_Monitor.py:156] : DM 监控中
+2025-01-14 23:55:37.095 [Ticket_Monitor.py:156] : DM 监控中
+2025-01-14 23:56:12.461 [main.py:63] : FastAPI 应用关闭
+2025-01-14 23:56:14.443 [main.py:59] : FastAPI 应用启动
+2025-01-14 23:56:14.742 [main.py:63] : FastAPI 应用关闭
+2025-01-14 23:56:16.918 [main.py:59] : FastAPI 应用启动
+2025-01-14 23:56:19.282 [Ticket_Monitor.py:46] : 开始监控演唱会...
+2025-01-14 23:56:19.283 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:56:19.489 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:56:19.680 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:56:19.875 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:56:20.069 [Ticket_Monitor.py:150] : DM 监控中
+2025-01-14 23:56:26.694 [main.py:63] : FastAPI 应用关闭
+2025-01-15 00:11:25.740 [main.py:59] : FastAPI 应用启动
+2025-01-15 00:11:30.524 [Ticket_Monitor.py:46] : 开始监控演唱会...
+2025-01-15 00:11:30.525 [Ticket_Monitor.py:149] : DM 监控中
+2025-01-15 00:11:30.725 [Ticket_Monitor.py:149] : DM 监控中
+2025-01-15 00:11:30.909 [Ticket_Monitor.py:149] : DM 监控中
+2025-01-15 00:11:31.123 [Ticket_Monitor.py:149] : DM 监控中
+2025-01-15 00:11:31.319 [Ticket_Monitor.py:149] : DM 监控中
+2025-01-15 00:11:55.570 [main.py:63] : FastAPI 应用关闭
+2025-01-15 00:11:58.364 [main.py:59] : FastAPI 应用启动
+2025-01-15 00:11:58.424 [Ticket_Monitor.py:46] : 开始监控演唱会...
+2025-01-15 00:11:58.425 [Ticket_Monitor.py:149] : DM 监控中
+2025-01-15 00:11:58.616 [Ticket_Monitor.py:149] : DM 监控中
+2025-01-15 00:11:58.815 [Ticket_Monitor.py:149] : DM 监控中
+2025-01-15 00:11:58.992 [Ticket_Monitor.py:149] : DM 监控中
+2025-01-15 00:11:59.200 [Ticket_Monitor.py:149] : DM 监控中
+2025-01-15 00:16:27.822 [main.py:63] : FastAPI 应用关闭
+2025-01-15 00:16:29.677 [main.py:59] : FastAPI 应用启动
+2025-01-15 00:16:31.536 [Ticket_Monitor.py:46] : 开始监控演唱会...
+2025-01-15 00:16:31.537 [Ticket_Monitor.py:196] : DM 监控中
+2025-01-15 00:16:31.734 [Ticket_Monitor.py:196] : DM 监控中
+2025-01-15 00:16:31.923 [Ticket_Monitor.py:196] : DM 监控中
+2025-01-15 00:16:32.103 [Ticket_Monitor.py:196] : DM 监控中
+2025-01-15 00:16:32.303 [Ticket_Monitor.py:196] : DM 监控中
+2025-01-15 00:19:02.954 [main.py:63] : FastAPI 应用关闭
+2025-01-15 00:19:04.997 [main.py:59] : FastAPI 应用启动
+2025-01-15 00:19:05.087 [Ticket_Monitor.py:46] : 开始监控演唱会...
+2025-01-15 00:19:05.088 [Ticket_Monitor.py:213] : DM 监控中
+2025-01-15 00:19:05.499 [Ticket_Monitor.py:213] : DM 监控中
+2025-01-15 00:19:05.738 [Ticket_Monitor.py:213] : DM 监控中
+2025-01-15 00:19:05.931 [Ticket_Monitor.py:213] : DM 监控中
+2025-01-15 00:19:06.118 [Ticket_Monitor.py:213] : DM 监控中
+2025-01-15 00:19:16.648 [main.py:63] : FastAPI 应用关闭
+2025-01-15 00:20:18.954 [main.py:59] : FastAPI 应用启动
+2025-01-15 00:20:20.339 [Ticket_Monitor.py:46] : 开始监控演唱会...
+2025-01-15 00:20:20.341 [Ticket_Monitor.py:213] : DM 监控中
+2025-01-15 00:20:20.546 [Ticket_Monitor.py:213] : DM 监控中
+2025-01-15 00:20:20.724 [Ticket_Monitor.py:213] : DM 监控中
+2025-01-15 00:20:20.903 [Ticket_Monitor.py:213] : DM 监控中
+2025-01-15 00:20:21.179 [Ticket_Monitor.py:213] : DM 监控中
+2025-01-15 00:20:51.732 [main.py:63] : FastAPI 应用关闭
+2025-01-15 00:20:53.798 [main.py:59] : FastAPI 应用启动
+2025-01-15 00:21:03.290 [main.py:63] : FastAPI 应用关闭

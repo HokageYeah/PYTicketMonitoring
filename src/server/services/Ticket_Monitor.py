@@ -90,21 +90,121 @@ class Ticket_Monitor:
                         print('skuSalable------skuSalable', skuSalable)
                         if skuSalable == "false":
                             continue
-                        can_buy_list.append({
-                            "show_id": show_id,
-                            "sku_id": sku_id,
-                            "perform_id": perform_id,
-                            "price_id": price_id,
-                            "perform_name": perform_name,
-                            "platform": platform
-                        })
+                        # for item in can_buy_list:
+                        #     if item.get('show_id') == show_id:
+                        #         for perform_item in item.get('ticket_perform'):
+                        #             if perform_item.get('perform_id') == perform_id:
+                        #                 for sku_item in perform_item.get('sku_list'):
+                        #                     if sku_item.get('sku_id') == sku_id:
+                        #                         sku_item.update({
+                        #                             "price_id": price_id,
+                        #                             'sku_id': sku_id
+                        #                         })
+                        #                         break
+                        #                     else:
+                        #                         perform_item.get('sku_list').append({
+                        #                             "sku_id": sku_id,
+                        #                             "price_id": price_id,
+                        #                         })
+                        #                 break
+                        #             else:
+                        #                 item.get('ticket_perform').append({
+                        #                     "perform_id": perform_id,
+                        #                     "perform_name": perform_name,
+                        #                     "sku_list": [
+                        #                         {
+                        #                             "sku_id": sku_id,
+                        #                             "price_id": price_id,
+                        #                         }
+                        #                     ]
+                        #                 })
+                        #         break
+                        #     else:
+                        #         can_buy_list.append({
+                        #             "show_id": show_id,
+                        #             "platform": platform,
+                        #             "ticket_perform": [
+                        #                 {
+                        #                     "perform_id": perform_id,
+                        #                     "perform_name": perform_name,
+                        #                     "sku_list": [
+                        #                         {
+                        #                             "sku_id": sku_id,
+                        #                             "price_id": price_id,
+                        #                         }
+                        #                     ]
+                        #                 }
+                        #             ]
+                        #         })
+                        # if len(can_buy_list) <= 0:
+                        #     can_buy_list.append({
+                        #         "show_id": show_id,
+                        #         "platform": platform,
+                        #         "ticket_perform": [
+                        #             {
+                        #                 "perform_id": perform_id,
+                        #                 "perform_name": perform_name,
+                        #                 "sku_list": [
+                        #                     {
+                        #                         "sku_id": sku_id,
+                        #                         "price_id": price_id,
+                        #                     }
+                        #                 ]
+                        #             }
+                        #         ]
+                        #     })
+                        show_id_index = next((i for i, item in enumerate(can_buy_list) if item.get('show_id') == show_id), -1)
+                        if show_id_index == -1:
+                            can_buy_list.append({
+                                "show_id": show_id,
+                                "platform": platform,
+                                "ticket_perform": [
+                                    {
+                                        "perform_id": perform_id,
+                                        "perform_name": perform_name,
+                                        "sku_list": [
+                                            {
+                                                "sku_id": sku_id,
+                                                "price_id": price_id,
+                                            }
+                                        ]
+                                    }
+                                ]
+                            })
+                        else:
+                            perform_id_index = next((i for i, item in enumerate(can_buy_list[show_id_index].get('ticket_perform')) if item.get('perform_id') == perform_id), -1)
+                            if perform_id_index == -1:
+                                can_buy_list[show_id_index].get('ticket_perform').append({
+                                    "perform_id": perform_id,
+                                    "perform_name": perform_name,
+                                    "sku_list": [
+                                        {
+                                            "sku_id": sku_id,
+                                            "price_id": price_id,
+                                        }
+                                    ]
+                                })
+                            else:
+                                sku_list_index = next((i for i, item in enumerate(can_buy_list[show_id_index].get('ticket_perform')[perform_id_index].get('sku_list')) if item.get('sku_id') == sku_id), -1)
+                                if sku_list_index == -1:
+                                    can_buy_list[show_id_index].get('ticket_perform')[perform_id_index].get('sku_list').append({
+                                        "sku_id": sku_id,
+                                        "price_id": price_id,
+                                    })
+                                else:
+                                    can_buy_list[show_id_index].get('ticket_perform')[perform_id_index].get('sku_list')[sku_list_index].update({
+                                        "price_id": price_id,
+                                        'sku_id': sku_id
+                                    })
         except Exception as e:
             logging.error(f"监控平台 {platform} 时出错: {e}")
         # can_buy_list去重 去掉show_id、sku_id、perform_id、price_id 一样的数组
-        can_buy_list = [dict(t) for t in {tuple(d.items()) for d in can_buy_list}]
+        # can_buy_list = [dict(t) for t in {tuple(d.items()) for d in can_buy_list}]
         # 根据can_buy_list 找到db_config.json文件中的数据信息
-        for show_id, perform_id, sku_id, price_id, perform_name, platform in can_buy_list:
-            pass            
+        # for index, itemData in enumerate(can_buy_list):
+        #     print('itemData------', itemData)
+        #     monitor_list_item_index = next(i for i, item in enumerate(monitor_list) if item.get('show_id') == itemData.get('show_id'))
+        #     print('monitor_list_item_index------', monitor_list_item_index)
         print('can_buy_list------', can_buy_list)
         # await asyncio.gather(*task_list)
     # 检查票务情况
@@ -116,7 +216,7 @@ class Ticket_Monitor:
         print('ticket_perform------', platform == PlatformEnum.DM.value)
         response = None
         if platform == PlatformEnum.DM.value:
-            print('response------response----in---1', show_id)
+            print('response------response----in---1')
             response  = self.damaiServe.check_ticket_web(show_id, session_id)
-            print('response------response----in---2', response)
+            print('response------response----in---2')
         return response
