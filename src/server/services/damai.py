@@ -35,10 +35,23 @@ class DamaiService:
             "Host": "search.damai.cn"
         }
         pass
-    # 读取获取db_config.json文件中的数据信息
+    # 查询读取获取db_config.json文件中的数据信息
     def get_db_config(self):
         with open(self.db_config_path, 'r', encoding='utf-8') as f:
+            # 将f转为字符串 在转换为json
             self.db_config = json.load(f)
+    # 更新获取大麦网写入到db_config.json文件中的数据信息
+    def update_db_config(self):
+        # 将RecordMonitorParams类型转换为字典
+        json_str = str(self.db_config)
+        # 将json_str转换为字典
+        config_dict = json.loads(json_str)
+        print('update_db_config----json_str----', config_dict)
+        # config_dict = {}
+        # for key, value in self.db_config.items():
+        #     config_dict[key] = value
+        with open(self.db_config_path, 'w', encoding='utf-8') as f:
+            json.dump(config_dict, f, ensure_ascii=False)
     def do_request(self):
         inner_cookies = dict()
         def inner_request(url: str, cookies=None) -> Response:
@@ -352,6 +365,10 @@ class DamaiService:
         if not self.db_config["DM"].get("monitor_list",[]):
             self.db_config["DM"]["monitor_list"] = []
         monitor_list = self.db_config["DM"]["monitor_list"]
+        # params转字符串
+        # params_str = json.dumps(params)
+        # params转字典
+        # params_dict = json.loads(params_str)
         # 判断monitor_list中是否存在params.show_id
         # 使用 enumerate 找到第一个符合条件的元素的下标
         show_id_item_index = next((i for i, item in enumerate(monitor_list) if item.get('show_id') == params.show_id), -1)
@@ -370,7 +387,12 @@ class DamaiService:
                 else:
                     monitor_person_list[wx_token_item_index]['ticket_perform'] = monitor_item.get('monitor_person')[0].get('ticket_perform')
                 monitor_list[show_id_item_index]['monitor_person'] = monitor_person_list
-        print('post_record_monitor_web----monitor_list----', monitor_list)
+        # 将monitor_list转换为字符串
+        self.db_config["DM"]["monitor_list"] = monitor_list
+        print('post_record_monitor_web----db_config----', self.db_config)
+        print('post_record_monitor_web----monitor_list----', type(self.db_config))
+        # 更新获取大麦网写入到db_config.json文件中的数据信息
+        self.update_db_config()
         return {
             "platform": PlatformEnum.DM,
             "api": 'record.monitor.by.platform',
