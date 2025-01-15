@@ -333,6 +333,8 @@ class DamaiService:
         return {
             "show_id": params.show_id,
             "show_name": params.show_name,
+            "venue_city_name": params.venue_city_name,
+            "venue_name": params.venue_name,
             "monitor_person": [
                 {
                     "wx_token": params.wx_token,

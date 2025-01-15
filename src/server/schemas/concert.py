@@ -32,6 +32,8 @@ class TicketPerform(BaseModel):
 class RecordMonitorParams(BaseModel):
     show_id: str # 演唱会id
     show_name: str # 演唱会名字
+    venue_city_name: str # 演唱会城市
+    venue_name: str # 演唱会场馆
     ticket_perform: List[TicketPerform] # 场次
     time: Optional[str] = Field(None, description="可选参数") # 将 time 标记为可选
     wx_token: str # 微信token (发送监控通知)
