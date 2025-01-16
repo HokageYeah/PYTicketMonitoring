@@ -5,10 +5,10 @@ from fastapi import HTTPException, Body
 async def validate_record_monitor_params(params: RecordMonitorParams = Body(...)) -> RecordMonitorParams:
     # 获取必需字段
     required_fields = [name for name, field in RecordMonitorParams.model_fields.items() if field.default is ...]
-    print('required_fields---------', required_fields)
+    print('validate_params::required_fields---------', required_fields)
     # 检查必需字段是否在请求参数中
     for field in required_fields:
-        print('field---------', field)
+        print('validate_params::field---------', field)
         if getattr(params, field) is None:
             raise HTTPException(
                 status_code=422,

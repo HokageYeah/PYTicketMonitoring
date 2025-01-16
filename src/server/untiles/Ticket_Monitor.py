@@ -1,3 +1,4 @@
+from functools import wraps
 from pathlib import Path
 import json
 from src import monitor
@@ -10,6 +11,9 @@ import asyncio
 from src.server.schemas import PlatformEnum
 from src.server.schemas.concert import ApiResponseData
 import time
+import threading
+from datetime import datetime
+from src.server.untiles import ThreadStats, monitor_thread_status, retry_on_exception, thread_timer
 class Ticket_Monitor:
     def __init__(self):
         self.db_config_path = Path(monitor.__file__).resolve().parent / 'config' / 'db_config.json'
@@ -63,15 +67,19 @@ class Ticket_Monitor:
         venue_name = send_info.get('venue_name')
         # 下面写通知到用户的逻辑
         # 通知文案
-        notification_content = f"\n演唱会名称：{show_name}\n演唱会场次时间：{ticket_perform.get('perform_name')}\n演唱会地点：{venue_city_name} {venue_name}\n演唱会票价：{price_name}\n 已回流，请及时购票！通知人：{wx_token}"
-        print('notification_content------', notification_content)
+        notification_content = f"\n当前时间：{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n演唱会名称：{show_name}\n演唱会场次时间：{ticket_perform.get('perform_name')}\n演唱会地点：{venue_city_name} {venue_name}\n演唱会票价：{price_name}\n已回流，请及时购票！通知人：{wx_token}\n"
+        print('##########################回流票打印开始##########################')
+        print(notification_content)
+        print('##########################回流票打印结束##########################')
         pass
     # 监控演唱会
     def monitor(self, damaiServe):
         self.damaiServe = damaiServe
         logging.info("开始监控演唱会...")
+        self.get_db_config()
         # 不同平台使用不同线程池
-        with ThreadPoolExecutor() as executor:
+        with ThreadPoolExecutor(max_workers=20, thread_name_prefix="ticket_monitor_") as executor:
+            # ThreadPoolExecutor 中使用 executor.submit 提交了这个协程。executor.submit 适用于普通的同步函数，而不是异步函数。
             future_to_platform = {
                 executor.submit(self.monitor_platform, platform, data): platform
                 for platform, data in self.db_config.items()
@@ -84,13 +92,30 @@ class Ticket_Monitor:
                     future.result()  # 处理每个平台的监控结果
                 except Exception as e:
                     logging.error(f"监控平台 {platform} 时出错: {e}")
+        # 启动线程状态监控
+        threading.Thread(target=monitor_thread_status,name='thread_monitor', daemon=True).start()
+    # 监控演唱会（异步任务） 
+    async def monitor_async(self, damaiServe):
+        self.damaiServe = damaiServe
+        logging.info("开始监控演唱会...")
+        self.get_db_config()
+        # 采用异步任务的方式
+        tasks = [self.monitor_platform(platform, data) for platform, data in self.db_config.items()]
+        # 等待所有任务完成
+        await asyncio.gather(*tasks)
+
+
+    @thread_timer
+    @retry_on_exception(max_retries=3)
     def monitor_platform(self, platform, data):
         # 获取不同平台的监控列表
         monitor_list = data.get("monitor_list", [])
+        print('monitor_list------', len(monitor_list))
         task_list = []
         can_buy_list = []
+        start_time = time.time()
         # 如果monitor_list不是空 则以
-        while True:
+        while len(monitor_list) > 0:
             try:
                 for monitor_item in monitor_list:
                     show_id = monitor_item.get('show_id')
@@ -133,6 +158,8 @@ class Ticket_Monitor:
                                     can_buy_list[show_id_index].get('ticket_perform')[perform_index].update(ticket_perform_str)
             except Exception as e:
                 logging.error(f"监控平台 {platform} 时出错: {e}")
+                # 记录错误
+                ThreadStats().record_error(threading.current_thread().name)
             # 需要处理的数据下标集合
             combined_index_list = []
             # 根据can_buy_list 找到db_config.json文件中的数据信息
@@ -143,6 +170,7 @@ class Ticket_Monitor:
                     continue
                 buy_perform_list = itemData.get('ticket_perform')
                 monitor_person_list = monitor_list[monitor_list_item_index].get('monitor_person')
+                print('monitor_person_list------', monitor_person_list)
                 combined_ids = [
                     f"{ticket_perform['perform_id']}-{buy_perform['sku_id']}-{buy_perform['price_id']}::{monitor_list_item_index}-{person_index}-{ticket_perform_index}-{buy_perform_index}"
                     for person_index, person in enumerate(monitor_person_list)
@@ -161,8 +189,8 @@ class Ticket_Monitor:
             print('combined_index_list------', combined_index_list)
             try:
                 for index in combined_index_list:
+                    # 此循环表示肯定有回流票了，打印一个分割线
                     combined_index_list_item = index.split('-')
-                    print('combined_index_list_item------', combined_index_list_item)
                     delete_monitor_list_item_index = int(combined_index_list_item[0])
                     delete_person_index = int(combined_index_list_item[1])
                     delete_ticket_perform_index = int(combined_index_list_item[2])
@@ -191,10 +219,16 @@ class Ticket_Monitor:
                 monitor_list = self.recursive_delete_none(monitor_list)
                 self.db_config[platform]['monitor_list'] = monitor_list
                 self.update_db_config()
+                # 记录成功
+                ThreadStats().record_success(threading.current_thread().name, time.time() - start_time)
             except Exception as e:
                 logging.error(f"监控平台 {platform} 时出错方法: {e}")
+                # 记录错误
+                ThreadStats().record_error(threading.current_thread().name)
             finally:
                 time.sleep(2)
+                # 异步任务
+                # await asyncio.sleep(2)
         # await asyncio.gather(*task_list)
     # 递归删除monitor_list中的None
     def recursive_delete_none(self, monitor_list):

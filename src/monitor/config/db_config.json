@@ -1,54 +1,11 @@
 {
-  "DM": {
-    "_m_h5_tk": "742db094d92b98bd80bee11e1f1943a3_1736933106948",
-    "_m_h5_tk_enc": "a7a5c05d507262081042cff9d84a1d79",
-    "cookie2": "1dfeb38d116068da476cdaf3522cb879",
-    "sgcookie": "E100MNzkLk43A2lFwe7ujOZ6BVDuUCZlqiHjxEIgMTHydcXsybFzbUCeDxi3ZOIr9tlwO1lrQs2%2F8H8nnxuZM3PKEYePbLANjygY6vb4y9PidTk%3D",
-    "appKey": "12574478",
-    "t": 1736923009947,
-    "monitor_list": [
-      {
-        "show_id": "864801474524",
-        "show_name": "太阳演唱会2025澳门场｜TAEYANG 2025 TOUR [THE LIGHT YEAR] IN MACAU",
-        "venue_city_name": "北京市",
-        "venue_name": "环球影院",
-        "monitor_person": [
-          {
-            "wx_token": "1",
-            "deadline": "2025-01-18 00:00:00",
-            "ticket_perform": [
-              {
-                "perform_id": "218391320",
-                "perform_name": "2025-02-15  周六 18:00",
-                "sku_list": [
-                  {
-                    "sku_id": "5688561388157",
-                    "price_id": "293432024",
-                    "price_name": "799元"
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "wx_token": "2",
-            "deadline": "2025-01-18 00:00:00",
-            "ticket_perform": [
-              {
-                "perform_id": "218391320",
-                "perform_name": "2025-02-15  周六 18:00",
-                "sku_list": [
-                  {
-                    "sku_id": "5688561388157",
-                    "price_id": "293432024",
-                    "price_name": "799元"
-                  }
-                ]
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  }
+    "DM": {
+        "_m_h5_tk": "bda84d87edae437598a827f0b38b3b96_1737024886721",
+        "_m_h5_tk_enc": "44ebaca6d6ffdcca4ad9689e7e3ed6a7",
+        "cookie2": "1dbf82e704b5a8fe969e6b309960af5d",
+        "sgcookie": "E100BqUjDMqi4KUNRsDW2KjQl3dMdxwUhnbo%2FZ4dufrBai1Pudd%2B9yti%2FpsE0b7dj%2F5pZsYf8I5uRDoE9vL5h6B0eBlGtfp%2BZruD0A5XiGT8Bi0%3D",
+        "appKey": "12574478",
+        "t": 1737017313199,
+        "monitor_list": []
+    }
 }

@@ -6,6 +6,9 @@ from src.server.schemas import PlatformEnum, ApiResponseData
 from src.server.services.damai import DamaiService
 from typing import Optional
 from src.server.api.endpoints.validate_params import validate_record_monitor_params
+import asyncio
+import threading
+import time
 logger = logging.getLogger(__name__)
 router = APIRouter()
 damai = DamaiService()
@@ -97,5 +100,19 @@ async def post_start_monitor(
     print('new---platform------', platform.value)
     print('new---platform------PlatformEnum', PlatformEnum.DM.value)
     if platform.value == PlatformEnum.DM.value:
-        return damai.post_start_monitor_web()
+        damai.post_start_monitor_web()
     return None
+
+# 测试循环调用接口
+@router.get("/b")
+async def f1():
+    return 111
+@router.get("/a")
+async def f():
+    asyncio.create_task(ff())
+    # await ff()
+
+async def ff():
+    while True:
+        print("时间：", time.time())
+        await asyncio.sleep(1)

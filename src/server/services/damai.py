@@ -14,8 +14,9 @@ from src.monitor.Monitor_DM import DM
 from requests import Response
 from src.server.schemas.concert import RecordMonitorParams, TicketPerform
 from pydantic import BaseModel
-from src.server.services.Ticket_Monitor import Ticket_Monitor
+from src.server.untiles.Ticket_Monitor import Ticket_Monitor
 import asyncio
+import threading
 logger = logging.getLogger(__name__)
 
 class DamaiService:
@@ -257,7 +258,6 @@ class DamaiService:
             url = DM.get_show_url()
             _m_h5_tk_str = self.ticket_monitor.db_config["DM"]["_m_h5_tk"]+';'+self.ticket_monitor.db_config["DM"]["_m_h5_tk_enc"]
             response = self.do_request()(url(show_id, _m_h5_tk_str))
-            print('response----', response)
             res_data = response.json()
             ret = res_data.get('ret')
             if response.status_code != 200 or 'SUCCESS::调用成功' not in ret:
@@ -296,7 +296,6 @@ class DamaiService:
             url = DM.get_seat_url()
             _m_h5_tk_str = self.ticket_monitor.db_config["DM"]["_m_h5_tk"]
             response = self.do_request()(url(show_id, session_id, _m_h5_tk_str))
-            print('response----', response)
             res_data = response.json()
             ret = res_data.get('ret')
             if response.status_code != 200 or 'SUCCESS::调用成功' not in ret:
@@ -414,7 +413,15 @@ class DamaiService:
     # 调用票务监控开始、检测数据库中存储的演唱会票务情况
     def post_start_monitor_web(self):
         try:
-            self.ticket_monitor.monitor(self)  
+            # 方案一、采用多线程
+            # threading.Thread 是创建新线程的构造函数。
+            # target=damai.post_start_monitor_web 指定了线程要执行的目标函数，即 damai 对象的 post_start_monitor_web 方法。
+            # daemon=True 表示这个线程是一个守护线程。守护线程在主程序退出时会自动终止，而不需要等待它完成。这通常用于后台任务。
+            thread = threading.Thread(target=self.ticket_monitor.monitor, args=(self,), daemon=True)
+            thread.start()
+            # self.ticket_monitor.monitor(self)
+            # 方案二、采用异步任务
+            # asyncio.create_task(self.ticket_monitor.monitor_async(self))
         except Exception as e:
             logger.error(f"调用票务监控失败，\n接口: start_monitor_web, \n错误: {e}")
             return {
