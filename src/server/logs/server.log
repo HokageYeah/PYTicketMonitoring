@@ -3060,3 +3060,14 @@ TypeError: object method can't be used in 'await' expression
 2025-01-16 19:01:24.084 [main.py:63] : FastAPI 搴旂敤鍏抽棴
 2025-01-16 19:01:25.609 [main.py:59] : FastAPI 搴旂敤鍚姩
 2025-01-16 20:11:30.806 [main.py:63] : FastAPI 搴旂敤鍏抽棴
+2025-01-16 22:53:57.735 [main.py:59] : FastAPI 应用启动
+2025-01-16 23:15:59.292 [main.py:63] : FastAPI 应用关闭
+2025-01-17 00:04:48.149 [main.py:60] : FastAPI 应用启动
+2025-01-17 00:05:24.722 [main.py:64] : FastAPI 应用关闭
+2025-01-17 00:05:26.670 [main.py:60] : FastAPI 应用启动
+2025-01-17 00:05:39.578 [main.py:64] : FastAPI 应用关闭
+2025-01-17 00:05:41.493 [main.py:60] : FastAPI 应用启动
+2025-01-17 00:05:45.480 [main.py:64] : FastAPI 应用关闭
+2025-01-17 00:05:47.480 [main.py:60] : FastAPI 应用启动
+2025-01-17 00:05:55.061 [main.py:64] : FastAPI 应用关闭
+2025-01-17 00:05:56.794 [main.py:60] : FastAPI 应用启动
