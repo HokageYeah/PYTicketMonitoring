@@ -8,7 +8,6 @@ from src.server.core import settings
 import logging
 from src.server.api.endpoints.concerts import router
 from pydantic import ValidationError
-from src.server.untiles.Src_Path import db_config_path
 
 # 最开始添项目根目录到python的路径
 project_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -63,12 +62,3 @@ async def startup():
 async def shutdown():
     logging.info("FastAPI 应用关闭")
 
-
-def callback_func(config_data):
-    print('callback_func----config_data----', config_data)
-
-# 添加DB文件监听类
-from src.server.untiles.DB_Monitor import DBConfigMonitor
-
-db_monitor = DBConfigMonitor(db_config_path,callback_func)
-# db_monitor.start()

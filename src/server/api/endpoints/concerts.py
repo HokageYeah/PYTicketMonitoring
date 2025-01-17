@@ -9,6 +9,8 @@ from src.server.api.endpoints.validate_params import validate_record_monitor_par
 import asyncio
 import threading
 import time
+from src.server.untiles.Src_Path import db_config_path
+
 logger = logging.getLogger(__name__)
 router = APIRouter()
 damai = DamaiService()
@@ -116,3 +118,13 @@ async def ff():
     while True:
         print("时间：", time.time())
         await asyncio.sleep(1)
+
+def callback_func():
+    # 调用web/start.monitor.by.platform接口
+    print('文件更改了调用票务监控接口')
+    damai.post_start_monitor_web(threadStop=True)
+    # asyncio.create_task(post_start_monitor())
+# 添加DB文件监听类
+from src.server.untiles.DB_Monitor import DBConfigMonitor
+db_monitor = DBConfigMonitor(db_config_path, callback_func)
+db_monitor.start()

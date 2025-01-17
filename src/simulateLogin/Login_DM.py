@@ -10,7 +10,9 @@ import time
 import requests
 import qrcode
 from src import monitor
+from src.server.untiles.Src_Path import db_config_path
 import logging
+
 logger = logging.getLogger(__name__)
 login_id = 18838280615
 class Login_DM:
@@ -207,7 +209,6 @@ class Login_DM:
     # 写入db_config.json
     def write_db_config_json(self):
         # 获取db_config.json文件的绝对路径
-        db_config_path = Path(monitor.__file__).resolve().parent / 'config' / 'db_config.json'
         print('write_db_config_json----db_config_path----', db_config_path)
         if os.path.exists(db_config_path):
             try:

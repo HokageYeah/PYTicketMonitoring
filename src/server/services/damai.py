@@ -16,7 +16,7 @@ from src.server.schemas.concert import RecordMonitorParams, TicketPerform
 from pydantic import BaseModel
 from src.server.untiles.Ticket_Monitor import Ticket_Monitor
 import asyncio
-import threading
+from src.server.untiles.Monitor_Thread_Manager import MonitorThreadManager
 logger = logging.getLogger(__name__)
 
 class DamaiService:
@@ -35,6 +35,7 @@ class DamaiService:
             "Connection": "keep-alive",
             "Host": "search.damai.cn"
         }
+        self.monitor_thread_manager = MonitorThreadManager()
         pass
     def do_request(self):
         inner_cookies = dict()
@@ -411,15 +412,15 @@ class DamaiService:
         return can_buy_list
 
     # 调用票务监控开始、检测数据库中存储的演唱会票务情况
-    def post_start_monitor_web(self):
+    def post_start_monitor_web(self, threadStop: bool = False):
         try:
             # 方案一、采用多线程
             # threading.Thread 是创建新线程的构造函数。
             # target=damai.post_start_monitor_web 指定了线程要执行的目标函数，即 damai 对象的 post_start_monitor_web 方法。
             # daemon=True 表示这个线程是一个守护线程。守护线程在主程序退出时会自动终止，而不需要等待它完成。这通常用于后台任务。
-            thread = threading.Thread(target=self.ticket_monitor.monitor, args=(self,), daemon=True)
-            thread.start()
-            # self.ticket_monitor.monitor(self)
+            # self.thread = threading.Thread(target=self.ticket_monitor.monitor, args=(self,), daemon=True)
+            # 判断线程是否存在、且self.thread线程是否不在运行
+            self.monitor_thread_manager.start_monitor(self.ticket_monitor.monitor, args=(self, self.monitor_thread_manager))
             # 方案二、采用异步任务
             # asyncio.create_task(self.ticket_monitor.monitor_async(self))
         except Exception as e:
@@ -431,3 +432,4 @@ class DamaiService:
                 "ret": [f"ERROR::调用票务监控数据失败{e}"],
                 "v": 1
             }
+        

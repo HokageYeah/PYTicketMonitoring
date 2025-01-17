@@ -14,23 +14,25 @@ import time
 import threading
 from datetime import datetime
 from src.server.untiles import ThreadStats, monitor_thread_status, retry_on_exception, thread_timer
+from src.server.untiles.Src_Path import db_config_path
+from src.server.untiles.Monitor_Thread_Manager import MonitorThreadManager
 class Ticket_Monitor:
     def __init__(self):
-        self.db_config_path = Path(monitor.__file__).resolve().parent / 'config' / 'db_config.json'
         self.db_config = {}
         self.damaiServe = None
+        self.monitor_thread_manager = None
         self.get_db_config()
         self.semaphore = asyncio.Semaphore(10)  # 限制并发请求的数量
     # 查询读取获取db_config.json文件中的数据信息
     def get_db_config(self):
-        with open(self.db_config_path, 'r', encoding='utf-8') as f:
+        with open(db_config_path, 'r', encoding='utf-8') as f:
             # 将f转为字符串 在转换为json
             self.db_config = json.load(f)
     # 更新获取大麦网写入到db_config.json文件中的数据信息
     def update_db_config(self):
         # 将RecordMonitorParams类型转换为字典
         data_to_save = self.convert_params_to_dict(self.db_config)
-        with open(self.db_config_path, 'w', encoding='utf-8') as f:
+        with open(db_config_path, 'w', encoding='utf-8') as f:
             json.dump(data_to_save, f, ensure_ascii=False)
     # 创建递归函数，将RecordMonitorParams类型转换为字典
     def convert_params_to_dict(self, params: RecordMonitorParams):
@@ -73,8 +75,9 @@ class Ticket_Monitor:
         print('##########################回流票打印结束##########################')
         pass
     # 监控演唱会
-    def monitor(self, damaiServe):
+    def monitor(self, damaiServe, thread_manager):
         self.damaiServe = damaiServe
+        self.monitor_thread_manager = thread_manager
         logging.info("开始监控演唱会...")
         self.get_db_config()
         # 不同平台使用不同线程池
@@ -84,7 +87,7 @@ class Ticket_Monitor:
                 executor.submit(self.monitor_platform, platform, data): platform
                 for platform, data in self.db_config.items()
             }
-            print('future_to_platform------', future_to_platform)
+            # print('future_to_platform------', future_to_platform)
             # 处理每个平台的监控结果
             for future in as_completed(future_to_platform):
                 platform = future_to_platform[future]
@@ -111,11 +114,12 @@ class Ticket_Monitor:
         # 获取不同平台的监控列表
         monitor_list = data.get("monitor_list", [])
         print('monitor_list------', len(monitor_list))
+        print('monitor_list------', monitor_list)
         task_list = []
         can_buy_list = []
         start_time = time.time()
         # 如果monitor_list不是空 则以
-        while len(monitor_list) > 0:
+        while len(monitor_list) > 0 and self.monitor_thread_manager.is_running:
             try:
                 for monitor_item in monitor_list:
                     show_id = monitor_item.get('show_id')
@@ -226,9 +230,11 @@ class Ticket_Monitor:
                 # 记录错误
                 ThreadStats().record_error(threading.current_thread().name)
             finally:
-                time.sleep(2)
+                time.sleep(10)
                 # 异步任务
                 # await asyncio.sleep(2)
+        if type(self.monitor_thread_manager) == MonitorThreadManager:
+            self.monitor_thread_manager.stop_monitor()
         # await asyncio.gather(*task_list)
     # 递归删除monitor_list中的None
     def recursive_delete_none(self, monitor_list):
@@ -241,8 +247,6 @@ class Ticket_Monitor:
     def check_ticket(self, show_id, session_id, ticket_perform: TicketPerform, platform):
         # 获取大麦网监控对象
         logging.info(f"{platform} 监控中")
-        print('platform------', platform)
-        print('PlatformEnum.DM.value------', PlatformEnum.DM.value)
         response = None
         if platform == PlatformEnum.DM.value:
             response  = self.damaiServe.check_ticket_web(show_id, session_id)
