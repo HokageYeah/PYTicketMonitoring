@@ -297,6 +297,7 @@ class DamaiService:
             url = DM.get_seat_url()
             _m_h5_tk_str = self.ticket_monitor.db_config["DM"]["_m_h5_tk"]
             response = self.do_request()(url(show_id, session_id, _m_h5_tk_str))
+            print("响应 Cookies:", response.cookies.get_dict())
             res_data = response.json()
             ret = res_data.get('ret')
             if response.status_code != 200 or 'SUCCESS::调用成功' not in ret:

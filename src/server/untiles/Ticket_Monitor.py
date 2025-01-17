@@ -118,8 +118,9 @@ class Ticket_Monitor:
         task_list = []
         can_buy_list = []
         start_time = time.time()
+        monitor_list_len = len(monitor_list)
         # 如果monitor_list不是空 则以
-        while len(monitor_list) > 0 and self.monitor_thread_manager.is_running:
+        while monitor_list_len > 0 and self.monitor_thread_manager.is_running:
             try:
                 for monitor_item in monitor_list:
                     show_id = monitor_item.get('show_id')

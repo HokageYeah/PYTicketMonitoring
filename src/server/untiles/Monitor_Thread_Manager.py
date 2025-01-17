@@ -15,11 +15,11 @@ class MonitorThreadManager:
         """
         try:
             print('self.is_running------step1', self.is_running)
-            # if self.is_running and self.current_thread and self.current_thread.is_alive():
-            #     return
+            if self.is_running and self.current_thread and self.current_thread.is_alive():
+                return
             print('self.is_running------step2', self.is_running)
             # # 如果已有线程在运行，先停止它
-            self.stop_monitor()
+            # self.stop_monitor()
             # 创建新的线程
             self.is_running = True
             self.current_thread = threading.Thread(

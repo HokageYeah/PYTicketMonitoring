@@ -205,6 +205,7 @@ class DM(Monitor):
             params["sign"] = DM.get_sign(inner_c, params["t"], params["data"])
             # print('get_seat_url----allParams----', params)
             # print('get_seat_url----allParams----', params)
+            print('get_seat_url----url----', f"{url}?{urllib.parse.urlencode(params)}")
             return f"{url}?{urllib.parse.urlencode(params)}"
         return inner_seat_url
 
