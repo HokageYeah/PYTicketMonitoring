@@ -49,7 +49,7 @@ class DamaiService:
             inner_cookies['sgcookie'] = self.ticket_monitor.db_config["DM"]["sgcookie"]
             # 有cookies则更新，没有则使用默认的，有cookies将cookies追加到inner_cookies中
             inner_cookies = inner_cookies if not cookies else { **inner_cookies, **cookies }
-            # print('inner_cookies----', inner_cookies)
+            print('inner_cookies----', inner_cookies)
             return requests.get(
                 url=url,
                 headers={

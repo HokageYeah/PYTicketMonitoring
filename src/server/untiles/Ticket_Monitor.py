@@ -118,10 +118,14 @@ class Ticket_Monitor:
         task_list = []
         can_buy_list = []
         start_time = time.time()
-        monitor_list_len = len(monitor_list)
         # 如果monitor_list不是空 则以
-        while monitor_list_len > 0 and self.monitor_thread_manager.is_running:
+        # 初始化轮训获取最新数据
+        while len(monitor_list) > 0 and self.monitor_thread_manager.is_running:
             try:
+                # 每次轮训都要获取最新的数据
+                print('combined_index_list------while',len(monitor_list), self.monitor_thread_manager.is_running)
+                self.get_db_config()
+                monitor_list = self.db_config.get(platform).get('monitor_list')
                 for monitor_item in monitor_list:
                     show_id = monitor_item.get('show_id')
                     # 根据show_id获取演唱会信息（并发请求）
@@ -231,10 +235,14 @@ class Ticket_Monitor:
                 # 记录错误
                 ThreadStats().record_error(threading.current_thread().name)
             finally:
-                time.sleep(10)
+                if len(monitor_list) > 0 and self.monitor_thread_manager.is_running:
+                    time.sleep(10)
                 # 异步任务
                 # await asyncio.sleep(2)
+        print('self.monitor_thread_manager------', self.monitor_thread_manager)
+        print('self.monitor_thread_manager------type----', type(self.monitor_thread_manager))
         if type(self.monitor_thread_manager) == MonitorThreadManager:
+            print('self.monitor_thread_manager------input', self.monitor_thread_manager)
             self.monitor_thread_manager.stop_monitor()
         # await asyncio.gather(*task_list)
     # 递归删除monitor_list中的None
