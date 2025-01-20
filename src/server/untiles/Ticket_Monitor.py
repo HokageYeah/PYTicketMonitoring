@@ -117,6 +117,7 @@ class Ticket_Monitor:
         print('monitor_list------', monitor_list)
         task_list = []
         can_buy_list = []
+        delete_monitor_list = []
         start_time = time.time()
         # 如果monitor_list不是空 则以
         # 初始化轮训获取最新数据
@@ -131,6 +132,16 @@ class Ticket_Monitor:
                     # 根据show_id获取演唱会信息（并发请求）
                     # task_list.append(self.check_ticket(show_id, monitor_item.get('ticket_perform'), platform))
                     response = self.check_ticket(show_id, '', monitor_item.get('ticket_perform'), platform)
+                    if response.get("ret") != ["SUCCESS::调用成功"]:
+                        continue
+                    if response.get("data").get("result").get("performCalendar") is None:
+                        # 代表此演出已下架、删除本场所有监控
+                        delete_monitor_list.append({
+                            "show_id": show_id,
+                            "platform": platform,
+                            "ticket_perform": [None] 
+                        })
+                        continue
                     perform_views = response.get("data").get("result").get("performCalendar").get("performViews")
                     # 获取所有的perform_id
                     perform_id_list = [perform_view.get("performId") for perform_view in perform_views]
@@ -224,6 +235,23 @@ class Ticket_Monitor:
                         monitor_list[delete_monitor_list_item_index].get('monitor_person')[delete_person_index] = None
                     if all(item is None for item in monitor_list[delete_monitor_list_item_index].get('monitor_person')):
                         monitor_list[delete_monitor_list_item_index] = None
+                # 递归删除monitor_list中的None
+                monitor_list = self.recursive_delete_none(monitor_list)
+                # 根据delete_monitor_list删除monitor_list中的数据
+                for delete_monitor_item in delete_monitor_list:
+                    delete_show_id = delete_monitor_item.get('show_id')
+                    delete_index = next((i for i, item in enumerate(monitor_list) if item.get('show_id') == delete_show_id), -1)
+                    if delete_index == -1:
+                        continue
+                    show_name = monitor_list[delete_index].get('show_name')
+                    venue_city_name = monitor_list[delete_index].get('venue_city_name')
+                    venue_name = monitor_list[delete_index].get('venue_name')
+                    # 通知文案
+                    notification_content = f"\n当前时间：{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n演唱会名称：{show_name}\n演唱会show_id：{delete_show_id}\n已下架，现在删除此条监控\n"
+                    print('##########################演唱会已下架打印开始##########################')
+                    print(notification_content)
+                    print('##########################演唱会已下架打印结束##########################')
+                    monitor_list[delete_index] = None
                 # 递归删除monitor_list中的None
                 monitor_list = self.recursive_delete_none(monitor_list)
                 self.db_config[platform]['monitor_list'] = monitor_list

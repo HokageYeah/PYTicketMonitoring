@@ -1236,3 +1236,251 @@
 2025-01-18 10:30:27.302 [Ticket_Monitor.py:258] : DM ç›‘æŽ§ä¸­
 2025-01-18 10:30:27.463 [Ticket_Monitor.py:258] : DM ç›‘æŽ§ä¸­
 2025-01-18 10:30:34.654 [main.py:63] : FastAPI åº”ç”¨å…³é—­
+2025-01-20 21:52:08.367 [main.py:59] : FastAPI Ó¦ÓÃÆô¶¯
+2025-01-20 22:00:04.704 [DB_Monitor.py:87] : ¼ì²âµ½ monitor_list ·¢Éú±ä»¯
+2025-01-20 22:00:04.707 [Ticket_Monitor.py:81] : ¿ªÊ¼¼à¿ØÑÝ³ª»á...
+2025-01-20 22:00:04.707 [Monitor_Thread_Manager.py:31] : ¼à¿ØÏß³ÌÒÑÆô¶¯
+2025-01-20 22:00:04.710 [Ticket_Monitor.py:258] : DM ¼à¿ØÖÐ
+2025-01-20 22:00:04.888 [Ticket_Monitor.py:258] : DM ¼à¿ØÖÐ
+2025-01-20 22:00:05.082 [Ticket_Monitor.py:258] : DM ¼à¿ØÖÐ
+2025-01-20 22:00:05.282 [Ticket_Monitor.py:258] : DM ¼à¿ØÖÐ
+2025-01-20 22:00:05.516 [Ticket_Monitor.py:169] : ¼à¿ØÆ½Ì¨ DM Ê±³ö´í: 'NoneType' object has no attribute 'get'
+2025-01-20 22:00:15.519 [Ticket_Monitor.py:258] : DM ¼à¿ØÖÐ
+2025-01-20 22:00:15.691 [Ticket_Monitor.py:258] : DM ¼à¿ØÖÐ
+2025-01-20 22:00:15.863 [Ticket_Monitor.py:258] : DM ¼à¿ØÖÐ
+2025-01-20 22:00:16.044 [Ticket_Monitor.py:258] : DM ¼à¿ØÖÐ
+2025-01-20 22:00:16.239 [Ticket_Monitor.py:169] : ¼à¿ØÆ½Ì¨ DM Ê±³ö´í: 'NoneType' object has no attribute 'get'
+2025-01-20 22:00:26.243 [Ticket_Monitor.py:258] : DM ¼à¿ØÖÐ
+2025-01-20 22:00:26.271 [main.py:63] : FastAPI Ó¦ÓÃ¹Ø±Õ
+2025-01-20 22:00:26.438 [Ticket_Monitor.py:258] : DM ¼à¿ØÖÐ
+2025-01-20 22:00:26.655 [Ticket_Monitor.py:258] : DM ¼à¿ØÖÐ
+2025-01-20 22:00:26.872 [Ticket_Monitor.py:258] : DM ¼à¿ØÖÐ
+2025-01-20 22:00:27.086 [Ticket_Monitor.py:169] : ¼à¿ØÆ½Ì¨ DM Ê±³ö´í: 'NoneType' object has no attribute 'get'
+2025-01-20 22:00:37.090 [Ticket_Monitor.py:258] : DM ¼à¿ØÖÐ
+2025-01-20 22:00:37.284 [Ticket_Monitor.py:258] : DM ¼à¿ØÖÐ
+2025-01-20 22:00:37.479 [Ticket_Monitor.py:258] : DM ¼à¿ØÖÐ
+2025-01-20 22:00:37.660 [Ticket_Monitor.py:258] : DM ¼à¿ØÖÐ
+2025-01-20 22:00:37.848 [Ticket_Monitor.py:169] : ¼à¿ØÆ½Ì¨ DM Ê±³ö´í: 'NoneType' object has no attribute 'get'
+2025-01-20 22:00:47.853 [Ticket_Monitor.py:258] : DM ¼à¿ØÖÐ
+2025-01-20 22:00:48.072 [Ticket_Monitor.py:258] : DM ¼à¿ØÖÐ
+2025-01-20 22:01:04.082 [main.py:59] : FastAPI Ó¦ÓÃÆô¶¯
+2025-01-20 22:01:10.070 [DB_Monitor.py:87] : ¼ì²âµ½ monitor_list ·¢Éú±ä»¯
+2025-01-20 22:01:10.071 [Ticket_Monitor.py:81] : ¿ªÊ¼¼à¿ØÑÝ³ª»á...
+2025-01-20 22:01:10.071 [Monitor_Thread_Manager.py:31] : ¼à¿ØÏß³ÌÒÑÆô¶¯
+2025-01-20 22:01:10.073 [Ticket_Monitor.py:258] : DM ¼à¿ØÖÐ
+2025-01-20 22:01:10.271 [Ticket_Monitor.py:169] : ¼à¿ØÆ½Ì¨ DM Ê±³ö´í: 'NoneType' object has no attribute 'get'
+2025-01-20 22:01:20.274 [Ticket_Monitor.py:258] : DM ¼à¿ØÖÐ
+2025-01-20 22:01:20.473 [Ticket_Monitor.py:169] : ¼à¿ØÆ½Ì¨ DM Ê±³ö´í: 'NoneType' object has no attribute 'get'
+2025-01-20 22:01:50.394 [main.py:59] : FastAPI Ó¦ÓÃÆô¶¯
+2025-01-20 22:11:20.677 [DB_Monitor.py:87] : ¼ì²âµ½ monitor_list ·¢Éú±ä»¯
+2025-01-20 22:11:20.679 [Ticket_Monitor.py:81] : ¿ªÊ¼¼à¿ØÑÝ³ª»á...
+2025-01-20 22:11:20.679 [Monitor_Thread_Manager.py:31] : ¼à¿ØÏß³ÌÒÑÆô¶¯
+2025-01-20 22:11:20.687 [Ticket_Monitor.py:258] : DM ¼à¿ØÖÐ
+2025-01-20 22:11:20.926 [Ticket_Monitor.py:169] : ¼à¿ØÆ½Ì¨ DM Ê±³ö´í: 'NoneType' object has no attribute 'get'
+2025-01-20 22:11:30.929 [Ticket_Monitor.py:258] : DM ¼à¿ØÖÐ
+2025-01-20 22:11:31.093 [Ticket_Monitor.py:169] : ¼à¿ØÆ½Ì¨ DM Ê±³ö´í: 'NoneType' object has no attribute 'get'
+2025-01-20 22:11:41.096 [Ticket_Monitor.py:258] : DM ¼à¿ØÖÐ
+2025-01-20 22:11:41.312 [Ticket_Monitor.py:169] : ¼à¿ØÆ½Ì¨ DM Ê±³ö´í: 'NoneType' object has no attribute 'get'
+2025-01-20 22:11:46.552 [damai.py:286] : »ñÈ¡´óÂóÍøÊý¾ÝÊ§°Ü£¬
+½Ó¿Ú: get_item_detail_web, 
+´íÎó: Expecting value: line 1 column 1 (char 0)
+2025-01-20 22:11:49.169 [damai.py:286] : »ñÈ¡´óÂóÍøÊý¾ÝÊ§°Ü£¬
+½Ó¿Ú: get_item_detail_web, 
+´íÎó: Expecting value: line 1 column 1 (char 0)
+2025-01-20 22:11:50.578 [damai.py:286] : »ñÈ¡´óÂóÍøÊý¾ÝÊ§°Ü£¬
+½Ó¿Ú: get_item_detail_web, 
+´íÎó: Expecting value: line 1 column 1 (char 0)
+2025-01-20 22:11:51.315 [Ticket_Monitor.py:258] : DM ¼à¿ØÖÐ
+2025-01-20 22:11:51.607 [Ticket_Monitor.py:169] : ¼à¿ØÆ½Ì¨ DM Ê±³ö´í: 'NoneType' object has no attribute 'get'
+2025-01-20 22:11:52.423 [main.py:63] : FastAPI Ó¦ÓÃ¹Ø±Õ
+2025-01-20 22:12:01.611 [Ticket_Monitor.py:258] : DM ¼à¿ØÖÐ
+2025-01-20 22:12:01.817 [Ticket_Monitor.py:169] : ¼à¿ØÆ½Ì¨ DM Ê±³ö´í: 'NoneType' object has no attribute 'get'
+2025-01-20 22:12:19.832 [main.py:59] : FastAPI Ó¦ÓÃÆô¶¯
+2025-01-20 22:12:21.990 [damai.py:286] : »ñÈ¡´óÂóÍøÊý¾ÝÊ§°Ü£¬
+½Ó¿Ú: get_item_detail_web, 
+´íÎó: Expecting value: line 1 column 1 (char 0)
+2025-01-20 22:13:46.492 [damai.py:286] : »ñÈ¡´óÂóÍøÊý¾ÝÊ§°Ü£¬
+½Ó¿Ú: get_item_detail_web, 
+´íÎó: Expecting value: line 1 column 1 (char 0)
+2025-01-20 22:45:04.472 [main.py:63] : FastAPI Ó¦ÓÃ¹Ø±Õ
+2025-01-20 22:45:06.439 [main.py:59] : FastAPI Ó¦ÓÃÆô¶¯
+2025-01-20 22:57:41.600 [main.py:63] : FastAPI Ó¦ÓÃ¹Ø±Õ
+2025-01-20 22:57:43.440 [main.py:59] : FastAPI Ó¦ÓÃÆô¶¯
+2025-01-20 23:11:56.288 [main.py:63] : FastAPI Ó¦ÓÃ¹Ø±Õ
+2025-01-20 23:11:58.119 [main.py:59] : FastAPI Ó¦ÓÃÆô¶¯
+2025-01-20 23:40:32.957 [main.py:63] : FastAPI Ó¦ÓÃ¹Ø±Õ
+2025-01-20 23:40:34.953 [main.py:59] : FastAPI Ó¦ÓÃÆô¶¯
+2025-01-20 23:40:42.970 [DB_Monitor.py:87] : ¼ì²âµ½ monitor_list ·¢Éú±ä»¯
+2025-01-20 23:40:43.009 [Ticket_Monitor.py:81] : ¿ªÊ¼¼à¿ØÑÝ³ª»á...
+2025-01-20 23:40:43.009 [Monitor_Thread_Manager.py:31] : ¼à¿ØÏß³ÌÒÑÆô¶¯
+2025-01-20 23:40:43.016 [Ticket_Monitor.py:278] : DM ¼à¿ØÖÐ
+2025-01-20 23:40:43.295 [Ticket_Monitor.py:278] : DM ¼à¿ØÖÐ
+2025-01-20 23:40:43.502 [Ticket_Monitor.py:278] : DM ¼à¿ØÖÐ
+2025-01-20 23:40:45.014 [DB_Monitor.py:87] : ¼ì²âµ½ monitor_list ·¢Éú±ä»¯
+2025-01-20 23:40:45.016 [Ticket_Monitor.py:81] : ¿ªÊ¼¼à¿ØÑÝ³ª»á...
+2025-01-20 23:40:45.017 [Monitor_Thread_Manager.py:31] : ¼à¿ØÏß³ÌÒÑÆô¶¯
+2025-01-20 23:40:45.675 [Monitor_Thread_Manager.py:44] : ¼à¿ØÏß³ÌÒÑÍ£Ö¹
+2025-01-20 23:40:45.676 [thread_stats.py:15] : Ïß³Ì ticket_monitor__0 Ö´ÐÐºÄÊ±: 2.66Ãë
+2025-01-20 23:40:45.678 [thread_stats.py:46] : Ïß³Ì ticket_monitor__0 ×´Ì¬: »îÔ¾
+2025-01-20 23:40:47.042 [Monitor_Thread_Manager.py:44] : ¼à¿ØÏß³ÌÒÑÍ£Ö¹
+2025-01-20 23:40:47.042 [thread_stats.py:15] : Ïß³Ì ticket_monitor__0 Ö´ÐÐºÄÊ±: 2.02Ãë
+2025-01-20 23:40:52.560 [main.py:63] : FastAPI Ó¦ÓÃ¹Ø±Õ
+2025-01-20 23:41:55.286 [main.py:59] : FastAPI Ó¦ÓÃÆô¶¯
+2025-01-20 23:41:56.773 [main.py:63] : FastAPI Ó¦ÓÃ¹Ø±Õ
+2025-01-20 23:42:22.704 [main.py:59] : FastAPI Ó¦ÓÃÆô¶¯
+2025-01-20 23:42:24.687 [DB_Monitor.py:87] : ¼ì²âµ½ monitor_list ·¢Éú±ä»¯
+2025-01-20 23:42:24.688 [Ticket_Monitor.py:81] : ¿ªÊ¼¼à¿ØÑÝ³ª»á...
+2025-01-20 23:42:24.688 [Monitor_Thread_Manager.py:31] : ¼à¿ØÏß³ÌÒÑÆô¶¯
+2025-01-20 23:42:24.690 [Ticket_Monitor.py:278] : DM ¼à¿ØÖÐ
+2025-01-20 23:42:26.220 [main.py:63] : FastAPI Ó¦ÓÃ¹Ø±Õ
+2025-01-20 23:42:26.690 [DB_Monitor.py:87] : ¼ì²âµ½ monitor_list ·¢Éú±ä»¯
+2025-01-20 23:42:26.691 [Ticket_Monitor.py:81] : ¿ªÊ¼¼à¿ØÑÝ³ª»á...
+2025-01-20 23:42:26.691 [Monitor_Thread_Manager.py:31] : ¼à¿ØÏß³ÌÒÑÆô¶¯
+2025-01-20 23:42:26.919 [Monitor_Thread_Manager.py:44] : ¼à¿ØÏß³ÌÒÑÍ£Ö¹
+2025-01-20 23:42:26.920 [thread_stats.py:15] : Ïß³Ì ticket_monitor__0 Ö´ÐÐºÄÊ±: 2.23Ãë
+2025-01-20 23:42:44.401 [main.py:59] : FastAPI Ó¦ÓÃÆô¶¯
+2025-01-20 23:42:46.394 [DB_Monitor.py:87] : ¼ì²âµ½ monitor_list ·¢Éú±ä»¯
+2025-01-20 23:42:46.396 [Ticket_Monitor.py:81] : ¿ªÊ¼¼à¿ØÑÝ³ª»á...
+2025-01-20 23:42:46.397 [Monitor_Thread_Manager.py:31] : ¼à¿ØÏß³ÌÒÑÆô¶¯
+2025-01-20 23:42:46.399 [Ticket_Monitor.py:278] : DM ¼à¿ØÖÐ
+2025-01-20 23:42:46.593 [Ticket_Monitor.py:278] : DM ¼à¿ØÖÐ
+2025-01-20 23:42:46.765 [Ticket_Monitor.py:278] : DM ¼à¿ØÖÐ
+2025-01-20 23:42:47.915 [main.py:63] : FastAPI Ó¦ÓÃ¹Ø±Õ
+2025-01-20 23:42:56.966 [Ticket_Monitor.py:278] : DM ¼à¿ØÖÐ
+2025-01-20 23:42:57.150 [Ticket_Monitor.py:278] : DM ¼à¿ØÖÐ
+2025-01-20 23:42:57.334 [Ticket_Monitor.py:278] : DM ¼à¿ØÖÐ
+2025-01-20 23:43:07.499 [Ticket_Monitor.py:278] : DM ¼à¿ØÖÐ
+2025-01-20 23:43:07.688 [Ticket_Monitor.py:278] : DM ¼à¿ØÖÐ
+2025-01-20 23:43:07.897 [Ticket_Monitor.py:278] : DM ¼à¿ØÖÐ
+2025-01-20 23:48:46.266 [main.py:59] : FastAPI Ó¦ÓÃÆô¶¯
+2025-01-20 23:49:27.223 [main.py:63] : FastAPI Ó¦ÓÃ¹Ø±Õ
+2025-01-20 23:50:24.745 [main.py:59] : FastAPI Ó¦ÓÃÆô¶¯
+2025-01-20 23:50:28.747 [DB_Monitor.py:87] : ¼ì²âµ½ monitor_list ·¢Éú±ä»¯
+2025-01-20 23:50:28.749 [Ticket_Monitor.py:81] : ¿ªÊ¼¼à¿ØÑÝ³ª»á...
+2025-01-20 23:50:28.750 [Monitor_Thread_Manager.py:31] : ¼à¿ØÏß³ÌÒÑÆô¶¯
+2025-01-20 23:50:28.779 [Ticket_Monitor.py:286] : DM ¼à¿ØÖÐ
+2025-01-20 23:50:28.992 [Ticket_Monitor.py:286] : DM ¼à¿ØÖÐ
+2025-01-20 23:50:29.160 [Ticket_Monitor.py:286] : DM ¼à¿ØÖÐ
+2025-01-20 23:50:39.363 [Ticket_Monitor.py:286] : DM ¼à¿ØÖÐ
+2025-01-20 23:50:39.547 [Ticket_Monitor.py:286] : DM ¼à¿ØÖÐ
+2025-01-20 23:50:39.752 [Ticket_Monitor.py:286] : DM ¼à¿ØÖÐ
+2025-01-20 23:50:44.766 [DB_Monitor.py:87] : ¼ì²âµ½ monitor_list ·¢Éú±ä»¯
+2025-01-20 23:50:49.960 [Ticket_Monitor.py:286] : DM ¼à¿ØÖÐ
+2025-01-20 23:50:50.149 [Ticket_Monitor.py:286] : DM ¼à¿ØÖÐ
+2025-01-20 23:50:50.343 [Ticket_Monitor.py:286] : DM ¼à¿ØÖÐ
+2025-01-20 23:50:50.505 [Ticket_Monitor.py:286] : DM ¼à¿ØÖÐ
+2025-01-20 23:50:50.771 [DB_Monitor.py:87] : ¼ì²âµ½ monitor_list ·¢Éú±ä»¯
+2025-01-20 23:51:00.747 [Ticket_Monitor.py:286] : DM ¼à¿ØÖÐ
+2025-01-20 23:51:00.937 [Ticket_Monitor.py:286] : DM ¼à¿ØÖÐ
+2025-01-20 23:51:01.108 [Ticket_Monitor.py:286] : DM ¼à¿ØÖÐ
+2025-01-20 23:51:06.815 [DB_Monitor.py:87] : ¼ì²âµ½ monitor_list ·¢Éú±ä»¯
+2025-01-20 23:51:08.817 [DB_Monitor.py:87] : ¼ì²âµ½ monitor_list ·¢Éú±ä»¯
+2025-01-20 23:51:11.284 [Ticket_Monitor.py:286] : DM ¼à¿ØÖÐ
+2025-01-20 23:51:11.457 [Ticket_Monitor.py:286] : DM ¼à¿ØÖÐ
+2025-01-20 23:51:11.629 [Ticket_Monitor.py:286] : DM ¼à¿ØÖÐ
+2025-01-20 23:51:11.814 [Ticket_Monitor.py:286] : DM ¼à¿ØÖÐ
+2025-01-20 23:51:12.025 [Ticket_Monitor.py:286] : DM ¼à¿ØÖÐ
+2025-01-20 23:51:12.203 [Ticket_Monitor.py:286] : DM ¼à¿ØÖÐ
+2025-01-20 23:51:12.442 [Ticket_Monitor.py:262] : ¼à¿ØÆ½Ì¨ DM Ê±³ö´í·½·¨: 'NoneType' object has no attribute 'get'
+2025-01-20 23:51:22.444 [Ticket_Monitor.py:286] : DM ¼à¿ØÖÐ
+2025-01-20 23:51:22.626 [Ticket_Monitor.py:286] : DM ¼à¿ØÖÐ
+2025-01-20 23:51:22.819 [Ticket_Monitor.py:286] : DM ¼à¿ØÖÐ
+2025-01-20 23:51:22.989 [Ticket_Monitor.py:286] : DM ¼à¿ØÖÐ
+2025-01-20 23:51:23.162 [Ticket_Monitor.py:286] : DM ¼à¿ØÖÐ
+2025-01-20 23:51:23.333 [Ticket_Monitor.py:180] : ¼à¿ØÆ½Ì¨ DM Ê±³ö´í: 'str' object has no attribute 'update'
+2025-01-20 23:51:23.337 [Ticket_Monitor.py:262] : ¼à¿ØÆ½Ì¨ DM Ê±³ö´í·½·¨: 'NoneType' object has no attribute 'get'
+2025-01-20 23:51:33.340 [Ticket_Monitor.py:286] : DM ¼à¿ØÖÐ
+2025-01-20 23:51:33.543 [Ticket_Monitor.py:286] : DM ¼à¿ØÖÐ
+2025-01-20 23:51:33.701 [Ticket_Monitor.py:286] : DM ¼à¿ØÖÐ
+2025-01-20 23:51:33.873 [Ticket_Monitor.py:286] : DM ¼à¿ØÖÐ
+2025-01-20 23:51:34.059 [Ticket_Monitor.py:286] : DM ¼à¿ØÖÐ
+2025-01-20 23:51:34.246 [Ticket_Monitor.py:180] : ¼à¿ØÆ½Ì¨ DM Ê±³ö´í: 'str' object has no attribute 'update'
+2025-01-20 23:51:34.252 [Ticket_Monitor.py:262] : ¼à¿ØÆ½Ì¨ DM Ê±³ö´í·½·¨: 'NoneType' object has no attribute 'get'
+2025-01-20 23:51:44.254 [Ticket_Monitor.py:286] : DM ¼à¿ØÖÐ
+2025-01-20 23:51:44.461 [Ticket_Monitor.py:286] : DM ¼à¿ØÖÐ
+2025-01-20 23:51:44.636 [Ticket_Monitor.py:286] : DM ¼à¿ØÖÐ
+2025-01-20 23:51:44.837 [Ticket_Monitor.py:286] : DM ¼à¿ØÖÐ
+2025-01-20 23:51:45.059 [Ticket_Monitor.py:286] : DM ¼à¿ØÖÐ
+2025-01-20 23:51:45.258 [Ticket_Monitor.py:180] : ¼à¿ØÆ½Ì¨ DM Ê±³ö´í: 'str' object has no attribute 'update'
+2025-01-20 23:51:45.262 [Ticket_Monitor.py:262] : ¼à¿ØÆ½Ì¨ DM Ê±³ö´í·½·¨: 'NoneType' object has no attribute 'get'
+2025-01-20 23:51:55.264 [Ticket_Monitor.py:286] : DM ¼à¿ØÖÐ
+2025-01-20 23:51:55.438 [Ticket_Monitor.py:286] : DM ¼à¿ØÖÐ
+2025-01-20 23:51:55.608 [Ticket_Monitor.py:286] : DM ¼à¿ØÖÐ
+2025-01-20 23:51:55.806 [Ticket_Monitor.py:286] : DM ¼à¿ØÖÐ
+2025-01-20 23:51:56.012 [Ticket_Monitor.py:286] : DM ¼à¿ØÖÐ
+2025-01-20 23:51:56.174 [Ticket_Monitor.py:180] : ¼à¿ØÆ½Ì¨ DM Ê±³ö´í: 'str' object has no attribute 'update'
+2025-01-20 23:51:56.178 [Ticket_Monitor.py:262] : ¼à¿ØÆ½Ì¨ DM Ê±³ö´í·½·¨: 'NoneType' object has no attribute 'get'
+2025-01-20 23:51:58.846 [DB_Monitor.py:39] : ¶ÁÈ¡ÅäÖÃÎÄ¼þÊ§°Ü: Extra data: line 1 column 29 (char 28)
+2025-01-20 23:51:58.847 [DB_Monitor.py:62] : ¸üÐÂ¼à¿Ø moitor_list ÁÐ±í¹þÏ£ÖµÊ§°Ü: Extra data: line 1 column 29 (char 28)
+2025-01-20 23:51:58.848 [DB_Monitor.py:91] : ¼à¿ØÑ­»··¢Éú´íÎó: Extra data: line 1 column 29 (char 28)
+2025-01-20 23:52:03.849 [DB_Monitor.py:39] : ¶ÁÈ¡ÅäÖÃÎÄ¼þÊ§°Ü: Extra data: line 1 column 29 (char 28)
+2025-01-20 23:52:03.850 [DB_Monitor.py:62] : ¸üÐÂ¼à¿Ø moitor_list ÁÐ±í¹þÏ£ÖµÊ§°Ü: Extra data: line 1 column 29 (char 28)
+2025-01-20 23:52:03.850 [DB_Monitor.py:91] : ¼à¿ØÑ­»··¢Éú´íÎó: Extra data: line 1 column 29 (char 28)
+2025-01-20 23:52:06.180 [Ticket_Monitor.py:180] : ¼à¿ØÆ½Ì¨ DM Ê±³ö´í: Extra data: line 1 column 29 (char 28)
+2025-01-20 23:52:06.181 [thread_stats.py:32] : [ticket_monitor__0] µÚ1´ÎÖØÊÔ£¬´íÎó£º'NoneType' object has no attribute 'get'
+2025-01-20 23:52:07.185 [Ticket_Monitor.py:180] : ¼à¿ØÆ½Ì¨ DM Ê±³ö´í: Extra data: line 1 column 29 (char 28)
+2025-01-20 23:52:08.851 [DB_Monitor.py:87] : ¼ì²âµ½ monitor_list ·¢Éú±ä»¯
+2025-01-20 23:52:12.301 [main.py:63] : FastAPI Ó¦ÓÃ¹Ø±Õ
+2025-01-20 23:52:39.548 [main.py:59] : FastAPI Ó¦ÓÃÆô¶¯
+2025-01-20 23:52:45.534 [DB_Monitor.py:87] : ¼ì²âµ½ monitor_list ·¢Éú±ä»¯
+2025-01-20 23:52:45.536 [Ticket_Monitor.py:81] : ¿ªÊ¼¼à¿ØÑÝ³ª»á...
+2025-01-20 23:52:45.536 [Monitor_Thread_Manager.py:31] : ¼à¿ØÏß³ÌÒÑÆô¶¯
+2025-01-20 23:52:45.542 [Ticket_Monitor.py:286] : DM ¼à¿ØÖÐ
+2025-01-20 23:52:47.539 [DB_Monitor.py:87] : ¼ì²âµ½ monitor_list ·¢Éú±ä»¯
+2025-01-20 23:52:47.542 [Ticket_Monitor.py:81] : ¿ªÊ¼¼à¿ØÑÝ³ª»á...
+2025-01-20 23:52:47.542 [Monitor_Thread_Manager.py:31] : ¼à¿ØÏß³ÌÒÑÆô¶¯
+2025-01-20 23:52:47.785 [Monitor_Thread_Manager.py:44] : ¼à¿ØÏß³ÌÒÑÍ£Ö¹
+2025-01-20 23:52:47.786 [thread_stats.py:15] : Ïß³Ì ticket_monitor__0 Ö´ÐÐºÄÊ±: 2.25Ãë
+2025-01-20 23:52:47.787 [thread_stats.py:46] : Ïß³Ì ticket_monitor__0 ×´Ì¬: »îÔ¾
+2025-01-20 23:52:49.550 [Monitor_Thread_Manager.py:44] : ¼à¿ØÏß³ÌÒÑÍ£Ö¹
+2025-01-20 23:52:49.551 [thread_stats.py:15] : Ïß³Ì ticket_monitor__0 Ö´ÐÐºÄÊ±: 2.01Ãë
+2025-01-20 23:52:59.548 [DB_Monitor.py:87] : ¼ì²âµ½ monitor_list ·¢Éú±ä»¯
+2025-01-20 23:52:59.550 [Ticket_Monitor.py:81] : ¿ªÊ¼¼à¿ØÑÝ³ª»á...
+2025-01-20 23:52:59.550 [Monitor_Thread_Manager.py:31] : ¼à¿ØÏß³ÌÒÑÆô¶¯
+2025-01-20 23:52:59.553 [Ticket_Monitor.py:286] : DM ¼à¿ØÖÐ
+2025-01-20 23:52:59.776 [Ticket_Monitor.py:286] : DM ¼à¿ØÖÐ
+2025-01-20 23:53:01.552 [DB_Monitor.py:87] : ¼ì²âµ½ monitor_list ·¢Éú±ä»¯
+2025-01-20 23:53:01.554 [Ticket_Monitor.py:81] : ¿ªÊ¼¼à¿ØÑÝ³ª»á...
+2025-01-20 23:53:01.554 [Monitor_Thread_Manager.py:31] : ¼à¿ØÏß³ÌÒÑÆô¶¯
+2025-01-20 23:53:01.953 [Monitor_Thread_Manager.py:44] : ¼à¿ØÏß³ÌÒÑÍ£Ö¹
+2025-01-20 23:53:01.954 [thread_stats.py:15] : Ïß³Ì ticket_monitor__0 Ö´ÐÐºÄÊ±: 2.40Ãë
+2025-01-20 23:53:01.955 [thread_stats.py:46] : Ïß³Ì ticket_monitor__0 ×´Ì¬: »îÔ¾
+2025-01-20 23:53:03.563 [Monitor_Thread_Manager.py:44] : ¼à¿ØÏß³ÌÒÑÍ£Ö¹
+2025-01-20 23:53:03.563 [thread_stats.py:15] : Ïß³Ì ticket_monitor__0 Ö´ÐÐºÄÊ±: 2.01Ãë
+2025-01-20 23:53:19.565 [DB_Monitor.py:87] : ¼ì²âµ½ monitor_list ·¢Éú±ä»¯
+2025-01-20 23:53:19.566 [Ticket_Monitor.py:81] : ¿ªÊ¼¼à¿ØÑÝ³ª»á...
+2025-01-20 23:53:19.567 [Monitor_Thread_Manager.py:31] : ¼à¿ØÏß³ÌÒÑÆô¶¯
+2025-01-20 23:53:19.569 [Ticket_Monitor.py:286] : DM ¼à¿ØÖÐ
+2025-01-20 23:53:19.793 [Ticket_Monitor.py:286] : DM ¼à¿ØÖÐ
+2025-01-20 23:53:19.964 [Ticket_Monitor.py:286] : DM ¼à¿ØÖÐ
+2025-01-20 23:53:21.569 [DB_Monitor.py:87] : ¼ì²âµ½ monitor_list ·¢Éú±ä»¯
+2025-01-20 23:53:30.152 [Ticket_Monitor.py:286] : DM ¼à¿ØÖÐ
+2025-01-20 23:53:30.339 [Ticket_Monitor.py:286] : DM ¼à¿ØÖÐ
+2025-01-20 23:53:30.510 [Ticket_Monitor.py:286] : DM ¼à¿ØÖÐ
+2025-01-20 23:53:30.693 [Ticket_Monitor.py:286] : DM ¼à¿ØÖÐ
+2025-01-20 23:53:30.919 [Ticket_Monitor.py:286] : DM ¼à¿ØÖÐ
+2025-01-20 23:53:31.576 [DB_Monitor.py:87] : ¼ì²âµ½ monitor_list ·¢Éú±ä»¯
+2025-01-20 23:53:41.132 [Ticket_Monitor.py:286] : DM ¼à¿ØÖÐ
+2025-01-20 23:53:41.349 [Ticket_Monitor.py:286] : DM ¼à¿ØÖÐ
+2025-01-20 23:53:41.527 [Ticket_Monitor.py:286] : DM ¼à¿ØÖÐ
+2025-01-20 23:53:43.673 [DB_Monitor.py:87] : ¼ì²âµ½ monitor_list ·¢Éú±ä»¯
+2025-01-20 23:53:45.737 [DB_Monitor.py:87] : ¼ì²âµ½ monitor_list ·¢Éú±ä»¯
+2025-01-20 23:53:47.788 [thread_stats.py:46] : Ïß³Ì ticket_monitor__0 ×´Ì¬: »îÔ¾
+2025-01-20 23:53:49.552 [thread_stats.py:46] : Ïß³Ì ticket_monitor__0 ×´Ì¬: »îÔ¾
+2025-01-20 23:53:51.706 [Ticket_Monitor.py:286] : DM ¼à¿ØÖÐ
+2025-01-20 23:53:51.907 [Ticket_Monitor.py:286] : DM ¼à¿ØÖÐ
+2025-01-20 23:53:52.097 [Ticket_Monitor.py:286] : DM ¼à¿ØÖÐ
+2025-01-20 23:53:52.286 [Ticket_Monitor.py:286] : DM ¼à¿ØÖÐ
+2025-01-20 23:53:52.517 [Ticket_Monitor.py:286] : DM ¼à¿ØÖÐ
+2025-01-20 23:53:52.724 [Ticket_Monitor.py:286] : DM ¼à¿ØÖÐ
+2025-01-20 23:53:52.900 [Ticket_Monitor.py:180] : ¼à¿ØÆ½Ì¨ DM Ê±³ö´í: 'str' object has no attribute 'update'
+2025-01-20 23:53:53.743 [DB_Monitor.py:87] : ¼ì²âµ½ monitor_list ·¢Éú±ä»¯
+2025-01-20 23:54:01.957 [thread_stats.py:46] : Ïß³Ì ticket_monitor__0 ×´Ì¬: »îÔ¾
+2025-01-20 23:54:02.907 [Ticket_Monitor.py:286] : DM ¼à¿ØÖÐ
+2025-01-20 23:54:03.107 [Ticket_Monitor.py:286] : DM ¼à¿ØÖÐ
+2025-01-20 23:54:03.285 [Ticket_Monitor.py:286] : DM ¼à¿ØÖÐ
+2025-01-20 23:54:03.565 [thread_stats.py:46] : Ïß³Ì ticket_monitor__0 ×´Ì¬: »îÔ¾
+2025-01-20 23:54:13.456 [Ticket_Monitor.py:286] : DM ¼à¿ØÖÐ
+2025-01-20 23:54:13.626 [Ticket_Monitor.py:286] : DM ¼à¿ØÖÐ
+2025-01-20 23:54:13.798 [Ticket_Monitor.py:286] : DM ¼à¿ØÖÐ
+2025-01-20 23:54:16.937 [main.py:63] : FastAPI Ó¦ÓÃ¹Ø±Õ
