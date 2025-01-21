@@ -16,6 +16,7 @@ from datetime import datetime
 from src.server.untiles import ThreadStats, monitor_thread_status, retry_on_exception, thread_timer
 from src.server.untiles.Src_Path import db_config_path
 from src.server.untiles.Monitor_Thread_Manager import MonitorThreadManager
+from src.server.untiles.WX_Notice import WX_Notice
 class Ticket_Monitor:
     def __init__(self):
         self.db_config = {}
@@ -23,6 +24,8 @@ class Ticket_Monitor:
         self.monitor_thread_manager = None
         self.get_db_config()
         self.semaphore = asyncio.Semaphore(10)  # 限制并发请求的数量
+        self.wx_notice = WX_Notice()
+        self.access_token = self.wx_notice.get_access_token()
     # 查询读取获取db_config.json文件中的数据信息
     def get_db_config(self):
         with open(db_config_path, 'r', encoding='utf-8') as f:
@@ -73,6 +76,34 @@ class Ticket_Monitor:
         print('##########################回流票打印开始##########################')
         print(notification_content)
         print('##########################回流票打印结束##########################')
+        # 发送通知（发送通知到用户微信公众号）
+        notification_content = {
+            'datetime': {
+                "value": datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+                "color": "#173177"
+            },
+            'show_name': {
+                "value": show_name,
+                "color": "#173177"
+            },
+            'perform_name': {
+                "value": ticket_perform.get('perform_name'),
+                "color": "#173177"
+            },
+            'venue_city_name': {
+                "value": venue_city_name,
+                "color": "#173177"
+            },
+            'venue_name': {
+                "value": venue_name,
+                "color": "#173177"
+            },
+            'price_name': {
+                "value": price_name,
+                "color": "#173177"
+            }
+        }
+        self.wx_notice.send_public_notice(self.access_token, notification_content, user_wx_code='oCwzb6M11fJk6Xm3yFdbRmvgvmNA', template_id='CPHntQfk-7GchRhjbi22SsXP84Bndjlc4N4Q5oEFTp8')
         pass
     # 监控演唱会
     def monitor(self, damaiServe, thread_manager):
@@ -252,6 +283,22 @@ class Ticket_Monitor:
                     print(notification_content)
                     print('##########################演唱会已下架打印结束##########################')
                     monitor_list[delete_index] = None
+                            # 发送通知（发送通知到用户微信公众号）
+                    notification_content = {
+                        'datetime': {
+                            "value": datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+                            "color": "#173177"
+                        },
+                        'show_name': {
+                            "value": show_name,
+                            "color": "#173177"
+                        },
+                        'delete_show_id': {
+                            "value": delete_show_id,
+                            "color": "#173177"
+                        }
+                    }
+                    self.wx_notice.send_public_notice(self.access_token, notification_content, user_wx_code='oCwzb6M11fJk6Xm3yFdbRmvgvmNA', template_id='gNM1Hj4yVnpebScA_NZPB6qFwMWSrR2Jb6Ntg7VmFIE')
                 # 递归删除monitor_list中的None
                 monitor_list = self.recursive_delete_none(monitor_list)
                 self.db_config[platform]['monitor_list'] = monitor_list

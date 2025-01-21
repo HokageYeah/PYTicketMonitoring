@@ -1529,3 +1529,203 @@
 2025-01-21 14:34:07.488 [main.py:63] : FastAPI 搴旂敤鍏抽棴
 2025-01-21 15:35:00.111 [main.py:59] : FastAPI 搴旂敤鍚姩
 2025-01-21 17:20:55.399 [main.py:63] : FastAPI 搴旂敤鍏抽棴
+2025-01-21 22:43:22.803 [main.py:59] : FastAPI 应用启动
+2025-01-21 22:48:14.980 [DB_Monitor.py:87] : 检测到 monitor_list 发生变化
+2025-01-21 22:48:14.982 [Ticket_Monitor.py:112] : 开始监控演唱会...
+2025-01-21 22:48:14.982 [Monitor_Thread_Manager.py:31] : 监控线程已启动
+2025-01-21 22:48:16.999 [Monitor_Thread_Manager.py:44] : 监控线程已停止
+2025-01-21 22:48:17.000 [thread_stats.py:15] : 线程 ticket_monitor__0 执行耗时: 2.02秒
+2025-01-21 22:48:40.998 [DB_Monitor.py:87] : 检测到 monitor_list 发生变化
+2025-01-21 22:48:41.003 [Ticket_Monitor.py:112] : 开始监控演唱会...
+2025-01-21 22:48:41.003 [Monitor_Thread_Manager.py:31] : 监控线程已启动
+2025-01-21 22:48:41.007 [Ticket_Monitor.py:317] : DM 监控中
+2025-01-21 22:48:47.015 [main.py:63] : FastAPI 应用关闭
+2025-01-21 22:48:51.198 [Ticket_Monitor.py:317] : DM 监控中
+2025-01-21 22:49:01.390 [Ticket_Monitor.py:317] : DM 监控中
+2025-01-21 22:49:10.259 [main.py:59] : FastAPI 应用启动
+2025-01-21 22:49:14.247 [DB_Monitor.py:87] : 检测到 monitor_list 发生变化
+2025-01-21 22:49:14.250 [Ticket_Monitor.py:112] : 开始监控演唱会...
+2025-01-21 22:49:14.250 [Monitor_Thread_Manager.py:31] : 监控线程已启动
+2025-01-21 22:49:16.267 [Monitor_Thread_Manager.py:44] : 监控线程已停止
+2025-01-21 22:49:16.268 [thread_stats.py:15] : 线程 ticket_monitor__0 执行耗时: 2.02秒
+2025-01-21 22:51:12.340 [DB_Monitor.py:87] : 检测到 monitor_list 发生变化
+2025-01-21 22:51:12.341 [Ticket_Monitor.py:112] : 开始监控演唱会...
+2025-01-21 22:51:12.342 [Monitor_Thread_Manager.py:31] : 监控线程已启动
+2025-01-21 22:51:12.343 [Ticket_Monitor.py:317] : DM 监控中
+2025-01-21 22:51:12.564 [Ticket_Monitor.py:317] : DM 监控中
+2025-01-21 22:51:13.147 [Ticket_Monitor.py:293] : 监控平台 DM 时出错方法: WX_Notice.send_public_notice() got an unexpected keyword argument 'wx_token'
+2025-01-21 22:51:16.270 [thread_stats.py:46] : 线程 ticket_monitor__0 状态: 活跃
+2025-01-21 22:51:23.148 [Ticket_Monitor.py:317] : DM 监控中
+2025-01-21 22:51:23.334 [Ticket_Monitor.py:317] : DM 监控中
+2025-01-21 22:51:23.520 [Ticket_Monitor.py:211] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-01-21 22:51:23.791 [Ticket_Monitor.py:293] : 监控平台 DM 时出错方法: WX_Notice.send_public_notice() got an unexpected keyword argument 'wx_token'
+2025-01-21 22:51:33.793 [Ticket_Monitor.py:317] : DM 监控中
+2025-01-21 22:51:33.981 [Ticket_Monitor.py:317] : DM 监控中
+2025-01-21 22:51:34.174 [Ticket_Monitor.py:211] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-01-21 22:51:34.437 [Ticket_Monitor.py:293] : 监控平台 DM 时出错方法: WX_Notice.send_public_notice() got an unexpected keyword argument 'wx_token'
+2025-01-21 22:51:42.123 [main.py:63] : FastAPI 应用关闭
+2025-01-21 22:51:44.439 [Ticket_Monitor.py:317] : DM 监控中
+2025-01-21 22:51:44.600 [Ticket_Monitor.py:317] : DM 监控中
+2025-01-21 22:51:44.803 [Ticket_Monitor.py:211] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-01-21 22:51:45.078 [Ticket_Monitor.py:293] : 监控平台 DM 时出错方法: WX_Notice.send_public_notice() got an unexpected keyword argument 'wx_token'
+2025-01-21 22:51:55.080 [Ticket_Monitor.py:317] : DM 监控中
+2025-01-21 22:51:55.267 [Ticket_Monitor.py:317] : DM 监控中
+2025-01-21 22:51:55.458 [Ticket_Monitor.py:211] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-01-21 22:51:55.738 [Ticket_Monitor.py:293] : 监控平台 DM 时出错方法: WX_Notice.send_public_notice() got an unexpected keyword argument 'wx_token'
+2025-01-21 22:52:05.739 [Ticket_Monitor.py:317] : DM 监控中
+2025-01-21 22:52:05.946 [Ticket_Monitor.py:317] : DM 监控中
+2025-01-21 22:52:06.134 [Ticket_Monitor.py:211] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-01-21 22:52:06.394 [Ticket_Monitor.py:293] : 监控平台 DM 时出错方法: WX_Notice.send_public_notice() got an unexpected keyword argument 'wx_token'
+2025-01-21 22:53:25.257 [main.py:59] : FastAPI 应用启动
+2025-01-21 22:53:39.246 [DB_Monitor.py:87] : 检测到 monitor_list 发生变化
+2025-01-21 22:53:39.249 [Ticket_Monitor.py:112] : 开始监控演唱会...
+2025-01-21 22:53:39.249 [Monitor_Thread_Manager.py:31] : 监控线程已启动
+2025-01-21 22:53:41.262 [Monitor_Thread_Manager.py:44] : 监控线程已停止
+2025-01-21 22:53:41.263 [thread_stats.py:15] : 线程 ticket_monitor__0 执行耗时: 2.01秒
+2025-01-21 22:53:43.253 [DB_Monitor.py:87] : 检测到 monitor_list 发生变化
+2025-01-21 22:53:43.257 [Ticket_Monitor.py:112] : 开始监控演唱会...
+2025-01-21 22:53:43.257 [Monitor_Thread_Manager.py:31] : 监控线程已启动
+2025-01-21 22:53:43.262 [Ticket_Monitor.py:317] : DM 监控中
+2025-01-21 22:53:43.483 [Ticket_Monitor.py:317] : DM 监控中
+2025-01-21 22:53:45.258 [DB_Monitor.py:87] : 检测到 monitor_list 发生变化
+2025-01-21 22:53:45.272 [Ticket_Monitor.py:112] : 开始监控演唱会...
+2025-01-21 22:53:45.272 [Monitor_Thread_Manager.py:31] : 监控线程已启动
+2025-01-21 22:53:46.120 [Monitor_Thread_Manager.py:44] : 监控线程已停止
+2025-01-21 22:53:46.121 [thread_stats.py:15] : 线程 ticket_monitor__0 执行耗时: 2.86秒
+2025-01-21 22:53:46.123 [thread_stats.py:46] : 线程 ticket_monitor__0 状态: 活跃
+2025-01-21 22:53:47.283 [Monitor_Thread_Manager.py:44] : 监控线程已停止
+2025-01-21 22:53:47.284 [thread_stats.py:15] : 线程 ticket_monitor__0 执行耗时: 2.01秒
+2025-01-21 22:55:40.721 [main.py:63] : FastAPI 应用关闭
+2025-01-21 22:55:42.736 [main.py:59] : FastAPI 应用启动
+2025-01-21 22:55:45.209 [main.py:63] : FastAPI 应用关闭
+2025-01-21 22:55:47.372 [main.py:59] : FastAPI 应用启动
+2025-01-21 22:55:51.374 [DB_Monitor.py:87] : 检测到 monitor_list 发生变化
+2025-01-21 22:55:51.376 [Ticket_Monitor.py:112] : 开始监控演唱会...
+2025-01-21 22:55:51.376 [Monitor_Thread_Manager.py:31] : 监控线程已启动
+2025-01-21 22:55:51.379 [Ticket_Monitor.py:317] : DM 监控中
+2025-01-21 22:55:51.625 [Ticket_Monitor.py:317] : DM 监控中
+2025-01-21 22:55:53.377 [DB_Monitor.py:87] : 检测到 monitor_list 发生变化
+2025-01-21 22:55:53.379 [Ticket_Monitor.py:112] : 开始监控演唱会...
+2025-01-21 22:55:53.379 [Monitor_Thread_Manager.py:31] : 监控线程已启动
+2025-01-21 22:55:54.766 [Monitor_Thread_Manager.py:44] : 监控线程已停止
+2025-01-21 22:55:54.767 [thread_stats.py:15] : 线程 ticket_monitor__0 执行耗时: 3.39秒
+2025-01-21 22:55:54.768 [thread_stats.py:46] : 线程 ticket_monitor__0 状态: 活跃
+2025-01-21 22:55:55.394 [Monitor_Thread_Manager.py:44] : 监控线程已停止
+2025-01-21 22:55:55.396 [thread_stats.py:15] : 线程 ticket_monitor__0 执行耗时: 2.02秒
+2025-01-21 22:56:09.585 [main.py:63] : FastAPI 应用关闭
+2025-01-21 22:56:11.228 [main.py:59] : FastAPI 应用启动
+2025-01-21 23:06:31.706 [main.py:63] : FastAPI 应用关闭
+2025-01-21 23:06:33.919 [main.py:59] : FastAPI 应用启动
+2025-01-21 23:06:39.921 [DB_Monitor.py:87] : 检测到 monitor_list 发生变化
+2025-01-21 23:06:39.923 [Ticket_Monitor.py:112] : 开始监控演唱会...
+2025-01-21 23:06:39.923 [Monitor_Thread_Manager.py:31] : 监控线程已启动
+2025-01-21 23:06:39.925 [Ticket_Monitor.py:317] : DM 监控中
+2025-01-21 23:06:40.141 [Ticket_Monitor.py:317] : DM 监控中
+2025-01-21 23:06:41.924 [DB_Monitor.py:87] : 检测到 monitor_list 发生变化
+2025-01-21 23:06:41.928 [Ticket_Monitor.py:112] : 开始监控演唱会...
+2025-01-21 23:06:41.928 [Monitor_Thread_Manager.py:31] : 监控线程已启动
+2025-01-21 23:06:43.271 [Monitor_Thread_Manager.py:44] : 监控线程已停止
+2025-01-21 23:06:43.272 [thread_stats.py:15] : 线程 ticket_monitor__0 执行耗时: 3.35秒
+2025-01-21 23:06:43.273 [thread_stats.py:46] : 线程 ticket_monitor__0 状态: 活跃
+2025-01-21 23:06:43.937 [Monitor_Thread_Manager.py:44] : 监控线程已停止
+2025-01-21 23:06:43.938 [thread_stats.py:15] : 线程 ticket_monitor__0 执行耗时: 2.01秒
+2025-01-21 23:07:37.623 [main.py:63] : FastAPI 应用关闭
+2025-01-21 23:07:39.535 [main.py:59] : FastAPI 应用启动
+2025-01-21 23:07:45.550 [DB_Monitor.py:87] : 检测到 monitor_list 发生变化
+2025-01-21 23:07:45.552 [Ticket_Monitor.py:112] : 开始监控演唱会...
+2025-01-21 23:07:45.552 [Monitor_Thread_Manager.py:31] : 监控线程已启动
+2025-01-21 23:07:45.555 [Ticket_Monitor.py:317] : DM 监控中
+2025-01-21 23:07:45.777 [Ticket_Monitor.py:317] : DM 监控中
+2025-01-21 23:07:47.554 [DB_Monitor.py:87] : 检测到 monitor_list 发生变化
+2025-01-21 23:07:47.556 [Ticket_Monitor.py:112] : 开始监控演唱会...
+2025-01-21 23:07:47.556 [Monitor_Thread_Manager.py:31] : 监控线程已启动
+2025-01-21 23:07:48.683 [Monitor_Thread_Manager.py:44] : 监控线程已停止
+2025-01-21 23:07:48.684 [thread_stats.py:15] : 线程 ticket_monitor__0 执行耗时: 3.13秒
+2025-01-21 23:07:48.686 [thread_stats.py:46] : 线程 ticket_monitor__0 状态: 活跃
+2025-01-21 23:07:49.574 [Monitor_Thread_Manager.py:44] : 监控线程已停止
+2025-01-21 23:07:49.575 [thread_stats.py:15] : 线程 ticket_monitor__0 执行耗时: 2.02秒
+2025-01-21 23:07:58.600 [main.py:63] : FastAPI 应用关闭
+2025-01-21 23:08:00.816 [main.py:59] : FastAPI 应用启动
+2025-01-21 23:09:02.102 [main.py:63] : FastAPI 应用关闭
+2025-01-21 23:09:04.020 [main.py:59] : FastAPI 应用启动
+2025-01-21 23:13:43.699 [main.py:63] : FastAPI 应用关闭
+2025-01-21 23:13:45.721 [main.py:59] : FastAPI 应用启动
+2025-01-21 23:13:47.720 [DB_Monitor.py:87] : 检测到 monitor_list 发生变化
+2025-01-21 23:13:47.723 [Ticket_Monitor.py:112] : 开始监控演唱会...
+2025-01-21 23:13:47.724 [Monitor_Thread_Manager.py:31] : 监控线程已启动
+2025-01-21 23:13:47.727 [Ticket_Monitor.py:317] : DM 监控中
+2025-01-21 23:13:47.965 [Ticket_Monitor.py:317] : DM 监控中
+2025-01-21 23:13:49.725 [DB_Monitor.py:87] : 检测到 monitor_list 发生变化
+2025-01-21 23:13:49.729 [Ticket_Monitor.py:112] : 开始监控演唱会...
+2025-01-21 23:13:49.729 [Monitor_Thread_Manager.py:31] : 监控线程已启动
+2025-01-21 23:13:51.019 [Monitor_Thread_Manager.py:44] : 监控线程已停止
+2025-01-21 23:13:51.021 [thread_stats.py:15] : 线程 ticket_monitor__0 执行耗时: 3.30秒
+2025-01-21 23:13:51.023 [thread_stats.py:46] : 线程 ticket_monitor__0 状态: 活跃
+2025-01-21 23:13:51.749 [Monitor_Thread_Manager.py:44] : 监控线程已停止
+2025-01-21 23:13:51.750 [thread_stats.py:15] : 线程 ticket_monitor__0 执行耗时: 2.02秒
+2025-01-21 23:15:38.596 [main.py:63] : FastAPI 应用关闭
+2025-01-21 23:15:40.654 [main.py:59] : FastAPI 应用启动
+2025-01-21 23:15:44.643 [DB_Monitor.py:87] : 检测到 monitor_list 发生变化
+2025-01-21 23:15:44.645 [Ticket_Monitor.py:112] : 开始监控演唱会...
+2025-01-21 23:15:44.645 [Monitor_Thread_Manager.py:31] : 监控线程已启动
+2025-01-21 23:15:44.648 [Ticket_Monitor.py:317] : DM 监控中
+2025-01-21 23:15:44.840 [Ticket_Monitor.py:317] : DM 监控中
+2025-01-21 23:15:46.647 [DB_Monitor.py:87] : 检测到 monitor_list 发生变化
+2025-01-21 23:15:46.650 [Ticket_Monitor.py:112] : 开始监控演唱会...
+2025-01-21 23:15:46.650 [Monitor_Thread_Manager.py:31] : 监控线程已启动
+2025-01-21 23:15:47.989 [Monitor_Thread_Manager.py:44] : 监控线程已停止
+2025-01-21 23:15:47.990 [thread_stats.py:15] : 线程 ticket_monitor__0 执行耗时: 3.34秒
+2025-01-21 23:15:47.992 [thread_stats.py:46] : 线程 ticket_monitor__0 状态: 活跃
+2025-01-21 23:15:48.659 [Monitor_Thread_Manager.py:44] : 监控线程已停止
+2025-01-21 23:15:48.659 [thread_stats.py:15] : 线程 ticket_monitor__0 执行耗时: 2.01秒
+2025-01-21 23:19:31.175 [main.py:63] : FastAPI 应用关闭
+2025-01-21 23:19:33.013 [main.py:59] : FastAPI 应用启动
+2025-01-21 23:19:51.661 [main.py:63] : FastAPI 应用关闭
+2025-01-21 23:19:54.115 [main.py:59] : FastAPI 应用启动
+2025-01-21 23:20:20.111 [DB_Monitor.py:87] : 检测到 monitor_list 发生变化
+2025-01-21 23:20:20.112 [Ticket_Monitor.py:112] : 开始监控演唱会...
+2025-01-21 23:20:20.112 [Monitor_Thread_Manager.py:31] : 监控线程已启动
+2025-01-21 23:20:22.159 [DB_Monitor.py:87] : 检测到 monitor_list 发生变化
+2025-01-21 23:20:22.161 [Monitor_Thread_Manager.py:44] : 监控线程已停止
+2025-01-21 23:20:22.177 [thread_stats.py:15] : 线程 ticket_monitor__0 执行耗时: 2.06秒
+2025-01-21 23:20:22.179 [Ticket_Monitor.py:112] : 开始监控演唱会...
+2025-01-21 23:20:22.180 [Monitor_Thread_Manager.py:31] : 监控线程已启动
+2025-01-21 23:20:22.182 [Ticket_Monitor.py:317] : DM 监控中
+2025-01-21 23:20:22.409 [Ticket_Monitor.py:317] : DM 监控中
+2025-01-21 23:20:24.182 [DB_Monitor.py:87] : 检测到 monitor_list 发生变化
+2025-01-21 23:20:24.183 [Ticket_Monitor.py:112] : 开始监控演唱会...
+2025-01-21 23:20:24.183 [Monitor_Thread_Manager.py:31] : 监控线程已启动
+2025-01-21 23:20:25.584 [Monitor_Thread_Manager.py:44] : 监控线程已停止
+2025-01-21 23:20:25.585 [thread_stats.py:15] : 线程 ticket_monitor__0 执行耗时: 3.40秒
+2025-01-21 23:20:25.587 [thread_stats.py:46] : 线程 ticket_monitor__0 状态: 活跃
+2025-01-21 23:20:26.194 [Monitor_Thread_Manager.py:44] : 监控线程已停止
+2025-01-21 23:20:26.195 [thread_stats.py:15] : 线程 ticket_monitor__0 执行耗时: 2.01秒
+2025-01-21 23:28:03.912 [main.py:63] : FastAPI 应用关闭
+2025-01-21 23:28:06.276 [main.py:59] : FastAPI 应用启动
+2025-01-21 23:28:12.278 [DB_Monitor.py:87] : 检测到 monitor_list 发生变化
+2025-01-21 23:28:12.280 [Ticket_Monitor.py:112] : 开始监控演唱会...
+2025-01-21 23:28:12.280 [Monitor_Thread_Manager.py:31] : 监控线程已启动
+2025-01-21 23:28:12.288 [Ticket_Monitor.py:333] : DM 监控中
+2025-01-21 23:28:14.282 [DB_Monitor.py:87] : 检测到 monitor_list 发生变化
+2025-01-21 23:28:14.284 [Ticket_Monitor.py:112] : 开始监控演唱会...
+2025-01-21 23:28:14.284 [Monitor_Thread_Manager.py:31] : 监控线程已启动
+2025-01-21 23:28:15.082 [Monitor_Thread_Manager.py:44] : 监控线程已停止
+2025-01-21 23:28:15.084 [thread_stats.py:15] : 线程 ticket_monitor__0 执行耗时: 2.80秒
+2025-01-21 23:28:15.086 [thread_stats.py:46] : 线程 ticket_monitor__0 状态: 活跃
+2025-01-21 23:28:16.289 [Monitor_Thread_Manager.py:44] : 监控线程已停止
+2025-01-21 23:28:16.290 [thread_stats.py:15] : 线程 ticket_monitor__0 执行耗时: 2.00秒
+2025-01-21 23:29:25.562 [main.py:63] : FastAPI 应用关闭
+2025-01-21 23:29:28.070 [main.py:59] : FastAPI 应用启动
+2025-01-21 23:29:30.069 [DB_Monitor.py:87] : 检测到 monitor_list 发生变化
+2025-01-21 23:29:30.072 [Ticket_Monitor.py:112] : 开始监控演唱会...
+2025-01-21 23:29:30.072 [Monitor_Thread_Manager.py:31] : 监控线程已启动
+2025-01-21 23:29:30.078 [Ticket_Monitor.py:333] : DM 监控中
+2025-01-21 23:29:32.076 [DB_Monitor.py:87] : 检测到 monitor_list 发生变化
+2025-01-21 23:29:32.078 [Ticket_Monitor.py:112] : 开始监控演唱会...
+2025-01-21 23:29:32.078 [Monitor_Thread_Manager.py:31] : 监控线程已启动
+2025-01-21 23:29:32.887 [Monitor_Thread_Manager.py:44] : 监控线程已停止
+2025-01-21 23:29:32.888 [thread_stats.py:15] : 线程 ticket_monitor__0 执行耗时: 2.81秒
+2025-01-21 23:29:32.889 [thread_stats.py:46] : 线程 ticket_monitor__0 状态: 活跃
+2025-01-21 23:29:34.094 [Monitor_Thread_Manager.py:44] : 监控线程已停止
+2025-01-21 23:29:34.095 [thread_stats.py:15] : 线程 ticket_monitor__0 执行耗时: 2.02秒
+2025-01-21 23:29:43.599 [main.py:63] : FastAPI 应用关闭
