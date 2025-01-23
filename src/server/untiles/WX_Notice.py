@@ -32,4 +32,11 @@ class WX_Notice:
         except Exception as e:
             print('WX_Notice---send_public_notice---error---', e)
             return False
+    def get_user_wx_openid_list(self, access_token:str, next_openid:str = '') -> dict:
+        # 获取用户微信openid列表
+        get_user_wx_openid_list_url = f'https://api.weixin.qq.com/cgi-bin/user/get?access_token={access_token}&next_openid={next_openid}'
+        response = requests.get(get_user_wx_openid_list_url)
+        print('WX_Notice---get_user_wx_openid_list---response---', response.json())
+        return response.json()
+
 

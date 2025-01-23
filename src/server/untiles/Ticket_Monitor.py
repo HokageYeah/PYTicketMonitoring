@@ -26,8 +26,6 @@ class Ticket_Monitor:
         self.semaphore = asyncio.Semaphore(10)  # 限制并发请求的数量
         self.wx_notice = WX_Notice()
         self.access_token = self.wx_notice.get_access_token()
-        # 微信推送id
-        self.wx_push_id = ['oCwzb6Jhsew1eo21_1wUlC45IgaM', 'oCwzb6M11fJk6Xm3yFdbRmvgvmNA']
     # 查询读取获取db_config.json文件中的数据信息
     def get_db_config(self):
         with open(db_config_path, 'r', encoding='utf-8') as f:
@@ -105,8 +103,10 @@ class Ticket_Monitor:
                 "color": "#173177"
             }
         }
+        # 获取用户微信openid列表
+        user_wx_openid_dict = self.wx_notice.get_user_wx_openid_list(self.access_token, '')
         # 发送通知
-        for wx_token in self.wx_push_id:
+        for wx_token in user_wx_openid_dict.get('data').get('openid'):
             self.wx_notice.send_public_notice(self.access_token, notification_content, user_wx_code=wx_token, template_id='CPHntQfk-7GchRhjbi22SsXP84Bndjlc4N4Q5oEFTp8')
         pass
     # 监控演唱会
@@ -302,8 +302,10 @@ class Ticket_Monitor:
                             "color": "#173177"
                         }
                     }
+                    # 获取用户微信openid列表
+                    user_wx_openid_dict = self.wx_notice.get_user_wx_openid_list(self.access_token, '')
                     # 发送通知
-                    for wx_code in self.wx_push_id:
+                    for wx_code in user_wx_openid_dict.get('data').get('openid'):
                         self.wx_notice.send_public_notice(self.access_token, notification_content, user_wx_code=wx_code, template_id='gNM1Hj4yVnpebScA_NZPB6qFwMWSrR2Jb6Ntg7VmFIE')
                 # 递归删除monitor_list中的None
                 monitor_list = self.recursive_delete_none(monitor_list)

@@ -1763,3 +1763,70 @@
 2025-01-22 09:26:10.471 [Monitor_Thread_Manager.py:44] : 监控线程已停止
 2025-01-22 09:26:10.471 [thread_stats.py:15] : 线程 ticket_monitor__0 执行耗时: 2.01秒
 2025-01-22 18:12:47.013 [main.py:63] : FastAPI 应用关闭
+2025-01-23 09:56:35.676 [main.py:59] : FastAPI 应用启动
+2025-01-23 09:57:01.688 [main.py:63] : FastAPI 应用关闭
+2025-01-23 09:57:06.502 [main.py:59] : FastAPI 应用启动
+2025-01-23 09:57:09.942 [main.py:63] : FastAPI 应用关闭
+2025-01-23 09:57:29.506 [main.py:59] : FastAPI 应用启动
+2025-01-23 10:44:15.462 [main.py:63] : FastAPI 应用关闭
+2025-01-23 10:44:17.007 [main.py:59] : FastAPI 应用启动
+2025-01-23 10:44:47.574 [main.py:63] : FastAPI 应用关闭
+2025-01-23 10:44:48.667 [main.py:59] : FastAPI 应用启动
+2025-01-23 10:44:55.949 [main.py:63] : FastAPI 应用关闭
+2025-01-23 10:44:57.024 [main.py:59] : FastAPI 应用启动
+2025-01-23 10:46:03.181 [DB_Monitor.py:87] : 检测到 monitor_list 发生变化
+2025-01-23 10:46:03.182 [Ticket_Monitor.py:118] : 开始监控演唱会...
+2025-01-23 10:46:03.182 [Monitor_Thread_Manager.py:31] : 监控线程已启动
+2025-01-23 10:46:03.182 [Ticket_Monitor.py:341] : DM 监控中
+2025-01-23 10:46:03.369 [Ticket_Monitor.py:341] : DM 监控中
+2025-01-23 10:46:05.187 [DB_Monitor.py:87] : 检测到 monitor_list 发生变化
+2025-01-23 10:46:05.188 [Ticket_Monitor.py:118] : 开始监控演唱会...
+2025-01-23 10:46:05.188 [Monitor_Thread_Manager.py:31] : 监控线程已启动
+2025-01-23 10:46:07.151 [Monitor_Thread_Manager.py:44] : 监控线程已停止
+2025-01-23 10:46:07.152 [thread_stats.py:15] : 线程 ticket_monitor__0 执行耗时: 3.97秒
+2025-01-23 10:46:07.153 [thread_stats.py:46] : 线程 ticket_monitor__0 状态: 活跃
+2025-01-23 10:46:07.191 [Monitor_Thread_Manager.py:44] : 监控线程已停止
+2025-01-23 10:46:07.194 [thread_stats.py:15] : 线程 ticket_monitor__0 执行耗时: 2.01秒
+2025-01-23 10:48:40.426 [main.py:63] : FastAPI 应用关闭
+2025-01-23 10:48:41.620 [main.py:59] : FastAPI 应用启动
+2025-01-23 10:49:03.666 [DB_Monitor.py:87] : 检测到 monitor_list 发生变化
+2025-01-23 10:49:03.666 [Ticket_Monitor.py:116] : 开始监控演唱会...
+2025-01-23 10:49:03.666 [Monitor_Thread_Manager.py:31] : 监控线程已启动
+2025-01-23 10:49:03.667 [Ticket_Monitor.py:341] : DM 监控中
+2025-01-23 10:49:03.946 [Ticket_Monitor.py:341] : DM 监控中
+2025-01-23 10:49:05.672 [DB_Monitor.py:87] : 检测到 monitor_list 发生变化
+2025-01-23 10:49:05.672 [Ticket_Monitor.py:116] : 开始监控演唱会...
+2025-01-23 10:49:05.672 [Monitor_Thread_Manager.py:31] : 监控线程已启动
+2025-01-23 10:49:07.431 [Monitor_Thread_Manager.py:44] : 监控线程已停止
+2025-01-23 10:49:07.432 [thread_stats.py:15] : 线程 ticket_monitor__0 执行耗时: 3.76秒
+2025-01-23 10:49:07.432 [thread_stats.py:46] : 线程 ticket_monitor__0 状态: 活跃
+2025-01-23 10:49:07.674 [DB_Monitor.py:87] : 检测到 monitor_list 发生变化
+2025-01-23 10:49:07.675 [Ticket_Monitor.py:116] : 开始监控演唱会...
+2025-01-23 10:49:07.675 [Monitor_Thread_Manager.py:31] : 监控线程已启动
+2025-01-23 10:49:07.675 [Ticket_Monitor.py:341] : DM 监控中
+2025-01-23 10:49:07.678 [Monitor_Thread_Manager.py:44] : 监控线程已停止
+2025-01-23 10:49:07.679 [thread_stats.py:15] : 线程 ticket_monitor__0 执行耗时: 2.01秒
+2025-01-23 10:49:07.679 [thread_stats.py:46] : 线程 ticket_monitor__0 状态: 活跃
+2025-01-23 10:49:09.492 [thread_stats.py:15] : 线程 ticket_monitor__0 执行耗时: 1.82秒
+2025-01-23 10:49:09.680 [DB_Monitor.py:87] : 检测到 monitor_list 发生变化
+2025-01-23 10:49:09.681 [Ticket_Monitor.py:116] : 开始监控演唱会...
+2025-01-23 10:49:09.681 [Monitor_Thread_Manager.py:31] : 监控线程已启动
+2025-01-23 10:49:11.686 [Monitor_Thread_Manager.py:44] : 监控线程已停止
+2025-01-23 10:49:11.687 [thread_stats.py:15] : 线程 ticket_monitor__0 执行耗时: 2.01秒
+2025-01-23 10:51:05.951 [DB_Monitor.py:87] : 检测到 monitor_list 发生变化
+2025-01-23 10:51:05.952 [Ticket_Monitor.py:116] : 开始监控演唱会...
+2025-01-23 10:51:05.952 [Monitor_Thread_Manager.py:31] : 监控线程已启动
+2025-01-23 10:51:05.953 [Ticket_Monitor.py:341] : DM 监控中
+2025-01-23 10:51:07.443 [thread_stats.py:46] : 线程 ticket_monitor__0 状态: 活跃
+2025-01-23 10:51:07.687 [thread_stats.py:46] : 线程 ticket_monitor__0 状态: 活跃
+2025-01-23 10:51:09.502 [thread_stats.py:46] : 线程 ticket_monitor__0 状态: 活跃
+2025-01-23 10:51:09.962 [DB_Monitor.py:87] : 检测到 monitor_list 发生变化
+2025-01-23 10:51:09.963 [Ticket_Monitor.py:116] : 开始监控演唱会...
+2025-01-23 10:51:09.963 [Monitor_Thread_Manager.py:31] : 监控线程已启动
+2025-01-23 10:51:10.200 [Monitor_Thread_Manager.py:44] : 监控线程已停止
+2025-01-23 10:51:10.200 [thread_stats.py:15] : 线程 ticket_monitor__0 执行耗时: 4.25秒
+2025-01-23 10:51:10.201 [thread_stats.py:46] : 线程 ticket_monitor__0 状态: 活跃
+2025-01-23 10:51:11.698 [thread_stats.py:46] : 线程 ticket_monitor__0 状态: 活跃
+2025-01-23 10:51:11.968 [Monitor_Thread_Manager.py:44] : 监控线程已停止
+2025-01-23 10:51:11.969 [thread_stats.py:15] : 线程 ticket_monitor__0 执行耗时: 2.01秒
+2025-01-23 19:07:28.982 [main.py:63] : FastAPI 应用关闭
