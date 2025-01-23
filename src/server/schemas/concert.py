@@ -6,6 +6,7 @@ class PlatformEnum(Enum):
     DM = "DM" # 大麦
     MY = "MY" # 猫眼
 
+
 class City(BaseModel):
     city_id: int
     name: str

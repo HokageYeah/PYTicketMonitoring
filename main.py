@@ -8,6 +8,7 @@ from src.server.core import settings
 import logging
 from src.server.api.endpoints.concerts import router
 from pydantic import ValidationError
+from src.server.api.wxMiniLogin import wx_router
 
 # 最开始添项目根目录到python的路径
 project_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -50,9 +51,9 @@ async def http_exception_handler(request, exc: HTTPException):
     )
     
 
-# 添加路由
+# 添加路由  tags: API 文档中的标签分类
 app.include_router(router, prefix=settings.API_V1_STR, tags=["concerts"])
-
+app.include_router(wx_router, prefix=settings.API_V1_STR, tags=["wx"])
 @app.on_event("startup")
 async def startup():
     setup_logging()
