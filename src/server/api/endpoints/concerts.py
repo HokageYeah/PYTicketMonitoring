@@ -30,7 +30,15 @@ async def get_search_concerts(
     print('platform---------', platform)
     if platform.value == PlatformEnum.DM.value:
         return damai.search_concert_web(cty, keyword, ctl)
-    return None
+    return {
+        'platform': platform.value,
+        'api': 'search.concert.by.platform',
+        'data': {
+            'msg': f'{platform.value}平台暂无数据'
+        },
+        'ret': [],
+        'v': 1
+    }
 
 # 调用网站登录生成二维码接口，返回二维码图片
 @router.get('/web/login.qrcode.by.platform', response_model=ApiResponseData)
