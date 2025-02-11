@@ -101,28 +101,63 @@ class DamaiService:
             if response.status_code != 200:
                 logger.error(f"获取大麦网数据失败，\n接口: {self.BASE_URL}, \n错误: {response.status_code}")
                 return {
-                    "platform": PlatformEnum.DM,
-                    "api": 'search.concert.by.platform',
-                    "data": {},
+                    "data": [],
                     "ret": [f"ERROR::获取大麦网数据失败{response.status_code}"],
-                    "v": 1
                 }
                 # raise Exception(f"获取大麦网数据失败，\n接口: {self.BASE_URL}, \n错误: {response.status_code}")
+            data = response.json()
+            pageData = data.get('pageData', {})
+            # currentPage 当前页码
+            currentPage = pageData.get('currentPage', 0)
+            # maxPage 最大页码
+            maxPage = pageData.get('maxPage', 0)
+            # nextPage 下一页
+            nextPage = pageData.get('nextPage', 0)
+            # onePageSize 每页条数
+            onePageSize = pageData.get('onePageSize', 0)
+            # resultData 结果数据
+            resultData = pageData.get('resultData', [])
+            # 遍历resultData
+            concert_list = []
+            for item in resultData:
+                cityname = item.get('cityname', '')
+                cityid = item.get('cityid', '')
+                description = item.get('description', '')
+                showid = item.get('id', '')
+                showname = item.get('name', '')
+                showtime = item.get('showtime', '')
+                venue = item.get('venue', '')
+                venuecity = item.get('venuecity', '')
+                venueid = item.get('venueid', '')
+                verticalPic = item.get('verticalPic', '')
+                obj = {
+                    'cityname': cityname,
+                    'cityid': cityid,
+                    'description': description,
+                    'showid': showid,
+                    'showname': showname,
+                    'showtime': showtime,
+                    'venue': venue,
+                    'venuecity': venuecity,
+                    'venueid': venueid,
+                    'verticalPic': verticalPic
+                }
+                concert_list.append(obj)
             return {
-                "platform": PlatformEnum.DM,
-                "api": 'search.concert.by.platform',
-                "data": response.json(),
+                "data": {
+                    "currentPage": currentPage,
+                    "maxPage": maxPage,
+                    "nextPage": nextPage,
+                    "onePageSize": onePageSize,
+                    "resultData": concert_list
+                },
                 "ret": ["SUCCESS::调用成功"],
-                "v": 1
             }
         except Exception as e:
             logger.error(f"获取大麦网数据失败，\n接口: {self.BASE_URL}, \n错误: {e}")
             return {
-                "platform": PlatformEnum.DM,
-                "api": 'search.concert.by.platform',
-                "data": {},
+                "data": [],
                 "ret": [f"ERROR::获取大麦网数据失败{e}"],
-                "v": 1
             }
     # 网站生成二维码接口
     def get_generate_code_web(self):

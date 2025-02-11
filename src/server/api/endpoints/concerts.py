@@ -25,18 +25,23 @@ async def get_search_concerts(
     cty: str = Query('北京', description="城市名称"),
     keyword: str = Query('', description="搜索关键字"),
     ctl: str = Query('演唱会', description="搜索类型"),
-    platform: PlatformEnum = Query(PlatformEnum.DM, description="平台名称")
+    platform: PlatformEnum = Query(PlatformEnum.QB, description="平台名称")
     ):
     print('platform---------', platform)
-    if platform.value == PlatformEnum.DM.value:
-        return damai.search_concert_web(cty, keyword, ctl)
+    concert_data = {}
+    concert_ret = []
+    if platform.value == PlatformEnum.DM.value or platform.value == PlatformEnum.QB.value:
+        dm_data = damai.search_concert_web(cty, keyword, ctl)
+        concert_data.update(dm_data.get('data', {}))
+        concert_ret.extend(dm_data.get('ret', []))
+    else:
+        concert_data = {}
+        concert_ret = ["ERROR::平台暂无数据"]
     return {
         'platform': platform.value,
         'api': 'search.concert.by.platform',
-        'data': {
-            'msg': f'{platform.value}平台暂无数据'
-        },
-        'ret': [],
+        'data': concert_data,
+        'ret': concert_ret,
         'v': 1
     }
 

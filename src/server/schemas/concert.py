@@ -3,6 +3,7 @@ from typing import List, Optional
 from enum import Enum
 from typing_extensions import TypedDict, NotRequired
 class PlatformEnum(Enum):
+    QB = "" # 全部
     DM = "DM" # 大麦
     MY = "MY" # 猫眼
 
