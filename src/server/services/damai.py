@@ -130,6 +130,8 @@ class DamaiService:
                 venuecity = item.get('venuecity', '')
                 venueid = item.get('venueid', '')
                 verticalPic = item.get('verticalPic', '')
+                price_str = item.get('price_str', '')
+                showstatus = item.get('showstatus', '')
                 obj = {
                     'cityname': cityname,
                     'cityid': cityid,
@@ -140,7 +142,9 @@ class DamaiService:
                     'venue': venue,
                     'venuecity': venuecity,
                     'venueid': venueid,
-                    'verticalPic': verticalPic
+                    'verticalPic': verticalPic,
+                    'price_str': price_str,
+                    'showstatus': showstatus
                 }
                 concert_list.append(obj)
             return {
