@@ -144,7 +144,8 @@ class DamaiService:
                     'venueid': venueid,
                     'verticalPic': verticalPic,
                     'price_str': price_str,
-                    'showstatus': showstatus
+                    'showstatus': showstatus,
+                    'platform': PlatformEnum.DM
                 }
                 concert_list.append(obj)
             return {
