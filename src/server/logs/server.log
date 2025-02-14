@@ -2057,3 +2057,41 @@
 2025-02-13 23:24:14.220 [main.py:64] : FastAPI Ӧ�ùر�
 2025-02-13 23:24:16.237 [main.py:60] : FastAPI Ӧ������
 2025-02-14 00:04:58.069 [main.py:64] : FastAPI Ӧ�ùر�
+2025-02-14 16:28:19.100 [main.py:60] : FastAPI 应用启动
+2025-02-14 17:50:08.094 [main.py:64] : FastAPI 应用关闭
+2025-02-14 17:50:10.381 [main.py:60] : FastAPI 应用启动
+2025-02-14 17:50:38.661 [damai.py:326] : 获取大麦网数据失败，
+接口: get_item_detail_web, 
+错误: Expecting value: line 1 column 1 (char 0)
+2025-02-14 17:50:57.826 [damai.py:326] : 获取大麦网数据失败，
+接口: get_item_detail_web, 
+错误: Expecting value: line 1 column 1 (char 0)
+2025-02-14 17:51:15.040 [damai.py:326] : 获取大麦网数据失败，
+接口: get_item_detail_web, 
+错误: Expecting value: line 1 column 1 (char 0)
+2025-02-14 17:51:17.832 [damai.py:326] : 获取大麦网数据失败，
+接口: get_item_detail_web, 
+错误: Expecting value: line 1 column 1 (char 0)
+2025-02-14 17:51:57.479 [damai.py:326] : 获取大麦网数据失败，
+接口: get_item_detail_web, 
+错误: Expecting value: line 1 column 1 (char 0)
+2025-02-14 17:51:58.735 [damai.py:326] : 获取大麦网数据失败，
+接口: get_item_detail_web, 
+错误: Expecting value: line 1 column 1 (char 0)
+2025-02-14 17:52:20.249 [damai.py:326] : 获取大麦网数据失败，
+接口: get_item_detail_web, 
+错误: Expecting value: line 1 column 1 (char 0)
+2025-02-14 17:53:26.843 [main.py:64] : FastAPI 应用关闭
+2025-02-14 17:53:28.258 [main.py:60] : FastAPI 应用启动
+2025-02-14 17:53:35.740 [damai.py:327] : 获取大麦网数据失败，
+接口: get_item_detail_web, 
+错误: Expecting value: line 1 column 1 (char 0)
+2025-02-14 17:54:13.440 [damai.py:327] : 获取大麦网数据失败，
+接口: get_item_detail_web, 
+错误: Expecting value: line 1 column 1 (char 0)
+2025-02-14 17:59:22.761 [main.py:64] : FastAPI 应用关闭
+2025-02-14 17:59:24.570 [main.py:60] : FastAPI 应用启动
+2025-02-14 17:59:32.826 [damai.py:329] : 获取大麦网数据失败，
+接口: get_item_detail_web, 
+错误: Expecting value: line 1 column 1 (char 0)
+2025-02-14 18:14:31.535 [main.py:64] : FastAPI 应用关闭

@@ -123,7 +123,7 @@ class DamaiService:
                 cityname = item.get('cityname', '')
                 cityid = item.get('cityid', '')
                 description = item.get('description', '')
-                showid = item.get('id', '')
+                showid = item.get('projectid', '')
                 showname = item.get('name', '')
                 showtime = item.get('showtime', '')
                 venue = item.get('venue', '')
@@ -300,7 +300,10 @@ class DamaiService:
             _m_h5_tk_str = self.ticket_monitor.db_config["DM"]["_m_h5_tk"]+';'+self.ticket_monitor.db_config["DM"]["_m_h5_tk_enc"]
             response = self.do_request()(url(show_id, _m_h5_tk_str))
             res_data = response.json()
+            print('res_data----', res_data)
             ret = res_data.get('ret')
+            print('res_data----ret', ret)
+            print('response.status_code----', response.status_code)
             if response.status_code != 200 or 'SUCCESS::调用成功' not in ret:
                 return {
                     "platform": PlatformEnum.DM,
