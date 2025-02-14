@@ -17,6 +17,7 @@ from pydantic import BaseModel
 from src.server.untiles.Ticket_Monitor import Ticket_Monitor
 import asyncio
 from src.server.untiles.Monitor_Thread_Manager import MonitorThreadManager
+import time
 logger = logging.getLogger(__name__)
 
 class DamaiService:
@@ -164,6 +165,28 @@ class DamaiService:
                 "data": [],
                 "ret": [f"ERROR::获取大麦网数据失败{e}"],
             }
+    # h5接口下搜索演唱会接口请求
+    def search_concert_h5(self, cty: Optional[str] = '北京', keyword: Optional[str] = '', ctl: Optional[str] = '演唱会'):
+        current_time_ms = str(int(time.time() * 1000))
+        date_time = datetime.fromtimestamp(int(current_time_ms) / 1000)
+        formatted_date1 = date_time.strftime('%Y-%m-%d %H:%M:%S')
+        sign = self.login_dm.get_sign('undefined', formatted_date1, {})
+        print('search_concert_h5----sign----', sign)
+        print('search_concert_h5----current_time_ms----', current_time_ms)
+        # url = f"https://mtop.damai.cn/h5/mtop.damai.wireless.search.cms.category.get/2.0/?jsv=2.7.4&appKey=12574478&t={current_time_ms}&sign={sign}&api=mtop.damai.wireless.search.cms.category.get&v=2.0&H5Request=true&type=jsonp&timeout=10000&forceAntiCreep=true&AntiCreep=true&useH5=true&dataType=jsonp&callback=mtopjsonp1&data=%7B%22apiVersion%22%3A%222.6%22%2C%22platform%22%3A%228%22%2C%22comboChannel%22%3A%222%22%2C%22dmChannel%22%3A%22damai%40damaih5_h5%22%7D"
+        url = "https://mtop.damai.cn/h5/mtop.damai.wireless.search.cms.category.get/2.0/?jsv=2.7.4&appKey=12574478&t=1739546337408&sign=855b509e819810010f439e3da9fcb7ae&api=mtop.damai.wireless.search.cms.category.get&v=2.0&H5Request=true&type=jsonp&timeout=10000&forceAntiCreep=true&AntiCreep=true&useH5=true&dataType=jsonp&callback=mtopjsonp1&data=%7B%22apiVersion%22%3A%222.6%22%2C%22platform%22%3A%228%22%2C%22comboChannel%22%3A%222%22%2C%22dmChannel%22%3A%22damai%40damaih5_h5%22%7D"
+        response = requests.get(url, headers={
+            'Accept': 'application/json',
+            'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 17_5_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.53(0x18003531) NetType/WIFI Language/zh_CN',
+            'Referer': 'https://m.damai.cn/'
+        },timeout=10)
+        # print('search_concert_h5----response----', response.json())
+        # if response.status_code != 200:
+        #     logger.error(f"获取大麦网数据失败，\n接口: {url}, \n错误: {response.status_code}")
+        #     return {
+        #         "data": [],
+        #         "ret": [f"ERROR::获取大麦网数据失败{response.status_code}"],
+        #     }
     # 网站生成二维码接口
     def get_generate_code_web(self):
         # 先删除存放二维码文件的目录

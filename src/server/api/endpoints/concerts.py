@@ -44,6 +44,18 @@ async def get_search_concerts(
         'ret': concert_ret,
         'v': 1
     }
+# 接口获取h5接口下演唱会搜索的所有数据
+@router.get('/h5/search.concert.by.platform', response_model=ApiResponseData)
+async def get_search_concerts_h5(
+    cty: str = Query('北京', description="城市名称"),
+    keyword: str = Query('', description="搜索关键字"),
+    ctl: str = Query('演唱会', description="搜索类型"),
+    platform: PlatformEnum = Query(PlatformEnum.QB, description="平台名称")
+    ):
+    if platform.value == PlatformEnum.DM.value or platform.value == PlatformEnum.QB.value:
+        dm_data = damai.search_concert_h5(cty, keyword, ctl)
+        return dm_data
+    return None
 
 # 调用网站登录生成二维码接口，返回二维码图片
 @router.get('/web/login.qrcode.by.platform', response_model=ApiResponseData)
