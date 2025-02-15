@@ -19,7 +19,7 @@ damai = DamaiService()
 #     DM = "大麦"
 #     MM = "猫眼"
 
-# 获取网页平台下的演唱会搜索所有数据
+# 获取网页平台下的演唱会搜索所有数据（无需登录）
 @router.get('/web/search.concert.by.platform', response_model=ApiResponseData)
 async def get_search_concerts(
     cty: str = Query('北京', description="城市名称"),
@@ -39,12 +39,12 @@ async def get_search_concerts(
         concert_ret = ["ERROR::平台暂无数据"]
     return {
         'platform': platform.value,
-        'api': 'search.concert.by.platform',
+        'api': '/web/search.concert.by.platform',
         'data': concert_data,
         'ret': concert_ret,
         'v': 1
     }
-# 接口获取h5接口下演唱会搜索的所有数据
+# 接口获取h5接口下演唱会搜索的所有数据（可以登录、可以不登录，如果没有登录则获取临时_m_h5_tk）
 @router.get('/h5/search.concert.by.platform', response_model=ApiResponseData)
 async def get_search_concerts_h5(
     cty: str = Query('北京', description="城市名称"),
@@ -54,7 +54,13 @@ async def get_search_concerts_h5(
     ):
     if platform.value == PlatformEnum.DM.value or platform.value == PlatformEnum.QB.value:
         dm_data = damai.search_concert_h5(cty, keyword, ctl)
-        return dm_data
+        return {
+            "platform": platform.value,
+            "api": "/h5/search.concert.by.platform",
+            "data": dm_data.get('data', {}),
+            "ret": dm_data.get('ret', []),
+            "v": 1
+        }
     return None
 
 # 调用网站登录生成二维码接口，返回二维码图片

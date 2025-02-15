@@ -2135,3 +2135,265 @@
 2025-02-15 00:20:07.862 [main.py:64] : FastAPI Ӧ�ùر�
 2025-02-15 00:20:10.250 [main.py:60] : FastAPI Ӧ������
 2025-02-15 00:20:14.718 [main.py:64] : FastAPI Ӧ�ùر�
+2025-02-15 09:02:40.808 [main.py:60] : FastAPI 应用启动
+2025-02-15 09:05:55.916 [main.py:64] : FastAPI 应用关闭
+2025-02-15 09:05:57.472 [main.py:60] : FastAPI 应用启动
+2025-02-15 09:31:13.314 [main.py:64] : FastAPI 应用关闭
+2025-02-15 09:31:15.638 [main.py:60] : FastAPI 应用启动
+2025-02-15 09:31:38.279 [main.py:64] : FastAPI 应用关闭
+2025-02-15 09:31:39.603 [main.py:60] : FastAPI 应用启动
+2025-02-15 09:35:20.255 [main.py:64] : FastAPI 应用关闭
+2025-02-15 09:35:22.481 [main.py:60] : FastAPI 应用启动
+2025-02-15 09:39:50.382 [main.py:64] : FastAPI 应用关闭
+2025-02-15 09:39:52.575 [main.py:60] : FastAPI 应用启动
+2025-02-15 09:40:16.496 [main.py:64] : FastAPI 应用关闭
+2025-02-15 09:40:17.975 [main.py:60] : FastAPI 应用启动
+2025-02-15 09:40:19.268 [damai.py:189] : 获取大麦网数据失败，
+接口: https://mtop.damai.cn/h5/mtop.damai.wireless.search.cms.category.get/2.0/?jsv=2.7.4&appKey=12574478&t=1739583618876&sign=4e2a0876957e757610acee6202b0dfb6&api=mtop.damai.wireless.search.cms.category.get&v=2.0&H5Request=true&type=jsonp&timeout=10000&forceAntiCreep=true&AntiCreep=true&useH5=true&dataType=jsonp&callback=mtopjsonp1&data=%7B%22apiVersion%22%3A%222.6%22%2C%22platform%22%3A%228%22%2C%22comboChannel%22%3A%222%22%2C%22dmChannel%22%3A%22damai%40damaih5_h5%22%7D, 
+错误: Expecting value: line 1 column 2 (char 1)
+2025-02-15 09:40:41.799 [main.py:64] : FastAPI 应用关闭
+2025-02-15 09:40:43.493 [main.py:60] : FastAPI 应用启动
+2025-02-15 10:03:07.975 [main.py:64] : FastAPI 应用关闭
+2025-02-15 10:03:10.640 [main.py:60] : FastAPI 应用启动
+2025-02-15 10:09:14.361 [main.py:64] : FastAPI 应用关闭
+2025-02-15 10:09:15.819 [main.py:60] : FastAPI 应用启动
+2025-02-15 10:11:24.170 [DB_Monitor.py:87] : 检测到 monitor_list 发生变化
+2025-02-15 10:11:24.174 [Ticket_Monitor.py:116] : 开始监控演唱会...
+2025-02-15 10:11:24.174 [Monitor_Thread_Manager.py:31] : 监控线程已启动
+2025-02-15 10:11:24.176 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-15 10:11:24.478 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-15 10:11:34.775 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-15 10:11:35.105 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-15 10:11:45.380 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-15 10:11:45.575 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-15 10:11:55.738 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-15 10:11:55.945 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-15 10:12:01.401 [main.py:64] : FastAPI 应用关闭
+2025-02-15 10:12:16.174 [main.py:60] : FastAPI 应用启动
+2025-02-15 10:21:57.467 [main.py:64] : FastAPI 应用关闭
+2025-02-15 10:22:02.031 [main.py:60] : FastAPI 应用启动
+2025-02-15 10:23:30.617 [main.py:64] : FastAPI 应用关闭
+2025-02-15 10:23:33.259 [main.py:60] : FastAPI 应用启动
+2025-02-15 10:23:35.967 [main.py:60] : FastAPI 应用启动
+2025-02-15 10:23:42.062 [damai.py:201] : 获取大麦临时_m_h5_tk、_m_h5_tk_enc失败，
+接口: https://mtop.damai.cn/h5/mtop.damai.wireless.search.cms.category.get/2.0/?jsv=2.7.4&appKey=12574478&t=1739586221401&sign=a9b5a1c52e43a07cd6cfe9d3a5229c07&api=mtop.damai.wireless.search.cms.category.get&v=2.0&H5Request=true&type=jsonp&timeout=10000&forceAntiCreep=true&AntiCreep=true&useH5=true&dataType=jsonp&callback=mtopjsonp1&data=%7B%22apiVersion%22%3A%222.6%22%2C%22platform%22%3A%228%22%2C%22comboChannel%22%3A%222%22%2C%22dmChannel%22%3A%22damai%40damaih5_h5%22%7D, 
+错误: 'str' object has no attribute 'text'
+2025-02-15 10:23:57.596 [main.py:64] : FastAPI 应用关闭
+2025-02-15 10:24:00.044 [main.py:60] : FastAPI 应用启动
+2025-02-15 10:24:00.691 [damai.py:205] : 获取大麦临时_m_h5_tk、_m_h5_tk_enc失败，
+接口: https://mtop.damai.cn/h5/mtop.damai.wireless.search.cms.category.get/2.0/?jsv=2.7.4&appKey=12574478&t=1739586240487&sign=1426dd66a59bdebfffb5d1dfc0ad649f&api=mtop.damai.wireless.search.cms.category.get&v=2.0&H5Request=true&type=jsonp&timeout=10000&forceAntiCreep=true&AntiCreep=true&useH5=true&dataType=jsonp&callback=mtopjsonp1&data=%7B%22apiVersion%22%3A%222.6%22%2C%22platform%22%3A%228%22%2C%22comboChannel%22%3A%222%22%2C%22dmChannel%22%3A%22damai%40damaih5_h5%22%7D, 
+错误: 'str' object has no attribute 'text'
+2025-02-15 10:25:42.090 [main.py:64] : FastAPI 应用关闭
+2025-02-15 10:25:44.579 [main.py:60] : FastAPI 应用启动
+2025-02-15 10:25:46.519 [damai.py:205] : 获取大麦临时_m_h5_tk、_m_h5_tk_enc失败，
+接口: https://mtop.damai.cn/h5/mtop.damai.wireless.search.cms.category.get/2.0/?jsv=2.7.4&appKey=12574478&t=1739586346291&sign=5f8654c11e65725703250aa366310561&api=mtop.damai.wireless.search.cms.category.get&v=2.0&H5Request=true&type=jsonp&timeout=10000&forceAntiCreep=true&AntiCreep=true&useH5=true&dataType=jsonp&callback=mtopjsonp1&data=%7B%22apiVersion%22%3A%222.6%22%2C%22platform%22%3A%228%22%2C%22comboChannel%22%3A%222%22%2C%22dmChannel%22%3A%22damai%40damaih5_h5%22%7D, 
+错误: Expecting value: line 1 column 2 (char 1)
+2025-02-15 10:29:06.213 [main.py:64] : FastAPI 应用关闭
+2025-02-15 10:29:09.056 [main.py:60] : FastAPI 应用启动
+2025-02-15 10:30:05.316 [damai.py:212] : 获取大麦临时_m_h5_tk、_m_h5_tk_enc失败，
+接口: https://mtop.damai.cn/h5/mtop.damai.wireless.search.cms.category.get/2.0/?jsv=2.7.4&appKey=12574478&t=1739586604692&sign=24b4bdc8a747af7a00a27acae90e48e6&api=mtop.damai.wireless.search.cms.category.get&v=2.0&H5Request=true&type=jsonp&timeout=10000&forceAntiCreep=true&AntiCreep=true&useH5=true&dataType=jsonp&callback=mtopjsonp1&data=%7B%22apiVersion%22%3A%222.6%22%2C%22platform%22%3A%228%22%2C%22comboChannel%22%3A%222%22%2C%22dmChannel%22%3A%22damai%40damaih5_h5%22%7D, 
+错误: Expecting value: line 1 column 2 (char 1)
+2025-02-15 10:30:29.792 [main.py:64] : FastAPI 应用关闭
+2025-02-15 10:30:32.356 [main.py:60] : FastAPI 应用启动
+2025-02-15 10:31:11.805 [damai.py:213] : 获取大麦临时_m_h5_tk、_m_h5_tk_enc失败，
+接口: https://mtop.damai.cn/h5/mtop.damai.wireless.search.cms.category.get/2.0/?jsv=2.7.4&appKey=12574478&t=1739586671671&sign=98970bda167087195180dd28782d0f97&api=mtop.damai.wireless.search.cms.category.get&v=2.0&H5Request=true&type=jsonp&timeout=10000&forceAntiCreep=true&AntiCreep=true&useH5=true&dataType=jsonp&callback=mtopjsonp1&data=%7B%22apiVersion%22%3A%222.6%22%2C%22platform%22%3A%228%22%2C%22comboChannel%22%3A%222%22%2C%22dmChannel%22%3A%22damai%40damaih5_h5%22%7D, 
+错误: Expecting value: line 1 column 2 (char 1)
+2025-02-15 10:31:27.255 [damai.py:213] : 获取大麦临时_m_h5_tk、_m_h5_tk_enc失败，
+接口: https://mtop.damai.cn/h5/mtop.damai.wireless.search.cms.category.get/2.0/?jsv=2.7.4&appKey=12574478&t=1739586687078&sign=fece47c292abcc2b7117351b76ce16af&api=mtop.damai.wireless.search.cms.category.get&v=2.0&H5Request=true&type=jsonp&timeout=10000&forceAntiCreep=true&AntiCreep=true&useH5=true&dataType=jsonp&callback=mtopjsonp1&data=%7B%22apiVersion%22%3A%222.6%22%2C%22platform%22%3A%228%22%2C%22comboChannel%22%3A%222%22%2C%22dmChannel%22%3A%22damai%40damaih5_h5%22%7D, 
+错误: Expecting value: line 1 column 2 (char 1)
+2025-02-15 10:31:59.596 [main.py:64] : FastAPI 应用关闭
+2025-02-15 10:32:20.804 [main.py:60] : FastAPI 应用启动
+2025-02-15 10:32:26.994 [damai.py:213] : 获取大麦临时_m_h5_tk、_m_h5_tk_enc失败，
+接口: https://mtop.damai.cn/h5/mtop.damai.wireless.search.cms.category.get/2.0/?jsv=2.7.4&appKey=12574478&t=1739586746823&sign=7c4b5ae19ebddc1c6b67fd575fa89f2a&api=mtop.damai.wireless.search.cms.category.get&v=2.0&H5Request=true&type=jsonp&timeout=10000&forceAntiCreep=true&AntiCreep=true&useH5=true&dataType=jsonp&callback=mtopjsonp1&data=%7B%22apiVersion%22%3A%222.6%22%2C%22platform%22%3A%228%22%2C%22comboChannel%22%3A%222%22%2C%22dmChannel%22%3A%22damai%40damaih5_h5%22%7D, 
+错误: Expecting value: line 1 column 2 (char 1)
+2025-02-15 10:32:48.690 [main.py:64] : FastAPI 应用关闭
+2025-02-15 10:32:50.386 [main.py:60] : FastAPI 应用启动
+2025-02-15 10:32:54.170 [damai.py:213] : 获取大麦临时_m_h5_tk、_m_h5_tk_enc失败，
+接口: https://mtop.damai.cn/h5/mtop.damai.wireless.search.cms.category.get/2.0/?jsv=2.7.4&appKey=12574478&t=1739586773566&sign=262d61024058f6a432c3846bd47b83c4&api=mtop.damai.wireless.search.cms.category.get&v=2.0&H5Request=true&type=jsonp&timeout=10000&forceAntiCreep=true&AntiCreep=true&useH5=true&dataType=jsonp&callback=mtopjsonp1&data=%7B%22apiVersion%22%3A%222.6%22%2C%22platform%22%3A%228%22%2C%22comboChannel%22%3A%222%22%2C%22dmChannel%22%3A%22damai%40damaih5_h5%22%7D, 
+错误: 'Response' object has no attribute 'get'
+2025-02-15 10:33:07.083 [main.py:64] : FastAPI 应用关闭
+2025-02-15 10:33:09.978 [main.py:60] : FastAPI 应用启动
+2025-02-15 10:33:12.123 [damai.py:213] : 获取大麦临时_m_h5_tk、_m_h5_tk_enc失败，
+接口: https://mtop.damai.cn/h5/mtop.damai.wireless.search.cms.category.get/2.0/?jsv=2.7.4&appKey=12574478&t=1739586791940&sign=934602a00080f1afc1b865e01c3cab1c&api=mtop.damai.wireless.search.cms.category.get&v=2.0&H5Request=true&type=jsonp&timeout=10000&forceAntiCreep=true&AntiCreep=true&useH5=true&dataType=jsonp&callback=mtopjsonp1&data=%7B%22apiVersion%22%3A%222.6%22%2C%22platform%22%3A%228%22%2C%22comboChannel%22%3A%222%22%2C%22dmChannel%22%3A%22damai%40damaih5_h5%22%7D, 
+错误: 'function' object has no attribute 'get'
+2025-02-15 10:33:20.397 [main.py:64] : FastAPI 应用关闭
+2025-02-15 10:33:22.596 [main.py:60] : FastAPI 应用启动
+2025-02-15 10:33:27.645 [damai.py:213] : 获取大麦临时_m_h5_tk、_m_h5_tk_enc失败，
+接口: https://mtop.damai.cn/h5/mtop.damai.wireless.search.cms.category.get/2.0/?jsv=2.7.4&appKey=12574478&t=1739586807440&sign=267a00e9399d6752955255006bbbf15b&api=mtop.damai.wireless.search.cms.category.get&v=2.0&H5Request=true&type=jsonp&timeout=10000&forceAntiCreep=true&AntiCreep=true&useH5=true&dataType=jsonp&callback=mtopjsonp1&data=%7B%22apiVersion%22%3A%222.6%22%2C%22platform%22%3A%228%22%2C%22comboChannel%22%3A%222%22%2C%22dmChannel%22%3A%22damai%40damaih5_h5%22%7D, 
+错误: Expecting value: line 1 column 2 (char 1)
+2025-02-15 10:34:09.220 [main.py:64] : FastAPI 应用关闭
+2025-02-15 10:34:11.408 [main.py:60] : FastAPI 应用启动
+2025-02-15 10:34:14.423 [damai.py:213] : 获取大麦临时_m_h5_tk、_m_h5_tk_enc失败，
+接口: https://mtop.damai.cn/h5/mtop.damai.wireless.search.cms.category.get/2.0/?jsv=2.7.4&appKey=12574478&t=1739586854265&sign=77ceab2f57b2b7016234a4dd57c5047b&api=mtop.damai.wireless.search.cms.category.get&v=2.0&H5Request=true&type=jsonp&timeout=10000&forceAntiCreep=true&AntiCreep=true&useH5=true&dataType=jsonp&callback=mtopjsonp1&data=%7B%22apiVersion%22%3A%222.6%22%2C%22platform%22%3A%228%22%2C%22comboChannel%22%3A%222%22%2C%22dmChannel%22%3A%22damai%40damaih5_h5%22%7D, 
+错误: 'str' object has no attribute 'get'
+2025-02-15 10:41:58.604 [main.py:64] : FastAPI 应用关闭
+2025-02-15 10:42:01.277 [main.py:60] : FastAPI 应用启动
+2025-02-15 10:42:54.315 [main.py:64] : FastAPI 应用关闭
+2025-02-15 10:42:56.174 [main.py:60] : FastAPI 应用启动
+2025-02-15 10:43:20.464 [main.py:64] : FastAPI 应用关闭
+2025-02-15 10:43:22.334 [main.py:60] : FastAPI 应用启动
+2025-02-15 10:44:10.835 [main.py:64] : FastAPI 应用关闭
+2025-02-15 10:44:12.869 [main.py:60] : FastAPI 应用启动
+2025-02-15 10:44:19.280 [main.py:64] : FastAPI 应用关闭
+2025-02-15 10:44:22.127 [main.py:60] : FastAPI 应用启动
+2025-02-15 12:17:13.014 [main.py:64] : FastAPI 应用关闭
+2025-02-15 12:17:16.494 [main.py:60] : FastAPI 应用启动
+2025-02-15 12:17:16.661 [damai.py:232] : 获取大麦临时_m_h5_tk、_m_h5_tk_enc失败，
+接口: https://mtop.damai.cn/h5/mtop.damai.wireless.search.cms.category.get/2.0/?jsv=2.7.4&appKey=12574478&t=1739593036497&sign=46540482af20a48a80310b8bc2794c1f&api=mtop.damai.wireless.search.cms.category.get&v=2.0&H5Request=true&type=jsonp&timeout=10000&forceAntiCreep=true&AntiCreep=true&useH5=true&dataType=jsonp&callback=mtopjsonp1&data=%7B%22apiVersion%22%3A%222.6%22%2C%22platform%22%3A%228%22%2C%22comboChannel%22%3A%222%22%2C%22dmChannel%22%3A%22damai%40damaih5_h5%22%7D, 
+错误: 'str' object has no attribute 'cookies'
+2025-02-15 12:17:36.599 [main.py:64] : FastAPI 应用关闭
+2025-02-15 12:17:38.280 [main.py:60] : FastAPI 应用启动
+2025-02-15 12:17:40.348 [damai.py:232] : 获取大麦临时_m_h5_tk、_m_h5_tk_enc失败，
+接口: https://mtop.damai.cn/h5/mtop.damai.wireless.search.cms.category.get/2.0/?jsv=2.7.4&appKey=12574478&t=1739593060013&sign=69cd5634a9665dc2ac40615a17fb05e7&api=mtop.damai.wireless.search.cms.category.get&v=2.0&H5Request=true&type=jsonp&timeout=10000&forceAntiCreep=true&AntiCreep=true&useH5=true&dataType=jsonp&callback=mtopjsonp1&data=%7B%22apiVersion%22%3A%222.6%22%2C%22platform%22%3A%228%22%2C%22comboChannel%22%3A%222%22%2C%22dmChannel%22%3A%22damai%40damaih5_h5%22%7D, 
+错误: 'str' object has no attribute 'cookies'
+2025-02-15 12:18:10.917 [main.py:64] : FastAPI 应用关闭
+2025-02-15 12:18:13.830 [main.py:60] : FastAPI 应用启动
+2025-02-15 12:18:15.365 [damai.py:233] : 获取大麦临时_m_h5_tk、_m_h5_tk_enc失败，
+接口: https://mtop.damai.cn/h5/mtop.damai.wireless.search.cms.category.get/2.0/?jsv=2.7.4&appKey=12574478&t=1739593094925&sign=5e57abd0c69472767613a745d4a1b2fb&api=mtop.damai.wireless.search.cms.category.get&v=2.0&H5Request=true&type=jsonp&timeout=10000&forceAntiCreep=true&AntiCreep=true&useH5=true&dataType=jsonp&callback=mtopjsonp1&data=%7B%22apiVersion%22%3A%222.6%22%2C%22platform%22%3A%228%22%2C%22comboChannel%22%3A%222%22%2C%22dmChannel%22%3A%22damai%40damaih5_h5%22%7D, 
+错误: 'str' object has no attribute 'cookies'
+2025-02-15 12:19:55.166 [main.py:64] : FastAPI 应用关闭
+2025-02-15 12:19:56.641 [main.py:60] : FastAPI 应用启动
+2025-02-15 12:20:09.179 [main.py:64] : FastAPI 应用关闭
+2025-02-15 12:20:12.835 [main.py:60] : FastAPI 应用启动
+2025-02-15 12:20:13.310 [damai.py:234] : 获取大麦临时_m_h5_tk、_m_h5_tk_enc失败，
+接口: https://mtop.damai.cn/h5/mtop.damai.wireless.search.cms.category.get/2.0/?jsv=2.7.4&appKey=12574478&t=1739593212839&sign=46fa29fbb1de8c39d0097e871d700418&api=mtop.damai.wireless.search.cms.category.get&v=2.0&H5Request=true&type=jsonp&timeout=10000&forceAntiCreep=true&AntiCreep=true&useH5=true&dataType=jsonp&callback=mtopjsonp1&data=%7B%22apiVersion%22%3A%222.6%22%2C%22platform%22%3A%228%22%2C%22comboChannel%22%3A%222%22%2C%22dmChannel%22%3A%22damai%40damaih5_h5%22%7D, 
+错误: 'str' object has no attribute 'cookies'
+2025-02-15 12:21:26.996 [main.py:64] : FastAPI 应用关闭
+2025-02-15 12:21:29.895 [main.py:60] : FastAPI 应用启动
+2025-02-15 14:23:24.345 [main.py:64] : FastAPI 应用关闭
+2025-02-15 14:23:27.820 [main.py:60] : FastAPI 应用启动
+2025-02-15 14:29:00.128 [main.py:64] : FastAPI 应用关闭
+2025-02-15 14:29:02.193 [main.py:60] : FastAPI 应用启动
+2025-02-15 14:29:06.162 [main.py:64] : FastAPI 应用关闭
+2025-02-15 14:29:07.985 [main.py:60] : FastAPI 应用启动
+2025-02-15 14:29:23.106 [main.py:64] : FastAPI 应用关闭
+2025-02-15 14:29:26.632 [main.py:60] : FastAPI 应用启动
+2025-02-15 14:29:41.298 [main.py:60] : FastAPI 应用启动
+2025-02-15 14:32:40.156 [main.py:64] : FastAPI 应用关闭
+2025-02-15 14:32:41.931 [main.py:60] : FastAPI 应用启动
+2025-02-15 14:33:59.308 [main.py:64] : FastAPI 应用关闭
+2025-02-15 14:34:01.516 [main.py:60] : FastAPI 应用启动
+2025-02-15 14:34:56.431 [main.py:64] : FastAPI 应用关闭
+2025-02-15 14:34:58.793 [main.py:60] : FastAPI 应用启动
+2025-02-15 14:35:54.346 [main.py:64] : FastAPI 应用关闭
+2025-02-15 14:35:56.009 [main.py:60] : FastAPI 应用启动
+2025-02-15 14:36:07.926 [main.py:64] : FastAPI 应用关闭
+2025-02-15 14:36:09.574 [main.py:60] : FastAPI 应用启动
+2025-02-15 14:36:37.386 [main.py:64] : FastAPI 应用关闭
+2025-02-15 14:36:39.464 [main.py:60] : FastAPI 应用启动
+2025-02-15 14:45:41.520 [main.py:64] : FastAPI 应用关闭
+2025-02-15 14:45:45.434 [main.py:60] : FastAPI 应用启动
+2025-02-15 14:46:42.663 [main.py:64] : FastAPI 应用关闭
+2025-02-15 14:46:45.039 [main.py:60] : FastAPI 应用启动
+2025-02-15 14:49:20.688 [main.py:64] : FastAPI 应用关闭
+2025-02-15 14:49:22.900 [main.py:60] : FastAPI 应用启动
+2025-02-15 14:50:14.566 [main.py:64] : FastAPI 应用关闭
+2025-02-15 14:50:16.041 [main.py:60] : FastAPI 应用启动
+2025-02-15 14:51:28.725 [main.py:64] : FastAPI 应用关闭
+2025-02-15 14:51:32.459 [main.py:60] : FastAPI 应用启动
+2025-02-15 14:52:23.640 [main.py:64] : FastAPI 应用关闭
+2025-02-15 14:52:26.231 [main.py:60] : FastAPI 应用启动
+2025-02-15 14:53:56.021 [main.py:64] : FastAPI 应用关闭
+2025-02-15 14:53:58.027 [main.py:60] : FastAPI 应用启动
+2025-02-15 14:54:21.838 [main.py:64] : FastAPI 应用关闭
+2025-02-15 14:54:23.565 [main.py:60] : FastAPI 应用启动
+2025-02-15 15:00:03.516 [main.py:64] : FastAPI 应用关闭
+2025-02-15 15:00:06.710 [main.py:60] : FastAPI 应用启动
+2025-02-15 15:00:19.387 [main.py:64] : FastAPI 应用关闭
+2025-02-15 15:00:22.472 [main.py:60] : FastAPI 应用启动
+2025-02-15 15:02:02.485 [main.py:64] : FastAPI 应用关闭
+2025-02-15 15:02:51.326 [main.py:60] : FastAPI 应用启动
+2025-02-15 15:03:33.291 [main.py:64] : FastAPI 应用关闭
+2025-02-15 15:03:34.951 [main.py:60] : FastAPI 应用启动
+2025-02-15 15:04:15.756 [main.py:64] : FastAPI 应用关闭
+2025-02-15 15:04:17.697 [main.py:60] : FastAPI 应用启动
+2025-02-15 15:04:52.894 [main.py:64] : FastAPI 应用关闭
+2025-02-15 15:04:55.380 [main.py:60] : FastAPI 应用启动
+2025-02-15 15:06:14.191 [main.py:64] : FastAPI 应用关闭
+2025-02-15 15:06:15.947 [main.py:60] : FastAPI 应用启动
+2025-02-15 15:06:55.329 [main.py:64] : FastAPI 应用关闭
+2025-02-15 15:06:57.862 [main.py:60] : FastAPI 应用启动
+2025-02-15 15:14:33.633 [main.py:64] : FastAPI 应用关闭
+2025-02-15 15:14:37.085 [main.py:60] : FastAPI 应用启动
+2025-02-15 15:14:47.053 [main.py:64] : FastAPI 应用关闭
+2025-02-15 15:14:49.098 [main.py:60] : FastAPI 应用启动
+2025-02-15 15:14:57.260 [main.py:64] : FastAPI 应用关闭
+2025-02-15 15:14:59.314 [main.py:60] : FastAPI 应用启动
+2025-02-15 15:16:39.431 [main.py:60] : FastAPI 应用启动
+2025-02-15 15:17:04.812 [main.py:64] : FastAPI 应用关闭
+2025-02-15 15:17:07.158 [main.py:60] : FastAPI 应用启动
+2025-02-15 15:18:11.477 [main.py:64] : FastAPI 应用关闭
+2025-02-15 15:18:13.169 [main.py:60] : FastAPI 应用启动
+2025-02-15 15:19:19.181 [main.py:64] : FastAPI 应用关闭
+2025-02-15 15:19:21.355 [main.py:60] : FastAPI 应用启动
+2025-02-15 15:41:20.000 [main.py:64] : FastAPI 应用关闭
+2025-02-15 15:41:22.741 [main.py:60] : FastAPI 应用启动
+2025-02-15 15:42:14.143 [main.py:64] : FastAPI 应用关闭
+2025-02-15 15:42:16.513 [main.py:60] : FastAPI 应用启动
+2025-02-15 15:51:45.702 [main.py:64] : FastAPI 应用关闭
+2025-02-15 15:51:51.977 [main.py:60] : FastAPI 应用启动
+2025-02-15 15:51:54.014 [main.py:64] : FastAPI 应用关闭
+2025-02-15 15:51:56.822 [main.py:60] : FastAPI 应用启动
+2025-02-15 15:52:14.866 [main.py:64] : FastAPI 应用关闭
+2025-02-15 15:52:17.391 [main.py:60] : FastAPI 应用启动
+2025-02-15 15:52:28.138 [main.py:64] : FastAPI 应用关闭
+2025-02-15 15:52:30.644 [main.py:60] : FastAPI 应用启动
+2025-02-15 15:52:35.900 [main.py:64] : FastAPI 应用关闭
+2025-02-15 15:52:37.375 [main.py:60] : FastAPI 应用启动
+2025-02-15 15:53:22.192 [main.py:64] : FastAPI 应用关闭
+2025-02-15 15:53:24.328 [main.py:60] : FastAPI 应用启动
+2025-02-15 16:11:36.195 [main.py:64] : FastAPI 应用关闭
+2025-02-15 16:11:39.271 [main.py:60] : FastAPI 应用启动
+2025-02-15 16:18:50.153 [main.py:64] : FastAPI 应用关闭
+2025-02-15 16:18:52.984 [main.py:60] : FastAPI 应用启动
+2025-02-15 16:20:19.092 [main.py:64] : FastAPI 应用关闭
+2025-02-15 16:20:21.004 [main.py:60] : FastAPI 应用启动
+2025-02-15 16:20:35.118 [main.py:64] : FastAPI 应用关闭
+2025-02-15 16:20:37.519 [main.py:60] : FastAPI 应用启动
+2025-02-15 16:20:50.441 [main.py:64] : FastAPI 应用关闭
+2025-02-15 16:20:52.121 [main.py:60] : FastAPI 应用启动
+2025-02-15 16:21:00.737 [main.py:64] : FastAPI 应用关闭
+2025-02-15 16:21:02.635 [main.py:60] : FastAPI 应用启动
+2025-02-15 16:21:53.136 [main.py:64] : FastAPI 应用关闭
+2025-02-15 16:21:55.262 [main.py:60] : FastAPI 应用启动
+2025-02-15 16:22:15.934 [main.py:64] : FastAPI 应用关闭
+2025-02-15 16:22:17.864 [main.py:60] : FastAPI 应用启动
+2025-02-15 16:22:31.289 [main.py:64] : FastAPI 应用关闭
+2025-02-15 16:22:33.121 [main.py:60] : FastAPI 应用启动
+2025-02-15 16:22:52.533 [main.py:64] : FastAPI 应用关闭
+2025-02-15 16:22:54.231 [main.py:60] : FastAPI 应用启动
+2025-02-15 16:25:00.212 [main.py:64] : FastAPI 应用关闭
+2025-02-15 16:25:02.711 [main.py:60] : FastAPI 应用启动
+2025-02-15 16:28:28.478 [main.py:64] : FastAPI 应用关闭
+2025-02-15 16:28:34.227 [main.py:60] : FastAPI 应用启动
+2025-02-15 16:30:48.537 [main.py:64] : FastAPI 应用关闭
+2025-02-15 16:30:50.712 [main.py:60] : FastAPI 应用启动
+2025-02-15 16:31:02.257 [main.py:64] : FastAPI 应用关闭
+2025-02-15 16:31:04.742 [main.py:60] : FastAPI 应用启动
+2025-02-15 16:32:08.122 [main.py:64] : FastAPI 应用关闭
+2025-02-15 16:32:11.042 [main.py:60] : FastAPI 应用启动
+2025-02-15 16:35:29.116 [main.py:64] : FastAPI 应用关闭
+2025-02-15 16:35:32.458 [main.py:60] : FastAPI 应用启动
+2025-02-15 16:36:51.299 [main.py:64] : FastAPI 应用关闭
+2025-02-15 16:36:53.705 [main.py:60] : FastAPI 应用启动
+2025-02-15 16:37:09.331 [main.py:64] : FastAPI 应用关闭
+2025-02-15 16:37:12.301 [main.py:60] : FastAPI 应用启动
+2025-02-15 16:37:52.344 [main.py:64] : FastAPI 应用关闭
+2025-02-15 16:37:54.898 [main.py:60] : FastAPI 应用启动
+2025-02-15 16:38:03.265 [main.py:64] : FastAPI 应用关闭
+2025-02-15 16:38:07.256 [main.py:60] : FastAPI 应用启动
+2025-02-15 16:43:02.226 [main.py:64] : FastAPI 应用关闭
+2025-02-15 16:43:04.770 [main.py:60] : FastAPI 应用启动
+2025-02-15 16:46:04.367 [main.py:64] : FastAPI 应用关闭
+2025-02-15 16:46:07.774 [main.py:60] : FastAPI 应用启动
+2025-02-15 16:47:35.283 [main.py:64] : FastAPI 应用关闭
+2025-02-15 16:47:37.857 [main.py:60] : FastAPI 应用启动
+2025-02-15 16:47:45.785 [main.py:64] : FastAPI 应用关闭
+2025-02-15 16:47:47.315 [main.py:60] : FastAPI 应用启动
+2025-02-15 16:49:00.460 [main.py:64] : FastAPI 应用关闭
+2025-02-15 16:49:04.285 [main.py:60] : FastAPI 应用启动
+2025-02-15 16:52:09.688 [main.py:64] : FastAPI 应用关闭
+2025-02-15 16:52:12.048 [main.py:60] : FastAPI 应用启动
+2025-02-15 16:54:20.240 [main.py:64] : FastAPI 应用关闭
+2025-02-15 16:54:22.518 [main.py:60] : FastAPI 应用启动
+2025-02-15 16:54:22.547 [main.py:64] : FastAPI 应用关闭

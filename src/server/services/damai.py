@@ -1,6 +1,6 @@
 import logging
 from typing import Optional
-from urllib.parse import urlencode
+from urllib.parse import urlencode, quote
 import requests
 from src.server.schemas import PlatformEnum
 from src.simulateLogin.Login_DM import Login_DM
@@ -18,6 +18,7 @@ from src.server.untiles.Ticket_Monitor import Ticket_Monitor
 import asyncio
 from src.server.untiles.Monitor_Thread_Manager import MonitorThreadManager
 import time
+import re
 logger = logging.getLogger(__name__)
 
 class DamaiService:
@@ -167,26 +168,124 @@ class DamaiService:
             }
     # h5接口下搜索演唱会接口请求
     def search_concert_h5(self, cty: Optional[str] = '北京', keyword: Optional[str] = '', ctl: Optional[str] = '演唱会'):
-        current_time_ms = str(int(time.time() * 1000))
+        # 更新获取大麦网写入到db_config.json文件中的数据信息
+        self.ticket_monitor.get_db_config()
+        # 获取_m_h5_tk
+        _m_h5_tk = self.ticket_monitor.db_config["DM"]["_m_h5_tk"]
+        # 获取_m_h5_tk_enc
+        _m_h5_tk_enc = self.ticket_monitor.db_config["DM"]["_m_h5_tk_enc"]
+        # 如果_m_h5_tk或_m_h5_tk_enc为空，则获取临时_m_h5_tk、_m_h5_tk_enc
+        if not _m_h5_tk or not _m_h5_tk_enc:
+            res_data = self.get_temp_tk_h5()
+            _m_h5_tk = res_data.get('data',{}).get('_m_h5_tk','')
+            _m_h5_tk_enc = res_data.get('data',{}).get('_m_h5_tk_enc','')
+            self.ticket_monitor.db_config["DM"]["_m_h5_tk"] = _m_h5_tk
+            self.ticket_monitor.db_config["DM"]["_m_h5_tk_enc"] = _m_h5_tk_enc
+            self.ticket_monitor.update_db_config()
+        # 获取大麦网数据
+        # 一分钟
+        current_time_ms = str(int(time.time() * 1000) + 60000)
+        print('current_time_ms----', current_time_ms)
+        date_time = datetime.fromtimestamp(int(current_time_ms) / 1000)
+        print('date_time----', date_time)
+        formatted_date1 = date_time.strftime('%Y-%m-%d %H:%M:%S')
+        print('formatted_date1----', formatted_date1)
+        data_text = '{"args":"{\\"comboConfigRule\\":\\"true\\",\\"sortType\\":\\"3\\",\\"latitude\\":\\"0\\",\\"longitude\\":\\"0\\",\\"groupId\\":\\"2394\\",\\"comboCityId\\":\\"852\\",\\"currentCityId\\":\\"852\\",\\"platform\\":\\"8\\",\\"comboChannel\\":\\"2\\",\\"dmChannel\\":\\"damai@damaih5_h5\\"}","patternName":"category_solo","patternVersion":"4.0","platform":"8","comboChannel":"2","dmChannel":"damai@damaih5_h5"}'
+        sign = self.login_dm.get_sign('f548d07fca17c4d27b47ef3868d9af14', '1739608002486', data_text)
+        print('sign----', sign)
+        query_string = quote(data_text)
+        print('query_string-----', query_string)
+        current_time_ms = '1739601438384'
+        sign_text = self.login_dm.get_sign(_m_h5_tk, current_time_ms, data_text)
+        print('sign_text----', sign_text)
+        url = f'https://mtop.damai.cn/h5/mtop.damai.mec.aristotle.get/3.0/?jsv=2.7.4&appKey=12574478&t={current_time_ms}&sign={sign_text}&api=mtop.damai.mec.aristotle.get&v=3.0&H5Request=true&type=json&timeout=10000&dataType=json&valueType=string&forceAntiCreep=true&AntiCreep=true&useH5=true&data={query_string}'
+        # url = f'https://mtop.damai.cn/h5/mtop.damai.mec.aristotle.get/3.0/?jsv=2.7.4&appKey=12574478&t={current_time_ms}&sign=cf082527f15487767127965059bf5190&api=mtop.damai.mec.aristotle.get&v=3.0&H5Request=true&type=json&timeout=10000&dataType=json&valueType=string&forceAntiCreep=true&AntiCreep=true&useH5=true&data=%7B%22args%22%3A%22%7B%5C%22comboConfigRule%5C%22%3A%5C%22true%5C%22%2C%5C%22sortType%5C%22%3A%5C%223%5C%22%2C%5C%22latitude%5C%22%3A%5C%220%5C%22%2C%5C%22longitude%5C%22%3A%5C%220%5C%22%2C%5C%22groupId%5C%22%3A%5C%222394%5C%22%2C%5C%22comboCityId%5C%22%3A%5C%22852%5C%22%2C%5C%22currentCityId%5C%22%3A%5C%22852%5C%22%2C%5C%22platform%5C%22%3A%5C%228%5C%22%2C%5C%22comboChannel%5C%22%3A%5C%222%5C%22%2C%5C%22dmChannel%5C%22%3A%5C%22damai%40damaih5_h5%5C%22%7D%22%2C%22patternName%22%3A%22category_solo%22%2C%22patternVersion%22%3A%224.0%22%2C%22platform%22%3A%228%22%2C%22comboChannel%22%3A%222%22%2C%22dmChannel%22%3A%22damai%40damaih5_h5%22%7D'
+        response = requests.get(url,
+                                headers={
+                                    'Accept': 'application/json',
+                                    'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 17_5_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.53(0x18003531) NetType/WIFI Language/zh_CN',
+                                    'Referer': 'https://m.damai.cn/' 
+                                },
+                                cookies={
+                                    # '_m_h5_tk': '8dc5eb999c6b563d254ac269aabae109_1739610798416',
+                                    # '_m_h5_tk_enc': '4746cedf48181893570b7b1320b69244',
+                                    '_m_h5_tk': _m_h5_tk,
+                                    '_m_h5_tk_enc': _m_h5_tk_enc
+                                },
+                                verify=False,
+                                timeout=10
+        )
+        # response = self.do_request()(url)
+        print('search_concert_h5----response----', response.json())
+        return {
+            "data": {},
+            "ret": ["SUCCESS::调用成功"],
+        }
+    # H5接口，获取未登录情况下的临时_m_h5_tk、_m_h5_tk_enc
+    def get_temp_tk_h5(self):
+        current_time_ms = str(int(time.time() * 1000) + 3600000)
         date_time = datetime.fromtimestamp(int(current_time_ms) / 1000)
         formatted_date1 = date_time.strftime('%Y-%m-%d %H:%M:%S')
         sign = self.login_dm.get_sign('undefined', formatted_date1, {})
         print('search_concert_h5----sign----', sign)
         print('search_concert_h5----current_time_ms----', current_time_ms)
-        # url = f"https://mtop.damai.cn/h5/mtop.damai.wireless.search.cms.category.get/2.0/?jsv=2.7.4&appKey=12574478&t={current_time_ms}&sign={sign}&api=mtop.damai.wireless.search.cms.category.get&v=2.0&H5Request=true&type=jsonp&timeout=10000&forceAntiCreep=true&AntiCreep=true&useH5=true&dataType=jsonp&callback=mtopjsonp1&data=%7B%22apiVersion%22%3A%222.6%22%2C%22platform%22%3A%228%22%2C%22comboChannel%22%3A%222%22%2C%22dmChannel%22%3A%22damai%40damaih5_h5%22%7D"
-        url = "https://mtop.damai.cn/h5/mtop.damai.wireless.search.cms.category.get/2.0/?jsv=2.7.4&appKey=12574478&t=1739546337408&sign=855b509e819810010f439e3da9fcb7ae&api=mtop.damai.wireless.search.cms.category.get&v=2.0&H5Request=true&type=jsonp&timeout=10000&forceAntiCreep=true&AntiCreep=true&useH5=true&dataType=jsonp&callback=mtopjsonp1&data=%7B%22apiVersion%22%3A%222.6%22%2C%22platform%22%3A%228%22%2C%22comboChannel%22%3A%222%22%2C%22dmChannel%22%3A%22damai%40damaih5_h5%22%7D"
-        response = requests.get(url, headers={
-            'Accept': 'application/json',
+        data = {
+            "apiVersion": "2.6",
+            "platform": "8",
+            "comboChannel": "2",
+            "dmChannel": "damai@damaih5_h5"
+        }
+        query_string = urlencode(data,encoding='utf-8')
+        url = f"https://mtop.damai.cn/h5/mtop.damai.wireless.search.cms.category.get/2.0/?jsv=2.7.4&appKey=12574478&t={current_time_ms}&sign={sign}&api=mtop.damai.wireless.search.cms.category.get&v=2.0&H5Request=true&type=jsonp&timeout=10000&forceAntiCreep=true&AntiCreep=true&useH5=true&dataType=jsonp&callback=mtopjsonp1&data={query_string}"
+        try:
+            response = requests.get(url, headers={
+                'Accept': 'application/json',
             'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 17_5_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.53(0x18003531) NetType/WIFI Language/zh_CN',
             'Referer': 'https://m.damai.cn/'
-        },timeout=10)
-        # print('search_concert_h5----response----', response.json())
-        # if response.status_code != 200:
-        #     logger.error(f"获取大麦网数据失败，\n接口: {url}, \n错误: {response.status_code}")
-        #     return {
-        #         "data": [],
-        #         "ret": [f"ERROR::获取大麦网数据失败{response.status_code}"],
-        #     }
+            },timeout=10)
+            responseText = response.text
+            data = {}
+            # 判断mtopjsonp1 是否存在
+            if 'mtopjsonp1' in responseText:
+                try:
+                    match = re.search(r'mtopjsonp\d*\((.*)\)', responseText)
+                    if not match:
+                        raise ValueError("无效的 JSONP 格式")
+                    json_data = match.group(1)
+                    data = json.loads(json_data)
+                    print('get_temp_tk_h5----data----', data)
+                except Exception as e:
+                    logger.error(f"获取大麦临时_m_h5_tk、_m_h5_tk_enc失败，\n接口: {url}, \n错误: {e}")
+                    return {
+                        "data": {},
+                        "ret": [f"ERROR::获取大麦临时_m_h5_tk、_m_h5_tk_enc失败{e}"],
+                    }
+            else:
+                data = json.loads(responseText)
+            ret = data.get('ret')
+            print('get_temp_tk_h5----ret----', ret, isinstance(ret, list), 'FAIL_SYS_TOKEN_EMPTY' in ret[0])
+            # 判断ret是否是列表，并且是否包含FAIL_SYS_TOKEN_EMPTY
+            if isinstance(ret, list) and 'FAIL_SYS_TOKEN_EMPTY' in ret[0]:
+                print('---------------')
+                print('get_temp_tk_h5----response.cookies----', response.cookies)
+                cookies = requests.utils.dict_from_cookiejar(response.cookies)
+                _m_h5_tk = cookies.get('_m_h5_tk')
+                _m_h5_tk_enc = cookies.get('_m_h5_tk_enc')
+                print('get_temp_tk_h5----_m_h5_tk----', _m_h5_tk)
+                print('get_temp_tk_h5----_m_h5_tk_enc----', _m_h5_tk_enc)
+                return {
+                    "data": {
+                        "_m_h5_tk": _m_h5_tk,
+                        "_m_h5_tk_enc": _m_h5_tk_enc,
+                    },
+                    "ret": ["SUCCESS::调用成功"],
+                }
+        except Exception as e:
+            logger.error(f"获取大麦临时_m_h5_tk、_m_h5_tk_enc失败，\n接口: {url}, \n错误: {e}")
+            return {
+                "data": {},
+                "ret": [f"ERROR::获取大麦临时_m_h5_tk、_m_h5_tk_enc失败{e}"],
+            }
     # 网站生成二维码接口
     def get_generate_code_web(self):
         # 先删除存放二维码文件的目录
