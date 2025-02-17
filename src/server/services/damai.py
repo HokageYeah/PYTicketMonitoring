@@ -200,7 +200,6 @@ class DamaiService:
         print('_m_h5_tk----', _m_h5_tk)
         query_string = quote(data_text)
         print('query_string-----', query_string)
-        # current_time_ms = '1739601438384'
         # sign_text = self.login_dm.get_sign('a194526cc6b4f5d851878ea53c63ce8d', current_time_ms, data_text)
         sign_text = self.login_dm.get_sign(_m_h5_tk, current_time_ms, data_text)
         # 测试用的
@@ -211,29 +210,98 @@ class DamaiService:
         # url = f'https://mtop.damai.cn/h5/mtop.damai.mec.aristotle.get/3.0/?jsv=2.7.4&appKey=12574478&t={current_time_ms}&sign=cf082527f15487767127965059bf5190&api=mtop.damai.mec.aristotle.get&v=3.0&H5Request=true&type=json&timeout=10000&dataType=json&valueType=string&forceAntiCreep=true&AntiCreep=true&useH5=true&data=%7B%22args%22%3A%22%7B%5C%22comboConfigRule%5C%22%3A%5C%22true%5C%22%2C%5C%22sortType%5C%22%3A%5C%223%5C%22%2C%5C%22latitude%5C%22%3A%5C%220%5C%22%2C%5C%22longitude%5C%22%3A%5C%220%5C%22%2C%5C%22groupId%5C%22%3A%5C%222394%5C%22%2C%5C%22comboCityId%5C%22%3A%5C%22852%5C%22%2C%5C%22currentCityId%5C%22%3A%5C%22852%5C%22%2C%5C%22platform%5C%22%3A%5C%228%5C%22%2C%5C%22comboChannel%5C%22%3A%5C%222%5C%22%2C%5C%22dmChannel%5C%22%3A%5C%22damai%40damaih5_h5%5C%22%7D%22%2C%22patternName%22%3A%22category_solo%22%2C%22patternVersion%22%3A%224.0%22%2C%22platform%22%3A%228%22%2C%22comboChannel%22%3A%222%22%2C%22dmChannel%22%3A%22damai%40damaih5_h5%22%7D'
         # url = f'https://mtop.damai.cn/h5/mtop.damai.mec.aristotle.get/3.0/?jsv=2.7.4&appKey=12574478&t=1739715420271&sign=1a82b8a90f4216d6c887f1e573ed08e7&api=mtop.damai.mec.aristotle.get&v=3.0&H5Request=true&type=json&timeout=10000&dataType=json&valueType=string&forceAntiCreep=true&AntiCreep=true&useH5=true&data=%7B%22args%22%3A%22%7B%5C%22comboConfigRule%5C%22%3A%5C%22true%5C%22%2C%5C%22sortType%5C%22%3A%5C%223%5C%22%2C%5C%22latitude%5C%22%3A%5C%220%5C%22%2C%5C%22longitude%5C%22%3A%5C%220%5C%22%2C%5C%22groupId%5C%22%3A%5C%222394%5C%22%2C%5C%22comboCityId%5C%22%3A852%2C%5C%22currentCityId%5C%22%3A852%2C%5C%22platform%5C%22%3A%5C%228%5C%22%2C%5C%22comboChannel%5C%22%3A%5C%222%5C%22%2C%5C%22dmChannel%5C%22%3A%5C%22damai%40damaih5_h5%5C%22%7D%22%2C%22patternName%22%3A%22category_solo%22%2C%22patternVersion%22%3A%224.0%22%2C%22platform%22%3A%228%22%2C%22comboChannel%22%3A%222%22%2C%22dmChannel%22%3A%22damai%40damaih5_h5%22%7D'
         # url = f'https://mtop.damai.cn/h5/mtop.damai.mec.aristotle.get/3.0/?jsv=2.7.4&appKey=12574478&t=1739715420271&sign=1a82b8a90f4216d6c887f1e573ed08e7&api=mtop.damai.mec.aristotle.get&v=3.0&H5Request=true&type=json&timeout=10000&dataType=json&valueType=string&forceAntiCreep=true&AntiCreep=true&useH5=true&data={query_string}'
-        response = requests.get(url,
-                                headers={
-                                    'Accept': 'application/json',
-                                    'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 17_5_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.53(0x18003531) NetType/WIFI Language/zh_CN',
-                                    'Referer': 'https://m.damai.cn/' 
-                                },
-                                cookies={
-                                    # '_m_h5_tk': 'a194526cc6b4f5d851878ea53c63ce8d_1739725133797',
-                                    # '_m_h5_tk_enc': 'fcceaa6db66175664430c152bded4585',
-                                    '_m_h5_tk': _m_h5_tk,
-                                    '_m_h5_tk_enc': _m_h5_tk_enc
-                                },
-                                verify=False,
-                                timeout=10
-        )
-        # response = self.do_request()(url)
-        print('search_concert_h5----response----', response.json())
-        return {
-            "data": {},
-            "ret": ["SUCCESS::调用成功"],
-        }
+        try:
+            response = requests.get(url,
+                                    headers={
+                                        'Accept': 'application/json',
+                                        'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 17_5_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.53(0x18003531) NetType/WIFI Language/zh_CN',
+                                        'Referer': 'https://m.damai.cn/' 
+                                    },
+                                    cookies={
+                                        '_m_h5_tk': _m_h5_tk,
+                                        '_m_h5_tk_enc': _m_h5_tk_enc
+                                    },
+                                    verify=False,
+                                    timeout=10
+            )
+            all_nodes_list = response.json().get('data',{}).get('nodes',[])
+            if not isinstance(all_nodes_list, list):
+                return {
+                    "data": {'msg': 'all_data is not list'},
+                    "ret": ["ERROR::获取大麦网数据失败"],
+                }
+            # 获取最后一个数据
+            last_node = all_nodes_list[-1]
+            child_nodes_list = last_node.get('nodes',[])
+            if not isinstance(child_nodes_list, list):
+                return {
+                    "data": {'msg': 'child_nodes_list is not list'},
+                    "ret": ["ERROR::获取大麦网数据失败"],
+                }
+            # child_nodes_list 过滤出 data为1的数据
+            final_data_nodes_dict = next((x for x in child_nodes_list if x.get('data',{})['componentId'] == 'dm_node_common_classify'), None)
+            if not isinstance(final_data_nodes_dict, dict):
+                return {
+                    "data": {'msg': 'final_data_nodes is not dict'},
+                    "ret": ["ERROR::获取大麦网数据失败"],
+                }
+            final_data_nodes_list = final_data_nodes_dict.get('nodes',[])
+            if not isinstance(final_data_nodes_list, list):
+                return {
+                    "data": {'msg': 'final_data_nodes_list is not list'},
+                    "ret": ["ERROR::获取大麦网数据失败"],
+                }
+            concert_list = []
+            # 7587 表示演唱会
+            # "type": "6" 标识演唱会想看榜
+            for item in list(filter(lambda x: x.get('type') == '7587', final_data_nodes_list)):
+                item_data = item.get('data',{})
+                cityname = item_data.get('cityName', '')
+                cityid = ''
+                description = ''
+                showid = item_data.get('id', '')
+                showname = item_data.get('name', '')
+                showtime = item_data.get('showTime', '')
+                venue = item_data.get('cityName', '')
+                venuecity = item_data.get('venueName', '')
+                venueid = ''
+                verticalPic = item_data.get('verticalPic', '')
+                price_str = item_data.get('priceStr', '')
+                showstatus = item_data.get('showStatus', {}).get('desc', '')
+                obj = {
+                    'cityname': cityname,
+                    'cityid': cityid,
+                    'description': description,
+                    'showid': showid,
+                    'showname': showname,
+                    'showtime': showtime,
+                    'venue': venue,
+                    'venuecity': venuecity,
+                    'venueid': venueid,
+                    'verticalPic': verticalPic,
+                    'price_str': price_str,
+                    'showstatus': showstatus,
+                    'platform': PlatformEnum.DM
+                }
+                concert_list.append(obj)
+            return {
+                "data": {
+                    "currentPage": 1,
+                    "maxPage": 1,
+                    "nextPage": 1,
+                    "onePageSize": len(concert_list),
+                    "resultData": concert_list
+                },
+                "ret": ["SUCCESS::调用成功"],
+            }
+        except Exception as e:
+            logger.error(f"获取大麦网数据失败，\n接口: {url}, \n错误: {e}")
+            return {
+                "data": {},
+                "ret": [f"ERROR::获取大麦网数据失败{e}"],
+            }
     # H5接口，获取未登录情况下的临时_m_h5_tk、_m_h5_tk_enc
-    def get_temp_tk_h5(self):
+    def get_temp_tk_h5(self, mh5tk: Optional[str] = '', mh5tk_enc: Optional[str] = ''):
         current_time_ms = str(int(time.time() * 1000))
         date_time = datetime.fromtimestamp(int(current_time_ms) / 1000)
         formatted_date1 = date_time.strftime('%Y-%m-%d %H:%M:%S')
@@ -246,18 +314,26 @@ class DamaiService:
         }
         # query_string = urlencode(data,encoding='utf-8')
         data_text = '{"apiVersion":"2.6","platform":"8","comboChannel":"2","dmChannel":"damai@damaih5_h5"}'
-        sign = self.login_dm.get_sign('undefined', current_time_ms, data_text)
-        # sign = self.login_dm.get_sign('undefined', '1739719160168', data_text)
+        tk = mh5tk if mh5tk else 'undefined'
+        print('tk----', tk)
+        sign = self.login_dm.get_sign(tk, current_time_ms, data_text)
+        # sign = self.login_dm.get_sign(tk, '1739755656998', data_text)
         print('search_concert_h5----sign----', sign)
         query_string = quote(data_text)
         print('get_temp_tk_h5----query_string----', query_string)
         url = f"https://mtop.damai.cn/h5/mtop.damai.wireless.search.cms.category.get/2.0/?jsv=2.7.4&appKey=12574478&t={current_time_ms}&sign={sign}&api=mtop.damai.wireless.search.cms.category.get&v=2.0&H5Request=true&type=jsonp&timeout=10000&forceAntiCreep=true&AntiCreep=true&useH5=true&dataType=jsonp&callback=mtopjsonp1&data={query_string}"
         try:
+            cookies = {
+                '_m_h5_tk': mh5tk,
+                '_m_h5_tk_enc': mh5tk_enc
+            } if mh5tk and mh5tk_enc else {}
             response = requests.get(url, headers={
                 'Accept': 'application/json',
-            'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 17_5_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.53(0x18003531) NetType/WIFI Language/zh_CN',
-            'Referer': 'https://m.damai.cn/'
-            },timeout=10)
+                'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 17_5_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.53(0x18003531) NetType/WIFI Language/zh_CN',
+                'Referer': 'https://m.damai.cn/',
+            },
+            cookies=cookies,
+            timeout=10)
             responseText = response.text
             data = {}
             # 判断mtopjsonp1 是否存在
@@ -281,13 +357,9 @@ class DamaiService:
             print('get_temp_tk_h5----ret----', ret, isinstance(ret, list), 'FAIL_SYS_TOKEN_EMPTY' in ret[0])
             # 判断ret是否是列表，并且是否包含FAIL_SYS_TOKEN_EMPTY
             if isinstance(ret, list) and 'FAIL_SYS_TOKEN_EMPTY' in ret[0]:
-                print('---------------')
-                print('get_temp_tk_h5----response.cookies----', response.cookies)
                 cookies = requests.utils.dict_from_cookiejar(response.cookies)
                 _m_h5_tk = cookies.get('_m_h5_tk')
                 _m_h5_tk_enc = cookies.get('_m_h5_tk_enc')
-                print('get_temp_tk_h5----_m_h5_tk----', _m_h5_tk)
-                print('get_temp_tk_h5----_m_h5_tk_enc----', _m_h5_tk_enc)
                 return {
                     "data": {
                         "_m_h5_tk": _m_h5_tk,
