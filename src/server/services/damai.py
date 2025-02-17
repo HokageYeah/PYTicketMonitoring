@@ -532,11 +532,30 @@ class DamaiService:
             legacy = res_data.get('data',{}).get('legacy','')
             # 去除转义自负
             legacy = json.loads(legacy)
+            itemBase = legacy.get('detailViewComponentMap',{}).get('item',{}).get('staticData',{}).get('itemBase',{})
+            venue = legacy.get('detailViewComponentMap',{}).get('item',{}).get('staticData',{}).get('venue',{})
+            item = legacy.get('detailViewComponentMap',{}).get('item',{}).get('item',{})
+            obj = {
+                'showid': itemBase.get('itemId',''),
+                'showname': itemBase.get('itemName',''),
+                'cityname': itemBase.get('cityName',''),
+                'cityid': itemBase.get('nationalStandardCityId',''),
+                'description': '',
+                'showtime': itemBase.get('showTime',''),
+                'venuecity': venue.get('venueProvinceName',''),
+                'venue': venue.get('venueName',''),
+                'venueAddr': venue.get('venueAddress',''),
+                'venueId': venue.get('venueId',''),
+                'verticalPic': itemBase.get('itemPic',''),
+                'price_str': item.get('priceRange',''),
+                'showstatus': '',
+                'platform': PlatformEnum.DM
+            }
             return {
                 "platform": PlatformEnum.DM,
                 "api": 'item.detail.by.platform',
                 "data": {
-                    "legacy": legacy,
+                    "legacy": obj,
                     "traceId": res_data.get('traceId','')
                 },
                 "ret": ["SUCCESS::调用成功"],
