@@ -241,7 +241,6 @@ class Login_DM:
     def get_sign(c: str, t: str, data: dict):
         # 判断c是否有_,如果有则分隔或取第一个
         c = c.split('_')[0] if '_' in c else c
-        print('get_sign----c----', c)
         plain = f"{c}&{t}&12574478&{data}"
         return md5(plain.encode(encoding='utf-8')).hexdigest()
     # 获取_m_h5_tk 和 _m_h5_tk_enc

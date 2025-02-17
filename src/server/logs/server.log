@@ -2555,3 +2555,65 @@
 2025-02-17 11:35:50.738 [main.py:64] : FastAPI 应用关闭
 2025-02-17 11:35:52.045 [main.py:60] : FastAPI 应用启动
 2025-02-17 11:59:13.519 [main.py:64] : FastAPI 应用关闭
+2025-02-17 16:42:39.212 [main.py:60] : FastAPI 应用启动
+2025-02-17 16:42:41.710 [damai.py:298] : 获取大麦网数据失败，
+接口: https://mtop.damai.cn/h5/mtop.damai.mec.aristotle.get/3.0/?jsv=2.7.4&appKey=12574478&t=1739781760687&sign=63e7b4928205546482dbfca52e5d7815&api=mtop.damai.mec.aristotle.get&v=3.0&H5Request=true&type=json&timeout=10000&dataType=json&valueType=string&forceAntiCreep=true&AntiCreep=true&useH5=true&data=%7B%22args%22%3A%22%7B%5C%22comboConfigRule%5C%22%3A%5C%22true%5C%22%2C%5C%22sortType%5C%22%3A%5C%223%5C%22%2C%5C%22latitude%5C%22%3A%5C%220%5C%22%2C%5C%22longitude%5C%22%3A%5C%220%5C%22%2C%5C%22groupId%5C%22%3A%5C%222394%5C%22%2C%5C%22comboCityId%5C%22%3A%5C%22852%5C%22%2C%5C%22currentCityId%5C%22%3A%5C%22852%5C%22%2C%5C%22platform%5C%22%3A%5C%228%5C%22%2C%5C%22comboChannel%5C%22%3A%5C%222%5C%22%2C%5C%22dmChannel%5C%22%3A%5C%22damai%40damaih5_h5%5C%22%7D%22%2C%22patternName%22%3A%22category_solo%22%2C%22patternVersion%22%3A%224.0%22%2C%22platform%22%3A%228%22%2C%22comboChannel%22%3A%222%22%2C%22dmChannel%22%3A%22damai%40damaih5_h5%22%7D, 
+错误: list index out of range
+2025-02-17 16:42:51.294 [damai.py:298] : 获取大麦网数据失败，
+接口: https://mtop.damai.cn/h5/mtop.damai.mec.aristotle.get/3.0/?jsv=2.7.4&appKey=12574478&t=1739781771145&sign=e113aff9e75811134fe0c54629ceb184&api=mtop.damai.mec.aristotle.get&v=3.0&H5Request=true&type=json&timeout=10000&dataType=json&valueType=string&forceAntiCreep=true&AntiCreep=true&useH5=true&data=%7B%22args%22%3A%22%7B%5C%22comboConfigRule%5C%22%3A%5C%22true%5C%22%2C%5C%22sortType%5C%22%3A%5C%223%5C%22%2C%5C%22latitude%5C%22%3A%5C%220%5C%22%2C%5C%22longitude%5C%22%3A%5C%220%5C%22%2C%5C%22groupId%5C%22%3A%5C%222394%5C%22%2C%5C%22comboCityId%5C%22%3A%5C%22852%5C%22%2C%5C%22currentCityId%5C%22%3A%5C%22852%5C%22%2C%5C%22platform%5C%22%3A%5C%228%5C%22%2C%5C%22comboChannel%5C%22%3A%5C%222%5C%22%2C%5C%22dmChannel%5C%22%3A%5C%22damai%40damaih5_h5%5C%22%7D%22%2C%22patternName%22%3A%22category_solo%22%2C%22patternVersion%22%3A%224.0%22%2C%22platform%22%3A%228%22%2C%22comboChannel%22%3A%222%22%2C%22dmChannel%22%3A%22damai%40damaih5_h5%22%7D, 
+错误: list index out of range
+2025-02-17 16:46:41.350 [main.py:64] : FastAPI 应用关闭
+2025-02-17 16:46:43.078 [main.py:60] : FastAPI 应用启动
+2025-02-17 16:46:48.582 [damai.py:299] : 获取大麦网数据失败，
+接口: https://mtop.damai.cn/h5/mtop.damai.mec.aristotle.get/3.0/?jsv=2.7.4&appKey=12574478&t=1739782008127&sign=b89d1174822ff938de848558b7dc208a&api=mtop.damai.mec.aristotle.get&v=3.0&H5Request=true&type=json&timeout=10000&dataType=json&valueType=string&forceAntiCreep=true&AntiCreep=true&useH5=true&data=%7B%22args%22%3A%22%7B%5C%22comboConfigRule%5C%22%3A%5C%22true%5C%22%2C%5C%22sortType%5C%22%3A%5C%223%5C%22%2C%5C%22latitude%5C%22%3A%5C%220%5C%22%2C%5C%22longitude%5C%22%3A%5C%220%5C%22%2C%5C%22groupId%5C%22%3A%5C%222394%5C%22%2C%5C%22comboCityId%5C%22%3A%5C%22852%5C%22%2C%5C%22currentCityId%5C%22%3A%5C%22852%5C%22%2C%5C%22platform%5C%22%3A%5C%228%5C%22%2C%5C%22comboChannel%5C%22%3A%5C%222%5C%22%2C%5C%22dmChannel%5C%22%3A%5C%22damai%40damaih5_h5%5C%22%7D%22%2C%22patternName%22%3A%22category_solo%22%2C%22patternVersion%22%3A%224.0%22%2C%22platform%22%3A%228%22%2C%22comboChannel%22%3A%222%22%2C%22dmChannel%22%3A%22damai%40damaih5_h5%22%7D, 
+错误: local variable 'all_nodes_list' referenced before assignment
+2025-02-17 16:48:35.300 [main.py:64] : FastAPI 应用关闭
+2025-02-17 16:48:36.587 [main.py:60] : FastAPI 应用启动
+2025-02-17 16:48:49.792 [main.py:64] : FastAPI 应用关闭
+2025-02-17 16:48:50.866 [main.py:60] : FastAPI 应用启动
+2025-02-17 16:48:54.038 [damai.py:299] : 获取大麦网数据失败，
+接口: https://mtop.damai.cn/h5/mtop.damai.mec.aristotle.get/3.0/?jsv=2.7.4&appKey=12574478&t=1739782133878&sign=bd0c915574e79edc247cb9f5f9cd99f6&api=mtop.damai.mec.aristotle.get&v=3.0&H5Request=true&type=json&timeout=10000&dataType=json&valueType=string&forceAntiCreep=true&AntiCreep=true&useH5=true&data=%7B%22args%22%3A%22%7B%5C%22comboConfigRule%5C%22%3A%5C%22true%5C%22%2C%5C%22sortType%5C%22%3A%5C%223%5C%22%2C%5C%22latitude%5C%22%3A%5C%220%5C%22%2C%5C%22longitude%5C%22%3A%5C%220%5C%22%2C%5C%22groupId%5C%22%3A%5C%222394%5C%22%2C%5C%22comboCityId%5C%22%3A%5C%22852%5C%22%2C%5C%22currentCityId%5C%22%3A%5C%22852%5C%22%2C%5C%22platform%5C%22%3A%5C%228%5C%22%2C%5C%22comboChannel%5C%22%3A%5C%222%5C%22%2C%5C%22dmChannel%5C%22%3A%5C%22damai%40damaih5_h5%5C%22%7D%22%2C%22patternName%22%3A%22category_solo%22%2C%22patternVersion%22%3A%224.0%22%2C%22platform%22%3A%228%22%2C%22comboChannel%22%3A%222%22%2C%22dmChannel%22%3A%22damai%40damaih5_h5%22%7D, 
+错误: list index out of range
+2025-02-17 16:49:57.793 [main.py:64] : FastAPI 应用关闭
+2025-02-17 16:50:00.086 [main.py:60] : FastAPI 应用启动
+2025-02-17 16:50:01.945 [damai.py:300] : 获取大麦网数据失败，
+接口: https://mtop.damai.cn/h5/mtop.damai.mec.aristotle.get/3.0/?jsv=2.7.4&appKey=12574478&t=1739782201390&sign=39838320000d052bdced1fc93b972962&api=mtop.damai.mec.aristotle.get&v=3.0&H5Request=true&type=json&timeout=10000&dataType=json&valueType=string&forceAntiCreep=true&AntiCreep=true&useH5=true&data=%7B%22args%22%3A%22%7B%5C%22comboConfigRule%5C%22%3A%5C%22true%5C%22%2C%5C%22sortType%5C%22%3A%5C%223%5C%22%2C%5C%22latitude%5C%22%3A%5C%220%5C%22%2C%5C%22longitude%5C%22%3A%5C%220%5C%22%2C%5C%22groupId%5C%22%3A%5C%222394%5C%22%2C%5C%22comboCityId%5C%22%3A%5C%22852%5C%22%2C%5C%22currentCityId%5C%22%3A%5C%22852%5C%22%2C%5C%22platform%5C%22%3A%5C%228%5C%22%2C%5C%22comboChannel%5C%22%3A%5C%222%5C%22%2C%5C%22dmChannel%5C%22%3A%5C%22damai%40damaih5_h5%5C%22%7D%22%2C%22patternName%22%3A%22category_solo%22%2C%22patternVersion%22%3A%224.0%22%2C%22platform%22%3A%228%22%2C%22comboChannel%22%3A%222%22%2C%22dmChannel%22%3A%22damai%40damaih5_h5%22%7D, 
+错误: list index out of range
+2025-02-17 16:50:45.275 [main.py:64] : FastAPI 应用关闭
+2025-02-17 16:50:46.385 [main.py:60] : FastAPI 应用启动
+2025-02-17 16:50:49.733 [damai.py:300] : 获取大麦网数据失败，
+接口: https://mtop.damai.cn/h5/mtop.damai.mec.aristotle.get/3.0/?jsv=2.7.4&appKey=12574478&t=1739782249396&sign=59f704db1f7f2b57ee9b2bc2fc0e5d5b&api=mtop.damai.mec.aristotle.get&v=3.0&H5Request=true&type=json&timeout=10000&dataType=json&valueType=string&forceAntiCreep=true&AntiCreep=true&useH5=true&data=%7B%22args%22%3A%22%7B%5C%22comboConfigRule%5C%22%3A%5C%22true%5C%22%2C%5C%22sortType%5C%22%3A%5C%223%5C%22%2C%5C%22latitude%5C%22%3A%5C%220%5C%22%2C%5C%22longitude%5C%22%3A%5C%220%5C%22%2C%5C%22groupId%5C%22%3A%5C%222394%5C%22%2C%5C%22comboCityId%5C%22%3A%5C%22852%5C%22%2C%5C%22currentCityId%5C%22%3A%5C%22852%5C%22%2C%5C%22platform%5C%22%3A%5C%228%5C%22%2C%5C%22comboChannel%5C%22%3A%5C%222%5C%22%2C%5C%22dmChannel%5C%22%3A%5C%22damai%40damaih5_h5%5C%22%7D%22%2C%22patternName%22%3A%22category_solo%22%2C%22patternVersion%22%3A%224.0%22%2C%22platform%22%3A%228%22%2C%22comboChannel%22%3A%222%22%2C%22dmChannel%22%3A%22damai%40damaih5_h5%22%7D, 
+错误: 'nodes'
+2025-02-17 17:26:18.962 [main.py:64] : FastAPI 应用关闭
+2025-02-17 17:26:20.301 [main.py:60] : FastAPI 应用启动
+2025-02-17 17:27:26.394 [main.py:64] : FastAPI 应用关闭
+2025-02-17 17:27:27.939 [main.py:60] : FastAPI 应用启动
+2025-02-17 17:28:55.429 [main.py:64] : FastAPI 应用关闭
+2025-02-17 17:28:56.642 [main.py:60] : FastAPI 应用启动
+2025-02-17 17:36:16.858 [main.py:64] : FastAPI 应用关闭
+2025-02-17 17:36:18.650 [main.py:60] : FastAPI 应用启动
+2025-02-17 17:37:29.706 [main.py:64] : FastAPI 应用关闭
+2025-02-17 17:37:31.167 [main.py:60] : FastAPI 应用启动
+2025-02-17 17:40:24.787 [main.py:64] : FastAPI 应用关闭
+2025-02-17 17:40:26.152 [main.py:60] : FastAPI 应用启动
+2025-02-17 17:42:22.410 [main.py:64] : FastAPI 应用关闭
+2025-02-17 17:42:23.747 [main.py:60] : FastAPI 应用启动
+2025-02-17 17:43:09.878 [main.py:60] : FastAPI 应用启动
+2025-02-17 17:45:06.344 [main.py:64] : FastAPI 应用关闭
+2025-02-17 17:45:07.559 [main.py:60] : FastAPI 应用启动
+2025-02-17 17:46:19.851 [main.py:64] : FastAPI 应用关闭
+2025-02-17 17:46:21.168 [main.py:60] : FastAPI 应用启动
+2025-02-17 17:46:29.365 [main.py:64] : FastAPI 应用关闭
+2025-02-17 17:46:30.690 [main.py:60] : FastAPI 应用启动
+2025-02-17 17:46:38.376 [main.py:64] : FastAPI 应用关闭
+2025-02-17 17:46:39.484 [main.py:60] : FastAPI 应用启动
+2025-02-17 17:47:20.102 [main.py:64] : FastAPI 应用关闭
+2025-02-17 17:47:21.157 [main.py:60] : FastAPI 应用启动
+2025-02-17 17:50:44.741 [main.py:64] : FastAPI 应用关闭
+2025-02-17 17:50:46.104 [main.py:60] : FastAPI 应用启动
+2025-02-17 17:52:57.184 [main.py:64] : FastAPI 应用关闭
+2025-02-17 17:52:58.429 [main.py:60] : FastAPI 应用启动
+2025-02-17 17:53:18.360 [main.py:64] : FastAPI 应用关闭
+2025-02-17 17:53:19.651 [main.py:60] : FastAPI 应用启动
+2025-02-17 18:24:35.514 [main.py:64] : FastAPI 应用关闭
+2025-02-17 18:24:37.638 [main.py:60] : FastAPI 应用启动

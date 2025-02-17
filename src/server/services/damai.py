@@ -185,27 +185,27 @@ class DamaiService:
         # 获取大麦网数据
         # 一分钟
         current_time_ms = str(int(time.time() * 1000))
-        print('current_time_ms----', current_time_ms)
+        # print('current_time_ms----', current_time_ms)
         date_time = datetime.fromtimestamp(int(current_time_ms) / 1000)
-        print('date_time----', date_time)
+        # print('date_time----', date_time)
         formatted_date1 = date_time.strftime('%Y-%m-%d %H:%M:%S')
-        print('formatted_date1----', formatted_date1)
+        # print('formatted_date1----', formatted_date1)
         data_text = '{"args":"{\\"comboConfigRule\\":\\"true\\",\\"sortType\\":\\"3\\",\\"latitude\\":\\"0\\",\\"longitude\\":\\"0\\",\\"groupId\\":\\"2394\\",\\"comboCityId\\":\\"852\\",\\"currentCityId\\":\\"852\\",\\"platform\\":\\"8\\",\\"comboChannel\\":\\"2\\",\\"dmChannel\\":\\"damai@damaih5_h5\\"}","patternName":"category_solo","patternVersion":"4.0","platform":"8","comboChannel":"2","dmChannel":"damai@damaih5_h5"}'
         # 判断如果是window环境
         if os.name == 'nt':
             data_text = '{"args":"{\\"comboConfigRule\\":\\"true\\",\\"sortType\\":\\"3\\",\\"latitude\\":\\"0\\",\\"longitude\\":\\"0\\",\\"groupId\\":\\"2394\\",\\"comboCityId\\":852,\\"currentCityId\\":852,\\"platform\\":\\"8\\",\\"comboChannel\\":\\"2\\",\\"dmChannel\\":\\"damai@damaih5_h5\\"}","patternName":"category_solo","patternVersion":"4.0","platform":"8","comboChannel":"2","dmChannel":"damai@damaih5_h5"}'
         sign = self.login_dm.get_sign('a194526cc6b4f5d851878ea53c63ce8d', '1739718333946', data_text)
         # b16eec219057eda9636a29c8c89a833f
-        print('sign----', sign)
-        print('_m_h5_tk----', _m_h5_tk)
+        # print('sign----', sign)
+        # print('_m_h5_tk----', _m_h5_tk)
         query_string = quote(data_text)
-        print('query_string-----', query_string)
+        # print('query_string-----', query_string)
         # sign_text = self.login_dm.get_sign('a194526cc6b4f5d851878ea53c63ce8d', current_time_ms, data_text)
         sign_text = self.login_dm.get_sign(_m_h5_tk, current_time_ms, data_text)
         # 测试用的
         # sign_text = '1a82b8a90f4216d6c887f1e573ed08e7'
         # current_time_ms = '1739715420271'
-        print('sign_text----', sign_text)
+        # print('sign_text----', sign_text)
         url = f'https://mtop.damai.cn/h5/mtop.damai.mec.aristotle.get/3.0/?jsv=2.7.4&appKey=12574478&t={current_time_ms}&sign={sign_text}&api=mtop.damai.mec.aristotle.get&v=3.0&H5Request=true&type=json&timeout=10000&dataType=json&valueType=string&forceAntiCreep=true&AntiCreep=true&useH5=true&data={query_string}'
         # url = f'https://mtop.damai.cn/h5/mtop.damai.mec.aristotle.get/3.0/?jsv=2.7.4&appKey=12574478&t={current_time_ms}&sign=cf082527f15487767127965059bf5190&api=mtop.damai.mec.aristotle.get&v=3.0&H5Request=true&type=json&timeout=10000&dataType=json&valueType=string&forceAntiCreep=true&AntiCreep=true&useH5=true&data=%7B%22args%22%3A%22%7B%5C%22comboConfigRule%5C%22%3A%5C%22true%5C%22%2C%5C%22sortType%5C%22%3A%5C%223%5C%22%2C%5C%22latitude%5C%22%3A%5C%220%5C%22%2C%5C%22longitude%5C%22%3A%5C%220%5C%22%2C%5C%22groupId%5C%22%3A%5C%222394%5C%22%2C%5C%22comboCityId%5C%22%3A%5C%22852%5C%22%2C%5C%22currentCityId%5C%22%3A%5C%22852%5C%22%2C%5C%22platform%5C%22%3A%5C%228%5C%22%2C%5C%22comboChannel%5C%22%3A%5C%222%5C%22%2C%5C%22dmChannel%5C%22%3A%5C%22damai%40damaih5_h5%5C%22%7D%22%2C%22patternName%22%3A%22category_solo%22%2C%22patternVersion%22%3A%224.0%22%2C%22platform%22%3A%228%22%2C%22comboChannel%22%3A%222%22%2C%22dmChannel%22%3A%22damai%40damaih5_h5%22%7D'
         # url = f'https://mtop.damai.cn/h5/mtop.damai.mec.aristotle.get/3.0/?jsv=2.7.4&appKey=12574478&t=1739715420271&sign=1a82b8a90f4216d6c887f1e573ed08e7&api=mtop.damai.mec.aristotle.get&v=3.0&H5Request=true&type=json&timeout=10000&dataType=json&valueType=string&forceAntiCreep=true&AntiCreep=true&useH5=true&data=%7B%22args%22%3A%22%7B%5C%22comboConfigRule%5C%22%3A%5C%22true%5C%22%2C%5C%22sortType%5C%22%3A%5C%223%5C%22%2C%5C%22latitude%5C%22%3A%5C%220%5C%22%2C%5C%22longitude%5C%22%3A%5C%220%5C%22%2C%5C%22groupId%5C%22%3A%5C%222394%5C%22%2C%5C%22comboCityId%5C%22%3A852%2C%5C%22currentCityId%5C%22%3A852%2C%5C%22platform%5C%22%3A%5C%228%5C%22%2C%5C%22comboChannel%5C%22%3A%5C%222%5C%22%2C%5C%22dmChannel%5C%22%3A%5C%22damai%40damaih5_h5%5C%22%7D%22%2C%22patternName%22%3A%22category_solo%22%2C%22patternVersion%22%3A%224.0%22%2C%22platform%22%3A%228%22%2C%22comboChannel%22%3A%222%22%2C%22dmChannel%22%3A%22damai%40damaih5_h5%22%7D'
@@ -224,8 +224,16 @@ class DamaiService:
                                     verify=False,
                                     timeout=10
             )
-            all_nodes_list = response.json().get('data',{}).get('nodes',[])
+            all_nodes_list = response.json().get('data',{}).get('nodes')
             if not isinstance(all_nodes_list, list):
+                print('all_nodes_list----response.json()----', response.json())
+                ret = response.json().get('ret')
+                if 'SUCCESS' not in ret[0]:
+                    # 说明令牌过期需要删除
+                    self.ticket_monitor.db_config["DM"]["_m_h5_tk"] = ''
+                    self.ticket_monitor.db_config["DM"]["_m_h5_tk_enc"] = ''
+                    self.ticket_monitor.update_db_config()
+                    return self.search_concert_h5(cty, keyword, ctl)
                 return {
                     "data": {'msg': 'all_data is not list'},
                     "ret": ["ERROR::获取大麦网数据失败"],
@@ -315,12 +323,12 @@ class DamaiService:
         # query_string = urlencode(data,encoding='utf-8')
         data_text = '{"apiVersion":"2.6","platform":"8","comboChannel":"2","dmChannel":"damai@damaih5_h5"}'
         tk = mh5tk if mh5tk else 'undefined'
-        print('tk----', tk)
+        # print('tk----', tk)
         sign = self.login_dm.get_sign(tk, current_time_ms, data_text)
         # sign = self.login_dm.get_sign(tk, '1739755656998', data_text)
-        print('search_concert_h5----sign----', sign)
+        # print('search_concert_h5----sign----', sign)
         query_string = quote(data_text)
-        print('get_temp_tk_h5----query_string----', query_string)
+        # print('get_temp_tk_h5----query_string----', query_string)
         url = f"https://mtop.damai.cn/h5/mtop.damai.wireless.search.cms.category.get/2.0/?jsv=2.7.4&appKey=12574478&t={current_time_ms}&sign={sign}&api=mtop.damai.wireless.search.cms.category.get&v=2.0&H5Request=true&type=jsonp&timeout=10000&forceAntiCreep=true&AntiCreep=true&useH5=true&dataType=jsonp&callback=mtopjsonp1&data={query_string}"
         try:
             cookies = {
@@ -509,7 +517,7 @@ class DamaiService:
             _m_h5_tk_str = self.ticket_monitor.db_config["DM"]["_m_h5_tk"]+';'+self.ticket_monitor.db_config["DM"]["_m_h5_tk_enc"]
             response = self.do_request()(url(show_id, _m_h5_tk_str))
             res_data = response.json()
-            print('res_data----', res_data)
+            # print('res_data----', res_data)
             ret = res_data.get('ret')
             print('res_data----ret', ret)
             print('response.status_code----', response.status_code)

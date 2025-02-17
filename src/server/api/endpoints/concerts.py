@@ -96,8 +96,17 @@ async def get_userinfo(platform: PlatformEnum = Query(PlatformEnum.DM, descripti
     if platform.value == PlatformEnum.DM.value:
         return damai.get_user_info_web()
     return None
-# 获取单个演唱会详情信息（鉴权、需要登录）
+# 获取单个演唱会详情信息web（鉴权、需要登录）
 @router.get('/web/get.item.detail.by.platform', response_model=ApiResponseData)
+async def get_concert_detail(
+    platform: PlatformEnum = Query(PlatformEnum.DM, description="平台名称"),
+    show_id: Optional[str] = Query(None, description="演唱会ID"), # show_id演唱会id必须有
+    ):
+    if platform.value == PlatformEnum.DM.value:
+        return damai.get_item_detail_web(show_id)
+    return None
+# 获取单个演唱会详情信息h5（鉴权、需要登录）
+@router.get('/h5/get.item.detail.by.platform', response_model=ApiResponseData)
 async def get_concert_detail(
     platform: PlatformEnum = Query(PlatformEnum.DM, description="平台名称"),
     show_id: Optional[str] = Query(None, description="演唱会ID"), # show_id演唱会id必须有
