@@ -114,7 +114,7 @@ async def get_concert_detail(
     if platform.value == PlatformEnum.DM.value:
         return damai.get_item_detail_web(show_id)
     return None
-# 检测当前场次是否有坐次（是否又票）
+# 检测当前场次是否有坐次web（是否又票）
 @router.get('/web/check.ticket.by.platform', response_model=ApiResponseData)
 async def get_check_ticket(
     platform: PlatformEnum = Query(PlatformEnum.DM, description="平台名称"),
@@ -123,6 +123,16 @@ async def get_check_ticket(
     ):
     if platform.value == PlatformEnum.DM.value:
         return damai.check_ticket_web(show_id, session_id)
+    return None
+# 检测当前场次是否有坐次h5（是否又票）
+@router.get('/h5/check.ticket.by.platform', response_model=ApiResponseData)
+async def get_check_ticket(
+    platform: PlatformEnum = Query(PlatformEnum.DM, description="平台名称"),
+    show_id: str = Query('', description="演唱会ID"),
+    session_id: str = Query('', description="场次ID")
+    ):
+    if platform.value == PlatformEnum.DM.value:
+        return damai.check_ticket_h5(show_id, session_id)
     return None
 # 记录用户需要监控的演唱会、场次、座次、时间、微信token、 监控时间
 @router.post('/web/record.monitor.by.platform', response_model=ApiResponseData)

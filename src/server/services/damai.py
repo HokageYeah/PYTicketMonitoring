@@ -544,7 +544,7 @@ class DamaiService:
                 'showtime': itemBase.get('showTime',''),
                 'venuecity': venue.get('venueProvinceName',''),
                 'venue': venue.get('venueName',''),
-                'venueAddr': venue.get('venueAddress',''),
+                'venueAddr': venue.get('venueAddr',''),
                 'venueId': venue.get('venueId',''),
                 'verticalPic': itemBase.get('itemPic',''),
                 'price_str': item.get('priceRange',''),
@@ -556,6 +556,8 @@ class DamaiService:
                 "api": 'item.detail.by.platform',
                 "data": {
                     "legacy": obj,
+                    # 原始数据
+                    "original_data": legacy,
                     "traceId": res_data.get('traceId','')
                 },
                 "ret": ["SUCCESS::调用成功"],
@@ -570,7 +572,7 @@ class DamaiService:
                 "ret": [f"ERROR::获取大麦网数据失败{e}"],
                 "v": 1
             }
-    # 检测当前场次是否有坐次（是否又票）
+    # 检测当前场次是否有坐次web（是否又票）
     def check_ticket_web(self, show_id, session_id):
         try:
             url = DM.get_seat_url()
@@ -594,6 +596,67 @@ class DamaiService:
                 "api": 'check.ticket.by.platform',
                 "data": {
                     "result": result,
+                    "traceId": res_data.get('traceId','')
+                },
+                "ret": ["SUCCESS::调用成功"],
+                "v": 1
+            }
+        except Exception as e:
+            logger.error(f"获取大麦网数据失败，\n接口: check_ticket_web, \n错误: {e}")
+            return {
+                "platform": PlatformEnum.DM,
+                "api": 'check.ticket.by.platform',
+                "data": {},
+                "ret": [f"ERROR::获取大麦网数据失败{e}"],
+                "v": 1
+            }
+    # 检测当前场次是否有坐次h5（是否又票）
+    def check_ticket_h5(self, show_id, session_id):
+        try:
+            url = DM.get_seat_url()
+            _m_h5_tk_str = self.ticket_monitor.db_config["DM"]["_m_h5_tk"]
+            response = self.do_request()(url(show_id, session_id, _m_h5_tk_str))
+            print("响应 Cookies:", response.cookies.get_dict())
+            res_data = response.json()
+            ret = res_data.get('ret')
+            if response.status_code != 200 or 'SUCCESS::调用成功' not in ret:
+                return {
+                    "platform": PlatformEnum.DM,
+                    "api": 'check.ticket.by.platform',
+                    "data": response.json(),
+                    "ret": [f"ERROR::获取大麦网数据失败{ret}"],
+                    "v": 1
+                }
+            result = res_data.get('data',{}).get('result','')
+            result = json.loads(result)
+            obj = {
+                'performViews': [],
+                'skuList': []
+            }
+            for sku_item in result.get("perform").get("skuList"):
+                obj['skuList'].append({
+                    'skuId': sku_item.get('skuId'),
+                    'itemId': sku_item.get('itemId'),
+                    'priceId': sku_item.get('priceId'),
+                    'priceName': sku_item.get('priceName'),
+                    'skuSalable': sku_item.get('skuSalable'),
+                    'price': sku_item.get('price'),
+                    'dashPrice': sku_item.get('dashPrice')
+                })
+            for perform_view in result.get("performCalendar").get("performViews"):
+                obj['performViews'].append({
+                    'performId': perform_view.get('performId'),
+                    'performName': perform_view.get('performName'),
+                    'performDateTS': perform_view.get('performDateTS'),
+                    'performBeginDTStr': perform_view.get('performBeginDTStr'),
+                    'checked': perform_view.get('checked')
+                })
+            return {
+                "platform": PlatformEnum.DM,
+                "api": 'check.ticket.by.platform',
+                "data": {
+                    "result": obj,
+                    "original_data": result,
                     "traceId": res_data.get('traceId','')
                 },
                 "ret": ["SUCCESS::调用成功"],
