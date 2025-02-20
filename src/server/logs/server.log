@@ -2689,3 +2689,8 @@
 2025-02-19 23:33:30.738 [Monitor_Thread_Manager.py:44] : 监控线程已停止
 2025-02-19 23:33:30.739 [thread_stats.py:15] : 线程 ticket_monitor__0 执行耗时: 2.00秒
 2025-02-19 23:40:43.755 [main.py:64] : FastAPI 应用关闭
+2025-02-20 22:36:13.394 [main.py:60] : FastAPI 应用启动
+2025-02-20 22:40:58.378 [damai.py:666] : 获取大麦网数据失败，
+接口: check_ticket_web, 
+错误: 'NoneType' object has no attribute 'get'
+2025-02-20 23:28:24.854 [main.py:64] : FastAPI 应用关闭
