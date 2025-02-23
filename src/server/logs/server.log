@@ -2694,3 +2694,5 @@
 接口: check_ticket_web, 
 错误: 'NoneType' object has no attribute 'get'
 2025-02-20 23:28:24.854 [main.py:64] : FastAPI 应用关闭
+2025-02-23 23:00:23.408 [main.py:60] : FastAPI 应用启动
+2025-02-23 23:22:45.508 [main.py:64] : FastAPI 应用关闭
