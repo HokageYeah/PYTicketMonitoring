@@ -62,6 +62,12 @@ async def get_search_concerts_h5(
             "v": 1
         }
     return None
+# 接口获取H5端城市、地区接口（无须登录，有临时_m_h5_tk）
+@router.get('/h5/get.city.area.by.platform', response_model=ApiResponseData)
+async def get_city_area(platform: PlatformEnum = Query(PlatformEnum.DM, description="平台名称")):
+    if platform.value == PlatformEnum.DM.value:
+        return damai.get_city_area_h5()
+    return None
 
 # 调用网站登录生成二维码接口，返回二维码图片
 @router.get('/web/login.qrcode.by.platform', response_model=ApiResponseData)
