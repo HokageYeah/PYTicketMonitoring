@@ -66,7 +66,14 @@ async def get_search_concerts_h5(
 @router.get('/h5/get.city.area.by.platform', response_model=ApiResponseData)
 async def get_city_area(platform: PlatformEnum = Query(PlatformEnum.DM, description="平台名称")):
     if platform.value == PlatformEnum.DM.value:
-        return damai.get_city_area_h5()
+        dm_data = damai.get_city_area_h5()
+        return {
+            "platform": platform.value,
+            "api": "/h5/get.city.area.by.platform",
+            "data": dm_data.get('data', {}),
+            "ret": dm_data.get('ret', []),
+            "v": 1
+        }
     return None
 
 # 调用网站登录生成二维码接口，返回二维码图片

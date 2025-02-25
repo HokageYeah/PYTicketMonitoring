@@ -167,7 +167,7 @@ class DamaiService:
                 "ret": [f"ERROR::获取大麦网数据失败{e}"],
             }
     # h5接口下搜索演唱会接口请求
-    def search_concert_h5(self, cty: Optional[str] = '北京', keyword: Optional[str] = '', ctl: Optional[str] = '演唱会'):
+    def search_concert_h5(self, cty: Optional[str] = '852', keyword: Optional[str] = '', ctl: Optional[str] = '演唱会'):
         # 更新获取大麦网写入到db_config.json文件中的数据信息
         self.ticket_monitor.get_db_config()
         # 获取_m_h5_tk
@@ -190,10 +190,12 @@ class DamaiService:
         # print('date_time----', date_time)
         formatted_date1 = date_time.strftime('%Y-%m-%d %H:%M:%S')
         # print('formatted_date1----', formatted_date1)
-        data_text = '{"args":"{\\"comboConfigRule\\":\\"true\\",\\"sortType\\":\\"3\\",\\"latitude\\":\\"0\\",\\"longitude\\":\\"0\\",\\"groupId\\":\\"2394\\",\\"comboCityId\\":\\"852\\",\\"currentCityId\\":\\"852\\",\\"platform\\":\\"8\\",\\"comboChannel\\":\\"2\\",\\"dmChannel\\":\\"damai@damaih5_h5\\"}","patternName":"category_solo","patternVersion":"4.0","platform":"8","comboChannel":"2","dmChannel":"damai@damaih5_h5"}'
+        # data_text = '{"args":"{\\"comboConfigRule\\":\\"true\\",\\"sortType\\":\\"3\\",\\"latitude\\":\\"0\\",\\"longitude\\":\\"0\\",\\"groupId\\":\\"2394\\",\\"comboCityId\\":\\"9999\\",\\"currentCityId\\":\\"852\\",\\"platform\\":\\"8\\",\\"comboChannel\\":\\"2\\",\\"dmChannel\\":\\"damai@damaih5_h5\\"}","patternName":"category_solo","patternVersion":"4.0","platform":"8","comboChannel":"2","dmChannel":"damai@damaih5_h5"}'
+        data_text = f'{{"args":"{{\\"comboConfigRule\\":\\"true\\",\\"sortType\\":\\"3\\",\\"latitude\\":\\"0\\",\\"longitude\\":\\"0\\",\\"groupId\\":\\"2394\\",\\"comboCityId\\":\\"9999\\",\\"currentCityId\\":\\"{cty}\\",\\"platform\\":\\"8\\",\\"comboChannel\\":\\"2\\",\\"dmChannel\\":\\"damai@damaih5_h5\\"}}","patternName":"category_solo","patternVersion":"4.0","platform":"8","comboChannel":"2","dmChannel":"damai@damaih5_h5"}}'
         # 判断如果是window环境
         if os.name == 'nt':
-            data_text = '{"args":"{\\"comboConfigRule\\":\\"true\\",\\"sortType\\":\\"3\\",\\"latitude\\":\\"0\\",\\"longitude\\":\\"0\\",\\"groupId\\":\\"2394\\",\\"comboCityId\\":852,\\"currentCityId\\":852,\\"platform\\":\\"8\\",\\"comboChannel\\":\\"2\\",\\"dmChannel\\":\\"damai@damaih5_h5\\"}","patternName":"category_solo","patternVersion":"4.0","platform":"8","comboChannel":"2","dmChannel":"damai@damaih5_h5"}'
+            # data_text = '{"args":"{\\"comboConfigRule\\":\\"true\\",\\"sortType\\":\\"3\\",\\"latitude\\":\\"0\\",\\"longitude\\":\\"0\\",\\"groupId\\":\\"2394\\",\\"comboCityId\\":9999,\\"currentCityId\\":852,\\"platform\\":\\"8\\",\\"comboChannel\\":\\"2\\",\\"dmChannel\\":\\"damai@damaih5_h5\\"}","patternName":"category_solo","patternVersion":"4.0","platform":"8","comboChannel":"2","dmChannel":"damai@damaih5_h5"}'
+            data_text = f'{{"args":"{{\\"comboConfigRule\\":\\"true\\",\\"sortType\\":\\"3\\",\\"latitude\\":\\"0\\",\\"longitude\\":\\"0\\",\\"groupId\\":\\"2394\\",\\"comboCityId\\":\\"9999\\",\\"currentCityId\\":\\"{cty}\\",\\"platform\\":\\"8\\",\\"comboChannel\\":\\"2\\",\\"dmChannel\\":\\"damai@damaih5_h5\\"}}","patternName":"category_solo","patternVersion":"4.0","platform":"8","comboChannel":"2","dmChannel":"damai@damaih5_h5"}}'
         sign = self.login_dm.get_sign('a194526cc6b4f5d851878ea53c63ce8d', '1739718333946', data_text)
         # b16eec219057eda9636a29c8c89a833f
         # print('sign----', sign)
@@ -248,6 +250,10 @@ class DamaiService:
                 }
             # child_nodes_list 过滤出 data为1的数据
             final_data_nodes_dict = next((x for x in child_nodes_list if x.get('data',{})['componentId'] == 'dm_node_common_classify'), None)
+            targetSectionId = final_data_nodes_dict.get('data',{}).get('nodeId','')
+            targetLayerId = last_node.get('data',{}).get('nodeId','')
+            print('targetSectionId----', targetSectionId)
+            print('targetLayerId----', targetLayerId)
             if not isinstance(final_data_nodes_dict, dict):
                 return {
                     "data": {'msg': 'final_data_nodes is not dict'},
@@ -298,7 +304,87 @@ class DamaiService:
                     "maxPage": 1,
                     "nextPage": 1,
                     "onePageSize": len(concert_list),
-                    "resultData": concert_list
+                    "resultData": concert_list,
+                    "targetSectionId": targetSectionId,
+                    "targetLayerId": targetLayerId
+                },
+                "ret": ["SUCCESS::调用成功"],
+            }
+        except Exception as e:
+            logger.error(f"获取大麦网数据失败，\n接口: {url}, \n错误: {e}")
+            return {
+                "data": {},
+                "ret": [f"ERROR::获取大麦网数据失败{e}"],
+            }
+    # 接口获取H5端城市、地区接口（无须登录，有临时_m_h5_tk）
+    def get_city_area_h5(self):
+        # 获取_m_h5_tk
+        _m_h5_tk = self.ticket_monitor.db_config["DM"]["_m_h5_tk"]
+        # 获取_m_h5_tk_enc
+        _m_h5_tk_enc = self.ticket_monitor.db_config["DM"]["_m_h5_tk_enc"]
+        data_text = '{"queryType":"1","dmChannel":"damai@damaih5_h5"}'
+        query_string = quote(data_text)
+        current_time_ms = str(int(time.time() * 1000))
+        tk = _m_h5_tk if _m_h5_tk else 'undefined'
+        print('tk----', tk)
+        sign_text = self.login_dm.get_sign(tk, current_time_ms, data_text)
+        url = f'https://mtop.damai.cn/h5/mtop.damai.wireless.cities.query/1.0/?jsv=2.7.2&appKey=12574478&t={current_time_ms}&sign={sign_text}&type=originaljson&dataType=json&v=1.0&H5Request=true&AntiCreep=true&AntiFlood=true&api=mtop.damai.wireless.cities.query&requestStart=1740411307196&data={query_string}'
+        try:
+            response = requests.get(url,
+                                    headers={
+                                        'Accept': 'application/json',
+                                        'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 17_5_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.53(0x18003531) NetType/WIFI Language/zh_CN',
+                                        'Referer': 'https://m.damai.cn/' 
+                                    },
+                                    cookies={
+                                        '_m_h5_tk': _m_h5_tk,
+                                        '_m_h5_tk_enc': _m_h5_tk_enc
+                                    },
+                                    verify=False,
+                                    timeout=10
+            )
+            print('get_city_area_h5----response----', response.json())
+            ret = response.json().get('ret')
+            if 'SUCCESS' not in ret[0]:
+                error_msg = ret[0].split('::')[1]
+                return {
+                    "data": {},
+                    "ret": [f"ERROR::获取大麦网数据失败{error_msg}"],
+                }
+            response_data = response.json().get('data',{}).get('areas',[])
+            city_list = {
+                'hotCities': [],
+                'cities': []
+            }
+            for item in response_data:
+                if item.get('prefix') == 'hotCities':
+                    hot_cities = item.get('cities',[])
+                    for hot_city in hot_cities:
+                        city_list['hotCities'].append({
+                            'cityId': hot_city.get('cityId', ''),
+                            'cityName': hot_city.get('name', ''),
+                            'platformCityId': hot_city.get('damaiId', ''),
+                        })
+                else:
+                    cities = item.get('cities',[])
+                    prefix = item.get('prefix', '')
+                    data = []
+                    for city in cities:
+                        data.append({
+                            "cityId": city.get('cityId', ''),
+                            "cityName": city.get('name', ''),
+                            "platformCityId": city.get('damaiId', ''),
+                        })
+                    city_list['cities'].append({
+                        "prefix": prefix,
+                        "data": data
+                    })
+            print('get_city_area_h5----response_data----', response_data)
+            return {
+                "data": {
+                    "city_list": city_list,
+                    # 原始数据
+                     "original_data": response_data,
                 },
                 "ret": ["SUCCESS::调用成功"],
             }
