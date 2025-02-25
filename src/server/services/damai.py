@@ -267,8 +267,6 @@ class DamaiService:
             final_data_nodes_dict = next((x for x in child_nodes_list if x.get('data',{})['componentId'] == 'dm_node_common_classify'), None)
             targetSectionId = final_data_nodes_dict.get('data',{}).get('nodeId','')
             targetLayerId = last_node.get('data',{}).get('nodeId','')
-            print('targetSectionId----', targetSectionId)
-            print('targetLayerId----', targetLayerId)
             if not isinstance(final_data_nodes_dict, dict):
                 return {
                     "data": {'msg': 'final_data_nodes is not dict'},
