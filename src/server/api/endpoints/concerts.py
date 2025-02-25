@@ -4,7 +4,7 @@ import json
 from src.server.schemas.concert import RecordMonitorParams
 from src.server.schemas import PlatformEnum, ApiResponseData
 from src.server.services.damai import DamaiService
-from typing import Optional
+from typing import Optional, Dict, Any
 from src.server.api.endpoints.validate_params import validate_record_monitor_params
 import asyncio
 import threading
@@ -50,10 +50,11 @@ async def get_search_concerts_h5(
     cty: str = Query('北京', description="城市名称"),
     keyword: str = Query('', description="搜索关键字"),
     ctl: str = Query('演唱会', description="搜索类型"),
+    otherData: str = Query('{}', description="额外数据"), 
     platform: PlatformEnum = Query(PlatformEnum.QB, description="平台名称")
     ):
     if platform.value == PlatformEnum.DM.value or platform.value == PlatformEnum.QB.value:
-        dm_data = damai.search_concert_h5(cty, keyword, ctl)
+        dm_data = damai.search_concert_h5(cty, keyword, ctl, otherData or {})
         return {
             "platform": platform.value,
             "api": "/h5/search.concert.by.platform",
