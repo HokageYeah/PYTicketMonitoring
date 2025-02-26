@@ -201,17 +201,17 @@ class DamaiService:
             # data_text = '{"args":"{\\"comboConfigRule\\":\\"true\\",\\"sortType\\":\\"3\\",\\"latitude\\":\\"0\\",\\"longitude\\":\\"0\\",\\"groupId\\":\\"2394\\",\\"comboCityId\\":9999,\\"currentCityId\\":852,\\"platform\\":\\"8\\",\\"comboChannel\\":\\"2\\",\\"dmChannel\\":\\"damai@damaih5_h5\\"}","patternName":"category_solo","patternVersion":"4.0","platform":"8","comboChannel":"2","dmChannel":"damai@damaih5_h5"}'
             data_text = f'{{"args":"{{\\"comboConfigRule\\":\\"true\\",\\"sortType\\":\\"3\\",\\"latitude\\":\\"0\\",\\"longitude\\":\\"0\\",\\"groupId\\":\\"2394\\",\\"comboCityId\\":\\"9999\\",\\"currentCityId\\":\\"{cty}\\",\\"platform\\":\\"8\\",\\"comboChannel\\":\\"2\\",\\"dmChannel\\":\\"damai@damaih5_h5\\"}}","patternName":"category_solo","patternVersion":"4.0","platform":"8","comboChannel":"2","dmChannel":"damai@damaih5_h5"}}'
         if is_have_other_data:
-            pageIndex = other_data.get('pageIndex', 1)
-            pageSize = other_data.get('pageSize', 30)
+            pageIndex = str(other_data.get('pageIndex', 1))
+            pageSize = str(other_data.get('pageSize', 30))
             targetSectionId = other_data.get('targetSectionId', '')
             targetLayerId = other_data.get('targetLayerId', '')
             print('targetSectionId----', targetSectionId)
             print('targetLayerId----', targetLayerId)
             print('pageIndex----', pageIndex)
             print('pageSize----', pageSize)
-            data_text = f'{{"args":"{{\\"comboConfigRule\\":\\"true\\",\\"sortType\\":\\"10\\",\\"latitude\\":\\"0\\",\\"longitude\\":\\"0\\",\\"currentCityId\\":\\"{cty}\\",\\"groupId\\":\\"2394\\",\\"pageIndex\\":\\"{pageIndex}\\",\\"pageSize\\":\\"{pageSize}\\",\\"comboCityId\\":\\"850\\",\\"platform\\":\\"8\\",\\"comboChannel\\":\\"2\\",\\"dmChannel\\":\\"damai@damaih5_h5\\"}}","patternName":"category_solo","patternVersion":"4.0","dr":"[{{\\"targetSectionId\\":\\"{targetLayerId}\\",\\"targetLayerId\\":\\"{targetLayerId}\\"}}]","platform":"8","comboChannel":"2","dmChannel":"damai@damaih5_h5"}}'
-            # data_text = '{"args":"{\"comboConfigRule\":\"true\",\"sortType\":\"10\",\"latitude\":\"0\",\"longitude\":\"0\",\"currentCityId\":\"852\",\"groupId\":\"2394\",\"pageIndex\":3,\"pageSize\":15,\"comboCityId\":9999,\"platform\":\"8\",\"comboChannel\":\"2\",\"dmChannel\":\"damai@damaih5_h5\"}","patternName":"category_solo","patternVersion":"4.0","dr":"[{\"targetSectionId\":\"66c10b69-ad43-4aee-bd03-9a9bae3b5774\",\"targetLayerId\":\"0c5f1463-3e0b-43c5-ae8c-dd76e49264f3\"}]","platform":"8","comboChannel":"2","dmChannel":"damai@damaih5_h5"}'
-
+            # data_text = f'{{"args":"{{\\"comboConfigRule\\":\\"true\\",\\"sortType\\":\\"10\\",\\"latitude\\":\\"0\\",\\"longitude\\":\\"0\\",\\"currentCityId\\":{cty},\\"groupId\\":\\"2394\\",\\"pageIndex\\":{pageIndex},\\"pageSize\\":{pageSize},\\"comboCityId\\":\\"850\\",\\"platform\\":\\"8\\",\\"comboChannel\\":\\"2\\",\\"dmChannel\\":\\"damai@damaih5_h5\\"}}","patternName":"category_solo","patternVersion":"4.0","dr":"[{{\\"targetSectionId\\":\\"{targetLayerId}\\",\\"targetLayerId\\":\\"{targetLayerId}\\"}}]","platform":"8","comboChannel":"2","dmChannel":"damai@damaih5_h5"}}'
+            data_text = '{"args":"{\\"comboConfigRule\\":\\"true\\",\\"sortType\\":\\"3\\",\\"latitude\\":\\"0\\",\\"longitude\\":\\"0\\",\\"currentCityId\\":'+ cty +',\\"groupId\\":\\"2394\\",\\"pageIndex\\":'+ pageIndex +',\\"pageSize\\":'+ pageSize +',\\"comboCityId\\":850,\\"platform\\":\\"8\\",\\"comboChannel\\":\\"2\\",\\"dmChannel\\":\\"damai@damaih5_h5\\"}","patternName":"category_solo","patternVersion":"4.0","dr":"[{\\"targetSectionId\\":\\"' + targetSectionId +'\\",\\"targetLayerId\\":\\"' + targetLayerId  + '\\"}]","platform":"8","comboChannel":"2","dmChannel":"damai@damaih5_h5"}'
+            # data_text = '{"args":"{\\"comboConfigRule\\":\\"true\\",\\"sortType\\":\\"3\\",\\"latitude\\":\\"0\\",\\"longitude\\":\\"0\\",\\"currentCityId\\":850,\\"groupId\\":\\"2394\\",\\"pageIndex\\":2,\\"pageSize\\":15,\\"comboCityId\\":850,\\"platform\\":\\"8\\",\\"comboChannel\\":\\"2\\",\\"dmChannel\\":\\"damai@damaih5_h5\\"}","patternName":"category_solo","patternVersion":"4.0","dr":"[{\\"targetSectionId\\":\\"66c10b69-ad43-4aee-bd03-9a9bae3b5774\\",\\"targetLayerId\\":\\"0c5f1463-3e0b-43c5-ae8c-dd76e49264f3\\"}]","platform":"8","comboChannel":"2","dmChannel":"damai@damaih5_h5"}'
         sign = self.login_dm.get_sign('a194526cc6b4f5d851878ea53c63ce8d', '1739718333946', data_text)
         # b16eec219057eda9636a29c8c89a833f
         # print('sign----', sign)
@@ -360,7 +360,7 @@ class DamaiService:
                                     verify=False,
                                     timeout=10
             )
-            print('get_city_area_h5----response----', response.json())
+            # print('get_city_area_h5----response----', response.json())
             ret = response.json().get('ret')
             if 'SUCCESS' not in ret[0]:
                 error_msg = ret[0].split('::')[1]
