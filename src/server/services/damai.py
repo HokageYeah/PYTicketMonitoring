@@ -209,14 +209,15 @@ class DamaiService:
             print('targetLayerId----', targetLayerId)
             print('pageIndex----', pageIndex)
             print('pageSize----', pageSize)
-            data_text = f'{{"args":"{{\\"comboConfigRule\\":\\"true\\",\\"sortType\\":\\"10\\",\\"latitude\\":\\"0\\",\\"longitude\\":\\"0\\",\\"currentCityId\\":\\"{cty}\\",\\"groupId\\":\\"2394\\",\\"pageIndex\\":\\"{pageIndex}\\",\\"pageSize\\":\\"{pageSize}\\",\\"comboCityId\\":\\"850\\",\\"platform\\":\\"8\\",\\"comboChannel\\":\\"2\\",\\"dmChannel\\":\\"damai@damaih5_h5\\"}}",\\"patternName\\":\\"category_solo\\",\\"patternVersion\\":\\"4.0\\",\\"dr\\":\\"[{{\\"targetSectionId\\":\\"{targetLayerId}\\",\\"targetLayerId\\":\\"{targetLayerId}\\"}}]",\\"platform\\":\\"8\\",\\"comboChannel\\":\\"2\\",\\"dmChannel\\":\\"damai@damaih5_h5\\"}}'
+            data_text = f'{{"args":"{{\\"comboConfigRule\\":\\"true\\",\\"sortType\\":\\"10\\",\\"latitude\\":\\"0\\",\\"longitude\\":\\"0\\",\\"currentCityId\\":\\"{cty}\\",\\"groupId\\":\\"2394\\",\\"pageIndex\\":\\"{pageIndex}\\",\\"pageSize\\":\\"{pageSize}\\",\\"comboCityId\\":\\"850\\",\\"platform\\":\\"8\\",\\"comboChannel\\":\\"2\\",\\"dmChannel\\":\\"damai@damaih5_h5\\"}}","patternName":"category_solo","patternVersion":"4.0","dr":"[{{\\"targetSectionId\\":\\"{targetLayerId}\\",\\"targetLayerId\\":\\"{targetLayerId}\\"}}]","platform":"8","comboChannel":"2","dmChannel":"damai@damaih5_h5"}}'
+            # data_text = '{"args":"{\"comboConfigRule\":\"true\",\"sortType\":\"10\",\"latitude\":\"0\",\"longitude\":\"0\",\"currentCityId\":\"852\",\"groupId\":\"2394\",\"pageIndex\":3,\"pageSize\":15,\"comboCityId\":9999,\"platform\":\"8\",\"comboChannel\":\"2\",\"dmChannel\":\"damai@damaih5_h5\"}","patternName":"category_solo","patternVersion":"4.0","dr":"[{\"targetSectionId\":\"66c10b69-ad43-4aee-bd03-9a9bae3b5774\",\"targetLayerId\":\"0c5f1463-3e0b-43c5-ae8c-dd76e49264f3\"}]","platform":"8","comboChannel":"2","dmChannel":"damai@damaih5_h5"}'
 
         sign = self.login_dm.get_sign('a194526cc6b4f5d851878ea53c63ce8d', '1739718333946', data_text)
         # b16eec219057eda9636a29c8c89a833f
         # print('sign----', sign)
         # print('_m_h5_tk----', _m_h5_tk)
         query_string = quote(data_text)
-        # print('query_string-----', query_string)
+        print('query_string-----', query_string)
         # sign_text = self.login_dm.get_sign('a194526cc6b4f5d851878ea53c63ce8d', current_time_ms, data_text)
         sign_text = self.login_dm.get_sign(_m_h5_tk, current_time_ms, data_text)
         # 测试用的
