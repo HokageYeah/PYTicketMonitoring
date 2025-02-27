@@ -217,7 +217,7 @@ class DamaiService:
         # print('sign----', sign)
         # print('_m_h5_tk----', _m_h5_tk)
         query_string = quote(data_text)
-        print('query_string-----', query_string)
+        # print('query_string-----', query_string)
         # sign_text = self.login_dm.get_sign('a194526cc6b4f5d851878ea53c63ce8d', current_time_ms, data_text)
         sign_text = self.login_dm.get_sign(_m_h5_tk, current_time_ms, data_text)
         # 测试用的
