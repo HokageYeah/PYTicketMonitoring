@@ -72,7 +72,7 @@ class Ticket_Monitor:
         venue_name = send_info.get('venue_name')
         # 下面写通知到用户的逻辑
         # 通知文案
-        notification_content = f"\n当前时间：{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n演唱会名称：{show_name}\n演唱会场次时间：{ticket_perform.get('perform_name')}\n演唱会地点：{venue_city_name} {venue_name}\n演唱会票价：{price_name}\n已回流，请及时购票！通知人：{wx_token}\n"
+        notification_content = f"\n当前时间：{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n演唱会名称：{show_name}\n演唱会场次时间：{ticket_perform.get('perform_name')}\n演唱会地点：{venue_city_name} {venue_name}\n演唱会票价：{price_name}\n已回流，请及时购票！通知人：{wx_token}\n监控持续时间：{deadline}\n"
         print('##########################回流票打印开始##########################')
         print(notification_content)
         print('##########################回流票打印结束##########################')
@@ -210,7 +210,11 @@ class Ticket_Monitor:
                                 if perform_index == -1:
                                     can_buy_list[show_id_index].get('ticket_perform').append(ticket_perform_str)
                                 else:
-                                    can_buy_list[show_id_index].get('ticket_perform')[perform_index].update(ticket_perform_str)
+                                    print('show_id_index------', show_id_index)
+                                    print('perform_index------', perform_index)
+                                    print('can_buy_list------', can_buy_list)
+                                    # can_buy_list[show_id_index].get('ticket_perform')[perform_index].update(ticket_perform_str)
+                                    can_buy_list[show_id_index].get('ticket_perform')[perform_index:perform_index+1] = [ticket_perform_str]
             except Exception as e:
                 logging.error(f"监控平台 {platform} 时出错: {e}")
                 # 记录错误

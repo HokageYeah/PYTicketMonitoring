@@ -2899,3 +2899,818 @@
 2025-02-27 18:48:58.114 [main.py:64] : FastAPI 搴旂敤鍏抽棴
 2025-02-27 22:29:54.810 [main.py:60] : FastAPI 应用启动
 2025-02-28 00:09:08.411 [main.py:64] : FastAPI 应用关闭
+2025-02-28 22:23:39.939 [main.py:60] : FastAPI 应用启动
+2025-02-28 22:30:45.675 [main.py:64] : FastAPI 应用关闭
+2025-02-28 22:30:49.914 [main.py:60] : FastAPI 应用启动
+2025-02-28 22:41:36.482 [DB_Monitor.py:87] : 检测到 monitor_list 发生变化
+2025-02-28 22:41:36.483 [Ticket_Monitor.py:116] : 开始监控演唱会...
+2025-02-28 22:41:36.483 [Monitor_Thread_Manager.py:31] : 监控线程已启动
+2025-02-28 22:41:36.492 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 22:41:36.690 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 22:41:42.487 [DB_Monitor.py:87] : 检测到 monitor_list 发生变化
+2025-02-28 22:41:50.907 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 22:41:51.105 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 22:41:51.287 [Ticket_Monitor.py:215] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 22:42:01.291 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 22:42:01.462 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 22:42:01.647 [Ticket_Monitor.py:215] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 22:42:11.650 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 22:42:11.833 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 22:42:12.020 [Ticket_Monitor.py:215] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 22:42:22.025 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 22:42:22.217 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 22:42:22.391 [Ticket_Monitor.py:215] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 22:42:32.394 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 22:42:32.591 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 22:42:32.764 [Ticket_Monitor.py:215] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 22:42:42.768 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 22:42:42.941 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 22:42:43.166 [Ticket_Monitor.py:215] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 22:42:53.170 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 22:42:53.369 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 22:42:53.554 [Ticket_Monitor.py:215] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 22:43:03.560 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 22:43:03.737 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 22:43:03.943 [Ticket_Monitor.py:215] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 22:43:06.334 [main.py:64] : FastAPI 应用关闭
+2025-02-28 22:43:13.946 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 22:43:14.140 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 22:43:14.337 [Ticket_Monitor.py:215] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 22:43:24.350 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 22:43:24.534 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 22:43:24.707 [Ticket_Monitor.py:215] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 22:43:43.291 [main.py:60] : FastAPI 应用启动
+2025-02-28 22:44:25.334 [DB_Monitor.py:87] : 检测到 monitor_list 发生变化
+2025-02-28 22:44:25.336 [Ticket_Monitor.py:116] : 开始监控演唱会...
+2025-02-28 22:44:25.336 [Monitor_Thread_Manager.py:31] : 监控线程已启动
+2025-02-28 22:44:27.350 [Monitor_Thread_Manager.py:44] : 监控线程已停止
+2025-02-28 22:44:27.351 [thread_stats.py:15] : 线程 ticket_monitor__0 执行耗时: 2.01秒
+2025-02-28 22:44:37.344 [DB_Monitor.py:87] : 检测到 monitor_list 发生变化
+2025-02-28 22:44:37.345 [Ticket_Monitor.py:116] : 开始监控演唱会...
+2025-02-28 22:44:37.346 [Monitor_Thread_Manager.py:31] : 监控线程已启动
+2025-02-28 22:44:37.349 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 22:44:37.550 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 22:44:43.349 [DB_Monitor.py:87] : 检测到 monitor_list 发生变化
+2025-02-28 22:44:53.086 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 22:44:53.297 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 22:44:53.466 [Ticket_Monitor.py:215] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 22:45:03.469 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 22:45:03.661 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 22:45:03.857 [Ticket_Monitor.py:215] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 22:45:13.867 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 22:45:14.048 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 22:45:14.222 [Ticket_Monitor.py:215] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 22:45:19.368 [DB_Monitor.py:39] : 读取配置文件失败: Extra data: line 2 column 1 (char 817)
+2025-02-28 22:45:19.369 [DB_Monitor.py:62] : 更新监控 moitor_list 列表哈希值失败: Extra data: line 2 column 1 (char 817)
+2025-02-28 22:45:19.369 [DB_Monitor.py:91] : 监控循环发生错误: Extra data: line 2 column 1 (char 817)
+2025-02-28 22:45:24.226 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 22:45:24.372 [DB_Monitor.py:87] : 检测到 monitor_list 发生变化
+2025-02-28 22:45:24.399 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 22:45:24.582 [Ticket_Monitor.py:215] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 22:45:27.355 [thread_stats.py:46] : 线程 ticket_monitor__0 状态: 活跃
+2025-02-28 22:45:30.377 [DB_Monitor.py:87] : 检测到 monitor_list 发生变化
+2025-02-28 22:45:40.086 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 22:45:40.275 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 22:45:40.478 [Ticket_Monitor.py:215] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 22:45:43.323 [main.py:64] : FastAPI 应用关闭
+2025-02-28 22:45:50.483 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 22:45:50.689 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 22:45:50.893 [Ticket_Monitor.py:215] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 22:49:55.456 [main.py:60] : FastAPI 应用启动
+2025-02-28 22:50:15.444 [DB_Monitor.py:87] : 检测到 monitor_list 发生变化
+2025-02-28 22:50:15.445 [Ticket_Monitor.py:116] : 开始监控演唱会...
+2025-02-28 22:50:15.446 [Monitor_Thread_Manager.py:31] : 监控线程已启动
+2025-02-28 22:50:17.495 [Monitor_Thread_Manager.py:44] : 监控线程已停止
+2025-02-28 22:50:17.495 [DB_Monitor.py:87] : 检测到 monitor_list 发生变化
+2025-02-28 22:50:17.495 [thread_stats.py:15] : 线程 ticket_monitor__0 执行耗时: 2.05秒
+2025-02-28 22:50:17.515 [Ticket_Monitor.py:116] : 开始监控演唱会...
+2025-02-28 22:50:17.516 [Monitor_Thread_Manager.py:31] : 监控线程已启动
+2025-02-28 22:50:17.555 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 22:50:17.854 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 22:50:23.525 [DB_Monitor.py:87] : 检测到 monitor_list 发生变化
+2025-02-28 22:50:33.383 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 22:50:33.570 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 22:50:33.752 [Ticket_Monitor.py:215] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 22:50:43.756 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 22:50:43.919 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 22:50:44.125 [Ticket_Monitor.py:215] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 22:50:54.128 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 22:50:54.313 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 22:50:54.507 [Ticket_Monitor.py:215] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 22:51:04.510 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 22:51:04.676 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 22:51:04.847 [Ticket_Monitor.py:215] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 22:51:14.852 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 22:51:15.063 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 22:51:15.265 [Ticket_Monitor.py:215] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 22:51:17.514 [thread_stats.py:46] : 线程 ticket_monitor__0 状态: 活跃
+2025-02-28 22:51:25.269 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 22:51:25.473 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 22:51:25.631 [Ticket_Monitor.py:215] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 22:51:35.635 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 22:51:35.845 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 22:51:36.011 [Ticket_Monitor.py:215] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 22:51:46.015 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 22:51:46.240 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 22:51:46.430 [Ticket_Monitor.py:215] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 22:51:56.435 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 22:51:56.618 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 22:51:56.837 [Ticket_Monitor.py:215] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 22:52:06.840 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 22:52:07.031 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 22:52:07.216 [Ticket_Monitor.py:215] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 22:52:17.220 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 22:52:17.429 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 22:52:17.517 [thread_stats.py:46] : 线程 ticket_monitor__0 状态: 活跃
+2025-02-28 22:52:17.609 [Ticket_Monitor.py:215] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 22:52:27.613 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 22:52:27.787 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 22:52:27.976 [Ticket_Monitor.py:215] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 22:52:37.981 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 22:52:38.153 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 22:52:38.343 [Ticket_Monitor.py:215] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 22:52:48.346 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 22:52:48.523 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 22:52:48.704 [Ticket_Monitor.py:215] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 22:52:58.708 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 22:52:58.923 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 22:52:59.121 [Ticket_Monitor.py:215] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 22:53:09.125 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 22:53:09.344 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 22:53:09.514 [Ticket_Monitor.py:215] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 22:53:17.519 [thread_stats.py:46] : 线程 ticket_monitor__0 状态: 活跃
+2025-02-28 22:53:19.518 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 22:53:19.689 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 22:53:19.873 [Ticket_Monitor.py:215] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 22:53:29.877 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 22:53:30.035 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 22:53:30.196 [Ticket_Monitor.py:215] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 22:53:40.201 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 22:53:40.381 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 22:53:40.570 [Ticket_Monitor.py:215] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 22:53:50.574 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 22:53:50.776 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 22:53:50.975 [Ticket_Monitor.py:215] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 22:54:00.978 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 22:54:01.191 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 22:54:01.371 [Ticket_Monitor.py:215] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 22:54:11.374 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 22:54:11.551 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 22:54:11.734 [Ticket_Monitor.py:215] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 22:54:17.520 [thread_stats.py:46] : 线程 ticket_monitor__0 状态: 活跃
+2025-02-28 22:54:21.737 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 22:54:21.913 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 22:54:22.097 [Ticket_Monitor.py:215] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 22:54:32.101 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 22:54:32.285 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 22:54:32.453 [Ticket_Monitor.py:215] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:00:17.618 [main.py:60] : FastAPI 应用启动
+2025-02-28 23:00:37.610 [DB_Monitor.py:87] : 检测到 monitor_list 发生变化
+2025-02-28 23:00:37.616 [Ticket_Monitor.py:116] : 开始监控演唱会...
+2025-02-28 23:00:37.616 [Monitor_Thread_Manager.py:31] : 监控线程已启动
+2025-02-28 23:00:37.622 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 23:00:37.868 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 23:00:48.047 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 23:00:48.231 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 23:00:48.408 [Ticket_Monitor.py:215] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:00:58.413 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 23:00:58.617 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 23:00:58.799 [Ticket_Monitor.py:215] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:01:08.803 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 23:01:08.988 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 23:01:09.187 [Ticket_Monitor.py:215] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:01:19.193 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 23:01:19.382 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 23:01:19.552 [Ticket_Monitor.py:215] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:01:29.556 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 23:01:29.740 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 23:01:29.924 [Ticket_Monitor.py:215] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:01:39.929 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 23:01:40.118 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 23:01:40.289 [Ticket_Monitor.py:215] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:01:50.292 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 23:01:50.481 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 23:01:50.653 [Ticket_Monitor.py:215] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:02:00.671 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 23:02:00.867 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 23:02:01.064 [Ticket_Monitor.py:215] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:02:11.067 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 23:02:11.258 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 23:02:13.474 [Ticket_Monitor.py:215] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:02:23.479 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 23:02:23.669 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 23:02:23.856 [Ticket_Monitor.py:215] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:02:33.862 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 23:02:34.065 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 23:02:34.249 [Ticket_Monitor.py:215] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:02:44.252 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 23:02:44.418 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 23:02:44.595 [Ticket_Monitor.py:215] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:02:54.599 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 23:02:54.784 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 23:02:54.987 [Ticket_Monitor.py:215] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:03:04.991 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 23:03:05.200 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 23:03:05.396 [Ticket_Monitor.py:215] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:03:09.476 [main.py:64] : FastAPI 应用关闭
+2025-02-28 23:03:15.400 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 23:03:15.586 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 23:03:15.764 [Ticket_Monitor.py:215] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:03:25.768 [Ticket_Monitor.py:341] : DM 监控中
+2025-02-28 23:03:34.956 [main.py:60] : FastAPI 应用启动
+2025-02-28 23:03:44.924 [DB_Monitor.py:87] : 检测到 monitor_list 发生变化
+2025-02-28 23:03:44.928 [Ticket_Monitor.py:116] : 开始监控演唱会...
+2025-02-28 23:03:44.928 [Monitor_Thread_Manager.py:31] : 监控线程已启动
+2025-02-28 23:03:46.949 [Monitor_Thread_Manager.py:44] : 监控线程已停止
+2025-02-28 23:03:46.951 [thread_stats.py:15] : 线程 ticket_monitor__0 执行耗时: 2.02秒
+2025-02-28 23:06:57.068 [DB_Monitor.py:87] : 检测到 monitor_list 发生变化
+2025-02-28 23:06:57.106 [Ticket_Monitor.py:116] : 开始监控演唱会...
+2025-02-28 23:06:57.108 [Monitor_Thread_Manager.py:31] : 监控线程已启动
+2025-02-28 23:06:57.172 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:06:57.418 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:07:05.113 [DB_Monitor.py:87] : 检测到 monitor_list 发生变化
+2025-02-28 23:07:13.360 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:07:13.534 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:07:13.701 [Ticket_Monitor.py:218] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:07:23.705 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:07:23.879 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:07:24.094 [Ticket_Monitor.py:218] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:07:34.101 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:07:34.287 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:07:34.463 [Ticket_Monitor.py:218] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:07:44.083 [main.py:64] : FastAPI 应用关闭
+2025-02-28 23:07:44.466 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:07:44.642 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:07:44.819 [Ticket_Monitor.py:218] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:07:46.955 [thread_stats.py:46] : 线程 ticket_monitor__0 状态: 活跃
+2025-02-28 23:07:54.825 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:07:55.036 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:07:55.218 [Ticket_Monitor.py:218] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:08:05.225 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:08:05.424 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:08:05.595 [Ticket_Monitor.py:218] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:08:15.598 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:08:15.785 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:08:15.961 [Ticket_Monitor.py:218] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:08:25.965 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:08:26.153 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:08:26.328 [Ticket_Monitor.py:218] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:08:36.332 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:08:36.514 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:08:36.702 [Ticket_Monitor.py:218] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:08:46.707 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:08:46.903 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:08:46.963 [thread_stats.py:46] : 线程 ticket_monitor__0 状态: 活跃
+2025-02-28 23:08:47.091 [Ticket_Monitor.py:218] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:08:57.095 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:08:57.264 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:08:57.448 [Ticket_Monitor.py:218] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:09:07.452 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:09:07.630 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:09:07.813 [Ticket_Monitor.py:218] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:09:17.818 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:09:18.026 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:09:18.209 [Ticket_Monitor.py:218] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:09:28.213 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:09:28.394 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:09:28.591 [Ticket_Monitor.py:218] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:09:38.596 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:09:38.818 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:09:39.004 [Ticket_Monitor.py:218] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:09:46.966 [thread_stats.py:46] : 线程 ticket_monitor__0 状态: 活跃
+2025-02-28 23:09:49.009 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:09:49.225 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:09:49.419 [Ticket_Monitor.py:218] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:09:59.423 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:09:59.610 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:09:59.776 [Ticket_Monitor.py:218] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:10:09.780 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:10:09.987 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:10:10.195 [Ticket_Monitor.py:218] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:10:20.199 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:10:20.409 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:10:20.593 [Ticket_Monitor.py:218] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:10:30.597 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:10:30.799 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:10:30.967 [Ticket_Monitor.py:218] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:10:40.973 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:10:41.151 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:10:41.350 [Ticket_Monitor.py:218] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:10:46.967 [thread_stats.py:46] : 线程 ticket_monitor__0 状态: 活跃
+2025-02-28 23:10:51.355 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:10:51.528 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:10:51.699 [Ticket_Monitor.py:218] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:11:01.706 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:11:01.916 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:11:02.115 [Ticket_Monitor.py:218] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:11:12.120 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:11:12.306 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:11:12.482 [Ticket_Monitor.py:218] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:11:22.485 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:11:22.693 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:11:22.882 [Ticket_Monitor.py:218] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:11:32.886 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:11:33.057 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:11:33.253 [Ticket_Monitor.py:218] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:11:43.259 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:11:43.461 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:11:43.640 [Ticket_Monitor.py:218] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:11:46.968 [thread_stats.py:46] : 线程 ticket_monitor__0 状态: 活跃
+2025-02-28 23:11:53.644 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:11:53.822 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:11:54.024 [Ticket_Monitor.py:218] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:12:04.029 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:12:04.230 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:12:04.407 [Ticket_Monitor.py:218] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:12:14.411 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:12:14.609 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:12:14.795 [Ticket_Monitor.py:218] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:12:24.799 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:12:24.999 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:12:25.163 [Ticket_Monitor.py:218] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:12:35.168 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:12:35.345 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:12:35.527 [Ticket_Monitor.py:218] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:12:45.531 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:12:45.731 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:12:45.923 [Ticket_Monitor.py:218] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:12:46.972 [thread_stats.py:46] : 线程 ticket_monitor__0 状态: 活跃
+2025-02-28 23:12:55.927 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:12:56.124 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:12:56.306 [Ticket_Monitor.py:218] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:13:06.310 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:13:06.506 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:13:06.690 [Ticket_Monitor.py:218] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:13:16.695 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:13:16.887 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:13:17.080 [Ticket_Monitor.py:218] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:13:27.084 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:13:27.267 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:13:27.459 [Ticket_Monitor.py:218] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:13:37.463 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:13:37.668 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:13:37.839 [Ticket_Monitor.py:218] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:13:46.973 [thread_stats.py:46] : 线程 ticket_monitor__0 状态: 活跃
+2025-02-28 23:13:47.843 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:13:48.034 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:13:48.222 [Ticket_Monitor.py:218] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:13:58.257 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:13:58.461 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:13:58.636 [Ticket_Monitor.py:218] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:14:08.640 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:14:08.839 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:14:09.030 [Ticket_Monitor.py:218] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:14:19.034 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:14:19.213 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:14:19.390 [Ticket_Monitor.py:218] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:14:29.393 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:14:29.589 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:14:29.770 [Ticket_Monitor.py:218] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:14:39.773 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:14:39.966 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:14:40.144 [Ticket_Monitor.py:218] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:14:46.974 [thread_stats.py:46] : 线程 ticket_monitor__0 状态: 活跃
+2025-02-28 23:14:50.147 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:14:50.329 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:14:50.505 [Ticket_Monitor.py:218] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:15:00.508 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:15:00.709 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:15:00.911 [Ticket_Monitor.py:218] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:15:10.915 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:15:11.088 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:15:11.287 [Ticket_Monitor.py:218] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:15:21.291 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:15:21.486 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:15:21.666 [Ticket_Monitor.py:218] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:15:31.672 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:15:31.854 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:15:32.049 [Ticket_Monitor.py:218] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:15:42.054 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:15:42.247 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:15:42.415 [Ticket_Monitor.py:218] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:15:46.975 [thread_stats.py:46] : 线程 ticket_monitor__0 状态: 活跃
+2025-02-28 23:15:52.420 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:15:52.605 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:15:52.790 [Ticket_Monitor.py:218] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:16:02.794 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:16:02.980 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:16:03.162 [Ticket_Monitor.py:218] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:16:13.166 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:16:13.337 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:16:13.511 [Ticket_Monitor.py:218] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:16:23.514 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:16:23.713 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:16:23.920 [Ticket_Monitor.py:218] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:16:33.924 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:16:34.105 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:16:34.272 [Ticket_Monitor.py:218] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:16:44.277 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:16:44.470 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:16:44.650 [Ticket_Monitor.py:218] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:16:46.977 [thread_stats.py:46] : 线程 ticket_monitor__0 状态: 活跃
+2025-02-28 23:16:54.657 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:16:54.834 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:16:55.040 [Ticket_Monitor.py:218] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:17:05.044 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:17:05.255 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:17:05.414 [Ticket_Monitor.py:218] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:17:15.419 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:17:15.604 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:17:15.802 [Ticket_Monitor.py:218] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:17:25.806 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:17:25.979 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:17:26.172 [Ticket_Monitor.py:218] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:17:36.176 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:17:36.412 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:17:36.619 [Ticket_Monitor.py:218] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:17:46.622 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:17:46.798 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:17:46.969 [Ticket_Monitor.py:218] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:17:46.977 [thread_stats.py:46] : 线程 ticket_monitor__0 状态: 活跃
+2025-02-28 23:17:56.973 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:17:57.156 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:17:57.337 [Ticket_Monitor.py:218] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:18:07.341 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:18:07.542 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:18:07.722 [Ticket_Monitor.py:218] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:18:17.725 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:18:17.925 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:18:18.114 [Ticket_Monitor.py:218] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:18:28.121 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:18:28.302 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:18:28.502 [Ticket_Monitor.py:218] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:18:38.505 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:18:38.677 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:18:38.889 [Ticket_Monitor.py:218] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:18:46.979 [thread_stats.py:46] : 线程 ticket_monitor__0 状态: 活跃
+2025-02-28 23:18:48.893 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:18:49.079 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:18:49.245 [Ticket_Monitor.py:218] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:18:59.248 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:18:59.461 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:18:59.629 [Ticket_Monitor.py:218] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:19:09.634 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:19:09.854 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:19:10.028 [Ticket_Monitor.py:218] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:19:20.032 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:19:20.229 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:19:20.431 [Ticket_Monitor.py:218] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:19:30.435 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:19:30.638 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:19:30.825 [Ticket_Monitor.py:218] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:19:40.829 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:19:41.026 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:19:41.226 [Ticket_Monitor.py:218] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:19:47.003 [thread_stats.py:46] : 线程 ticket_monitor__0 状态: 活跃
+2025-02-28 23:19:51.231 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:19:51.425 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:19:51.592 [Ticket_Monitor.py:218] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:20:01.596 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:20:01.812 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:20:02.034 [Ticket_Monitor.py:218] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:20:12.038 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:20:12.229 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:20:12.403 [Ticket_Monitor.py:218] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:20:22.407 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:20:22.599 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:20:22.775 [Ticket_Monitor.py:218] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:20:32.779 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:20:32.962 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:20:33.159 [Ticket_Monitor.py:218] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:20:43.164 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:20:43.360 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:20:43.553 [Ticket_Monitor.py:218] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:20:47.005 [thread_stats.py:46] : 线程 ticket_monitor__0 状态: 活跃
+2025-02-28 23:20:53.558 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:20:53.772 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:20:53.961 [Ticket_Monitor.py:218] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:21:03.968 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:21:04.155 [Ticket_Monitor.py:344] : DM 监控中
+2025-02-28 23:21:04.327 [Ticket_Monitor.py:218] : 监控平台 DM 时出错: 'str' object has no attribute 'update'
+2025-02-28 23:21:20.763 [main.py:60] : FastAPI 应用启动
+2025-02-28 23:21:42.740 [DB_Monitor.py:87] : 检测到 monitor_list 发生变化
+2025-02-28 23:21:42.741 [Ticket_Monitor.py:116] : 开始监控演唱会...
+2025-02-28 23:21:42.742 [Monitor_Thread_Manager.py:31] : 监控线程已启动
+2025-02-28 23:21:42.744 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:21:42.942 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:21:53.119 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:21:53.314 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:22:03.505 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:22:03.687 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:22:13.860 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:22:14.061 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:22:31.570 [main.py:60] : FastAPI 应用启动
+2025-02-28 23:22:37.525 [DB_Monitor.py:87] : 检测到 monitor_list 发生变化
+2025-02-28 23:22:37.540 [Ticket_Monitor.py:116] : 开始监控演唱会...
+2025-02-28 23:22:37.540 [Monitor_Thread_Manager.py:31] : 监控线程已启动
+2025-02-28 23:22:39.563 [Monitor_Thread_Manager.py:44] : 监控线程已停止
+2025-02-28 23:22:39.564 [thread_stats.py:15] : 线程 ticket_monitor__0 执行耗时: 2.02秒
+2025-02-28 23:22:45.549 [DB_Monitor.py:87] : 检测到 monitor_list 发生变化
+2025-02-28 23:22:45.550 [Ticket_Monitor.py:116] : 开始监控演唱会...
+2025-02-28 23:22:45.550 [Monitor_Thread_Manager.py:31] : 监控线程已启动
+2025-02-28 23:22:45.553 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:22:45.738 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:22:51.555 [DB_Monitor.py:87] : 检测到 monitor_list 发生变化
+2025-02-28 23:23:01.438 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:23:01.641 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:23:11.829 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:23:12.034 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:23:22.229 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:23:22.401 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:23:32.576 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:23:32.745 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:23:39.568 [thread_stats.py:46] : 线程 ticket_monitor__0 状态: 活跃
+2025-02-28 23:23:42.932 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:23:43.143 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:23:47.476 [main.py:64] : FastAPI 应用关闭
+2025-02-28 23:23:53.319 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:23:53.528 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:24:03.750 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:24:04.010 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:24:14.191 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:24:14.394 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:24:24.571 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:24:24.757 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:24:34.929 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:24:35.141 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:24:39.570 [thread_stats.py:46] : 线程 ticket_monitor__0 状态: 活跃
+2025-02-28 23:24:45.327 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:24:45.503 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:24:55.697 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:24:55.885 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:25:06.079 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:25:06.276 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:25:16.461 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:25:16.648 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:25:26.839 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:25:27.017 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:25:37.205 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:25:37.419 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:25:39.571 [thread_stats.py:46] : 线程 ticket_monitor__0 状态: 活跃
+2025-02-28 23:25:47.640 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:25:47.840 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:25:58.013 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:25:58.208 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:26:08.391 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:26:08.587 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:26:18.775 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:26:18.969 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:26:29.143 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:26:29.351 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:26:39.548 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:26:39.573 [thread_stats.py:46] : 线程 ticket_monitor__0 状态: 活跃
+2025-02-28 23:26:39.716 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:26:49.887 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:26:50.070 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:27:00.269 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:27:00.498 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:27:10.708 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:27:10.894 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:27:21.104 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:27:21.293 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:27:31.475 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:27:31.666 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:27:39.574 [thread_stats.py:46] : 线程 ticket_monitor__0 状态: 活跃
+2025-02-28 23:27:41.847 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:27:42.017 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:28:05.519 [main.py:60] : FastAPI 应用启动
+2025-02-28 23:33:22.616 [main.py:64] : FastAPI 应用关闭
+2025-02-28 23:33:25.826 [main.py:60] : FastAPI 应用启动
+2025-02-28 23:33:39.829 [DB_Monitor.py:87] : 检测到 monitor_list 发生变化
+2025-02-28 23:33:39.830 [Ticket_Monitor.py:116] : 开始监控演唱会...
+2025-02-28 23:33:39.830 [Monitor_Thread_Manager.py:31] : 监控线程已启动
+2025-02-28 23:33:39.833 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:33:40.023 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:33:50.218 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:33:50.394 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:34:05.220 [main.py:60] : FastAPI 应用启动
+2025-02-28 23:34:29.180 [DB_Monitor.py:87] : 检测到 monitor_list 发生变化
+2025-02-28 23:34:29.182 [Ticket_Monitor.py:116] : 开始监控演唱会...
+2025-02-28 23:34:29.182 [Monitor_Thread_Manager.py:31] : 监控线程已启动
+2025-02-28 23:34:29.185 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:34:29.379 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:34:29.579 [thread_stats.py:32] : [ticket_monitor__0] 第1次重试，错误：list indices must be integers or slices, not str
+2025-02-28 23:34:30.582 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:34:30.743 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:34:30.934 [thread_stats.py:32] : [ticket_monitor__0] 第2次重试，错误：list indices must be integers or slices, not str
+2025-02-28 23:34:31.937 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:34:32.118 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:34:32.292 [thread_stats.py:32] : [ticket_monitor__0] 第3次重试，错误：list indices must be integers or slices, not str
+2025-02-28 23:34:32.292 [Ticket_Monitor.py:132] : 监控平台 DM 时出错: list indices must be integers or slices, not str
+2025-02-28 23:34:57.215 [DB_Monitor.py:87] : 检测到 monitor_list 发生变化
+2025-02-28 23:34:57.218 [Ticket_Monitor.py:116] : 开始监控演唱会...
+2025-02-28 23:34:57.218 [Monitor_Thread_Manager.py:31] : 监控线程已启动
+2025-02-28 23:34:59.235 [Monitor_Thread_Manager.py:44] : 监控线程已停止
+2025-02-28 23:34:59.235 [thread_stats.py:15] : 线程 ticket_monitor__0 执行耗时: 2.01秒
+2025-02-28 23:35:05.233 [DB_Monitor.py:87] : 检测到 monitor_list 发生变化
+2025-02-28 23:35:05.235 [Ticket_Monitor.py:116] : 开始监控演唱会...
+2025-02-28 23:35:05.235 [Monitor_Thread_Manager.py:31] : 监控线程已启动
+2025-02-28 23:35:05.238 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:35:05.437 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:35:11.249 [DB_Monitor.py:87] : 检测到 monitor_list 发生变化
+2025-02-28 23:35:19.505 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:35:19.710 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:35:29.893 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:35:30.084 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:35:32.294 [thread_stats.py:46] : 线程 ticket_monitor__0 状态: 活跃
+2025-02-28 23:35:40.255 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:35:40.458 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:35:50.638 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:35:50.810 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:35:56.980 [main.py:64] : FastAPI 应用关闭
+2025-02-28 23:35:59.236 [thread_stats.py:46] : 线程 ticket_monitor__0 状态: 活跃
+2025-02-28 23:36:00.984 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:36:01.194 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:36:13.551 [main.py:60] : FastAPI 应用启动
+2025-02-28 23:36:43.558 [DB_Monitor.py:87] : 检测到 monitor_list 发生变化
+2025-02-28 23:36:43.561 [Ticket_Monitor.py:116] : 开始监控演唱会...
+2025-02-28 23:36:43.561 [Monitor_Thread_Manager.py:31] : 监控线程已启动
+2025-02-28 23:36:43.564 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:36:43.746 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:36:47.564 [DB_Monitor.py:87] : 检测到 monitor_list 发生变化
+2025-02-28 23:36:47.565 [Ticket_Monitor.py:116] : 开始监控演唱会...
+2025-02-28 23:36:47.566 [Monitor_Thread_Manager.py:31] : 监控线程已启动
+2025-02-28 23:36:49.549 [Monitor_Thread_Manager.py:44] : 监控线程已停止
+2025-02-28 23:36:49.550 [thread_stats.py:15] : 线程 ticket_monitor__0 执行耗时: 5.99秒
+2025-02-28 23:36:49.554 [thread_stats.py:46] : 线程 ticket_monitor__0 状态: 活跃
+2025-02-28 23:36:49.594 [Monitor_Thread_Manager.py:44] : 监控线程已停止
+2025-02-28 23:36:49.603 [thread_stats.py:15] : 线程 ticket_monitor__0 执行耗时: 2.04秒
+2025-02-28 23:38:19.715 [DB_Monitor.py:87] : 检测到 monitor_list 发生变化
+2025-02-28 23:38:19.717 [Ticket_Monitor.py:116] : 开始监控演唱会...
+2025-02-28 23:38:19.717 [Monitor_Thread_Manager.py:31] : 监控线程已启动
+2025-02-28 23:38:19.720 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:38:19.910 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:38:23.720 [DB_Monitor.py:87] : 检测到 monitor_list 发生变化
+2025-02-28 23:38:23.724 [Ticket_Monitor.py:116] : 开始监控演唱会...
+2025-02-28 23:38:23.725 [Monitor_Thread_Manager.py:31] : 监控线程已启动
+2025-02-28 23:38:25.605 [Monitor_Thread_Manager.py:44] : 监控线程已停止
+2025-02-28 23:38:25.606 [thread_stats.py:15] : 线程 ticket_monitor__0 执行耗时: 5.89秒
+2025-02-28 23:38:25.607 [thread_stats.py:46] : 线程 ticket_monitor__0 状态: 活跃
+2025-02-28 23:38:25.852 [Monitor_Thread_Manager.py:44] : 监控线程已停止
+2025-02-28 23:38:25.883 [thread_stats.py:15] : 线程 ticket_monitor__0 执行耗时: 2.16秒
+2025-02-28 23:45:50.327 [DB_Monitor.py:87] : 检测到 monitor_list 发生变化
+2025-02-28 23:45:50.328 [Ticket_Monitor.py:116] : 开始监控演唱会...
+2025-02-28 23:45:50.328 [Monitor_Thread_Manager.py:31] : 监控线程已启动
+2025-02-28 23:45:50.330 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:45:50.513 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:45:56.330 [DB_Monitor.py:87] : 检测到 monitor_list 发生变化
+2025-02-28 23:45:56.332 [Ticket_Monitor.py:116] : 开始监控演唱会...
+2025-02-28 23:45:56.333 [Monitor_Thread_Manager.py:31] : 监控线程已启动
+2025-02-28 23:45:56.443 [Monitor_Thread_Manager.py:44] : 监控线程已停止
+2025-02-28 23:45:56.444 [thread_stats.py:15] : 线程 ticket_monitor__0 执行耗时: 6.11秒
+2025-02-28 23:45:56.445 [thread_stats.py:46] : 线程 ticket_monitor__0 状态: 活跃
+2025-02-28 23:45:58.338 [Monitor_Thread_Manager.py:44] : 监控线程已停止
+2025-02-28 23:45:58.343 [thread_stats.py:15] : 线程 ticket_monitor__0 执行耗时: 2.01秒
+2025-02-28 23:46:18.344 [DB_Monitor.py:87] : 检测到 monitor_list 发生变化
+2025-02-28 23:46:18.346 [Ticket_Monitor.py:116] : 开始监控演唱会...
+2025-02-28 23:46:18.347 [Monitor_Thread_Manager.py:31] : 监控线程已启动
+2025-02-28 23:46:18.352 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:46:18.548 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:46:22.447 [DB_Monitor.py:87] : 检测到 monitor_list 发生变化
+2025-02-28 23:46:22.952 [Ticket_Monitor.py:116] : 开始监控演唱会...
+2025-02-28 23:46:22.952 [Monitor_Thread_Manager.py:31] : 监控线程已启动
+2025-02-28 23:46:24.158 [Monitor_Thread_Manager.py:44] : 监控线程已停止
+2025-02-28 23:46:24.159 [thread_stats.py:15] : 线程 ticket_monitor__0 执行耗时: 5.81秒
+2025-02-28 23:46:24.159 [thread_stats.py:46] : 线程 ticket_monitor__0 状态: 活跃
+2025-02-28 23:46:25.037 [Monitor_Thread_Manager.py:44] : 监控线程已停止
+2025-02-28 23:46:25.039 [thread_stats.py:15] : 线程 ticket_monitor__0 执行耗时: 2.08秒
+2025-02-28 23:47:49.055 [DB_Monitor.py:87] : 检测到 monitor_list 发生变化
+2025-02-28 23:47:49.056 [Ticket_Monitor.py:116] : 开始监控演唱会...
+2025-02-28 23:47:49.056 [Monitor_Thread_Manager.py:31] : 监控线程已启动
+2025-02-28 23:47:49.060 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:47:49.262 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:47:49.601 [thread_stats.py:46] : 线程 ticket_monitor__0 状态: 活跃
+2025-02-28 23:47:49.706 [thread_stats.py:46] : 线程 ticket_monitor__0 状态: 活跃
+2025-02-28 23:47:55.060 [DB_Monitor.py:87] : 检测到 monitor_list 发生变化
+2025-02-28 23:47:56.447 [thread_stats.py:46] : 线程 ticket_monitor__0 状态: 活跃
+2025-02-28 23:47:58.352 [thread_stats.py:46] : 线程 ticket_monitor__0 状态: 活跃
+2025-02-28 23:48:03.253 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:48:03.415 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:48:13.589 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:48:13.770 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:48:23.975 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:48:24.162 [thread_stats.py:46] : 线程 ticket_monitor__0 状态: 活跃
+2025-02-28 23:48:24.164 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:48:25.044 [thread_stats.py:46] : 线程 ticket_monitor__0 状态: 活跃
+2025-02-28 23:48:25.614 [thread_stats.py:46] : 线程 ticket_monitor__0 状态: 活跃
+2025-02-28 23:48:25.924 [thread_stats.py:46] : 线程 ticket_monitor__0 状态: 活跃
+2025-02-28 23:48:34.338 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:48:34.553 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:48:44.742 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:48:44.914 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:48:49.689 [thread_stats.py:46] : 线程 ticket_monitor__0 状态: 活跃
+2025-02-28 23:48:49.732 [thread_stats.py:46] : 线程 ticket_monitor__0 状态: 活跃
+2025-02-28 23:48:55.093 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:48:55.289 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:48:56.450 [thread_stats.py:46] : 线程 ticket_monitor__0 状态: 活跃
+2025-02-28 23:48:58.354 [thread_stats.py:46] : 线程 ticket_monitor__0 状态: 活跃
+2025-02-28 23:49:05.467 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:49:05.635 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:49:15.816 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:49:16.002 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:49:24.163 [thread_stats.py:46] : 线程 ticket_monitor__0 状态: 活跃
+2025-02-28 23:49:25.045 [thread_stats.py:46] : 线程 ticket_monitor__0 状态: 活跃
+2025-02-28 23:49:25.616 [thread_stats.py:46] : 线程 ticket_monitor__0 状态: 活跃
+2025-02-28 23:49:25.925 [thread_stats.py:46] : 线程 ticket_monitor__0 状态: 活跃
+2025-02-28 23:49:26.179 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:49:26.361 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:49:36.547 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:49:36.733 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:49:46.921 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:49:47.105 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:49:49.690 [thread_stats.py:46] : 线程 ticket_monitor__0 状态: 活跃
+2025-02-28 23:49:49.735 [thread_stats.py:46] : 线程 ticket_monitor__0 状态: 活跃
+2025-02-28 23:49:56.451 [thread_stats.py:46] : 线程 ticket_monitor__0 状态: 活跃
+2025-02-28 23:49:57.279 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:49:57.450 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:49:58.355 [thread_stats.py:46] : 线程 ticket_monitor__0 状态: 活跃
+2025-02-28 23:50:07.617 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:50:07.784 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:50:17.973 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:50:18.151 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:50:24.165 [thread_stats.py:46] : 线程 ticket_monitor__0 状态: 活跃
+2025-02-28 23:50:25.045 [thread_stats.py:46] : 线程 ticket_monitor__0 状态: 活跃
+2025-02-28 23:50:25.617 [thread_stats.py:46] : 线程 ticket_monitor__0 状态: 活跃
+2025-02-28 23:50:25.926 [thread_stats.py:46] : 线程 ticket_monitor__0 状态: 活跃
+2025-02-28 23:50:28.355 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:50:28.552 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:50:38.736 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:50:38.906 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:50:49.089 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:50:49.266 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:50:49.704 [thread_stats.py:46] : 线程 ticket_monitor__0 状态: 活跃
+2025-02-28 23:50:49.736 [thread_stats.py:46] : 线程 ticket_monitor__0 状态: 活跃
+2025-02-28 23:50:56.453 [thread_stats.py:46] : 线程 ticket_monitor__0 状态: 活跃
+2025-02-28 23:50:58.356 [thread_stats.py:46] : 线程 ticket_monitor__0 状态: 活跃
+2025-02-28 23:50:59.439 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:50:59.617 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:51:09.779 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:51:09.946 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:51:20.134 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:51:20.340 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:51:24.166 [thread_stats.py:46] : 线程 ticket_monitor__0 状态: 活跃
+2025-02-28 23:51:25.046 [thread_stats.py:46] : 线程 ticket_monitor__0 状态: 活跃
+2025-02-28 23:51:25.619 [thread_stats.py:46] : 线程 ticket_monitor__0 状态: 活跃
+2025-02-28 23:51:25.927 [thread_stats.py:46] : 线程 ticket_monitor__0 状态: 活跃
+2025-02-28 23:51:30.529 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:51:30.722 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:51:40.911 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:51:41.092 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:51:49.705 [thread_stats.py:46] : 线程 ticket_monitor__0 状态: 活跃
+2025-02-28 23:51:49.737 [thread_stats.py:46] : 线程 ticket_monitor__0 状态: 活跃
+2025-02-28 23:51:51.269 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:51:51.438 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:51:56.454 [thread_stats.py:46] : 线程 ticket_monitor__0 状态: 活跃
+2025-02-28 23:51:58.357 [thread_stats.py:46] : 线程 ticket_monitor__0 状态: 活跃
+2025-02-28 23:52:01.656 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:52:01.851 [Ticket_Monitor.py:345] : DM 监控中
+2025-02-28 23:52:05.416 [main.py:64] : FastAPI 应用关闭
+2025-03-01 00:02:40.595 [main.py:60] : FastAPI 应用启动
+2025-03-01 00:03:30.634 [DB_Monitor.py:87] : 检测到 monitor_list 发生变化
+2025-03-01 00:03:30.636 [Ticket_Monitor.py:116] : 开始监控演唱会...
+2025-03-01 00:03:30.636 [Monitor_Thread_Manager.py:31] : 监控线程已启动
+2025-03-01 00:03:30.644 [Ticket_Monitor.py:345] : DM 监控中
+2025-03-01 00:03:30.832 [Ticket_Monitor.py:345] : DM 监控中
+2025-03-01 00:03:31.015 [thread_stats.py:32] : [ticket_monitor__0] 第1次重试，错误：list indices must be integers or slices, not str
+2025-03-01 00:03:32.017 [Ticket_Monitor.py:345] : DM 监控中
+2025-03-01 00:03:32.213 [Ticket_Monitor.py:345] : DM 监控中
+2025-03-01 00:03:32.429 [thread_stats.py:32] : [ticket_monitor__0] 第2次重试，错误：list indices must be integers or slices, not str
+2025-03-01 00:03:33.481 [Ticket_Monitor.py:345] : DM 监控中
+2025-03-01 00:03:33.694 [Ticket_Monitor.py:345] : DM 监控中
+2025-03-01 00:03:33.884 [thread_stats.py:32] : [ticket_monitor__0] 第3次重试，错误：list indices must be integers or slices, not str
+2025-03-01 00:03:33.885 [Ticket_Monitor.py:132] : 监控平台 DM 时出错: list indices must be integers or slices, not str
+2025-03-01 00:03:58.838 [damai.py:831] : 获取大麦网数据失败，
+接口: post_record_monitor_web, 
+错误: 'list' object has no attribute 'get'
+2025-03-01 00:04:18.671 [DB_Monitor.py:87] : 检测到 monitor_list 发生变化
+2025-03-01 00:04:18.674 [Ticket_Monitor.py:116] : 开始监控演唱会...
+2025-03-01 00:04:18.674 [Monitor_Thread_Manager.py:31] : 监控线程已启动
+2025-03-01 00:04:20.686 [Monitor_Thread_Manager.py:44] : 监控线程已停止
+2025-03-01 00:04:20.687 [thread_stats.py:15] : 线程 ticket_monitor__0 执行耗时: 2.01秒
+2025-03-01 00:06:38.810 [DB_Monitor.py:87] : 检测到 monitor_list 发生变化
+2025-03-01 00:06:38.830 [Ticket_Monitor.py:116] : 开始监控演唱会...
+2025-03-01 00:06:38.832 [Monitor_Thread_Manager.py:31] : 监控线程已启动
+2025-03-01 00:06:38.846 [Ticket_Monitor.py:345] : DM 监控中
+2025-03-01 00:06:39.029 [Ticket_Monitor.py:345] : DM 监控中
+2025-03-01 00:06:42.836 [DB_Monitor.py:87] : 检测到 monitor_list 发生变化
+2025-03-01 00:06:42.845 [Ticket_Monitor.py:116] : 开始监控演唱会...
+2025-03-01 00:06:42.845 [Monitor_Thread_Manager.py:31] : 监控线程已启动
+2025-03-01 00:06:43.261 [Monitor_Thread_Manager.py:44] : 监控线程已停止
+2025-03-01 00:06:43.262 [thread_stats.py:15] : 线程 ticket_monitor__0 执行耗时: 4.43秒
+2025-03-01 00:06:43.263 [thread_stats.py:46] : 线程 ticket_monitor__0 状态: 活跃
+2025-03-01 00:06:44.850 [Monitor_Thread_Manager.py:44] : 监控线程已停止
+2025-03-01 00:06:44.850 [thread_stats.py:15] : 线程 ticket_monitor__0 执行耗时: 2.00秒
+2025-03-01 00:10:09.192 [DB_Monitor.py:87] : 检测到 monitor_list 发生变化
+2025-03-01 00:10:09.194 [Ticket_Monitor.py:116] : 开始监控演唱会...
+2025-03-01 00:10:09.194 [Monitor_Thread_Manager.py:31] : 监控线程已启动
+2025-03-01 00:10:09.197 [Ticket_Monitor.py:345] : DM 监控中
+2025-03-01 00:10:09.383 [Ticket_Monitor.py:345] : DM 监控中
+2025-03-01 00:10:13.198 [DB_Monitor.py:87] : 检测到 monitor_list 发生变化
+2025-03-01 00:10:13.209 [Ticket_Monitor.py:116] : 开始监控演唱会...
+2025-03-01 00:10:13.209 [Monitor_Thread_Manager.py:31] : 监控线程已启动
+2025-03-01 00:10:15.104 [Monitor_Thread_Manager.py:44] : 监控线程已停止
+2025-03-01 00:10:15.105 [thread_stats.py:15] : 线程 ticket_monitor__0 执行耗时: 5.91秒
+2025-03-01 00:10:15.106 [thread_stats.py:46] : 线程 ticket_monitor__0 状态: 活跃
+2025-03-01 00:10:15.228 [Monitor_Thread_Manager.py:44] : 监控线程已停止
+2025-03-01 00:10:15.229 [thread_stats.py:15] : 线程 ticket_monitor__0 执行耗时: 2.02秒
+2025-03-01 00:17:57.199 [main.py:64] : FastAPI 应用关闭
