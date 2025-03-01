@@ -3714,3 +3714,87 @@
 2025-03-01 00:10:15.228 [Monitor_Thread_Manager.py:44] : ����߳���ֹͣ
 2025-03-01 00:10:15.229 [thread_stats.py:15] : �߳� ticket_monitor__0 ִ�к�ʱ: 2.02��
 2025-03-01 00:17:57.199 [main.py:64] : FastAPI Ӧ�ùر�
+2025-03-01 14:50:27.735 [main.py:60] : FastAPI 应用启动
+2025-03-01 14:51:48.018 [DB_Monitor.py:87] : 检测到 monitor_list 发生变化
+2025-03-01 14:51:48.019 [Ticket_Monitor.py:116] : 开始监控演唱会...
+2025-03-01 14:51:48.019 [Monitor_Thread_Manager.py:31] : 监控线程已启动
+2025-03-01 14:51:48.021 [Ticket_Monitor.py:345] : DM 监控中
+2025-03-01 14:51:48.196 [Ticket_Monitor.py:345] : DM 监控中
+2025-03-01 14:52:04.058 [DB_Monitor.py:87] : 检测到 monitor_list 发生变化
+2025-03-01 14:52:04.060 [Ticket_Monitor.py:116] : 开始监控演唱会...
+2025-03-01 14:52:04.060 [Monitor_Thread_Manager.py:31] : 监控线程已启动
+2025-03-01 14:52:04.104 [Monitor_Thread_Manager.py:44] : 监控线程已停止
+2025-03-01 14:52:04.105 [thread_stats.py:15] : 线程 ticket_monitor__0 执行耗时: 16.08秒
+2025-03-01 14:52:04.105 [thread_stats.py:46] : 线程 ticket_monitor__0 状态: 活跃
+2025-03-01 14:52:06.063 [Monitor_Thread_Manager.py:44] : 监控线程已停止
+2025-03-01 14:52:06.063 [thread_stats.py:15] : 线程 ticket_monitor__0 执行耗时: 2.00秒
+2025-03-01 14:52:30.122 [DB_Monitor.py:39] : 读取配置文件失败: Expecting value: line 1 column 1 (char 0)
+2025-03-01 14:52:30.122 [DB_Monitor.py:62] : 更新监控 moitor_list 列表哈希值失败: Expecting value: line 1 column 1 (char 0)
+2025-03-01 14:52:30.140 [DB_Monitor.py:91] : 监控循环发生错误: Expecting value: line 1 column 1 (char 0)
+2025-03-01 16:10:28.592 [main.py:64] : FastAPI 应用关闭
+2025-03-01 16:10:30.741 [main.py:60] : FastAPI 应用启动
+2025-03-01 16:36:56.749 [main.py:64] : FastAPI 应用关闭
+2025-03-01 16:36:58.836 [main.py:60] : FastAPI 应用启动
+2025-03-01 16:39:28.097 [main.py:64] : FastAPI 应用关闭
+2025-03-01 16:39:29.432 [main.py:60] : FastAPI 应用启动
+2025-03-01 16:40:29.503 [main.py:64] : FastAPI 应用关闭
+2025-03-01 16:40:30.928 [main.py:60] : FastAPI 应用启动
+2025-03-01 16:42:48.719 [main.py:64] : FastAPI 应用关闭
+2025-03-01 16:42:51.068 [main.py:60] : FastAPI 应用启动
+2025-03-01 16:46:18.289 [main.py:64] : FastAPI 应用关闭
+2025-03-01 16:46:20.127 [main.py:60] : FastAPI 应用启动
+2025-03-01 16:48:23.345 [main.py:64] : FastAPI 应用关闭
+2025-03-01 16:48:24.716 [main.py:60] : FastAPI 应用启动
+2025-03-01 16:55:01.236 [main.py:64] : FastAPI 应用关闭
+2025-03-01 16:55:03.058 [main.py:60] : FastAPI 应用启动
+2025-03-01 16:56:27.881 [main.py:64] : FastAPI 应用关闭
+2025-03-01 16:56:29.445 [main.py:60] : FastAPI 应用启动
+2025-03-01 16:58:16.665 [main.py:64] : FastAPI 应用关闭
+2025-03-01 16:58:17.933 [main.py:60] : FastAPI 应用启动
+2025-03-01 17:02:25.623 [main.py:64] : FastAPI 应用关闭
+2025-03-01 17:02:27.698 [main.py:60] : FastAPI 应用启动
+2025-03-01 17:10:49.619 [main.py:64] : FastAPI 应用关闭
+2025-03-01 17:10:51.314 [main.py:60] : FastAPI 应用启动
+2025-03-01 17:13:26.927 [main.py:64] : FastAPI 应用关闭
+2025-03-01 17:13:28.262 [main.py:60] : FastAPI 应用启动
+2025-03-01 17:15:25.255 [main.py:64] : FastAPI 应用关闭
+2025-03-01 17:15:26.962 [main.py:60] : FastAPI 应用启动
+2025-03-01 17:15:40.426 [main.py:64] : FastAPI 应用关闭
+2025-03-01 17:15:41.779 [main.py:60] : FastAPI 应用启动
+2025-03-01 17:15:51.998 [main.py:64] : FastAPI 应用关闭
+2025-03-01 17:15:53.350 [main.py:60] : FastAPI 应用启动
+2025-03-01 17:16:22.017 [main.py:64] : FastAPI 应用关闭
+2025-03-01 17:16:23.220 [main.py:60] : FastAPI 应用启动
+2025-03-01 17:16:29.513 [main.py:64] : FastAPI 应用关闭
+2025-03-01 17:16:30.629 [main.py:60] : FastAPI 应用启动
+2025-03-01 17:16:43.609 [main.py:64] : FastAPI 应用关闭
+2025-03-01 17:16:44.953 [main.py:60] : FastAPI 应用启动
+2025-03-01 17:17:11.973 [main.py:64] : FastAPI 应用关闭
+2025-03-01 17:17:16.774 [main.py:60] : FastAPI 应用启动
+2025-03-01 17:17:52.852 [main.py:64] : FastAPI 应用关闭
+2025-03-01 17:17:54.106 [main.py:60] : FastAPI 应用启动
+2025-03-01 17:18:34.397 [main.py:64] : FastAPI 应用关闭
+2025-03-01 17:18:35.607 [main.py:60] : FastAPI 应用启动
+2025-03-01 17:18:35.811 [main.py:64] : FastAPI 应用关闭
+2025-03-01 17:18:37.038 [main.py:60] : FastAPI 应用启动
+2025-03-01 17:18:46.877 [main.py:64] : FastAPI 应用关闭
+2025-03-01 17:18:48.111 [main.py:60] : FastAPI 应用启动
+2025-03-01 17:21:20.354 [main.py:64] : FastAPI 应用关闭
+2025-03-01 17:21:21.941 [main.py:60] : FastAPI 应用启动
+2025-03-01 17:21:40.863 [main.py:64] : FastAPI 应用关闭
+2025-03-01 17:21:42.061 [main.py:60] : FastAPI 应用启动
+2025-03-01 17:22:46.806 [main.py:64] : FastAPI 应用关闭
+2025-03-01 17:22:48.024 [main.py:60] : FastAPI 应用启动
+2025-03-01 17:23:03.199 [main.py:64] : FastAPI 应用关闭
+2025-03-01 17:23:04.554 [main.py:60] : FastAPI 应用启动
+2025-03-01 17:23:20.987 [main.py:64] : FastAPI 应用关闭
+2025-03-01 17:23:22.284 [main.py:60] : FastAPI 应用启动
+2025-03-01 17:27:02.227 [main.py:64] : FastAPI 应用关闭
+2025-03-01 17:27:03.531 [main.py:60] : FastAPI 应用启动
+2025-03-01 17:27:29.931 [main.py:64] : FastAPI 应用关闭
+2025-03-01 17:27:31.037 [main.py:60] : FastAPI 应用启动
+2025-03-01 17:27:38.523 [main.py:64] : FastAPI 应用关闭
+2025-03-01 17:27:39.544 [main.py:60] : FastAPI 应用启动
+2025-03-01 17:28:46.000 [main.py:64] : FastAPI 应用关闭
+2025-03-01 17:28:47.267 [main.py:60] : FastAPI 应用启动
+2025-03-01 17:32:08.773 [main.py:64] : FastAPI 应用关闭
