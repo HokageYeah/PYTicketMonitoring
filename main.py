@@ -9,7 +9,7 @@ import logging
 from src.server.api.endpoints.concerts import router
 from pydantic import ValidationError
 from src.server.api.wxMiniLogin import wx_router
-
+from src.sql import SqlConnectDb
 # 最开始添项目根目录到python的路径
 project_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.append(project_root)
@@ -19,6 +19,10 @@ setup_logging()
 
 # 创建fastapi 应用
 app = FastAPI(title=settings.PROJECT_NAME, debug=settings.DEBUG)
+
+# 创建数据库连接池
+sql_connect_db = SqlConnectDb()
+sql_connect_db.connect()
 
 # 定义全局请求参数异常处理器（可选）
 @app.exception_handler(RequestValidationError)
