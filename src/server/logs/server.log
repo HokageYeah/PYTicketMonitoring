@@ -4132,3 +4132,61 @@
 2025-03-06 18:53:13.186 [mysql_native_password.py:118] : # server response packet: b'\x07\x00\x00\x05\x00\x00\x00\x02\x00\x00\x00'
 2025-03-06 18:53:13.186 [authentication.py:278] : mysql_native_password completed succesfully
 2025-03-06 18:53:25.109 [main.py:68] : FastAPI 应用关闭
+2025-03-06 18:56:52.612 [authentication.py:129] : Building SSL context
+2025-03-06 18:56:52.636 [authentication.py:140] : Switching to SSL
+2025-03-06 18:56:52.646 [authentication.py:143] : SSL has been enabled
+2025-03-06 18:56:52.646 [protocol.py:338] : Starting authorization phase
+2025-03-06 18:56:52.646 [protocol.py:352] : The provided initial strategy is caching_sha2_password
+2025-03-06 18:56:52.646 [__init__.py:149] : package: mysql.connector.plugins
+2025-03-06 18:56:52.646 [__init__.py:150] : plugin_name: caching_sha2_password
+2025-03-06 18:56:52.646 [__init__.py:154] : AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-03-06 18:56:52.646 [authentication.py:263] : Server's response is an auth switch request
+2025-03-06 18:56:52.647 [authentication.py:173] : Switching to strategy mysql_native_password
+2025-03-06 18:56:52.647 [__init__.py:149] : package: mysql.connector.plugins
+2025-03-06 18:56:52.647 [__init__.py:150] : plugin_name: mysql_native_password
+2025-03-06 18:56:52.647 [__init__.py:154] : AUTHENTICATION_PLUGIN_CLASS: MySQLNativePasswordAuthPlugin
+2025-03-06 18:56:52.647 [mysql_native_password.py:114] : # request: b'\x05\x1aF\xa0w\xb0\xea\x88\xb6\xb9%t\xb8h\xe18\xa1\xdf8Q' size: 20
+2025-03-06 18:56:52.647 [mysql_native_password.py:118] : # server response packet: b'\x07\x00\x00\x05\x00\x00\x00\x02\x00\x00\x00'
+2025-03-06 18:56:52.648 [authentication.py:278] : mysql_native_password completed succesfully
+2025-03-06 18:56:52.654 [authentication.py:129] : Building SSL context
+2025-03-06 18:56:52.679 [authentication.py:140] : Switching to SSL
+2025-03-06 18:56:52.687 [authentication.py:143] : SSL has been enabled
+2025-03-06 18:56:52.687 [protocol.py:338] : Starting authorization phase
+2025-03-06 18:56:52.687 [protocol.py:352] : The provided initial strategy is caching_sha2_password
+2025-03-06 18:56:52.688 [authentication.py:263] : Server's response is an auth switch request
+2025-03-06 18:56:52.688 [authentication.py:173] : Switching to strategy mysql_native_password
+2025-03-06 18:56:52.688 [mysql_native_password.py:114] : # request: b'\xc6\x156\x0f\x0f?07\\)\xfc\x16 \x83\xf9\xba\x82\x88\x95x' size: 20
+2025-03-06 18:56:52.688 [mysql_native_password.py:118] : # server response packet: b'\x07\x00\x00\x05\x00\x00\x00\x02\x00\x00\x00'
+2025-03-06 18:56:52.688 [authentication.py:278] : mysql_native_password completed succesfully
+2025-03-06 18:56:52.689 [authentication.py:129] : Building SSL context
+2025-03-06 18:56:52.714 [authentication.py:140] : Switching to SSL
+2025-03-06 18:56:52.722 [authentication.py:143] : SSL has been enabled
+2025-03-06 18:56:52.722 [protocol.py:338] : Starting authorization phase
+2025-03-06 18:56:52.722 [protocol.py:352] : The provided initial strategy is caching_sha2_password
+2025-03-06 18:56:52.723 [authentication.py:263] : Server's response is an auth switch request
+2025-03-06 18:56:52.723 [authentication.py:173] : Switching to strategy mysql_native_password
+2025-03-06 18:56:52.723 [mysql_native_password.py:114] : # request: b"s^\xcf\xf4\xc3\xc1D\xa2\xa0\xad`\x03\xe4\xa5\x13\xee\x8e'B\xf8" size: 20
+2025-03-06 18:56:52.723 [mysql_native_password.py:118] : # server response packet: b'\x07\x00\x00\x05\x00\x00\x00\x02\x00\x00\x00'
+2025-03-06 18:56:52.723 [authentication.py:278] : mysql_native_password completed succesfully
+2025-03-06 18:56:52.725 [authentication.py:129] : Building SSL context
+2025-03-06 18:56:52.748 [authentication.py:140] : Switching to SSL
+2025-03-06 18:56:52.757 [authentication.py:143] : SSL has been enabled
+2025-03-06 18:56:52.757 [protocol.py:338] : Starting authorization phase
+2025-03-06 18:56:52.757 [protocol.py:352] : The provided initial strategy is caching_sha2_password
+2025-03-06 18:56:52.757 [authentication.py:263] : Server's response is an auth switch request
+2025-03-06 18:56:52.757 [authentication.py:173] : Switching to strategy mysql_native_password
+2025-03-06 18:56:52.758 [mysql_native_password.py:114] : # request: b'\x16o\xaf\x10l\x93\x12\xd6\xfe\xa1\x10\x81\xa1@\x1a\rB\x0bN\xf0' size: 20
+2025-03-06 18:56:52.758 [mysql_native_password.py:118] : # server response packet: b'\x07\x00\x00\x05\x00\x00\x00\x02\x00\x00\x00'
+2025-03-06 18:56:52.758 [authentication.py:278] : mysql_native_password completed succesfully
+2025-03-06 18:56:52.760 [authentication.py:129] : Building SSL context
+2025-03-06 18:56:52.782 [authentication.py:140] : Switching to SSL
+2025-03-06 18:56:52.791 [authentication.py:143] : SSL has been enabled
+2025-03-06 18:56:52.792 [protocol.py:338] : Starting authorization phase
+2025-03-06 18:56:52.792 [protocol.py:352] : The provided initial strategy is caching_sha2_password
+2025-03-06 18:56:52.792 [authentication.py:263] : Server's response is an auth switch request
+2025-03-06 18:56:52.792 [authentication.py:173] : Switching to strategy mysql_native_password
+2025-03-06 18:56:52.792 [mysql_native_password.py:114] : # request: b'\x14\x0f7\x8e\x8a\xceec\xcctN\xefl\xd0)A\t`W_' size: 20
+2025-03-06 18:56:52.792 [mysql_native_password.py:118] : # server response packet: b'\x07\x00\x00\x05\x00\x00\x00\x02\x00\x00\x00'
+2025-03-06 18:56:52.793 [authentication.py:278] : mysql_native_password completed succesfully
+2025-03-06 18:56:52.807 [main.py:63] : FastAPI 应用启动
+2025-03-06 18:57:06.553 [main.py:67] : FastAPI 应用关闭

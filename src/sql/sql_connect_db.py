@@ -23,12 +23,14 @@ class SqlConnectDb:
         创建数据库连接池并返回一个连接
         """
         try:
-            # 创建连接池
-            self.pool = mysql.connector.pooling.MySQLConnectionPool(**self.db_config)
-            # 从连接池获取连接
-            self.connection = self.pool.get_connection()
-            # 创建一个数据库游标对象，用于执行SQL命令
-            self.cursor = self.connection.cursor()
+            # 判断数据库是否连接上如果没有则连接，如果连接上则不需要连接
+            if self.connection is None:
+                # 创建连接池
+                self.pool = mysql.connector.pooling.MySQLConnectionPool(**self.db_config)
+                # 从连接池获取连接
+                self.connection = self.pool.get_connection()
+                # 创建一个数据库游标对象，用于执行SQL命令
+                self.cursor = self.connection.cursor()
             # 执行一个简单的SQL测试查询：计算 1+1
             # 这是一个常用的数据库连接测试方法，因为它简单且能确保数据库正常响应
             self.cursor.execute("SELECT 1 + 1")
@@ -99,3 +101,5 @@ class SqlConnectDb:
             print("数据库连接已关闭")
         except Exception as error:
             print(f"关闭连接失败：{error}")
+
+sql_connect_db = SqlConnectDb()

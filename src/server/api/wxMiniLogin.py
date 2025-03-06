@@ -5,7 +5,7 @@ from src.server.schemas.wxMiniLoginSchema import WxMiniLoginParams, WxPlatformEn
 from fastapi import Query, Body, Depends
 from src.server.api.endpoints.validate_params import validate_wx_mini_login_params
 from src.server.services.wx import WxService
-from src.sql import SqlConnectDb
+from src.sql import sql_connect_db
 
 wx_router = APIRouter()
 wx_service = WxService()
@@ -21,7 +21,6 @@ async def wx_mini_login(
     if platform == WxPlatformEnum.WX_MINI.value:
         login_data = wx_service.wx_mini_login_code2Session(params.code)
         # 将登录数据写入到数据库
-        sql_connect_db = SqlConnectDb()
         sql_connect_db.connect()
         # sql_connect_db.insert_wx_mini_login_data(login_data)
         return login_data
