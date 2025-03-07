@@ -1,5 +1,10 @@
 import requests
 from src.server.schemas.wxMiniLoginSchema import WxPlatformEnum
+from src.sql.models.user import User
+from src.server.services.userService import UserService
+
+user_service = UserService()
+
 class WxService:
     def __init__(self):
         self.BASE_URL = "https://api.weixin.qq.com"
@@ -18,11 +23,26 @@ class WxService:
             }
             print('WxService---wx_mini_login_code2Session---params-----', params)
             response = requests.get(url, params=params)
-            print('WxService---wx_mini_login_code2Session---response-----', response.json())
+            login_data = response.json()
+            print('WxService---wx_mini_login_code2Session---response-----', login_data)
+            session_key = login_data['session_key']
+            openid = login_data['openid']
+            user = User(session_key=session_key, openid=openid)
+            user = user_service.create_user(user)
+            tokenStr = user_service.generate_token(user)
             return {
                 'platform': WxPlatformEnum.WX_MINI.value,
                 'ret': ["SUCCESS::调用成功"],
-                'data': response.json(),
+                'data': {
+                    'token': "Bearer " + tokenStr,
+                    'user_id': user.user_id,
+                    'openid': user.openid,
+                    'username': user.username,
+                    'password': user.password,
+                    'status': user.status,
+                    'create_time': user.create_time,
+                    'update_time': user.update_time,
+                },
                 'v': 1,
                 'api': 'wx.mini.login.by.code'
             }

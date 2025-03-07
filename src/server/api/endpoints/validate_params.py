@@ -1,6 +1,6 @@
 from src.server.schemas.concert import RecordMonitorParams
 from fastapi import HTTPException, Body
-from src.server.schemas.wxMiniLoginSchema import WxMiniLoginParams
+from src.server.schemas.wxMiniLoginSchema import WxMiniLoginParams, CreateUserParams
 from pydantic import BaseModel
 
 def validate_common_method(params: BaseModel, required_fields: list):
@@ -33,4 +33,9 @@ async def validate_record_monitor_params(params: RecordMonitorParams = Body(...)
 async def validate_wx_mini_login_params(params: WxMiniLoginParams = Body(...)) -> WxMiniLoginParams:
     # 获取必需字段
     required_fields = [name for name, field in WxMiniLoginParams.model_fields.items() if field.default is ...]
+    return validate_common_method(params, required_fields)
+
+async def validate_create_user_params(params: CreateUserParams = Body(...)) -> CreateUserParams:
+    # 获取必需字段
+    required_fields = [name for name, field in CreateUserParams.model_fields.items() if field.default is ...]
     return validate_common_method(params, required_fields)

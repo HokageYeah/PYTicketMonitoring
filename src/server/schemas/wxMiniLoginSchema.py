@@ -15,3 +15,9 @@ class WxMiniLoginParams(BaseModel):
     # platform: str = Field(default=WxPlatformEnum.WX_MINI.value) # 平台
     code: str # 微信小程序code  
     entry: str = Field(default='') # 入口
+
+class CreateUserParams(BaseModel):
+    username: str
+    password: str
+    openid: str
+

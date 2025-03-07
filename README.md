@@ -38,6 +38,23 @@ docker run -d --restart=unless-stopped -v /etc/ticket-monitor/config.json:/app/c
 
 <br>
 
+
+#### Mac 电脑 如何通过openssl 对nodejs生成公钥和私钥
+  
+  1、打开终端，输入以下命令来生成私钥：
+
+  ```shell
+  genrsa: 生成出来的key是不需要输入密码的。
+  
+  openssl genrsa -out private_key.pem 2048
+  ```
+  2、输入以下命令来生成公钥：
+
+  ```shell
+  openssl rsa -pubout -in private_key.pem -out public_key.pem
+  ```
+  在这个过程中，系统将提示您输入密码。如果您需要将密码保护私钥，请输入密码并妥善保管。
+
 # 注意
 
 程序仅供学习，请勿用于违法活动中，如作他用所承受的法律责任一概与作者无关
