@@ -3,7 +3,7 @@
 from fastapi import APIRouter
 from src.server.schemas.wxMiniLoginSchema import WxMiniLoginParams, WxPlatformEnum, WxMiniApiResponse
 from fastapi import Query, Body, Depends
-from src.server.api.endpoints.validate_params import validate_wx_mini_login_params, validate_create_user_params
+from src.server.api.endpoints.validate_params import validate_wx_mini_login_params, validate_create_user_params, validate_wx_mini_send_subscribe_message_params
 from src.server.services.wx import WxService
 from src.sql.models.user import User
 from sqlalchemy.orm import Session
@@ -11,12 +11,13 @@ from src.sql.sqlalchemy_db import get_sqlalchemy_db
 from src.server.schemas.wxMiniLoginSchema import CreateUserParams
 from src.server.services.userService import UserService
 from src.sql.models.user import User
-
+from src.server.schemas.wxMiniLoginSchema import WxMiniSendSubscribeMessageParams
 
 wx_router = APIRouter()
 wx_service = WxService()
 user_service = UserService()
 
+# 微信code登录 获取session_key 和 openid
 @wx_router.post('/wx/mini.login.by.code', response_model=WxMiniApiResponse)
 async def wx_mini_login(
     platform: str = Query(WxPlatformEnum.WX_MINI.value, description="平台名称"),
@@ -28,6 +29,17 @@ async def wx_mini_login(
     if platform == WxPlatformEnum.WX_MINI.value:
         login_data = wx_service.wx_mini_login_code2Session(params.code)
         return login_data
+    return None
+
+# 微信发送订阅消息 subscribe-wx-template
+@wx_router.post('/wx/mini.send.subscribe.message')
+async def wx_mini_send_subscribe_message(
+    platform: str = Query(WxPlatformEnum.WX_MINI.value, description="平台名称"),
+    params: WxMiniSendSubscribeMessageParams = Depends(validate_wx_mini_send_subscribe_message_params)
+):
+    print('wx_mini_send_subscribe_message---params---------', params)
+    print('wx_mini_send_subscribe_message---platform---------', platform)
+    print('wx_mini_send_subscribe_message---params.platform---------', WxPlatformEnum.WX_MINI.value)
     return None
 
 @wx_router.get("/wx/mini.get.users")

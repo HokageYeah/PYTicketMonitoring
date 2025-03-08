@@ -36,9 +36,9 @@ class WxService:
                 'data': {
                     'token': "Bearer " + tokenStr,
                     'user_id': user.user_id,
-                    'openid': user.openid,
+                    # 'openid': user.openid,
                     'username': user.username,
-                    'password': user.password,
+                    # 'password': user.password,
                     'status': user.status,
                     'create_time': user.create_time,
                     'update_time': user.update_time,

@@ -21,3 +21,7 @@ class CreateUserParams(BaseModel):
     password: str
     openid: str
 
+class WxMiniSendSubscribeMessageParams(BaseModel):
+    template_id: list[str]
+    entry: str = Field(default='') # 入口
+
