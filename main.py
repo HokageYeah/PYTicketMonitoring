@@ -11,6 +11,7 @@ import logging
 from src.server.api.endpoints.concerts import router
 from pydantic import ValidationError
 from src.server.api.wxMiniLogin import wx_router
+from src.server.middleware.exception_handlers import http_exception_handler
 # from src.sql import sql_connect_db
 # 最开始添项目根目录到python的路径
 project_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -46,14 +47,16 @@ async def request_validation_error_handler(request, exc: RequestValidationError)
         }
     )
 
-# 定义全局错误处理器
-@app.exception_handler(HTTPException)
-async def http_exception_handler(request, exc: HTTPException):
-    print('http_exception_handler----exc----', exc)
-    return JSONResponse(
-        status_code=exc.status_code,
-        content={"detail": exc.detail}
-    )
+# 定义全局错误处理器，单独封装成一个中间价，并且统一返回相同的格式
+app.add_exception_handler(HTTPException, http_exception_handler)
+# # 定义全局错误处理器（老的处理方式）
+# @app.exception_handler(HTTPException)
+# async def http_exception_handler(request, exc: HTTPException):
+#     print('http_exception_handler----exc----', exc)
+#     return JSONResponse(
+#         status_code=exc.status_code,
+#         content={"detailHokageYeah": exc.detail}
+#     )
     
 
 # 添加路由  tags: API 文档中的标签分类

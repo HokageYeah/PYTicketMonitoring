@@ -12,7 +12,7 @@ from src.server.schemas.wxMiniLoginSchema import CreateUserParams
 from src.server.services.userService import UserService
 from src.sql.models.user import User
 from src.server.schemas.wxMiniLoginSchema import WxMiniSendSubscribeMessageParams
-
+from src.server.middleware.jwt_auth import get_current_user, require_role
 wx_router = APIRouter()
 wx_service = WxService()
 user_service = UserService()
@@ -56,3 +56,28 @@ def create_user(db: Session = Depends(get_sqlalchemy_db), params: CreateUserPara
     return user
 
 
+# 需要JWT认证的路由
+# Depends(get_current_user) 是 FastAPI 的依赖注入模式。这表示这个路由函数依赖于 get_current_user 函数的返回结果。
+@wx_router.post("/wx/mini.profile.detail")
+async def get_user_profile(data: dict, current_user: User = Depends(get_current_user)):
+    """获取当前用户的个人资料"""
+    print('get_user_profile---current_user-----data---', data)
+    return {
+        "user_id": current_user.user_id,
+        "username": current_user.username,
+        "openid": current_user.openid,
+        "user_avatar_pic": current_user.user_avatar_pic,
+        "user_address": current_user.user_address,
+        "user_role": current_user.user_role,
+        "status": current_user.status
+    }
+
+# 需要管理员角色的路由
+@wx_router.post("/wx/mini.admin.users")
+async def get_all_users(
+    current_user: User = Depends(require_role(WxPlatformEnum.WX_MINI.value, '/wx/mini.admin.users', 2)),  # 假设2是管理员角色
+    db: Session = Depends(get_sqlalchemy_db)
+):
+    """获取所有用户（仅管理员）"""
+    users = db.query(User).all()
+    return users
