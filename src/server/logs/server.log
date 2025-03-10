@@ -6848,3 +6848,18 @@
 2025-03-10 18:51:44.419 [sqlalchemy_db.py:52] : sqlalchemyÊï∞ÊçÆÂ∫ìËøûÊé•ÊàêÂäü
 2025-03-10 18:51:44.436 [main.py:68] : FastAPI Â∫îÁî®ÂêØÂä®
 2025-03-10 19:10:20.819 [main.py:72] : FastAPI Â∫îÁî®ÂÖ≥Èó≠
+2025-03-10 22:38:45.773 [sqlalchemy_db.py:57] : sqlalchemy ˝æ›ø‚¡¨Ω” ß∞‹: (mysql.connector.errors.DatabaseError) 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+(Background on this error at: https://sqlalche.me/e/20/4xp6)
+2025-03-10 22:39:43.245 [sqlalchemy_db.py:57] : sqlalchemy ˝æ›ø‚¡¨Ω” ß∞‹: (mysql.connector.errors.DatabaseError) 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+(Background on this error at: https://sqlalche.me/e/20/4xp6)
+2025-03-11 00:14:10.991 [sqlalchemy_db.py:57] : sqlalchemy ˝æ›ø‚¡¨Ω” ß∞‹: (mysql.connector.errors.ProgrammingError) 1049 (42000): Unknown database 'ticket_monitor_db'
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-03-11 00:17:56.074 [sqlalchemy_db.py:52] : sqlalchemy ˝æ›ø‚¡¨Ω”≥…π¶
+2025-03-11 00:17:56.101 [main.py:68] : FastAPI ”¶”√∆Ù∂Ø
+2025-03-11 00:18:01.700 [main.py:72] : FastAPI ”¶”√πÿ±’
+2025-03-11 00:33:38.514 [sqlalchemy_db.py:52] : sqlalchemy ˝æ›ø‚¡¨Ω”≥…π¶
+2025-03-11 00:33:38.539 [main.py:68] : FastAPI ”¶”√∆Ù∂Ø
+2025-03-11 00:33:38.541 [main.py:72] : FastAPI ”¶”√πÿ±’
+2025-03-11 00:35:16.708 [sqlalchemy_db.py:52] : sqlalchemy ˝æ›ø‚¡¨Ω”≥…π¶
+2025-03-11 00:35:16.733 [main.py:68] : FastAPI ”¶”√∆Ù∂Ø
+2025-03-11 00:36:25.696 [main.py:72] : FastAPI ”¶”√πÿ±’
