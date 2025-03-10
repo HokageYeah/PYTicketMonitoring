@@ -55,6 +55,74 @@ docker run -d --restart=unless-stopped -v /etc/ticket-monitor/config.json:/app/c
   ```
   在这个过程中，系统将提示您输入密码。如果您需要将密码保护私钥，请输入密码并妥善保管。
 
+
+#### python项目用到的技术框架
+1. fastapi
+   说明：fastapi 是一个python的web框架，可以方便的进行web开发
+   使用：
+   ```python
+   from fastapi import FastAPI
+   app = FastAPI()
+   # 添加路由
+   @app.get("/")
+   def read_root():
+       return {"message": "Hello, World!"}
+   # 启动服务
+   uvicorn main:app --reload
+   ```
+2. sqlalchemy
+   说明：sqlalchemy 是python的一个orm框架，可以方便的进行数据库操作
+   使用：
+   ```python
+   from sqlalchemy import create_engine
+   from src.config.config import DATABASE_URL
+   engine = create_engine(DATABASE_URL)
+   # 创建表
+   Base.metadata.create_all(engine)
+   # 插入数据
+   session = Session(engine)
+   session.add(User(name="John", email="john@example.com"))
+   session.commit()
+   ```
+3. alembic
+   说明：alembic 是sqlalchemy的一个迁移工具，可以方便的进行数据库迁移
+   使用：
+   ```bash
+   # 初始化迁移环境
+   alembic init migrations
+   # 生成迁移脚本
+   alembic revision --autogenerate -m "init"
+   # 应用迁移脚本
+   alembic upgrade head
+   # 回滚迁移脚本
+   alembic downgrade -1
+   # 查看迁移历史
+   alembic history
+   # 查看迁移脚本
+   alembic show
+   ```
+   前移脚本在src/scripts/manage_db.py中
+4. jwt
+   说明：jwt 是json web token，可以方便的进行token认证
+   使用：
+   ```python
+   from jwt import encode, decode
+   # 生成token
+   token = encode(payload, key, algorithm="HS256")
+   # 解码token
+   payload = decode(token, key, algorithms=["HS256"])
+   ```
+5. mysql
+   说明：mysql 是数据库，可以方便的进行数据存储
+   使用：
+   ```python
+   from sqlalchemy import create_engine
+   from src.config.config import DATABASE_URL
+   engine = create_engine(DATABASE_URL)
+   ```
+6. 
+
+
 # 注意
 
 程序仅供学习，请勿用于违法活动中，如作他用所承受的法律责任一概与作者无关

@@ -1,0 +1,9 @@
+# 数据库连接配置
+DATABASE_URL = 'mysql+mysqlconnector://root:aa123456@localhost:3306/ticket_monitor_db'
+
+# 数据库连接池配置
+DATABASE_POOL_SIZE = 10
+DATABASE_MAX_OVERFLOW = 20
+DATABASE_POOL_RECYCLE = 3600
+DATABASE_POOL_TIMEOUT = 10
+DATABASE_POOL_RECYCLE_TIMEOUT = 3600
