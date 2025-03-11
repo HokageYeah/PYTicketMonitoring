@@ -25,3 +25,8 @@ class WxMiniSendSubscribeMessageParams(BaseModel):
     templateList: list[dict]
     entry: str = Field(default='') # 入口
 
+
+class WxMiniGetAccessTokenParams(BaseModel):
+    appid: str
+    secret: str
+

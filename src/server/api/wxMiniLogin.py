@@ -13,6 +13,8 @@ from src.server.services.userService import UserService
 from src.sql.models.user import User
 from src.server.schemas.wxMiniLoginSchema import WxMiniSendSubscribeMessageParams
 from src.server.middleware.jwt_auth import get_current_user, require_role
+from src.server.schemas.wxMiniLoginSchema import WxMiniGetAccessTokenParams
+from src.server.api.endpoints.validate_params import validate_wx_mini_get_access_token_params
 wx_router = APIRouter()
 wx_service = WxService()
 user_service = UserService()
@@ -30,6 +32,18 @@ async def wx_mini_login(
         login_data = wx_service.wx_mini_login_code2Session(params.code)
         return login_data
     return None
+# 调用微信API凭证接口，获取access_token
+@wx_router.get('/wx/mini.get.access.token', response_model=WxMiniApiResponse)
+async def wx_mini_get_access_token(
+    platform: str = Query(WxPlatformEnum.WX_MINI.value, description="平台名称"),
+):
+    print('wx_mini_get_access_token---platform---------', platform)
+    print('wx_mini_get_access_token---params.platform---------', WxPlatformEnum.WX_MINI.value)
+    if platform == WxPlatformEnum.WX_MINI.value:
+        access_token_data = wx_service.wx_mini_get_access_token()
+        return access_token_data
+    return None
+
 
 # 微信发送订阅消息 subscribe-wx-template
 @wx_router.post('/wx/mini.send.subscribe.message')
@@ -40,6 +54,9 @@ async def wx_mini_send_subscribe_message(
     print('wx_mini_send_subscribe_message---params---------', params)
     print('wx_mini_send_subscribe_message---platform---------', platform)
     print('wx_mini_send_subscribe_message---params.platform---------', WxPlatformEnum.WX_MINI.value)
+    if platform == WxPlatformEnum.WX_MINI.value:
+        send_subscribe_message_data = wx_service.wx_mini_send_subscribe_message(params)
+        return send_subscribe_message_data
     return None
 
 @wx_router.get("/wx/mini.get.users")

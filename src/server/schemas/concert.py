@@ -17,7 +17,7 @@ class ApiResponseData(BaseModel):
     platform: PlatformEnum
     api: str
     data: dict
-    ret: list
+    ret: list[str]
     v: int
 
 class SkuList(BaseModel):

@@ -2,7 +2,7 @@ import requests
 from src.server.schemas.wxMiniLoginSchema import WxPlatformEnum
 from src.sql.models.user import User
 from src.server.services.userService import UserService
-
+import time
 user_service = UserService()
 
 class WxService:
@@ -12,6 +12,10 @@ class WxService:
             "appid": "wxcce30ba44a2065a5",
             "secret": "c49f74d704577e5842e84ab43ff3333d",
         }
+        # 获取access_token
+        self.access_token = self.wx_mini_get_access_token().get('data', {}).get('access_token')  
+        self.expires_in = self.wx_mini_get_access_token().get('data', {}).get('expires_in')
+        self.expires_time = time.time() + self.expires_in
     # 小程序登录
     def wx_mini_login_code2Session(self, code):
         try:
@@ -54,4 +58,40 @@ class WxService:
                 'data': {},
                 'v': 1,
                 'api': 'wx.mini.login.by.code'
+            }
+    # 微信发送订阅消息
+    def wx_mini_send_subscribe_message(self, params):
+        if self.is_access_token_expired():
+            self.wx_mini_get_access_token()
+        # 微信发送订阅消息
+        pass
+    # 检查access_token是否过期
+    def is_access_token_expired(self):
+        return time.time() > self.expires_time
+    # 获取access_token
+    def wx_mini_get_access_token(self):
+        try:
+            url = f"{self.BASE_URL}/cgi-bin/token"
+            params = {
+                **self.data,
+                "grant_type": "client_credential"
+            }
+            response = requests.get(url, params=params)
+            access_token_data = response.json() 
+            print('WxService---wx_mini_get_access_token---access_token_data-----', access_token_data)
+            return {
+                'platform': WxPlatformEnum.WX_MINI.value,
+                'ret': ["SUCCESS::调用成功"],
+                'data': access_token_data,
+                'v': 1,
+                'api': '/wx/mini.get.access.token'
+            }
+        except Exception as e:
+            print('WxService---wx_mini_get_access_token---error-----', e)
+            return {
+                'platform': WxPlatformEnum.WX_MINI.value,
+                'ret': ["ERROR::获取access_token失败"],
+                'data': {},
+                'v': 1,
+                'api': '/wx/mini.get.access.token'
             }
