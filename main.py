@@ -1,7 +1,7 @@
 from src.server.core import setup_logging
 import os
 import sys
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Request
 from fastapi.responses import JSONResponse
 from fastapi.exceptions import RequestValidationError
 from src.sql.sqlalchemy_db import database
@@ -28,7 +28,7 @@ app = FastAPI(title=settings.PROJECT_NAME, debug=settings.DEBUG)
 database.connect()
 # 定义全局请求参数异常处理器（可选）
 @app.exception_handler(RequestValidationError)
-async def request_validation_error_handler(request, exc: RequestValidationError):
+async def request_validation_error_handler(request: Request, exc: RequestValidationError):
     print('request_validation_error_handler----exc----', exc)
     # 提示缺少哪个参数
     missing_fields = exc.errors()   
@@ -37,13 +37,15 @@ async def request_validation_error_handler(request, exc: RequestValidationError)
     missing_field_names_str = ', '.join(missing_field_names)
     print('missing_field_names_str----', missing_field_names_str)
     request_method = request.method
-    request_url = str(request.url)
+    request_url = request.url.path
     return JSONResponse(
         status_code=422,
         content={
-            "error_detail": f"缺少必需的参数: {missing_field_names_str}",
-            "request_method": request_method,
-            "request_url": request_url,
+            "platform": "WX_MINI",
+            "ret": [f"ERROR::缺少必需的参数: {missing_field_names_str}"],
+            "data": {request_method: request_method},
+            "v": 1,
+            "api": request_url.strip("/")
         }
     )
 
