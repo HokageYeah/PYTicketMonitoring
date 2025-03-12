@@ -10096,3 +10096,7 @@
 2025-03-12 17:46:17.847 [mysql_native_password.py:118] : # server response packet: b'\x07\x00\x00\x05\x00\x00\x00\x02\x00\x00\x00'
 2025-03-12 17:46:17.847 [authentication.py:278] : mysql_native_password completed succesfully
 2025-03-12 17:46:17.857 [sqlalchemy_db.py:52] : sqlalchemyæ•°æ®åº“è¿æ¥æˆåŠŸ
+2025-03-12 22:43:55.111 [sqlalchemy_db.py:52] : sqlalchemyÊı¾İ¿âÁ¬½Ó³É¹¦
+2025-03-12 22:43:57.959 [sqlalchemy_db.py:52] : sqlalchemyÊı¾İ¿âÁ¬½Ó³É¹¦
+2025-03-12 22:43:57.989 [selector_events.py:64] : Using selector: SelectSelector
+2025-03-12 22:43:58.055 [sqlalchemy_db.py:52] : sqlalchemyÊı¾İ¿âÁ¬½Ó³É¹¦

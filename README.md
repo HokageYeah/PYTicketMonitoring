@@ -129,8 +129,8 @@ docker run -d --restart=unless-stopped -v /etc/ticket-monitor/config.json:/app/c
 > 这里使用自签名证书（开发环境）
 1. 创建一个目录用于存放证书和密钥
 ```bash
-mkdir -p /Users/yuye/YeahWork/Cursor编辑器小项目/演唱会回流票监控程序/PYTicketMonitoring/ssl
-cd /Users/yuye/YeahWork/Cursor编辑器小项目/演唱会回流票监控程序/PYTicketMonitoring/ssl
+mkdir -p /Users/yuye/YeahWork/小项目/演唱会回流票监控程序/PYTicketMonitoring/ssl
+cd /Users/yuye/YeahWork/小项目/演唱会回流票监控程序/PYTicketMonitoring/ssl
 ```
 2. 生成证书和密钥
 ```bash
@@ -139,8 +139,8 @@ openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 365 -node
 3. 配置 fastapi 使用 SSL 证书(settings 中添加 SSL 相关配置)
 ```python
 # core/config.py 添加 SSL 配置
-SSL_KEYFILE = os.getenv("SSL_KEYFILE", "/Users/yuye/YeahWork/Cursor编辑器小项目/演唱会回流票监控程序/PYTicketMonitoring/ssl/key.pem")
-SSL_CERTFILE = os.getenv("SSL_CERTFILE", "/Users/yuye/YeahWork/Cursor编辑器小项目/演唱会回流票监控程序/PYTicketMonitoring/ssl/cert.pem")
+SSL_KEYFILE = os.getenv("SSL_KEYFILE", "/Users/yuye/YeahWork/小项目/演唱会回流票监控程序/PYTicketMonitoring/ssl/key.pem")
+SSL_CERTFILE = os.getenv("SSL_CERTFILE", "/Users/yuye/YeahWork/小项目/演唱会回流票监控程序/PYTicketMonitoring/ssl/cert.pem")
 USE_HTTPS = os.getenv("USE_HTTPS", "True").lower() in ("true", "1", "t")
 ```
 ```bash
