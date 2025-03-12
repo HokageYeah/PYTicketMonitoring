@@ -44,20 +44,34 @@ async def wx_mini_get_access_token(
         return access_token_data
     return None
 
-
+# 微信订阅消息模板存储
+@wx_router.post('/wx/mini.save.subscribe.template')
+async def wx_mini_save_subscribe_template(
+    platform: str = Query(WxPlatformEnum.WX_MINI.value, description="平台名称"),
+    params: WxMiniSendSubscribeMessageParams = Depends(validate_wx_mini_send_subscribe_message_params),
+    user: User = Depends(get_current_user)
+):
+    if platform == WxPlatformEnum.WX_MINI.value:
+        res = wx_service.wx_mini_save_subscribe_template(params, user)
+        return res
+    return None
 # 微信发送订阅消息 subscribe-wx-template
 @wx_router.post('/wx/mini.send.subscribe.message')
 async def wx_mini_send_subscribe_message(
     platform: str = Query(WxPlatformEnum.WX_MINI.value, description="平台名称"),
-    params: WxMiniSendSubscribeMessageParams = Depends(validate_wx_mini_send_subscribe_message_params)
+    user: User = Depends(get_current_user)
 ):
-    print('wx_mini_send_subscribe_message---params---------', params)
     print('wx_mini_send_subscribe_message---platform---------', platform)
     print('wx_mini_send_subscribe_message---params.platform---------', WxPlatformEnum.WX_MINI.value)
     if platform == WxPlatformEnum.WX_MINI.value:
-        send_subscribe_message_data = wx_service.wx_mini_send_subscribe_message(params)
+        send_subscribe_message_data = wx_service.wx_mini_send_subscribe_message(user)
         return send_subscribe_message_data
     return None
+
+# 创建订阅消息模板
+@wx_router.get("/wx/mini.create.subscribe.template")
+def create_subscribe_template(miniprogram_state: str):
+    return user_service.create_subscribe_template(miniprogram_state)
 
 @wx_router.get("/wx/mini.get.users")
 def get_users(db: Session = Depends(get_sqlalchemy_db)):

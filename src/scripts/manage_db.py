@@ -21,5 +21,9 @@ def downgrade():
     """回滚迁移"""
     os.system('alembic downgrade -1')
 
+# 创建缺失的表
+#    alembic revision --autogenerate -m "create wx_msg_subscribe_user table"
+#    alembic upgrade head
+
 if __name__ == '__main__':
     cli() 
