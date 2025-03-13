@@ -8,6 +8,18 @@ import os
 import importlib
 import inspect
 
+import os
+import sys
+from pathlib import Path
+# 添加项目根目录到 Python 路径
+project_root = Path(__file__).resolve().parent.parent
+sys.path.append(str(project_root))
+
+# 导入数据库配置和模型
+from src.config.database_config import get_database_config, DATABASE_URL
+from src.sql.sqlalchemy_db import Base
+
+# env.py 是 Alembic 的环境配置文件
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
 config = context.config
@@ -84,7 +96,10 @@ def run_migrations_offline() -> None:
     script output.
 
     """
-    url = config.get_main_option("sqlalchemy.url")
+    # url = config.get_main_option("sqlalchemy.url")
+     # 使用配置文件中的 DATABASE_URL
+    url = DATABASE_URL
+    print(f"数据库URL: {url}")
     context.configure(
         url=url,
         target_metadata=target_metadata,
@@ -103,12 +118,16 @@ def run_migrations_online() -> None:
     and associate a connection with the context.
 
     """
+        # 使用配置文件中的 DATABASE_URL
+    configuration = config.get_section(config.config_ini_section)
+    configuration["sqlalchemy.url"] = DATABASE_URL
+    print(f"数据库configuration: {configuration}")
     connectable = engine_from_config(
-        config.get_section(config.config_ini_section, {}),
+        configuration,
         prefix="sqlalchemy.",
         poolclass=pool.NullPool,
     )
-
+    print('database.connect()2')
     with connectable.connect() as connection:
         context.configure(
             connection=connection, target_metadata=target_metadata

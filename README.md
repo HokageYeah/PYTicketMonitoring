@@ -162,6 +162,37 @@ if __name__ == "__main__":
     uvicorn.run(**uvicorn_config)
 ```
 
+#### set_env.sh 脚本的执行
+
+```bash
+# 切换到开发环境并创建数据库
+source scripts/set_env.sh dev create_db
+
+# 切换到测试环境并创建所有表
+source scripts/set_env.sh test create_tables
+
+# 切换到生产环境并应用迁移
+source scripts/set_env.sh prod upgrade
+
+# 切换到开发环境并回滚迁移
+source scripts/set_env.sh dev downgrade
+
+# 切换到测试环境并重置数据库
+source scripts/set_env.sh test reset
+
+# 切换到开发环境并创建迁移脚本
+source scripts/set_env.sh dev create-migration "add_new_table"
+
+# 切换到开发环境并查看迁移历史
+source scripts/set_env.sh dev history
+
+# 切换到开发环境并执行自定义迁移命令
+source scripts/set_env.sh dev migrate revision --autogenerate -m "create_new_table"
+
+# 手动添加表
+alembic revision -m "insert_initial_users"
+```
+
 # 注意
 
 程序仅供学习，请勿用于违法活动中，如作他用所承受的法律责任一概与作者无关

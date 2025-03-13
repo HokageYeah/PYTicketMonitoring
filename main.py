@@ -38,6 +38,7 @@ app = FastAPI(title=settings.PROJECT_NAME, debug=settings.DEBUG, lifespan=lifesp
 
 # 创建数据库连接池
 # sql_connect_db.connect()
+print('database.connect()3')
 database.connect()
 # 定义全局请求参数异常处理器exception_class : 要处理的异常类型、handler : 处理异常的函数
 app.add_exception_handler(RequestValidationError, request_validation_error_handler)
@@ -93,4 +94,4 @@ app.include_router(wx_router, prefix=settings.API_V1_STR, tags=["wx"])
 
 # 运行 python main.py 启动服务,代替 运行命令：uvicorn main:app --reload --port 8001， 此命令适合再开发环境使用
 if __name__ == "__main__":
-    uvicorn.run('main:app', host="0.0.0.0", port=8001, reload=True)
+    uvicorn.run('main:app', host="localhost", port=8001, reload=True)

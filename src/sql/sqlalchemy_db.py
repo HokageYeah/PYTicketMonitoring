@@ -5,22 +5,14 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.pool import QueuePool
 from typing import Generator
 import logging
-
+from src.config.database_config import get_database_config, DATABASE_URL
 # 创建基类，用于声明模型
 Base = declarative_base()
 
 class Database:
     def __init__(self):
-        self.db_config = {
-            'host': 'localhost',
-            'port': 3306,
-            'user': 'root',
-            'password': 'aa123456',
-            'database': 'ticket_monitor_db',
-            "pool_name": "mypool", # 连接池名称
-            "pool_size": 5 # 连接池大小
-        }
-        self.db_url = f"mysql+mysqlconnector://{self.db_config['user']}:{self.db_config['password']}@{self.db_config['host']}:{self.db_config['port']}/{self.db_config['database']}"
+        self.db_config = get_database_config()
+        self.db_url = DATABASE_URL
         self._engine = None
         self._session_factory = None
 
@@ -32,10 +24,10 @@ class Database:
                 self.db_url,
                 poolclass=QueuePool,
                 pool_size=self.db_config['pool_size'],
-                max_overflow=10,
-                pool_timeout=30,
-                pool_recycle=3600,
-                echo=False
+                max_overflow=self.db_config['max_overflow'],
+                pool_timeout=self.db_config['pool_timeout'],
+                pool_recycle=self.db_config['pool_recycle'],
+                echo=self.db_config['echo']
             )
             
             # 创建会话工厂
