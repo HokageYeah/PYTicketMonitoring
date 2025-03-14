@@ -17,7 +17,8 @@ elif ENV == "test":
 elif ENV == "dev":
     env_file = ".env.development"
 print(f"加载配置文件: {env_file}")
-load_dotenv(env_file)
+# 清除dotenv缓存，重新加载
+load_dotenv(env_file, override=True)
 # 配置类
 class Settings(BaseSettings):
     # 应用配置

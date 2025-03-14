@@ -222,6 +222,9 @@ alembic revision -m "insert_initial_users"
 
 #### set_env.py执行 使用dotenv库启动指定环境（推荐方案）
 
+> 注意：
+> 1、环境变量的优先级：系统环境变量 > .env.local > .env > pydantic 默认值
+
 * 1、先通过dotenv库设置.env的文件环境，在读取.env文件的环境变量
 ```bash
 # 第一步 运行脚本设置环境

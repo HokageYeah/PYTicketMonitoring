@@ -7,9 +7,13 @@ from src.server.core.confing import settings
 def get_database_config():
     """根据当前环境获取数据库配置"""
     env = os.getenv("ENV", "development").lower()
-    print(f"database_config.py---- ENV: {env}")
-    print(f"database_config.py---- settings.DB_NAME: {settings.DB_NAME}")
-    print(f"database_config.py---- settings.DB_CHARSET: {settings.Config.env_file}")
+    print("\n当前数据库环境信息:")
+    print("----------------------------------------")
+    print(f"database_config.py---- ENV: {env}") # 系统环境变量
+    print(f"database_config.py---- DB_NAME: {os.getenv('DB_NAME')}") 
+    print(f"database_config.py---- settings.DB_NAME: {settings.DB_NAME}") 
+    print(f"database_config.py---- settings.DB_CHARSET: {settings.Config.env_file}") 
+    print("----------------------------------------")
     return {
         "driver": settings.DB_DRIVER,
         "username": settings.DB_USER,
