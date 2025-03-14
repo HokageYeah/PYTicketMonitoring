@@ -409,9 +409,16 @@ def invoke_database_command(command, additional_args):
             subprocess.run([sys.executable, script_path, "drop_tables"], env=env)
     elif command == "migrate":
         if additional_args:
-            print(f"执行迁移命令: {' '.join(additional_args)}")
+            print(f"执行迁移命令1: {' '.join(additional_args)}")
+            print(f"执行迁移命令2: {additional_args}")
             if is_windows:
-                cmd = f"{sys.executable} {script_path} migrate {' '.join(additional_args)}"
+                if '-m' in additional_args:
+                    last_arg = additional_args[-1]
+                    additional_args = additional_args[:-1]
+                    cmd = f"{sys.executable} {script_path} migrate {' '.join(additional_args)} \"{last_arg}\""
+                else:
+                    cmd = f"{sys.executable} {script_path} migrate {' '.join(additional_args)}"
+                print(f"执行迁移命令3: {cmd}")
                 subprocess.run(cmd, env=env, shell=True)
             else:
                 subprocess.run([sys.executable, script_path, "migrate"] + additional_args, env=env)
