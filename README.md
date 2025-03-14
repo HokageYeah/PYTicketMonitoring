@@ -121,11 +121,30 @@ docker run -d --restart=unless-stopped -v /etc/ticket-monitor/config.json:/app/c
    engine = create_engine(DATABASE_URL)
    ```
 6. python-dotenv
-   说明：python-dotenv 是一个python的库，可以方便的进行环境变量管理
+   说明：python-dotenv 是一个python的库，可以方便的进行环境变量管理，他可以读取.env文件的环境变量，并设置到环境变量中。配合pydantic-settings库使用，在项目启动的时候，会读取.env文件的环境变量，并设置到pydantic-settings库中
    使用：
    ```python
    from dotenv import load_dotenv
    load_dotenv()
+   ```
+7. pydantic-settings
+   说明：pydantic-settings 是一个python的库，可以方便的进行配置管理
+   使用：
+   ```python
+   from pydantic_settings import BaseSettings
+   class Settings(BaseSettings):
+       # 配置字段
+       ...
+   settings = Settings()
+   ```
+8. pydantic
+   说明：pydantic 是一个python的库，可以方便的进行数据验证
+   使用：
+   ```python
+   from pydantic import BaseModel
+   class User(BaseModel):
+       id: int
+       name: str
    ```
 #### python项目转换为 HTTPS
 首先，你需要获取 SSL 证书。有几种方式：
