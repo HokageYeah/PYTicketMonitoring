@@ -1,5 +1,5 @@
 # 测试文件
-from src.config.config import DATABASE_URL
+from src.config.database_config import DATABASE_URL
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
 

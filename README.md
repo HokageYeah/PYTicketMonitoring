@@ -120,6 +120,13 @@ docker run -d --restart=unless-stopped -v /etc/ticket-monitor/config.json:/app/c
    from src.config.config import DATABASE_URL
    engine = create_engine(DATABASE_URL)
    ```
+6. python-dotenv
+   说明：python-dotenv 是一个python的库，可以方便的进行环境变量管理
+   使用：
+   ```python
+   from dotenv import load_dotenv
+   load_dotenv()
+   ```
 #### python项目转换为 HTTPS
 首先，你需要获取 SSL 证书。有几种方式：
 - 使用自签名证书（开发环境）
@@ -162,9 +169,10 @@ if __name__ == "__main__":
     uvicorn.run(**uvicorn_config)
 ```
 
-#### set_env.sh 脚本的执行
+#### set_env.sh 脚本的执行（废弃方案，此方法只能在当前shell环境下改变环境变量，当shell执行完毕，在运行起项目的时候，环境变量会恢复到原来的状态）
 
 ```bash
+# Mac电脑更改环境需要执行 source
 # 切换到开发环境并创建数据库
 source scripts/set_env.sh dev create_db
 
@@ -191,6 +199,25 @@ source scripts/set_env.sh dev migrate revision --autogenerate -m "create_new_tab
 
 # 手动添加表
 alembic revision -m "insert_initial_users"
+```
+
+#### set_env.py执行 使用dotenv库启动指定环境（推荐方案）
+
+* 1、先通过dotenv库设置.env的文件环境，在读取.env文件的环境变量
+```bash
+# 第一步 运行脚本设置环境
+python src/scripts/set_env.py test
+
+# 第二步 启动服务
+python main.py 或者 uvicorn main:app --reload --port 8001
+```
+
+* 2、不设置.env文件环境，直接通过dotenv库启动的时候读取特定文件如（.env.test、.env.production等）文件的环境变量
+```bash
+# Linux/Mac
+APP_ENV=prod uvicorn app.main:app --reload --port 8001
+# Windows (PowerShell)
+$env:APP_ENV="prod"; uvicorn app.main:app --reload --port 8001
 ```
 
 # 注意

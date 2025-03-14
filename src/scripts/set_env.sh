@@ -14,17 +14,17 @@
 if [ "$1" = "prod" ] || [ "$1" = "production" ]; then
     export ENV="production"
     ENV_FILE=".env.production"
-    DB_ENV_VAR="PROD_DB_NAME"
+    DB_ENV_VAR="DB_NAME"
     echo "已切换到生产环境"
 elif [ "$1" = "test" ]; then
     export ENV="test"
     ENV_FILE=".env.test"
-    DB_ENV_VAR="TEST_DB_NAME"
+    DB_ENV_VAR="DB_NAME"
     echo "已切换到测试环境"
 else
     export ENV="development"
     ENV_FILE=".env.development"
-    DB_ENV_VAR="DEV_DB_NAME"
+    DB_ENV_VAR="DB_NAME"
     echo "已切换到开发环境"
 fi
 
