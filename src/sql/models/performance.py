@@ -3,8 +3,7 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
 from sqlalchemy import Index
 from datetime import datetime
-
-Base = declarative_base()
+from src.sql.sqlalchemy_db import Base
 
 # 演出场次
 class Performance(Base):
@@ -20,6 +19,7 @@ class Performance(Base):
     show = relationship("Show", back_populates="performances")
     # 场次票种 一对多，级联删除
     ticket_prices = relationship("TicketPrice", back_populates="performance", cascade="all, delete-orphan")
+    user_ticket_monitors = relationship("UserTicketMonitor", back_populates="performance", cascade="all, delete-orphan")
     
     __table_args__ = (
         Index('idx_show_id', 'show_id'),

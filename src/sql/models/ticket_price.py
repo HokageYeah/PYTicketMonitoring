@@ -16,6 +16,9 @@ class TicketPrice(Base):
     # 关系
     performance = relationship("Performance", back_populates="ticket_prices")
     monitor_ticket_prices = relationship("UserTicketMonitor", back_populates="ticket_price")
+    # 上面的替代方案
+    # monitor_ticket_prices = relationship("UserTicketMonitor", foreign_keys="[UserTicketMonitor.sku_id]", back_populates="ticket_price")
+
 
     __table_args__ = (
         Index('idx_perform_id', 'perform_id'),

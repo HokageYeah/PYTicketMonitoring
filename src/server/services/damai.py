@@ -19,8 +19,9 @@ import asyncio
 from src.server.untiles.Monitor_Thread_Manager import MonitorThreadManager
 import time
 import re
+from src.sql.monitor.monitor_db_operate import MonitorDbOperate
 logger = logging.getLogger(__name__)
-
+monitor_db_operate = MonitorDbOperate()
 class DamaiService:
     # 大麦的base url（初步，不同服务的base url不一样）
     BASE_URL = "https://search.damai.cn/searchajax.html"
@@ -792,6 +793,17 @@ class DamaiService:
     # 记录用户需要监控的演唱会、场次、座次、时间、微信token、 监控时间
     def post_record_monitor_web(self, params: RecordMonitorParams):
         try:
+            # 调用数据库处理
+            monitor_db_operate.db_operate(params)
+            return {
+                "platform": PlatformEnum.DM,
+                "api": 'record.monitor.by.platform',
+                "data": {
+                    "msg": "使用数据库调用成功，测试需要删除"
+                },
+                "ret": ["SUCCESS::调用成功"],
+                "v": 1
+            }
             # 更新获取大麦网写入到db_config.json文件中的数据信息
             self.ticket_monitor.get_db_config()
             if not self.ticket_monitor.db_config["DM"].get("monitor_list",[]):

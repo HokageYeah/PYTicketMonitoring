@@ -148,5 +148,10 @@ def history():
     """查看迁移历史"""
     os.system('alembic history')
 
+@cli.command()
+def current():
+    """查看当前迁移版本"""
+    os.system('alembic current')
+
 if __name__ == '__main__':
     cli()

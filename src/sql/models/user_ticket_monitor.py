@@ -9,6 +9,7 @@ class UserTicketMonitor(Base):
     user_show_monitor_id = Column(BigInteger, ForeignKey("user_show_monitors.monitor_id"), nullable=False)
     perform_id = Column(String(20), ForeignKey('performances.perform_id', ondelete='CASCADE'), primary_key=True, comment='关联场次ID')
     sku_id = Column(String(20), ForeignKey("ticket_prices.sku_id", ondelete='CASCADE'), primary_key=True, comment='关联票种ID')
+    deadline = Column(DateTime, nullable=False, comment="监控截止日期")
     is_notified = Column(Boolean, default=False, comment="是否已通知")
     created_at = Column(DateTime, nullable=False, server_default=text('CURRENT_TIMESTAMP'))
     updated_at = Column(DateTime, nullable=False, server_default=text('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'))
@@ -20,8 +21,11 @@ class UserTicketMonitor(Base):
 
     # 关系
     user_show_monitor = relationship("UserShowMonitor", back_populates="ticket_monitors")
-    performance = relationship("Performance")
+    performance = relationship("Performance", back_populates="user_ticket_monitors")
+    # 反向引用：关联到 ticket_price 表，使用字符串引用
     ticket_price = relationship("TicketPrice", back_populates="monitor_ticket_prices")
+    # 上面的替代方案
+    # ticket_price = relationship("TicketPrice", foreign_keys=[sku_id], back_populates="monitor_ticket_prices")
 
 
 

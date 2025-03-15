@@ -39,7 +39,9 @@ def combine_all_models_metadata():
         m = MetaData()
         for metadata in args:
             for t in metadata.tables.values():
-                t.tometadata(m)
+                # 检查表是否已经存在，如果存在，则跳过
+                if t.name not in m.tables:
+                    t.tometadata(m)
         return m
     
     # 获取所有模型文件 mac方法可以，window上会报错
@@ -141,3 +143,143 @@ if context.is_offline_mode():
     run_migrations_offline()
 else:
     run_migrations_online()
+
+
+
+
+# 以下是ai生成，解决alembic 报错问题，但是没有成功
+# from logging.config import fileConfig
+
+# from sqlalchemy import engine_from_config
+# from sqlalchemy import pool
+# from alembic import context
+# from sqlalchemy import MetaData
+# import os
+# import importlib
+# import inspect
+
+# import os
+# import sys
+# from pathlib import Path
+# # 添加项目根目录到 Python 路径
+# project_root = Path(__file__).resolve().parent.parent
+# sys.path.append(str(project_root))
+
+# # 导入数据库配置和模型
+# from src.config.database_config import get_database_config, DATABASE_URL
+# from src.sql.sqlalchemy_db import Base
+
+# # env.py 是 Alembic 的环境配置文件
+# # this is the Alembic Config object, which provides
+# # access to the values within the .ini file in use.
+# config = context.config
+
+# # Interpret the config file for Python logging.
+# # This line sets up loggers basically.
+# if config.config_file_name is not None:
+#     fileConfig(config.config_file_name)
+
+
+# # 自动导入所有模型并合并原数据
+# def get_all_models_metadata():
+#     """获取所有模型的元数据，避免重复添加表"""
+#     # 直接使用 Base.metadata，因为所有模型都继承自同一个 Base
+#     # 这样可以避免表重复的问题
+    
+#     # 确保所有模型都被导入，这样它们会自动注册到 Base.metadata
+#     project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+#     models_path = os.path.join(project_root, 'src', 'sql', 'models')
+    
+#     print(f"查找模型的路径: {models_path}")
+#     print(f"该路径是否存在: {os.path.exists(models_path)}")
+    
+#     # 导入 models 包，确保所有模型都被加载
+#     try:
+#         # 首先导入 __init__.py，它应该导入所有模型
+#         importlib.import_module('src.sql.models')
+#         print("成功导入 models 包")
+#     except ImportError as e:
+#         print(f"导入 models 包时出错: {e}")
+    
+#     # 导入模型目录下的所有 .py 文件，确保所有模型都被加载
+#     for filename in os.listdir(models_path):
+#         if filename.endswith('.py'):
+#             module_name = f'src.sql.models.{filename[:-3]}'
+#             try:
+#                 importlib.import_module(module_name)
+#                 print(f"导入模型: {module_name}")
+#             except ImportError as e:
+#                 print(f"导入 {module_name} 时出错: {e}")
+    
+#     # 返回 Base.metadata，它包含了所有已注册的表
+#     return Base.metadata
+
+# # add your model's MetaData object here
+# # for 'autogenerate' support
+# # from myapp import mymodel
+# # target_metadata = mymodel.Base.metadata
+# target_metadata = get_all_models_metadata()
+
+# # other values from the config, defined by the needs of env.py,
+# # can be acquired:
+# # my_important_option = config.get_main_option("my_important_option")
+# # ... etc.
+
+
+# def run_migrations_offline() -> None:
+#     """Run migrations in 'offline' mode.
+
+#     This configures the context with just a URL
+#     and not an Engine, though an Engine is acceptable
+#     here as well.  By skipping the Engine creation
+#     we don't even need a DBAPI to be available.
+
+#     Calls to context.execute() here emit the given string to the
+#     script output.
+
+#     """
+#     # url = config.get_main_option("sqlalchemy.url")
+#      # 使用配置文件中的 DATABASE_URL
+#     url = DATABASE_URL
+#     print(f"数据库URL: {url}")
+#     context.configure(
+#         url=url,
+#         target_metadata=target_metadata,
+#         literal_binds=True,
+#         dialect_opts={"paramstyle": "named"},
+#     )
+
+#     with context.begin_transaction():
+#         context.run_migrations()
+
+
+# def run_migrations_online() -> None:
+#     """Run migrations in 'online' mode.
+
+#     In this scenario we need to create an Engine
+#     and associate a connection with the context.
+
+#     """
+#     # 使用配置文件中的 DATABASE_URL
+#     configuration = config.get_section(config.config_ini_section)
+#     configuration["sqlalchemy.url"] = DATABASE_URL
+#     print(f"数据库configuration: {configuration}")
+#     connectable = engine_from_config(
+#         configuration,
+#         prefix="sqlalchemy.",
+#         poolclass=pool.NullPool,
+#     )
+#     print('database.connect()2')
+#     with connectable.connect() as connection:
+#         context.configure(
+#             connection=connection, target_metadata=target_metadata
+#         )
+
+#         with context.begin_transaction():
+#             context.run_migrations()
+
+
+# if context.is_offline_mode():
+#     run_migrations_offline()
+# else:
+#     run_migrations_online()

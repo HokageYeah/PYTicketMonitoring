@@ -86,20 +86,53 @@ docker run -d --restart=unless-stopped -v /etc/ticket-monitor/config.json:/app/c
    ```
 3. alembic
    说明：alembic 是sqlalchemy的一个迁移工具，可以方便的进行数据库迁移
-   使用：
+   Alembic 命令及其作用：
    ```bash
    # 初始化迁移环境
    alembic init migrations
-   # 生成迁移脚本
-   alembic revision --autogenerate -m "init"
-   # 应用迁移脚本
-   alembic upgrade head
-   # 回滚迁移脚本
-   alembic downgrade -1
-   # 查看迁移历史
+
+   # 自动生成迁移脚本
+   alembic revision --autogenerate -m "描述信息"
+   alembic revision --autogenerate -m "init" / "auto migration"
+
+   # 手动创建一个空的迁移脚本，需要自己编写升级和降级的逻辑。
+   alembic revision -m "添加索引"
+
+   # upgrade - 升级数据库到指定版本
+   alembic upgrade head  # 升级到最新版本
+   alembic upgrade +2    # 升级2个版本
+   alembic upgrade 版本号  # 升级到指定版本
+
+   # downgrade - 降级数据库到指定版本
+   alembic downgrade base  # 降级到初始状态
+   alembic downgrade -1    # 降级1个版本
+   alembic downgrade 版本号  # 降级到指定版本
+
+   # history - 查看迁移历史
    alembic history
-   # 查看迁移脚本
+   alembic history -r版本1:版本2  # 显示指定范围的历史
+
+   # current - 查看当前迁移版本
+   alembic current
+
+   # show - 查看迁移脚本
    alembic show
+
+   # heads - 显示最新的迁移版本
+   alembic heads
+
+   # branches - 显示分支信息
+   alembic branches
+
+   # merge - 合并多个迁移分支
+   alembic merge -m "合并分支" 版本1 版本2
+
+   # stamp - 标记数据库版本
+   alembic stamp 版本号
+
+   # edit - 编辑指定版本的迁移脚本
+   alembic edit 版本号
+
    ```
    前移脚本在src/scripts/manage_db.py中
 4. jwt
@@ -216,6 +249,14 @@ source scripts/set_env.sh dev history
 # 切换到开发环境并执行自定义迁移命令
 source scripts/set_env.sh dev migrate revision --autogenerate -m "create_new_table"
 
+# 查看当前迁移版本
+source scripts/set_env.sh dev current
+
+# 指定迁移版本
+source scripts/set_env.sh dev upgrade ebc3134199c9
+
+# 添加索引或修改数据
+source scripts/set_env.sh dev migrate revision -m "添加索引"
 # 手动添加表
 alembic revision -m "insert_initial_users"
 ```

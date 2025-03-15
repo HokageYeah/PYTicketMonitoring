@@ -464,6 +464,13 @@ def invoke_database_command(command, additional_args):
         else:
             print("错误: 请提供迁移名称")
             print("用法: python set_env.py [env] create-migration [migration_name]")
+    elif command == "current":
+        print("查看当前迁移版本...")
+        if is_windows:
+            cmd = f"{sys.executable} {script_path} current"
+            subprocess.run(cmd, env=env, shell=True)
+        else:
+            subprocess.run([sys.executable, script_path, "current"], env=env)
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:

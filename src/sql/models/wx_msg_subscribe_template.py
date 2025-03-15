@@ -1,7 +1,7 @@
 from sqlalchemy import Column, Integer, String, DateTime, text
 from sqlalchemy.ext.declarative import declarative_base
+from src.sql.sqlalchemy_db import Base
 
-Base = declarative_base()
 
 class WxMsgSubscribeTemplate(Base):
     __tablename__ = "wx_msg_subscribe_template"

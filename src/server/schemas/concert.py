@@ -33,6 +33,7 @@ class TicketPerform(BaseModel):
 # 记录用户需要监控的演唱会、场次、座次、时间、微信token、 监控时间 参数类型
 class RecordMonitorParams(BaseModel):
     show_id: str # 演唱会id
+    user_id: str # 用户id
     show_name: str # 演唱会名字
     venue_city_name: str # 演唱会城市
     venue_name: str # 演唱会场馆

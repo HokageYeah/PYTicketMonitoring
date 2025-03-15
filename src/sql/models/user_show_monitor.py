@@ -24,5 +24,5 @@ class UserShowMonitor(Base):
     )
 
     # 关系
-    show = relationship("Show")
+    show = relationship("Show", back_populates="user_show_monitors")
     ticket_monitors = relationship("UserTicketMonitor", back_populates="user_show_monitor", cascade='all, delete-orphan')
