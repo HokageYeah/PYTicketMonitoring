@@ -9,12 +9,17 @@ class WX_Notice:
         # 获取 access_token 的 URL
         self.public_access_token_url = f'https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid={self.public_app_id}&secret={self.public_app_secret}'
     def get_access_token(self):
-        # 获取 access_token 的 URL
-        access_token_url = f'https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid={self.public_app_id}&secret={self.public_app_secret}'
-        # 发送请求获取 access_token
-        response = requests.get(access_token_url)
-        print('WX_Notice---get_access_token---response---', response.json().get('access_token'))
-        return response.json().get('access_token','')
+        try:
+            # 获取 access_token 的 URL
+            access_token_url = f'https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid={self.public_app_id}&secret={self.public_app_secret}'
+            print('WX_Notice---get_access_token---access_token_url---', access_token_url)
+            # 发送请求获取 access_token
+            response = requests.get(access_token_url)
+            print('WX_Notice---get_access_token---response---', response.json().get('access_token'))
+            return response.json().get('access_token','')
+        except Exception as e:
+            print('WX_Notice---get_access_token---error---', e)
+            return ''
     def send_public_notice(self, access_token, content, user_wx_code, template_id):
         # 发送公众号通知
         send_notice_url = f'https://api.weixin.qq.com/cgi-bin/message/template/send?access_token={access_token}'

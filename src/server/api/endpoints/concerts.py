@@ -183,12 +183,23 @@ async def ff():
         print("时间：", time.time())
         await asyncio.sleep(1)
 
-def callback_func():
-    # 调用web/start.monitor.by.platform接口
-    print('文件更改了调用票务监控接口')
-    damai.post_start_monitor_web(threadStop=True)
-    # asyncio.create_task(post_start_monitor())
-# 添加DB文件监听类
-from src.server.untiles.DB_Monitor import DBConfigMonitor
-db_monitor = DBConfigMonitor(db_config_path, callback_func)
-db_monitor.start()
+# 方案一、采用文件写入的监控方式
+# def callback_func():
+#     # 调用web/start.monitor.by.platform接口
+#     print('文件更改了调用票务监控接口')
+#     damai.post_start_monitor_web(threadStop=True)
+#     # asyncio.create_task(post_start_monitor())
+# # 添加DB文件监听类
+# from src.server.untiles.DB_Monitor import DBConfigMonitor
+# db_monitor = DBConfigMonitor(db_config_path, callback_func)
+# db_monitor.start()
+
+# # 方案二、采用DB表的监控方式，先放在main.py文件中
+# def new_callback_func():
+#     # 调用web/start.monitor.by.platform接口
+#     print('更改了user_show_monitor表，调用票务监控接口')
+#     damai.post_start_new_monitor_web(threadStop=True)
+# # 添加NewDBDataMonitor类
+# from src.server.untiles.New_DB_Mointor import NewDBDataMonitor
+# new_db_monitor = NewDBDataMonitor(new_callback_func)
+# new_db_monitor.start_monitor()

@@ -19,6 +19,7 @@ import asyncio
 from src.server.untiles.Monitor_Thread_Manager import MonitorThreadManager
 import time
 import re
+from src.server.untiles.New_Ticket_Monitor import New_Ticket_Monitor
 from src.sql.monitor.monitor_db_operate import MonitorDbOperate
 logger = logging.getLogger(__name__)
 monitor_db_operate = MonitorDbOperate()
@@ -29,6 +30,8 @@ class DamaiService:
         self.login_dm = Login_DM()
         # 读取获取db_config.json文件
         self.ticket_monitor = Ticket_Monitor()
+        # 新方法，监控user_show_monitor表
+        self.new_ticket_monitor = New_Ticket_Monitor()
         self.headers = {
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
             "Referer": "https://search.damai.cn/searchajax.html",
@@ -794,7 +797,7 @@ class DamaiService:
     def post_record_monitor_web(self, params: RecordMonitorParams):
         try:
             # 调用数据库处理
-            monitor_db_operate.db_operate(params)
+            monitor_db_operate.db_operate(params, PlatformEnum.DM.value)
             return {
                 "platform": PlatformEnum.DM,
                 "api": 'record.monitor.by.platform',
@@ -804,6 +807,7 @@ class DamaiService:
                 "ret": ["SUCCESS::调用成功"],
                 "v": 1
             }
+            # 方案二，将数据写入到db_config.json文件中（不推荐）
             # 更新获取大麦网写入到db_config.json文件中的数据信息
             self.ticket_monitor.get_db_config()
             if not self.ticket_monitor.db_config["DM"].get("monitor_list",[]):
@@ -890,4 +894,17 @@ class DamaiService:
                 "ret": [f"ERROR::调用票务监控数据失败{e}"],
                 "v": 1
             }
-        
+    # 新方法，调用票务监控
+    def post_start_new_monitor_web(self, threadStop: bool = False):
+        try:
+            self.monitor_thread_manager.start_monitor(self.new_ticket_monitor.monitor, args=(self, self.monitor_thread_manager))
+            print('post_start_new_monitor_web')
+        except Exception as e:
+            logger.error(f"调用票务监控失败，\n接口: start_monitor_web, \n错误: {e}")
+            return {
+                "platform": PlatformEnum.DM,
+                "api": 'start.monitor.by.platform',
+                "data": {},
+                "ret": [f"ERROR::调用票务监控数据失败{e}"],
+                "v": 1
+            }

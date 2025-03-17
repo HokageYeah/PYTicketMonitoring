@@ -12,7 +12,8 @@ class TicketPrice(Base):
     price_name = Column(String(50), nullable=False, comment='价格显示名称')
     created_at = Column(DateTime, nullable=False, server_default=text('CURRENT_TIMESTAMP'))
     updated_at = Column(DateTime, nullable=False, server_default=text('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'))
-
+    # 平台
+    platform = Column(String(20), nullable=False, comment='平台')
     # 关系
     performance = relationship("Performance", back_populates="ticket_prices")
     monitor_ticket_prices = relationship("UserTicketMonitor", back_populates="ticket_price")

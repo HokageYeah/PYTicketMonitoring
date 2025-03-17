@@ -13,6 +13,8 @@ class Show(Base):
     venue_name = Column(String(50), nullable=False, comment='场馆名称')
     created_at = Column(DateTime, nullable=False, server_default=text('CURRENT_TIMESTAMP'))
     updated_at = Column(DateTime, nullable=False, server_default=text('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'))
+    # 平台
+    platform = Column(String(20), nullable=False, comment='平台')
     # 关系定义
     performances = relationship('Performance', back_populates='show', cascade='all, delete-orphan')
     user_show_monitors = relationship('UserShowMonitor', back_populates='show', cascade='all, delete-orphan')

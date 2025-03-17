@@ -13,7 +13,8 @@ class UserTicketMonitor(Base):
     is_notified = Column(Boolean, default=False, comment="是否已通知")
     created_at = Column(DateTime, nullable=False, server_default=text('CURRENT_TIMESTAMP'))
     updated_at = Column(DateTime, nullable=False, server_default=text('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'))
-
+    # 平台
+    platform = Column(String(20), nullable=False, comment='平台')
     # 唯一约束
     __table_args__ = (
         {"comment": "用户票价监控表"},

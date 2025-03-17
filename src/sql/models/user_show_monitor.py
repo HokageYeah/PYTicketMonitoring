@@ -14,7 +14,8 @@ class UserShowMonitor(Base):
     is_active = Column(SmallInteger, server_default=text('1'), comment='是否有效（0-无效 1-有效）')
     created_at = Column(DateTime, nullable=False, server_default=text('CURRENT_TIMESTAMP'))
     updated_at = Column(DateTime, nullable=False, server_default=text('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'))
-
+    # 平台
+    platform = Column(String(20), nullable=False, comment='平台')
     # 唯一约束
     __table_args__ = (
         Index('idx_wx_token', 'wx_token'),

@@ -14,6 +14,7 @@ from src.server.api.wxMiniLogin import wx_router
 from src.server.middleware.exception_handlers import http_exception_handler, request_validation_error_handler
 import uvicorn
 from contextlib import asynccontextmanager
+import multiprocessing
 # from src.sql import sql_connect_db
 # 最开始添项目根目录到python的路径
 project_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -22,12 +23,34 @@ sys.path.append(project_root)
 # 设置日志
 setup_logging()
 
+def new_callback_func():
+    # 调用web/start.monitor.by.platform接口
+    print('更改了user_show_monitor表，调用票务监控接口')
+    # damai.post_start_new_monitor_web(threadStop=True)
+
 # 定义应用的生命周期
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     # 启动时执行（原 startup 事件的代码）
     print("应用启动")
     try:
+        # -----------------------新增代码开始-----------------------
+        # 检查当前进程是否是工作进程, 解决uvicorn 的 reload=True 选项会创建两个独立的进程（监控进程和工作进程），每个进程都有自己的 Python 解释器和内存空间。
+        # 导致线程监控会启动两次，一个是在工作主进程中，一个是在文件监控进程中
+        current_process = multiprocessing.current_process()
+        if current_process.name != 'MainProcess' or os.environ.get('UVICORN_RELOAD_PROCESS') != 'true':
+            # 只在工作进程中启动监控
+            from src.server.untiles.New_DB_Mointor import NewDBDataMonitor
+            from src.server.services.damai import DamaiService
+            # 正确传递回调函数：使用lambda或者partial创建一个可调用对象
+            from functools import partial
+            callback = partial(DamaiService().post_start_new_monitor_web, threadStop=True)
+            print(f"在进程 {current_process.name} 中启动监控")
+            monitor = NewDBDataMonitor(callback)
+            monitor.start_monitor()
+        else:
+            print(f"在监控进程 {current_process.name} 中不启动监控")
+        # -----------------------新增代码结束-----------------------
         yield
     finally:
         # 关闭时执行（原 shutdown 事件的代码）

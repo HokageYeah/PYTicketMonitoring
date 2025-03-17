@@ -15,6 +15,8 @@ class Performance(Base):
     perform_time = Column(DateTime, nullable=True, comment="演出时间")
     created_at = Column(DateTime, nullable=False, server_default=text('CURRENT_TIMESTAMP'))
     updated_at = Column(DateTime, nullable=False, server_default=text('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'))
+    # 平台
+    platform = Column(String(20), nullable=False, comment='平台')
     # 关系
     show = relationship("Show", back_populates="performances")
     # 场次票种 一对多，级联删除

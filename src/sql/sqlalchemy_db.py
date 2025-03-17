@@ -71,4 +71,14 @@ database = Database()
 
 # 获取数据库会话的依赖函数
 def get_sqlalchemy_db() -> Generator[Session, None, None]:
-    return next(database.get_session())
+    """获取数据库会话"""
+    db = next(database.get_session())
+    try:
+        return db
+    except Exception as e:
+        db.close()
+        logging.error(f"获取数据库会话失败: {e}")
+        raise
+    finally:
+        print('数据库会话关闭')
+        db.close()
