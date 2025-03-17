@@ -451,8 +451,10 @@ def restore_data(session: any, json_data: dict):
             "user_monitors": 0,
             "monitor_details": 0
         }
-
+        print('restore_data------json_data------', json_data)
         for platform, platform_data in json_data.items():
+            print('restore_data------platform------', platform)
+            print('restore_data------platform_data------', platform_data)
             # ================== 1. 准备所有需要保留的标识 ==================
             keep_show_ids = set()
             keep_perform_ids = set()
@@ -482,6 +484,7 @@ def restore_data(session: any, json_data: dict):
 
             # ================== 2. 删除不再需要的数据 ==================
             # 删除监控详情
+            print('keep_monitor_details------', keep_monitor_details)
             if keep_monitor_details:
                 delete_conditions = or_(
                     and_(
@@ -493,10 +496,11 @@ def restore_data(session: any, json_data: dict):
                     )
                     for tuple_ in keep_monitor_details
                 )
+                print('keep_monitor_details------delete_conditions------', delete_conditions)
                 deleted_counts["monitor_details"] += session.query(UserTicketMonitor).filter(
                     not_(delete_conditions)
                 ).delete(synchronize_session=False)
-
+                print('keep_monitor_details------deleted_counts------', deleted_counts)
             # 删除用户监控
             if keep_wx_tokens:
                 delete_conditions = or_(
@@ -506,11 +510,12 @@ def restore_data(session: any, json_data: dict):
                     )
                     for tuple_ in keep_wx_tokens
                 )
+                print('keep_wx_tokens------delete_conditions------', delete_conditions)
                 deleted_counts["user_monitors"] += session.query(UserShowMonitor).filter(
                     UserShowMonitor.platform == platform,
                     not_(delete_conditions)
                 ).delete(synchronize_session=False)
-
+                print('keep_wx_tokens------deleted_counts------', deleted_counts)
             # 删除票种
             if keep_sku_ids:
                 delete_conditions = or_(
@@ -520,11 +525,12 @@ def restore_data(session: any, json_data: dict):
                     )
                     for tuple_ in keep_sku_ids
                 )
+                print('keep_sku_ids------delete_conditions------', delete_conditions)
                 deleted_counts["skus"] += session.query(TicketPrice).filter(
                     TicketPrice.platform == platform,
                     not_(delete_conditions)
                 ).delete(synchronize_session=False)
-
+                
             # 删除场次
             if keep_perform_ids:
                 delete_conditions = or_(
@@ -534,18 +540,19 @@ def restore_data(session: any, json_data: dict):
                     )
                     for tuple_ in keep_perform_ids
                 )
+                print('keep_perform_ids------delete_conditions------', delete_conditions)
                 deleted_counts["performs"] += session.query(Performance).filter(
                     Performance.platform == platform,
                     not_(delete_conditions)
                 ).delete(synchronize_session=False)
-
+                print('keep_perform_ids------deleted_counts------', deleted_counts)
             # 删除演出
             if keep_show_ids:
                 deleted_counts["shows"] += session.query(Show).filter(
                     Show.platform == platform,
                     Show.show_id.not_in(keep_show_ids)
                 ).delete(synchronize_session=False)
-
+                print('keep_show_ids------deleted_counts------', deleted_counts)
             # ================== 3. 插入/更新数据 ==================
             # （保持原有数据插入逻辑，此处省略重复代码）
             # ... [保持之前的插入逻辑]
