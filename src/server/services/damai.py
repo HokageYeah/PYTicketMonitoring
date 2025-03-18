@@ -629,11 +629,12 @@ class DamaiService:
             print('res_data----ret', ret)
             print('response.status_code----', response.status_code)
             if response.status_code != 200 or 'SUCCESS::调用成功' not in ret:
+                error_msg = ret[0].split('::')[1]
                 return {
                     "platform": PlatformEnum.DM,
                     "api": 'item.detail.by.platform',
                     "data": response.json(),
-                    "ret": [f"ERROR::获取大麦网数据失败{ret}"],
+                    "ret": [f"ERROR::获取大麦网数据失败{error_msg}"],
                     "v": 1
                 }
             legacy = res_data.get('data',{}).get('legacy','')
@@ -689,11 +690,12 @@ class DamaiService:
             res_data = response.json()
             ret = res_data.get('ret')
             if response.status_code != 200 or 'SUCCESS::调用成功' not in ret:
+                error_msg = ret[0].split('::')[1]
                 return {
                     "platform": PlatformEnum.DM,
                     "api": 'check.ticket.by.platform',
                     "data": response.json(),
-                    "ret": [f"ERROR::获取大麦网数据失败{ret}"],
+                    "ret": [f"ERROR::获取大麦网数据失败{error_msg}"],
                     "v": 1
                 }
             result = res_data.get('data',{}).get('result','')
@@ -727,11 +729,12 @@ class DamaiService:
             res_data = response.json()
             ret = res_data.get('ret')
             if response.status_code != 200 or 'SUCCESS::调用成功' not in ret:
+                error_msg = ret[0].split('::')[1]
                 return {
                     "platform": PlatformEnum.DM,
                     "api": 'check.ticket.by.platform',
                     "data": response.json(),
-                    "ret": [f"ERROR::获取大麦网数据失败{ret}"],
+                    "ret": [f"ERROR::获取大麦网数据失败{error_msg}"],
                     "v": 1
                 }
             result = res_data.get('data',{}).get('result','')

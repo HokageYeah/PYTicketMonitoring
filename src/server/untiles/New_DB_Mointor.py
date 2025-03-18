@@ -252,7 +252,7 @@ class NewDBDataMonitor:
                 
                 # 计算实际需要休眠的时间
                 elapsed = (datetime.now() - loop_start_time).total_seconds()
-                sleep_time = max(10 - elapsed, 0)  # 确保总循环时间为10秒
+                sleep_time = max(20 - elapsed, 0)  # 确保总循环时间为20秒
                 
                 logger.info(f"[实例 {self.instance_id}] 循环 #{loop_count} 执行耗时: {elapsed:.2f}秒, 将休眠: {sleep_time:.2f}秒")
                 

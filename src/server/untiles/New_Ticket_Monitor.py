@@ -155,6 +155,9 @@ class New_Ticket_Monitor:
                     # task_list.append(self.check_ticket(show_id, monitor_item.get('ticket_perform'), platform))
                     response = self.check_ticket(show_id, '', monitor_item.get('ticket_perform'), platform)
                     if response.get("ret") != ["SUCCESS::调用成功"]:
+                        # todo 这里过期了需要通知开发者，目前先打印信息
+                        error_msg = response.get("ret")[0].split('::')[1]
+                        print('monitor_platform------error_msg------', response.get("ret"))
                         continue
                     if response.get("data").get("result").get("performCalendar") is None:
                         # 代表此演出已下架、删除本场所有监控
@@ -247,12 +250,12 @@ class New_Ticket_Monitor:
                     venue_city_name = monitor_list[delete_monitor_list_item_index].get('venue_city_name')
                     venue_name = monitor_list[delete_monitor_list_item_index].get('venue_name')
                     # 需要通知的wx_token也是需要删除的delete_item
-                    # 需要通知的wx_token 此处代码先注释掉，因为微信的接口调用失败
-                    # self.send_notification(delete_item, {
-                    #     "show_name": show_name,
-                    #     "venue_city_name": venue_city_name,
-                    #     "venue_name": venue_name,
-                    # }, delete_ticket_perform_index, delete_sku_perform_index)
+                    # todo  需要通知的wx_token 此处代码先注释掉，因为微信的接口调用失败
+                    self.send_notification(delete_item, {
+                        "show_name": show_name,
+                        "venue_city_name": venue_city_name,
+                        "venue_name": venue_name,
+                    }, delete_ticket_perform_index, delete_sku_perform_index)
                     # 通知完成后删除通知后的数据
                     monitor_list[delete_monitor_list_item_index].get('monitor_person')[delete_person_index].get('ticket_perform')[delete_ticket_perform_index].get('sku_list')[delete_sku_perform_index] = None
                     if all(item is None for item in monitor_list[delete_monitor_list_item_index].get('monitor_person')[delete_person_index].get('ticket_perform')[delete_ticket_perform_index].get('sku_list')):
@@ -444,12 +447,13 @@ class New_Ticket_Monitor:
 
 def restore_data(session: any, json_data: dict):
     try:
+        # 字典用于记录每种类型数据的删除数量。
         deleted_counts = {
             "shows": 0,
-            "performs": 0,
-            "skus": 0,
-            "user_monitors": 0,
-            "monitor_details": 0
+            "performances": 0,
+            "ticket_prices": 0,
+            "user_show_monitors": 0,
+            "user_ticket_monitors": 0
         }
         print('restore_data------json_data------', json_data)
         for platform, platform_data in json_data.items():
@@ -457,13 +461,34 @@ def restore_data(session: any, json_data: dict):
             print('restore_data------platform_data------', platform_data)
             # ================== 1. 准备所有需要保留的标识 ==================
             keep_show_ids = set()
-            keep_perform_ids = set()
-            keep_sku_ids = set()
+            keep_performances_ids = set()
+            keep_ticket_price_ids = set()
             keep_wx_tokens = set()
-            keep_monitor_details = set()
-
+            keep_user_ticket_monitors = set()
+            monitor_list = platform_data.get("monitor_list", [])
+            if len(monitor_list) <= 0 or not monitor_list:
+                # ================== 场景1：监控列表为空 ==================
+                # # 删除整个平台数据（按依赖顺序删除）
+                deleted_counts["user_ticket_monitors"] += session.query(UserTicketMonitor).filter(
+                    UserTicketMonitor.user_show_monitor_id == UserShowMonitor.monitor_id,
+                    UserShowMonitor.platform == platform
+                ).delete(synchronize_session=False)
+                deleted_counts["user_show_monitors"] += session.query(UserShowMonitor).filter(
+                    UserShowMonitor.platform == platform
+                ).delete(synchronize_session=False)
+                deleted_counts["performances"] += session.query(Performance).filter(
+                    Performance.platform == platform
+                ).delete(synchronize_session=False)
+                deleted_counts["ticket_prices"] += session.query(TicketPrice).filter(
+                    TicketPrice.platform == platform
+                ).delete(synchronize_session=False)
+                deleted_counts["shows"] += session.query(Show).filter(
+                    Show.platform == platform
+                ).delete(synchronize_session=False)
+                continue # 跳过后续处理
             # 收集需要保留的ID
-            for show_info in platform_data["monitor_list"]:
+            # 场景2：监控列表不为空
+            for show_info in monitor_list:
                 show_id = show_info["show_id"]
                 keep_show_ids.add(show_id)
 
@@ -473,86 +498,178 @@ def restore_data(session: any, json_data: dict):
 
                     for perform in person["ticket_perform"]:
                         perform_id = perform["perform_id"]
-                        keep_perform_ids.add((show_id, perform_id))
+                        keep_performances_ids.add((show_id, perform_id))
 
                         for sku in perform["sku_list"]:
                             sku_id = sku["sku_id"]
-                            keep_sku_ids.add((perform_id, sku_id))
-                            keep_monitor_details.add(
+                            keep_ticket_price_ids.add((perform_id, sku_id))
+                            keep_user_ticket_monitors.add(
                                 (wx_token, show_id, perform_id, sku_id)
                             )
 
             # ================== 2. 删除不再需要的数据 ==================
             # 删除监控详情
-            print('keep_monitor_details------', keep_monitor_details)
-            if keep_monitor_details:
-                delete_conditions = or_(
-                    and_(
-                        UserTicketMonitor.user_show_monitor_id == UserShowMonitor.monitor_id,
-                        UserShowMonitor.wx_token == tuple_[0],
-                        UserShowMonitor.show_id == tuple_[1],
-                        UserTicketMonitor.perform_id == tuple_[2],
-                        UserTicketMonitor.sku_id == tuple_[3]
-                    )
-                    for tuple_ in keep_monitor_details
-                )
-                print('keep_monitor_details------delete_conditions------', delete_conditions)
-                deleted_counts["monitor_details"] += session.query(UserTicketMonitor).filter(
-                    not_(delete_conditions)
-                ).delete(synchronize_session=False)
-                print('keep_monitor_details------deleted_counts------', deleted_counts)
+            print('keep_user_ticket_monitors------', keep_user_ticket_monitors)
+            print('keep_performances_ids------', keep_performances_ids)
+            print('keep_ticket_price_ids------', keep_ticket_price_ids)
+            print('keep_wx_tokens------', keep_wx_tokens)
+            print('keep_show_ids------', keep_show_ids)
+
+                        # 删除监控详情
+            deleted_counts["user_ticket_monitors"] += delete_records(
+                model_class=UserTicketMonitor,
+                join_model=UserShowMonitor,
+                keep_items=keep_user_ticket_monitors,
+                count_key="user_ticket_monitors",
+                join_condition=UserTicketMonitor.user_show_monitor_id == UserShowMonitor.monitor_id,
+                filter_conditions=[UserShowMonitor.platform == platform],
+                id_column=UserTicketMonitor.monitor_ticket_id,
+                session=session
+            )
+            
             # 删除用户监控
-            if keep_wx_tokens:
-                delete_conditions = or_(
-                    and_(
-                        UserShowMonitor.wx_token == tuple_[0],
-                        UserShowMonitor.show_id == tuple_[1]
-                    )
-                    for tuple_ in keep_wx_tokens
-                )
-                print('keep_wx_tokens------delete_conditions------', delete_conditions)
-                deleted_counts["user_monitors"] += session.query(UserShowMonitor).filter(
-                    UserShowMonitor.platform == platform,
-                    not_(delete_conditions)
-                ).delete(synchronize_session=False)
-                print('keep_wx_tokens------deleted_counts------', deleted_counts)
+            deleted_counts["user_show_monitors"] += delete_records(
+                model_class=UserShowMonitor,
+                join_model=None,
+                keep_items=keep_wx_tokens,
+                count_key="user_show_monitors",
+                join_condition=None,
+                filter_conditions=[UserShowMonitor.platform == platform],
+                id_column=UserShowMonitor.monitor_id,
+                session=session
+            )
+            
             # 删除票种
-            if keep_sku_ids:
-                delete_conditions = or_(
-                    and_(
-                        TicketPrice.perform_id == tuple_[0],
-                        TicketPrice.sku_id == tuple_[1]
-                    )
-                    for tuple_ in keep_sku_ids
-                )
-                print('keep_sku_ids------delete_conditions------', delete_conditions)
-                deleted_counts["skus"] += session.query(TicketPrice).filter(
-                    TicketPrice.platform == platform,
-                    not_(delete_conditions)
-                ).delete(synchronize_session=False)
-                
+            deleted_counts["ticket_prices"] += delete_records(
+                model_class=TicketPrice,
+                join_model=None,
+                keep_items=keep_ticket_price_ids,
+                count_key="ticket_prices",
+                join_condition=None,
+                filter_conditions=[TicketPrice.platform == platform],
+                id_column=TicketPrice.price_id,
+                session=session
+            )
+            
             # 删除场次
-            if keep_perform_ids:
-                delete_conditions = or_(
-                    and_(
-                        Performance.show_id == tuple_[0],
-                        Performance.perform_id == tuple_[1]
-                    )
-                    for tuple_ in keep_perform_ids
-                )
-                print('keep_perform_ids------delete_conditions------', delete_conditions)
-                deleted_counts["performs"] += session.query(Performance).filter(
-                    Performance.platform == platform,
-                    not_(delete_conditions)
-                ).delete(synchronize_session=False)
-                print('keep_perform_ids------deleted_counts------', deleted_counts)
+            deleted_counts["performances"] += delete_records(
+                model_class=Performance,
+                join_model=None,
+                keep_items=keep_performances_ids,
+                count_key="performances",
+                join_condition=None,
+                filter_conditions=[Performance.platform == platform],
+                id_column=Performance.perform_id,
+                session=session
+            )
+            
             # 删除演出
-            if keep_show_ids:
-                deleted_counts["shows"] += session.query(Show).filter(
-                    Show.platform == platform,
-                    Show.show_id.not_in(keep_show_ids)
-                ).delete(synchronize_session=False)
-                print('keep_show_ids------deleted_counts------', deleted_counts)
+            deleted_counts["shows"] += delete_records(
+                model_class=Show,
+                join_model=None,
+                keep_items=keep_show_ids,
+                count_key="shows",
+                join_condition=None,
+                filter_conditions=[Show.platform == platform],
+                id_column=Show.show_id,
+                session=session
+            )
+
+            # 上面的公共删除逻辑，就是封装下面的代码
+            # if keep_user_ticket_monitors:
+            #     # 首先获取所有需要保留的监控记录ID
+            #     keep_monitor_ids = []
+            #         # 使用连接查询获取所有符合条件的记录ID
+            #     for wx_token, show_id, perform_id, sku_id in keep_user_ticket_monitors:
+            #         # 查询符合条件的监控记录ID
+            #         monitor_ids = session.query(UserTicketMonitor.monitor_ticket_id).join(
+            #             UserShowMonitor, 
+            #             UserTicketMonitor.user_show_monitor_id == UserShowMonitor.monitor_id
+            #         ).filter(
+            #             UserShowMonitor.wx_token == wx_token,
+            #             UserShowMonitor.show_id == show_id,
+            #             UserTicketMonitor.perform_id == perform_id,
+            #             UserTicketMonitor.sku_id == sku_id,
+            #             UserShowMonitor.platform == platform
+            #         ).all()
+            #          # 将查询结果添加到保留列表
+            #         keep_monitor_ids.extend([r[0] for r in monitor_ids])
+            #     print(f'需要保留的监控记录ID: {keep_monitor_ids}')
+            #     # 如果有需要保留的记录
+            #     if keep_monitor_ids:
+            #         # 删除不在保留列表中的记录
+            #         # 使用 not in_ 操作符，这是一个有效的 SQL 表达式（也可以使用~ 操作符代替 not_）
+            #         deleted_count = session.query(UserTicketMonitor).filter(
+            #             UserTicketMonitor.monitor_ticket_id.not_in(keep_monitor_ids),
+            #             # 确保只删除当前平台的记录
+            #             UserTicketMonitor.user_show_monitor_id == UserShowMonitor.monitor_id,
+            #             UserShowMonitor.platform == platform
+            #         ).delete(synchronize_session=False)
+                    
+            #         deleted_counts["user_ticket_monitors"] += deleted_count
+            #         print(f'已删除 {deleted_count} 条不需要的监控详情记录')
+            #     else:
+            #         # 如果没有需要保留的记录，删除该平台的所有监控详情
+            #         deleted_count = session.query(UserTicketMonitor).filter(
+            #             UserTicketMonitor.user_show_monitor_id == UserShowMonitor.monitor_id,
+            #             UserShowMonitor.platform == platform
+            #         ).delete(synchronize_session=False)
+                    
+            #         deleted_counts["user_ticket_monitors"] += deleted_count
+            #         print(f'已删除平台 {platform} 的所有监控详情记录：{deleted_count} 条')
+
+            # # 删除用户监控
+            # if keep_wx_tokens:
+            #     delete_conditions = or_(
+            #         and_(
+            #             UserShowMonitor.wx_token == tuple_[0],
+            #             UserShowMonitor.show_id == tuple_[1]
+            #         )
+            #         for tuple_ in keep_wx_tokens
+            #     )
+            #     print('keep_wx_tokens------delete_conditions------', delete_conditions)
+            #     deleted_counts["user_show_monitors"] += session.query(UserShowMonitor).filter(
+            #         UserShowMonitor.platform == platform,
+            #         not_(delete_conditions)
+            #     ).delete(synchronize_session=False)
+            #     print('keep_wx_tokens------deleted_counts------', deleted_counts)
+            # # 删除票种
+            # if keep_ticket_price_ids:
+            #     delete_conditions = or_(
+            #         and_(
+            #             TicketPrice.perform_id == tuple_[0],
+            #             TicketPrice.sku_id == tuple_[1]
+            #         )
+            #         for tuple_ in keep_ticket_price_ids
+            #     )
+            #     print('keep_ticket_price_ids------delete_conditions------', delete_conditions)
+            #     deleted_counts["ticket_prices"] += session.query(TicketPrice).filter(
+            #         TicketPrice.platform == platform,
+            #         not_(delete_conditions)
+            #     ).delete(synchronize_session=False)
+                
+            # # 删除场次
+            # if keep_performances_ids:
+            #     delete_conditions = or_(
+            #         and_(
+            #             Performance.show_id == tuple_[0],
+            #             Performance.perform_id == tuple_[1]
+            #         )
+            #         for tuple_ in keep_performances_ids
+            #     )
+            #     print('keep_performances_ids------delete_conditions------', delete_conditions)
+            #     deleted_counts["performances"] += session.query(Performance).filter(
+            #         Performance.platform == platform,
+            #         not_(delete_conditions)
+            #     ).delete(synchronize_session=False)
+            #     print('keep_performances_ids------deleted_counts------', deleted_counts)
+            # # 删除演出
+            # if keep_show_ids:
+            #     deleted_counts["shows"] += session.query(Show).filter(
+            #         Show.platform == platform,
+            #         Show.show_id.not_in(keep_show_ids)
+            #     ).delete(synchronize_session=False)
+            #     print('keep_show_ids------deleted_counts------', deleted_counts)
             # ================== 3. 插入/更新数据 ==================
             # （保持原有数据插入逻辑，此处省略重复代码）
             # ... [保持之前的插入逻辑]
@@ -578,6 +695,140 @@ def restore_data(session: any, json_data: dict):
         return {"status": "error", "message": str(e)}
 
 
+# 定义通用的删除方法
+def delete_records(model_class, join_model=None, keep_items=None, count_key=None, join_condition=None, filter_conditions=None, id_column=None, session=None):
+    """
+    通用的记录删除方法
+
+    参数:
+        model_class: 要删除的模型类
+        join_model: 需要连接的模型类（可选）
+        keep_items: 需要保留的项目列表
+        count_key: 删除计数的键名
+        join_condition: 连接条件
+        filter_conditions: 过滤条件列表
+        id_column: 用于标识记录的列
+
+    返回:
+        删除的记录数量
+    """
+    if not keep_items:
+        # 如果没有需要保留的记录，直接删除所有符合条件的记录
+        if join_model and join_condition:
+            # 使用子查询方式处理连接查询的删除
+            to_delete_ids = session.query(id_column).join(
+                join_model, join_condition
+            ).filter(*filter_conditions).all()
+            
+            to_delete_ids = [r[0] for r in to_delete_ids]
+            
+            if to_delete_ids:
+                deleted_count = session.query(model_class).filter(
+                    id_column.in_(to_delete_ids)
+                ).delete(synchronize_session=False)
+                
+                print(f'已删除 {deleted_count} 条记录')
+                return deleted_count
+            return 0
+        else:
+            # 直接删除不需要连接查询
+            deleted_count = session.query(model_class).filter(
+                *filter_conditions
+            ).delete(synchronize_session=False)
+            
+            print(f'已删除 {deleted_count} 条记录')
+            return deleted_count
+    else:
+        # 有需要保留的记录，先查询需要保留的ID
+        keep_ids = []
+        
+        # 根据不同的模型类型处理不同的查询逻辑
+        if model_class == UserTicketMonitor:
+            for wx_token, show_id, perform_id, sku_id in keep_items:
+                ids = session.query(id_column).join(
+                    join_model, join_condition
+                ).filter(
+                    UserShowMonitor.wx_token == wx_token,
+                    UserShowMonitor.show_id == show_id,
+                    UserTicketMonitor.perform_id == perform_id,
+                    UserTicketMonitor.sku_id == sku_id,
+                    *filter_conditions
+                ).all()
+                
+                keep_ids.extend([r[0] for r in ids])
+        elif model_class == UserShowMonitor:
+            for wx_token, show_id in keep_items:
+                ids = session.query(id_column).filter(
+                    UserShowMonitor.wx_token == wx_token,
+                    UserShowMonitor.show_id == show_id,
+                    *filter_conditions
+                ).all()
+                
+                keep_ids.extend([r[0] for r in ids])
+        elif model_class == TicketPrice:
+            for perform_id, sku_id in keep_items:
+                ids = session.query(id_column).filter(
+                    TicketPrice.perform_id == perform_id,
+                    TicketPrice.sku_id == sku_id,
+                    *filter_conditions
+                ).all()
+                
+                keep_ids.extend([r[0] for r in ids])
+        elif model_class == Performance:
+            for show_id, perform_id in keep_items:
+                ids = session.query(id_column).filter(
+                    Performance.show_id == show_id,
+                    Performance.perform_id == perform_id,
+                    *filter_conditions
+                ).all()
+                
+                keep_ids.extend([r[0] for r in ids])
+        elif model_class == Show:
+            ids = session.query(id_column).filter(
+                Show.show_id.in_(keep_items),
+                *filter_conditions
+            ).all()
+            
+            keep_ids.extend([r[0] for r in ids])
+        
+        print(f'需要保留的记录ID: {keep_ids}')
+        
+        # 如果有需要保留的记录
+        if keep_ids:
+            # 删除不在保留列表中的记录
+            if join_model and join_condition:
+                # 使用子查询方式处理连接查询的删除
+                to_delete_ids = session.query(id_column).join(
+                    join_model, join_condition
+                ).filter(
+                    ~id_column.in_(keep_ids),
+                    *filter_conditions
+                ).all()
+                
+                to_delete_ids = [r[0] for r in to_delete_ids]
+                
+                if to_delete_ids:
+                    deleted_count = session.query(model_class).filter(
+                        id_column.in_(to_delete_ids)
+                    ).delete(synchronize_session=False)
+                    
+                    print(f'已删除 {deleted_count} 条不需要的记录')
+                    return deleted_count
+                return 0
+            else:
+                # 直接删除不需要连接查询
+                deleted_count = session.query(model_class).filter(
+                    ~id_column.in_(keep_ids),
+                    *filter_conditions
+                ).delete(synchronize_session=False)
+                
+                print(f'已删除 {deleted_count} 条不需要的记录')
+                return deleted_count
+        else:
+            # 如果没有需要保留的记录，删除所有符合条件的记录
+            return delete_records(model_class, join_model, None, count_key, 
+                                    join_condition, filter_conditions, id_column)
+        
 
 
 
