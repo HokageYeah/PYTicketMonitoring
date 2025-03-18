@@ -251,6 +251,7 @@ class New_Ticket_Monitor:
                     venue_name = monitor_list[delete_monitor_list_item_index].get('venue_name')
                     # 需要通知的wx_token也是需要删除的delete_item
                     # todo  需要通知的wx_token 此处代码先注释掉，因为微信的接口调用失败
+                    # todo  这里需要通知到微信小程序订阅号上
                     self.send_notification(delete_item, {
                         "show_name": show_name,
                         "venue_city_name": venue_city_name,
