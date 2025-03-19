@@ -46,8 +46,9 @@ async def lifespan(app: FastAPI):
             from functools import partial
             callback = partial(DamaiService().post_start_new_monitor_web, threadStop=True)
             print(f"在进程 {current_process.name} 中启动监控")
-            monitor = NewDBDataMonitor(callback)
-            monitor.start_monitor()
+            # todo 先暂停监控，测试用户信息登录
+            # monitor = NewDBDataMonitor(callback)
+            # monitor.start_monitor()
         else:
             print(f"在监控进程 {current_process.name} 中不启动监控")
         # -----------------------新增代码结束-----------------------

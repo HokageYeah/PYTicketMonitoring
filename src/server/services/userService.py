@@ -9,6 +9,8 @@ from src.sql.models.wx_msg_subscribe_user import WxMsgSubscribeUse
 from src.server.untiles.custom_exceptions import SaveSubscribeTemplateException, SendSubscribeMsgUserException
 from src.sql.models.wx_msg_subscribe_template import WxMsgSubscribeTemplate
 from src.server.schemas.wxMiniLoginSchema import WxPlatformEnum
+from src.sql.models import Show, Performance, TicketPrice, UserShowMonitor, UserTicketMonitor
+from src.server.untiles.error_handler import api_error_handler
 # 所有用户操作的服务service都放在这个类里里面
 class UserService:
     def __init__(self):
@@ -31,9 +33,10 @@ class UserService:
             self.sqlalchemy_db.add(user)
             self.sqlalchemy_db.commit()
             return user
+    @api_error_handler(platform=WxPlatformEnum.WX_MINI.value, api_path='/wx/mini.login.by.code')
     def generate_token(self, user: User):
         print('user_data---------user--generate_token--', user.username, user.password, user.openid)
-        try:
+        with get_sqlalchemy_db() as db:
             """
             生成 JWT token
             
@@ -69,13 +72,50 @@ class UserService:
             token = jwt.encode(user_data, key=private_key, algorithm='RS256')
             print('token---------', token)
             return token
-        except Exception as e:
-            print('generate_token::error---------', e)
-            return None
+        # try:
+        #     """
+        #     生成 JWT token
+            
+        #     Args:
+        #         data: 要编码的数据
+        #         secret_key: 密钥
+            
+        #     Returns:
+        #         token字符串
+        #     """
+        #     self.sqlalchemy_db = get_sqlalchemy_db()
+        #     # 读取用户信息
+        #     # user = self.sqlalchemy_db.query(User).filter(User.user_id == user.user_id).first()
+        #     # 读取私钥文件
+        #     with open(private_key_path, 'r') as f:
+        #         private_key = f.read()
+        #     user_data = {
+        #         "username": user.username,
+        #         "password": user.password,
+        #         "user_id": user.user_id,
+        #         "openid": user.openid,
+        #         "status": user.status,
+        #         "user_avatar_pic": user.user_avatar_pic,
+        #         "user_address": user.user_address,
+        #         "user_role": user.user_role
+        #     }
+        #     print('user_data---------', user_data)
+        #     # 添加过期时间（2小时）
+        #     user_data.update({
+        #         "exp": datetime.now() + timedelta(hours=2)  # 过期时间
+        #     })
+        #     #  RS256:非对称加密 HS256:对称加密
+        #     token = jwt.encode(user_data, key=private_key, algorithm='RS256')
+        #     print('token---------', token)
+        #     return token
+        # except Exception as e:
+        #     print('generate_token::error---------', e)
+        #     return None
     # 存储用户消息订阅到数据库, 接口已经鉴权判断用户是否存在
+    @api_error_handler(platform=WxPlatformEnum.WX_MINI.value, api_path='/wx/mini.save.subscribe.template', error_msg=f'订阅消息模板存储异常 (openid: {User.openid})')
     def save_user_subscribe_template(self, params: WxMiniSendSubscribeMessageParams, user: User):
-        try:
-            self.sqlalchemy_db = get_sqlalchemy_db()
+        with get_sqlalchemy_db() as db:
+            self.sqlalchemy_db = db
             # 判断WxMsgSubscribeUse表是否存在
             wx_msg_subscribe_use_exist = self.sqlalchemy_db.query(WxMsgSubscribeUse).filter(WxMsgSubscribeUse.openid == user.openid).first()
             template_id = params.templateList[0].get('templateId')
@@ -97,15 +137,45 @@ class UserService:
                 wx_msg_subscribe_use_exist.template_id = template_id
                 wx_msg_subscribe_use_exist.subscribe_status = subscribe_status
             self.sqlalchemy_db.commit()
-            return wx_msg_subscribe_use_exist
-        except Exception as e:
-            print('save_user_subscribe_template::error---------', e)
-            raise SaveSubscribeTemplateException(user.openid)
+            return {
+                'template_id': template_id,
+                'subscribe_status': subscribe_status
+            }
+        # try:
+        #     self.sqlalchemy_db = get_sqlalchemy_db()
+        #     # 判断WxMsgSubscribeUse表是否存在
+        #     wx_msg_subscribe_use_exist = self.sqlalchemy_db.query(WxMsgSubscribeUse).filter(WxMsgSubscribeUse.openid == user.openid).first()
+        #     template_id = params.templateList[0].get('templateId')
+        #     subscribe_status = params.templateList[0].get('subscribeStatus')
+        #     # 不存在则创建
+        #     wx_msg_subscribe_use = WxMsgSubscribeUse(
+        #         user_id=user.user_id,
+        #         openid=user.openid,
+        #         template_id=template_id,
+        #         subscribe_status=subscribe_status
+        #     )
+        #     if not wx_msg_subscribe_use_exist:
+        #         print('wx_msg_subscribe_use_exist---------模板不存在', wx_msg_subscribe_use)
+        #         self.sqlalchemy_db.add(wx_msg_subscribe_use)
+        #     else:
+        #         # 存在则更新
+        #         print('wx_msg_subscribe_use_exist---------模板存在', wx_msg_subscribe_use)
+        #         # 更新
+        #         wx_msg_subscribe_use_exist.template_id = template_id
+        #         wx_msg_subscribe_use_exist.subscribe_status = subscribe_status
+        #     self.sqlalchemy_db.commit()
+        #     return wx_msg_subscribe_use_exist
+        # except Exception as e:
+        #     print('save_user_subscribe_template::error---------', e)
+        #     raise SaveSubscribeTemplateException(user.openid)
+    @api_error_handler(platform=WxPlatformEnum.WX_MINI.value, api_path='/wx/mini.create.subscribe.template')
     def create_subscribe_template(self, miniprogram_state):
-        try:
+        # 手动暴露一个问题让程序能够调用api_error_handler
+        # raise Exception('手动暴露一个问题让程序能够调用api_error_handler')
+        with get_sqlalchemy_db() as db:
             template_id = 'YcOF2JL-yxU5rHL3oAhZq_srkY5epENXsMqgYbXNJiU'
             page = 'pages/home/concert-detail'
-            self.sqlalchemy_db = get_sqlalchemy_db()
+            self.sqlalchemy_db = db
             subscribe_template = self.sqlalchemy_db.query(WxMsgSubscribeTemplate).filter(WxMsgSubscribeTemplate.template_id == template_id).first()
             # 创建模板数据
             template_data = WxMsgSubscribeTemplate(
@@ -132,24 +202,31 @@ class UserService:
                 'api': '/wx/mini.create.subscribe.template'
                 
             }
-        except Exception as e:
-            print('create_subscribe_template::error---------', e)
-            return {
-                'platform': WxPlatformEnum.WX_MINI.value,
-                'ret': ["ERROR::模板创建失败"],
-                'data': {},
-                'v': 1,
-                'api': '/wx/mini.create.subscribe.template'
-            }
     # 查询获取用户的模板信息
+    @api_error_handler(platform=WxPlatformEnum.WX_MINI.value, api_path='/wx/mini.send.subscribe.message')
     def get_user_subscribe_template(self, user: User):
-        self.sqlalchemy_db = get_sqlalchemy_db()
-        # 关联表查询 根据用户id查询WxMsgSubscribeUse获取template_id, 在根据template_id查询WxMsgSubscribeTemplate获取模板信息
-        subscribe_template = self.sqlalchemy_db.query(WxMsgSubscribeUse).filter(WxMsgSubscribeUse.user_id == user.user_id).first()
-        if subscribe_template:
-            subscribe_template_id = subscribe_template.template_id
-            template_info = self.sqlalchemy_db.query(WxMsgSubscribeTemplate).filter(WxMsgSubscribeTemplate.template_id == subscribe_template_id).first()
-            print('template_info---------', template_info)
-            return template_info
-        else:
-            raise SendSubscribeMsgUserException(user.openid)
+        with get_sqlalchemy_db() as db:
+            self.sqlalchemy_db = db
+            # 关联表查询 根据用户id查询WxMsgSubscribeUse获取template_id, 在根据template_id查询WxMsgSubscribeTemplate获取模板信息
+            subscribe_template = self.sqlalchemy_db.query(WxMsgSubscribeUse).filter(WxMsgSubscribeUse.user_id == user.user_id).first()
+            if subscribe_template:
+                subscribe_template_id = subscribe_template.template_id
+                template_info = self.sqlalchemy_db.query(WxMsgSubscribeTemplate).filter(WxMsgSubscribeTemplate.template_id == subscribe_template_id).first()
+                print('template_info---------', template_info)
+                return {
+                    'template_id': template_info.template_id,
+                    'template_name': template_info.template_name,
+                    'template_content': template_info.template_content,
+                    'page': template_info.page,
+                    'miniprogram_state': template_info.miniprogram_state
+                }
+            else:
+                raise SendSubscribeMsgUserException(user.openid)
+    # 获取用户订阅监控列表
+    @api_error_handler(platform=WxPlatformEnum.WX_MINI.value, api_path='/wx/mini.get.user.subscribe.monitor.list')
+    def get_user_subscribe_monitor_list(self, user: User):
+        with get_sqlalchemy_db() as db:
+            self.sqlalchemy_db = db
+            subscribe_template = self.sqlalchemy_db.query(UserShowMonitor.show_id).filter(UserShowMonitor.user_id == user.user_id).all()
+            print('subscribe_template---------', subscribe_template)
+            return subscribe_template

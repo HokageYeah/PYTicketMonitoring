@@ -799,7 +799,7 @@ class DamaiService:
     # 记录用户需要监控的演唱会、场次、座次、时间、微信token、 监控时间
     def post_record_monitor_web(self, params: RecordMonitorParams):
         try:
-            # 调用数据库处理
+            # 方案一、调用数据库处理（目前正在使用）
             monitor_db_operate.db_operate(params, PlatformEnum.DM.value)
             return {
                 "platform": PlatformEnum.DM,
@@ -810,7 +810,7 @@ class DamaiService:
                 "ret": ["SUCCESS::调用成功"],
                 "v": 1
             }
-            # 方案二，将数据写入到db_config.json文件中（不推荐）
+            # 方案二、将数据写入到db_config.json文件中（不推荐）
             # 更新获取大麦网写入到db_config.json文件中的数据信息
             self.ticket_monitor.get_db_config()
             if not self.ticket_monitor.db_config["DM"].get("monitor_list",[]):

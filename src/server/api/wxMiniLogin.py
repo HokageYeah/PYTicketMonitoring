@@ -45,7 +45,7 @@ async def wx_mini_get_access_token(
     return None
 
 # 微信订阅消息模板存储
-@wx_router.post('/wx/mini.save.subscribe.template')
+@wx_router.post('/wx/mini.save.subscribe.template', response_model=WxMiniApiResponse)
 async def wx_mini_save_subscribe_template(
     platform: str = Query(WxPlatformEnum.WX_MINI.value, description="平台名称"),
     params: WxMiniSendSubscribeMessageParams = Depends(validate_wx_mini_send_subscribe_message_params),
@@ -56,7 +56,7 @@ async def wx_mini_save_subscribe_template(
         return res
     return None
 # 微信发送订阅消息 subscribe-wx-template
-@wx_router.post('/wx/mini.send.subscribe.message')
+@wx_router.post('/wx/mini.send.subscribe.message', response_model=WxMiniApiResponse)
 async def wx_mini_send_subscribe_message(
     platform: str = Query(WxPlatformEnum.WX_MINI.value, description="平台名称"),
     user: User = Depends(get_current_user)
@@ -69,9 +69,19 @@ async def wx_mini_send_subscribe_message(
     return None
 
 # 创建订阅消息模板
-@wx_router.get("/wx/mini.create.subscribe.template")
+@wx_router.get("/wx/mini.create.subscribe.template", response_model=WxMiniApiResponse)
 def create_subscribe_template(miniprogram_state: str):
     return user_service.create_subscribe_template(miniprogram_state)
+
+# 获取当前用户的订阅监控列表
+@wx_router.post('/wx/mini.get.user.subscribe.monitor.list', response_model=WxMiniApiResponse)
+async def get_user_subscribe_monitor_list(
+    platform: str = Query(WxPlatformEnum.WX_MINI.value, description="平台名称"),
+    user: User = Depends(get_current_user)
+):
+    if platform.value == WxPlatformEnum.WX_MINI.value:
+        return wx_service.get_user_subscribe_monitor_list(user)
+    return None
 
 @wx_router.get("/wx/mini.get.users")
 def get_users(db: Session = Depends(get_sqlalchemy_db)):
@@ -87,7 +97,7 @@ def create_user(db: Session = Depends(get_sqlalchemy_db), params: CreateUserPara
     return user
 
 
-# 需要JWT认证的路由
+# 需要JWT认证的路由（例子）
 # Depends(get_current_user) 是 FastAPI 的依赖注入模式。这表示这个路由函数依赖于 get_current_user 函数的返回结果。
 @wx_router.post("/wx/mini.profile.detail")
 async def get_user_profile(data: dict, current_user: User = Depends(get_current_user)):

@@ -94,8 +94,8 @@ class WxService:
                 template_info = user_service.get_user_subscribe_template(user)
                 params = {
                     "touser": user.openid,
-                    "template_id": template_info.template_id,
-                    "page": template_info.page,
+                    "template_id": template_info['template_id'],
+                    "page": template_info['page'],
                     "data": {
                         "thing1": {"value": "王瑛捷郑州演唱会"},
                         "time2": {"value": "2023-10-01 10:00"},
@@ -106,6 +106,13 @@ class WxService:
                 }
                 response = requests.post(url, json=params)
                 print('WxService---wx_mini_send_subscribe_message---response-----', response)
+                return {
+                    'platform': WxPlatformEnum.WX_MINI.value,
+                    'ret': ["SUCCESS::发送订阅消息成功"],
+                    'data': response.json(),
+                    'v': 1,
+                    'api': '/wx/mini.send.subscribe.message'
+                }
             except SendSubscribeMsgUserException as e:
                 return e.to_response()
     # 微信订阅消息模板存储
