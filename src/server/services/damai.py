@@ -21,6 +21,8 @@ import time
 import re
 from src.server.untiles.New_Ticket_Monitor import New_Ticket_Monitor
 from src.sql.monitor.monitor_db_operate import MonitorDbOperate
+from src.server.untiles.res_handler import damai_response_handler
+from src.sql.models.user import User
 logger = logging.getLogger(__name__)
 monitor_db_operate = MonitorDbOperate()
 class DamaiService:
@@ -797,10 +799,10 @@ class DamaiService:
             ]
         }
     # 记录用户需要监控的演唱会、场次、座次、时间、微信token、 监控时间
-    def post_record_monitor_web(self, params: RecordMonitorParams):
+    def post_record_monitor_web(self, params: RecordMonitorParams, user: User):
         try:
             # 方案一、调用数据库处理（目前正在使用）
-            monitor_db_operate.db_operate(params, PlatformEnum.DM.value)
+            monitor_db_operate.db_operate(params, PlatformEnum.DM.value, user)
             return {
                 "platform": PlatformEnum.DM,
                 "api": 'record.monitor.by.platform',
@@ -911,3 +913,19 @@ class DamaiService:
                 "ret": [f"ERROR::调用票务监控数据失败{e}"],
                 "v": 1
             }
+    # 测试damai_api_error_handler接口调用 暂时先不改
+    # ------todo 上面的请求也需要改成装饰器damai_response_handler的模式 ---------
+    @damai_response_handler(api_path='/web/test.damai.api.error.handler', error_msg='测试问题', success_msg='测试成功')
+    def get_test_damai_api_error_handler(self):
+        test = 1
+        if test == 1:
+            # 手动触发异常
+            raise Exception('手动触发异常')
+        elif test == 2:
+            return {
+                "ret": ["ERROR::测试问题"],
+            }
+        else:
+            return {
+                 'test': 1
+                }

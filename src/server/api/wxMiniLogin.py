@@ -1,9 +1,18 @@
 
 # 微信小程序登录
 from fastapi import APIRouter
-from src.server.schemas.wxMiniLoginSchema import WxMiniLoginParams, WxPlatformEnum, WxMiniApiResponse
+from src.server.schemas.wxMiniLoginSchema import \
+    WxMiniLoginParams, \
+    WxPlatformEnum, \
+    WxMiniApiResponse, \
+    WxMiniGetUserSubscribeMonitorListParams, \
+    WxMiniDeleteUserSubscribeMonitorParams
 from fastapi import Query, Body, Depends
-from src.server.api.endpoints.validate_params import validate_wx_mini_login_params, validate_create_user_params, validate_wx_mini_send_subscribe_message_params
+from src.server.api.endpoints.validate_params import \
+    validate_wx_mini_login_params, validate_create_user_params, \
+    validate_wx_mini_send_subscribe_message_params, \
+    validate_wx_mini_get_user_subscribe_monitor_list_params, \
+    validate_wx_mini_delete_user_subscribe_monitor_params
 from src.server.services.wx import WxService
 from src.sql.models.user import User
 from sqlalchemy.orm import Session
@@ -65,7 +74,7 @@ async def wx_mini_send_subscribe_message(
     print('wx_mini_send_subscribe_message---params.platform---------', WxPlatformEnum.WX_MINI.value)
     if platform == WxPlatformEnum.WX_MINI.value:
         send_subscribe_message_data = wx_service.wx_mini_send_subscribe_message(user)
-        return send_subscribe_message_data
+        return send_subscribe_message_data  
     return None
 
 # 创建订阅消息模板
@@ -77,10 +86,21 @@ def create_subscribe_template(miniprogram_state: str):
 @wx_router.post('/wx/mini.get.user.subscribe.monitor.list', response_model=WxMiniApiResponse)
 async def get_user_subscribe_monitor_list(
     platform: str = Query(WxPlatformEnum.WX_MINI.value, description="平台名称"),
+    params: WxMiniGetUserSubscribeMonitorListParams = Depends(validate_wx_mini_get_user_subscribe_monitor_list_params),
     user: User = Depends(get_current_user)
 ):
-    if platform.value == WxPlatformEnum.WX_MINI.value:
-        return wx_service.get_user_subscribe_monitor_list(user)
+    if platform == WxPlatformEnum.WX_MINI.value:
+        return user_service.get_user_subscribe_monitor_list(user, params)
+    return None
+# 删除当前用户的正在订阅的监控
+@wx_router.post('/wx/mini.delete.user.subscribe.monitor', response_model=WxMiniApiResponse)
+async def delete_user_subscribe_monitor(
+    platform: str = Query(WxPlatformEnum.WX_MINI.value, description="平台名称"),
+    params: WxMiniDeleteUserSubscribeMonitorParams = Depends(validate_wx_mini_delete_user_subscribe_monitor_params),
+    user: User = Depends(get_current_user)
+):
+    if platform == WxPlatformEnum.WX_MINI.value:
+        return user_service.delete_user_subscribe_monitor(user, params)
     return None
 
 @wx_router.get("/wx/mini.get.users")

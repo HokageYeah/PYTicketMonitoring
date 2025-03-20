@@ -10,6 +10,8 @@ import asyncio
 import threading
 import time
 from src.server.untiles.Src_Path import db_config_path
+from src.server.middleware.jwt_auth import get_current_user
+from src.sql.models.user import User
 
 logger = logging.getLogger(__name__)
 router = APIRouter()
@@ -152,11 +154,12 @@ async def get_check_ticket(
 @router.post('/web/record.monitor.by.platform', response_model=ApiResponseData)
 async def post_record_monitor(
     platform: PlatformEnum = Query(PlatformEnum.DM, description="平台名称"),
-    params: RecordMonitorParams = Depends(validate_record_monitor_params)
+    params: RecordMonitorParams = Depends(validate_record_monitor_params),
+    user: User = Depends(get_current_user)
     ):
     if platform.value == PlatformEnum.DM.value:
         print('params---------', params)
-        return damai.post_record_monitor_web(params)
+        return damai.post_record_monitor_web(params, user)
     return None
 # 调用票务监控开始 测试需要更改
 @router.post('/web/start.monitor.by.platform')
@@ -168,6 +171,11 @@ async def post_start_monitor(
     if platform.value == PlatformEnum.DM.value:
         damai.post_start_monitor_web()
     return None
+
+# 测试damai_api_error_handler接口调用
+@router.get('/web/test.damai.api.error.handler', response_model=ApiResponseData)
+async def get_test_damai_api_error_handler():
+    return damai.get_test_damai_api_error_handler()
 
 # 测试循环调用接口
 @router.get("/b")

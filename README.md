@@ -179,6 +179,14 @@ docker run -d --restart=unless-stopped -v /etc/ticket-monitor/config.json:/app/c
        id: int
        name: str
    ```
+9. cachetools
+   说明：cachetools 是一个python的库，可以方便的进行缓存管理，可以减少数据库查询，提高接口响应速度。
+   使用：
+   ```python
+   from cachetools import TTLCache
+   cache = TTLCache(maxsize=1000, ttl=60)
+   cache['key'] = 'value'
+   ```
 #### python项目转换为 HTTPS
 首先，你需要获取 SSL 证书。有几种方式：
 - 使用自签名证书（开发环境）

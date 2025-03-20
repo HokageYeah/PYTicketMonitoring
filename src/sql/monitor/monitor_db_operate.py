@@ -1,19 +1,20 @@
 # 从models包中导入模型，确保所有模型都已正确初始化
 from src.sql.models import Performance, TicketPrice, Show, UserShowMonitor, UserTicketMonitor
+from src.sql.models.user import User
 from src.sql.sqlalchemy_db import get_sqlalchemy_db
 from src.server.schemas.concert import RecordMonitorParams, TicketPerform
 
 class MonitorDbOperate:
     def __init__(self):
         self.sqlalchemy_db = None
-    def db_operate(self, params: RecordMonitorParams, platform: str):
+    def db_operate(self, params: RecordMonitorParams, platform: str, user: User):
         with get_sqlalchemy_db() as db:
             self.sqlalchemy_db = db
             # 判断show数据库中是否存在
             show_exist = self.sqlalchemy_db.query(Show).filter(Show.show_id == params.show_id).first()
-            wx_token = params.wx_token
+            wx_token = user.openid
             deadline = params.deadline
-            user_id = params.user_id
+            user_id = user.user_id
             if not show_exist:
                 # 不存在数据库创建
                 show_exist = self.add_show_sql(params, platform)

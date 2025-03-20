@@ -1,6 +1,6 @@
 from src.server.schemas.concert import RecordMonitorParams
 from fastapi import HTTPException, Body
-from src.server.schemas.wxMiniLoginSchema import WxMiniLoginParams, CreateUserParams, WxMiniSendSubscribeMessageParams
+from src.server.schemas.wxMiniLoginSchema import WxMiniLoginParams, CreateUserParams, WxMiniSendSubscribeMessageParams, WxMiniGetUserSubscribeMonitorListParams, WxMiniDeleteUserSubscribeMonitorParams
 from pydantic import BaseModel
 from src.server.schemas.wxMiniLoginSchema import WxMiniGetAccessTokenParams
 
@@ -41,6 +41,11 @@ async def validate_wx_mini_send_subscribe_message_params(params: WxMiniSendSubsc
     required_fields = [name for name, field in WxMiniSendSubscribeMessageParams.model_fields.items() if field.default is ...]
     return validate_common_method(params, required_fields)
 
+async def validate_wx_mini_get_user_subscribe_monitor_list_params(params: WxMiniGetUserSubscribeMonitorListParams = Body(...)) -> WxMiniGetUserSubscribeMonitorListParams:
+    # 获取必需字段
+    required_fields = [name for name, field in WxMiniGetUserSubscribeMonitorListParams.model_fields.items() if field.default is ...]
+    return validate_common_method(params, required_fields)
+
 async def validate_create_user_params(params: CreateUserParams = Body(...)) -> CreateUserParams:
     # 获取必需字段
     required_fields = [name for name, field in CreateUserParams.model_fields.items() if field.default is ...]
@@ -51,6 +56,10 @@ async def validate_wx_mini_get_access_token_params(params: WxMiniGetAccessTokenP
     required_fields = [name for name, field in WxMiniGetAccessTokenParams.model_fields.items() if field.default is ...]
     return validate_common_method(params, required_fields)
 
+async def validate_wx_mini_delete_user_subscribe_monitor_params(params: WxMiniDeleteUserSubscribeMonitorParams = Body(...)) -> WxMiniDeleteUserSubscribeMonitorParams:
+    # 获取必需字段
+    required_fields = [name for name, field in WxMiniDeleteUserSubscribeMonitorParams.model_fields.items() if field.default is ...]
+    return validate_common_method(params, required_fields)
 
 # 一下AI生成代码，可以通过装饰器优化上面代码
 # T = TypeVar('T', bound=BaseModel)

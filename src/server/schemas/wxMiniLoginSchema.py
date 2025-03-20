@@ -30,3 +30,13 @@ class WxMiniGetAccessTokenParams(BaseModel):
     appid: str
     secret: str
 
+
+class WxMiniGetUserSubscribeMonitorListParams(BaseModel):
+    page: int = Field(default=1)
+    pageSize: int = Field(default=10)
+
+class WxMiniDeleteUserSubscribeMonitorParams(BaseModel):
+    show_id: int
+    perform_id: int
+    sku_ids: list[int]
+
