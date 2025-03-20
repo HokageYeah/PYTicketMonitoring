@@ -22,6 +22,7 @@ from src.sql.models import Show, Performance, TicketPrice, UserShowMonitor, User
 from sqlalchemy.orm import joinedload
 from src.sql.sqlalchemy_db import get_sqlalchemy_db
 from sqlalchemy import delete, not_, and_, or_
+from src.server.untiles.res_handler import api_response_handler
 class New_Ticket_Monitor:
     def __init__(self):
         self.db_config = {}
@@ -33,6 +34,7 @@ class New_Ticket_Monitor:
         self.access_token = ''
         self.delete_monitor_list = []
     # 发送通知的实现
+    @api_response_handler(api_path='/wx/mini.send.subscribe.message', success_msg='发送通知成功', error_msg='发送通知失败')
     def send_notification(self, delete_item, send_info, delete_ticket_perform_index, delete_sku_perform_index):
         # 获取需要通知的wx_token
         wx_token = delete_item.get('wx_token')
@@ -90,6 +92,7 @@ class New_Ticket_Monitor:
         }
         self.access_token = self.wx_notice.get_access_token()
         # 获取用户微信openid列表
+        # todo 这里需要优化，因为微信的接口调用失败，所以需要优化
         user_wx_openid_dict = self.wx_notice.get_user_wx_openid_list(self.access_token, '')
         # 发送通知
         for wx_token in user_wx_openid_dict.get('data').get('openid'):
