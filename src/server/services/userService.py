@@ -381,6 +381,9 @@ class UserService:
                 *delete_conditions
             ).delete(synchronize_session=False)
             # 检查并清理孤立的用户监控记录
+            # 使用 outerjoin (外连接)将 UserShowMonitor 表与 UserTicketMonitor 表连接起来
+            # 连接条件是 UserShowMonitor.monitor_id == UserTicketMonitor.user_show_monitor_id
+            # 外连接的特点是：即使在 UserTicketMonitor 表中没有匹配的记录， UserShowMonitor 的记录也会被保留在结果中
             orphaned_monitors = db.query(UserShowMonitor).outerjoin(
                 UserTicketMonitor,
                 UserShowMonitor.monitor_id == UserTicketMonitor.user_show_monitor_id
