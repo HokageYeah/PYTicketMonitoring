@@ -93,7 +93,8 @@ class MonitorDbOperate:
             show_name=params.show_name,
             venue_city_name=params.venue_city_name,
             venue_name=params.venue_name,
-            platform=platform
+            platform=platform,
+            cover_url=params.cover_url
         )
         self.sqlalchemy_db.add(show)
         self.sqlalchemy_db.commit()

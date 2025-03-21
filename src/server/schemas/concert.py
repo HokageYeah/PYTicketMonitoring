@@ -1,5 +1,5 @@
 from pydantic import BaseModel, Field, field_validator
-from typing import List, Optional
+from typing import List, Optional, Union
 from enum import Enum
 from typing_extensions import TypedDict, NotRequired
 class PlatformEnum(Enum):
@@ -16,7 +16,8 @@ class City(BaseModel):
 class ApiResponseData(BaseModel):
     platform: PlatformEnum
     api: str
-    data: dict
+    # data: dict | list # python 3.10 以上支持
+    data: Union[dict, list, None, str]
     ret: list[str]
     v: int
 
@@ -41,6 +42,7 @@ class RecordMonitorParams(BaseModel):
     time: Optional[str] = Field(None, description="可选参数") # 将 time 标记为可选
     wx_token: str # 微信token (发送监控通知)
     deadline: str # 监控时间持续时间
+    cover_url: str # 封面
     @field_validator('wx_token')
     def validate_wx_token(cls, v):
         if not v:

@@ -1,5 +1,7 @@
 from pydantic import BaseModel, Field
 from enum import Enum
+from src.server.schemas.concert import PlatformEnum
+from typing import Union
 class WxPlatformEnum(Enum):
     WX_MINI = "WX_MINI" # 微信小程序
     WX_H5 = "WX_H5" # 微信H5
@@ -7,7 +9,8 @@ class WxPlatformEnum(Enum):
 class WxMiniApiResponse(BaseModel):
     platform: str
     ret: list[str]
-    data: dict
+    # data: dict | list # python 3.10 以上支持
+    data: Union[dict, list, None, str]
     v: int
     api: str
 
@@ -32,6 +35,7 @@ class WxMiniGetAccessTokenParams(BaseModel):
 
 
 class WxMiniGetUserSubscribeMonitorListParams(BaseModel):
+    platform: str = Field(default=PlatformEnum.DM.value) # 平台
     page: int = Field(default=1)
     pageSize: int = Field(default=10)
 

@@ -287,6 +287,9 @@ class UserService:
                         "show_name": show.show_name,
                         "venue_city_name": show.venue_city_name,
                         "venue_name": show.venue_name,
+                        "cover_url": show.cover_url if show.cover_url else '',
+                        # 如果没有给空字符串
+                        "poster_url": show.poster_url if show.poster_url else '',
                         "deadline": None,
                         "performances": []  # 直接在演出层级包含场次信息
                     }
@@ -303,11 +306,12 @@ class UserService:
                         for ticket_monitor in monitor.ticket_monitors:
                             performance = ticket_monitor.performance
                             ticket_price = ticket_monitor.ticket_price
-                            perform_map[performance.perform_id] = {
-                                "perform_id": performance.perform_id,
-                                "perform_name": performance.perform_name,
-                                "tickets": []  # 直接在场次层级包含票种信息
-                            }
+                            if performance.perform_id not in perform_map:
+                                perform_map[performance.perform_id] = {
+                                    "perform_id": performance.perform_id,
+                                    "perform_name": performance.perform_name,
+                                    "tickets": []  # 直接在场次层级包含票种信息
+                                }
                             # 创建票种信息
                             ticket_info = {
                                 "sku_id": ticket_price.sku_id,
@@ -315,6 +319,7 @@ class UserService:
                             }
                             print('ticket_info---------', ticket_info)
                             print('perform_map[performance.perform_id]---------', perform_map[performance.perform_id])
+                            print('perform_map---------1', perform_map)
                             # 避免重复添加相同的票种
                             if not any(
                                 existing["sku_id"] == ticket_info["sku_id"] and 
@@ -322,6 +327,7 @@ class UserService:
                                 for existing in perform_map[performance.perform_id]["tickets"]
                             ):
                                 perform_map[performance.perform_id]["tickets"].append(ticket_info)
+                                print('perform_map---------2', perform_map)
                     # 将场次信息添加到演出条目中
                     print('perform_map---------', perform_map)
                     print('show_entry---------', show_entry)
@@ -330,7 +336,21 @@ class UserService:
                     platform_data.append(show_entry)
                 result[platform] = platform_data
             print('result---------', result)
-            return result
+            print('result.get(params.platform)---------', result.get(params.platform))
+            print('params.platform---------', params.platform)
+            if params.platform in result:
+                return result[params.platform]
+            elif params.platform is '':
+                # 返回所有平台
+                values = result.values()
+                # 将多个平台的数据合并
+                merged_data = []
+                for platform_data in values:
+                    merged_data.extend(platform_data)
+                print('merged_data---------', merged_data)
+                return merged_data
+            else:
+                return []
     # 删除用户订阅监控
     @wx_mini_response_handler(api_path='/wx/mini.delete.user.subscribe.monitor', error_msg='删除用户订阅监控调用失败', success_msg='删除用户订阅监控调用成功')
     @clear_cache(cache, 'subscribe_monitor_list')

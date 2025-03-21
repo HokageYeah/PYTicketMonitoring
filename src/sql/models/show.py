@@ -13,6 +13,10 @@ class Show(Base):
     venue_name = Column(String(50), nullable=False, comment='场馆名称')
     created_at = Column(DateTime, nullable=False, server_default=text('CURRENT_TIMESTAMP'))
     updated_at = Column(DateTime, nullable=False, server_default=text('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'))
+    # 封面
+    cover_url = Column(String(255), nullable=True, comment='封面URL')
+    # 海报 可以为空
+    poster_url = Column(String(255), nullable=True, comment='海报URL')
     # 平台
     platform = Column(String(20), nullable=False, comment='平台')
     # 关系定义

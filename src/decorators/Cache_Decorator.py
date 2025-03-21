@@ -7,10 +7,23 @@ def cache_result(cache, start_cache_key):
         def wrapper(self, *args, **kwargs):
             # 使用wx_token作为缓存键
             # 判断 args是不是user类型
+            # 尝试获取 platform 属性
+            platform = None
+            if len(args) > 1:
+                platform = getattr(args[1], 'platform', None)
             if isinstance(args[0], User):
-                cache_key = f"{start_cache_key}_{args[0].user_id}"
+                # 判断agrs有没有第二个参数，且是不是字典，有没有plaform字段
+                print('args---------[1]', args[1])
+                if platform is not None:
+                    cache_key = f"{start_cache_key}_{args[0].user_id}_{platform}"
+                else:
+                    cache_key = f"{start_cache_key}_{args[0].user_id}"
             elif isinstance(kwargs[0], User):
-                cache_key = f"{start_cache_key}_{kwargs[0].user_id}"
+                # 判断kwargs有没有第二个参数，且是不是字典，有没有plaform字段
+                if platform is not None:
+                    cache_key = f"{start_cache_key}_{kwargs[0].user_id}_{platform}"
+                else:
+                    cache_key = f"{start_cache_key}_{kwargs[0].user_id}"
             else:
                 cache_key = f"{start_cache_key}"
             print('cache_result------cache_key---------', cache_key)
