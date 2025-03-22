@@ -72,9 +72,9 @@ class UserService:
                 "user_role": user.user_role
             }
             print('user_data---------', user_data)
-            # 添加过期时间（2小时）
+            # 添加过期时间（1天）
             user_data.update({
-                "exp": datetime.now() + timedelta(hours=2)  # 过期时间
+                "exp": datetime.now() + timedelta(days=1)  # 过期时间
             })
             #  RS256:非对称加密 HS256:对称加密
             token = jwt.encode(user_data, key=private_key, algorithm='RS256')
@@ -223,7 +223,7 @@ class UserService:
                 raise SendSubscribeMsgUserException(user.openid)
     # 获取用户订阅监控列表
     @wx_mini_response_handler(api_path='/wx/mini.get.user.subscribe.monitor.list', error_msg='获取用户订阅监控列表调用失败', success_msg='获取用户订阅监控列表调用成功')
-    @cache_result(cache, 'subscribe_monitor_list')
+    # @cache_result(cache, 'subscribe_monitor_list')
     def get_user_subscribe_monitor_list(self, user: User, params: WxMiniGetUserSubscribeMonitorListParams):
         with get_sqlalchemy_db() as db:
             self.sqlalchemy_db = db
@@ -290,6 +290,7 @@ class UserService:
                         "cover_url": show.cover_url if show.cover_url else '',
                         # 如果没有给空字符串
                         "poster_url": show.poster_url if show.poster_url else '',
+                        "platform": platform,
                         "deadline": None,
                         "performances": []  # 直接在演出层级包含场次信息
                     }
@@ -354,14 +355,10 @@ class UserService:
     # 删除用户订阅监控
     @wx_mini_response_handler(api_path='/wx/mini.delete.user.subscribe.monitor', error_msg='删除用户订阅监控调用失败', success_msg='删除用户订阅监控调用成功')
     @clear_cache(cache, 'subscribe_monitor_list')
-    def delete_user_subscribe_monitor(self, user: User, params: WxMiniDeleteUserSubscribeMonitorParams):
+    def delete_user_subscribe_monitor(self, user: User, paramsList: WxMiniDeleteUserSubscribeMonitorParams):
         with get_sqlalchemy_db() as db:
             self.sqlalchemy_db = db
             user_id = user.user_id
-            show_id = params.show_id
-            perform_id = params.perform_id
-            sku_ids = params.sku_ids if hasattr(params, 'sku_ids') else []
-            print('sku_ids---------', sku_ids)
             # 初始化删除计数器
             deleted_counts = {
                 "user_ticket_monitors": 0,
@@ -370,100 +367,105 @@ class UserService:
                 "performances": 0,
                 "shows": 0
             }
-            user_show_monitors = self.sqlalchemy_db.query(UserShowMonitor).filter(
-                UserShowMonitor.user_id == user_id,
-                UserShowMonitor.show_id == show_id
-            ).options(joinedload(UserShowMonitor.ticket_monitors).load_only(
-                UserTicketMonitor.monitor_ticket_id,
-                UserTicketMonitor.user_show_monitor_id,
-                UserTicketMonitor.perform_id,
-                UserTicketMonitor.sku_id
-            )).all()
-            if not user_show_monitors:
-                return {
-                    'ret': ['ERROR::未找到监控记录'],
-                }
-            # 获取用户监控ID列表
-            monitor_ids = [monitor.monitor_id for monitor in user_show_monitors]
-            # 构建删除条件
-            delete_conditions = [UserTicketMonitor.user_show_monitor_id.in_(monitor_ids)]
-            if perform_id:
-                delete_conditions.append(UserTicketMonitor.perform_id == perform_id)
-            if sku_ids:
-                delete_conditions.append(UserTicketMonitor.sku_id.in_(sku_ids))
-            # 3. 删除符合条件的监控详情
-            # 先获取要删除的记录，用于后续清理
-            to_delete_monitors = db.query(UserTicketMonitor).filter(*delete_conditions).all()
-            print('to_delete_monitors---------', [monitor.monitor_ticket_id for monitor in to_delete_monitors])
-            # 删除监控详情
-            # 执行删除
-            deleted_counts["user_ticket_monitors"] = db.query(UserTicketMonitor).filter(
-                *delete_conditions
-            ).delete(synchronize_session=False)
-            # 检查并清理孤立的用户监控记录
-            # 使用 outerjoin (外连接)将 UserShowMonitor 表与 UserTicketMonitor 表连接起来
-            # 连接条件是 UserShowMonitor.monitor_id == UserTicketMonitor.user_show_monitor_id
-            # 外连接的特点是：即使在 UserTicketMonitor 表中没有匹配的记录， UserShowMonitor 的记录也会被保留在结果中
-            orphaned_monitors = db.query(UserShowMonitor).outerjoin(
-                UserTicketMonitor,
-                UserShowMonitor.monitor_id == UserTicketMonitor.user_show_monitor_id
-            ).filter(
-                UserShowMonitor.user_id == user_id,
-                UserShowMonitor.show_id == show_id,
-                UserTicketMonitor.monitor_ticket_id == None
-            ).all()
-            for monitor in orphaned_monitors:
-                print('monitor---------', monitor.monitor_id)
-                print('monitor_ticket_id---monitor---------', monitor.ticket_monitors)
-                for ticket_monitor in monitor.ticket_monitors:
-                    print('ticket_monitor---------', ticket_monitor.monitor_ticket_id)
-            print('orphaned_monitors---------', orphaned_monitors)
-            orphaned_monitor_ids = [monitor.monitor_id for monitor in orphaned_monitors]
-            if orphaned_monitor_ids:
-                deleted_counts["user_show_monitors"] = db.query(UserShowMonitor).filter(
-                    UserShowMonitor.monitor_id.in_(orphaned_monitor_ids)
+            print('paramsList.delete_list---------', paramsList)
+            for params in paramsList.delete_list: 
+                show_id = params.show_id
+                perform_id = params.perform_id
+                sku_ids = params.sku_ids if hasattr(params, 'sku_ids') else []
+                print('sku_ids---------', sku_ids)
+                user_show_monitors = self.sqlalchemy_db.query(UserShowMonitor).filter(
+                    UserShowMonitor.user_id == user_id,
+                    UserShowMonitor.show_id == show_id
+                ).options(joinedload(UserShowMonitor.ticket_monitors).load_only(
+                    UserTicketMonitor.monitor_ticket_id,
+                    UserTicketMonitor.user_show_monitor_id,
+                    UserTicketMonitor.perform_id,
+                    UserTicketMonitor.sku_id
+                )).all()
+                if not user_show_monitors:
+                    return {
+                        'ret': ['ERROR::未找到监控记录'],
+                    }
+                # 获取用户监控ID列表
+                monitor_ids = [monitor.monitor_id for monitor in user_show_monitors]
+                # 构建删除条件
+                delete_conditions = [UserTicketMonitor.user_show_monitor_id.in_(monitor_ids)]
+                if perform_id:
+                    delete_conditions.append(UserTicketMonitor.perform_id == perform_id)
+                if sku_ids:
+                    delete_conditions.append(UserTicketMonitor.sku_id.in_(sku_ids))
+                # 3. 删除符合条件的监控详情
+                # 先获取要删除的记录，用于后续清理
+                to_delete_monitors = db.query(UserTicketMonitor).filter(*delete_conditions).all()
+                print('to_delete_monitors---------', [monitor.monitor_ticket_id for monitor in to_delete_monitors])
+                # 删除监控详情
+                # 执行删除
+                deleted_counts["user_ticket_monitors"] = db.query(UserTicketMonitor).filter(
+                    *delete_conditions
                 ).delete(synchronize_session=False)
-               # 5. 检查是否需要清理票种
-            if sku_ids and perform_id:
-                for sku_id in sku_ids:
-                    # 检查该票种是否还有其他用户在监控
+                # 检查并清理孤立的用户监控记录
+                # 使用 outerjoin (外连接)将 UserShowMonitor 表与 UserTicketMonitor 表连接起来
+                # 连接条件是 UserShowMonitor.monitor_id == UserTicketMonitor.user_show_monitor_id
+                # 外连接的特点是：即使在 UserTicketMonitor 表中没有匹配的记录， UserShowMonitor 的记录也会被保留在结果中
+                orphaned_monitors = db.query(UserShowMonitor).outerjoin(
+                    UserTicketMonitor,
+                    UserShowMonitor.monitor_id == UserTicketMonitor.user_show_monitor_id
+                ).filter(
+                    UserShowMonitor.user_id == user_id,
+                    UserShowMonitor.show_id == show_id,
+                    UserTicketMonitor.monitor_ticket_id == None
+                ).all()
+                for monitor in orphaned_monitors:
+                    print('monitor---------', monitor.monitor_id)
+                    print('monitor_ticket_id---monitor---------', monitor.ticket_monitors)
+                    for ticket_monitor in monitor.ticket_monitors:
+                        print('ticket_monitor---------', ticket_monitor.monitor_ticket_id)
+                print('orphaned_monitors---------', orphaned_monitors)
+                orphaned_monitor_ids = [monitor.monitor_id for monitor in orphaned_monitors]
+                if orphaned_monitor_ids:
+                    deleted_counts["user_show_monitors"] = db.query(UserShowMonitor).filter(
+                        UserShowMonitor.monitor_id.in_(orphaned_monitor_ids)
+                    ).delete(synchronize_session=False)
+                # 5. 检查是否需要清理票种
+                if sku_ids and perform_id:
+                    for sku_id in sku_ids:
+                        # 检查该票种是否还有其他用户在监控
+                        has_monitors = db.query(UserTicketMonitor).filter(
+                            UserTicketMonitor.perform_id == perform_id,
+                            UserTicketMonitor.sku_id == sku_id
+                        ).first() is not None
+                        
+                        if not has_monitors:
+                            # 删除该票种
+                            deleted_counts["ticket_prices"] += db.query(TicketPrice).filter(
+                                TicketPrice.perform_id == perform_id,
+                                TicketPrice.sku_id == sku_id
+                            ).delete(synchronize_session=False)
+                
+                # 6. 检查是否需要清理场次
+                if perform_id:
+                    # 检查该场次是否还有监控
                     has_monitors = db.query(UserTicketMonitor).filter(
-                        UserTicketMonitor.perform_id == perform_id,
-                        UserTicketMonitor.sku_id == sku_id
+                        UserTicketMonitor.perform_id == perform_id
                     ).first() is not None
                     
                     if not has_monitors:
-                        # 删除该票种
-                        deleted_counts["ticket_prices"] += db.query(TicketPrice).filter(
-                            TicketPrice.perform_id == perform_id,
-                            TicketPrice.sku_id == sku_id
+                        # 删除该场次
+                        deleted_counts["performances"] += db.query(Performance).filter(
+                            Performance.perform_id == perform_id
                         ).delete(synchronize_session=False)
-            
-            # 6. 检查是否需要清理场次
-            if perform_id:
-                # 检查该场次是否还有监控
-                has_monitors = db.query(UserTicketMonitor).filter(
-                    UserTicketMonitor.perform_id == perform_id
+                
+                # 7. 检查是否需要清理演出
+                # 检查该演出是否还有监控
+                has_show_monitors = db.query(UserShowMonitor).filter(
+                    UserShowMonitor.show_id == show_id
                 ).first() is not None
                 
-                if not has_monitors:
-                    # 删除该场次
-                    deleted_counts["performances"] += db.query(Performance).filter(
-                        Performance.perform_id == perform_id
+                if not has_show_monitors:
+                    # 删除该演出
+                    deleted_counts["shows"] += db.query(Show).filter(
+                        Show.show_id == show_id
                     ).delete(synchronize_session=False)
-            
-            # 7. 检查是否需要清理演出
-            # 检查该演出是否还有监控
-            has_show_monitors = db.query(UserShowMonitor).filter(
-                UserShowMonitor.show_id == show_id
-            ).first() is not None
-            
-            if not has_show_monitors:
-                # 删除该演出
-                deleted_counts["shows"] += db.query(Show).filter(
-                    Show.show_id == show_id
-                ).delete(synchronize_session=False)
-            
             # 提交事务
             db.commit()
             return {

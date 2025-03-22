@@ -39,8 +39,11 @@ class WxMiniGetUserSubscribeMonitorListParams(BaseModel):
     page: int = Field(default=1)
     pageSize: int = Field(default=10)
 
-class WxMiniDeleteUserSubscribeMonitorParams(BaseModel):
+class WxMiniDeleteUserSubscribeMonitor(BaseModel):
     show_id: int
     perform_id: int
     sku_ids: list[int]
+
+class WxMiniDeleteUserSubscribeMonitorParams(BaseModel):
+    delete_list: list[WxMiniDeleteUserSubscribeMonitor]
 
