@@ -2050,3 +2050,106 @@ FROM shows
 WHERE shows.show_id = %(pk_1)s
 2025-03-22 16:30:05.186 [base.py:1901] : [cached since 675.4s ago] {'pk_1': '896118209331'}
 2025-03-22 16:30:05.198 [base.py:1123] : ROLLBACK
+2025-03-24 23:12:23.684 [base.py:1843] : SELECT DATABASE()
+2025-03-24 23:12:23.686 [base.py:1843] : [raw sql] {}
+2025-03-24 23:12:23.688 [base.py:1843] : SELECT @@sql_mode
+2025-03-24 23:12:23.688 [base.py:1843] : [raw sql] {}
+2025-03-24 23:12:23.690 [base.py:1843] : SELECT @@lower_case_table_names
+2025-03-24 23:12:23.691 [base.py:1843] : [raw sql] {}
+2025-03-24 23:12:23.692 [base.py:2699] : BEGIN (implicit)
+2025-03-24 23:12:23.694 [base.py:1843] : SELECT 1
+2025-03-24 23:12:23.694 [base.py:1843] : [generated in 0.00090s] {}
+2025-03-24 23:12:23.695 [sqlalchemy_db.py:44] : sqlalchemy数据库连接成功
+2025-03-24 23:12:23.696 [base.py:2702] : ROLLBACK
+2025-03-24 23:12:26.175 [base.py:1843] : SELECT DATABASE()
+2025-03-24 23:12:26.176 [base.py:1843] : [raw sql] {}
+2025-03-24 23:12:26.178 [base.py:1843] : SELECT @@sql_mode
+2025-03-24 23:12:26.179 [base.py:1843] : [raw sql] {}
+2025-03-24 23:12:26.180 [base.py:1843] : SELECT @@lower_case_table_names
+2025-03-24 23:12:26.181 [base.py:1843] : [raw sql] {}
+2025-03-24 23:12:26.182 [base.py:2699] : BEGIN (implicit)
+2025-03-24 23:12:26.184 [base.py:1843] : SELECT 1
+2025-03-24 23:12:26.185 [base.py:1843] : [generated in 0.00137s] {}
+2025-03-24 23:12:26.186 [sqlalchemy_db.py:44] : sqlalchemy数据库连接成功
+2025-03-24 23:12:26.187 [base.py:2702] : ROLLBACK
+2025-03-24 23:12:26.227 [selector_events.py:64] : Using selector: SelectSelector
+2025-03-24 23:12:26.292 [base.py:1843] : SELECT DATABASE()
+2025-03-24 23:12:26.292 [base.py:1843] : [raw sql] {}
+2025-03-24 23:12:26.294 [base.py:1843] : SELECT @@sql_mode
+2025-03-24 23:12:26.295 [base.py:1843] : [raw sql] {}
+2025-03-24 23:12:26.296 [base.py:1843] : SELECT @@lower_case_table_names
+2025-03-24 23:12:26.296 [base.py:1843] : [raw sql] {}
+2025-03-24 23:12:26.298 [base.py:2699] : BEGIN (implicit)
+2025-03-24 23:12:26.298 [base.py:1843] : SELECT 1
+2025-03-24 23:12:26.299 [base.py:1843] : [generated in 0.00077s] {}
+2025-03-24 23:12:26.300 [sqlalchemy_db.py:44] : sqlalchemy数据库连接成功
+2025-03-24 23:12:26.301 [base.py:2702] : ROLLBACK
+2025-03-25 00:03:10.440 [base.py:1843] : SELECT DATABASE()
+2025-03-25 00:03:10.441 [base.py:1843] : [raw sql] {}
+2025-03-25 00:03:10.447 [base.py:1843] : SELECT @@sql_mode
+2025-03-25 00:03:10.448 [base.py:1843] : [raw sql] {}
+2025-03-25 00:03:10.450 [base.py:1843] : SELECT @@lower_case_table_names
+2025-03-25 00:03:10.452 [base.py:1843] : [raw sql] {}
+2025-03-25 00:03:10.454 [base.py:2699] : BEGIN (implicit)
+2025-03-25 00:03:10.456 [base.py:1843] : SELECT 1
+2025-03-25 00:03:10.456 [base.py:1843] : [generated in 0.00128s] {}
+2025-03-25 00:03:10.458 [sqlalchemy_db.py:44] : sqlalchemy数据库连接成功
+2025-03-25 00:03:10.460 [base.py:2702] : ROLLBACK
+2025-03-25 00:03:10.505 [selector_events.py:64] : Using selector: SelectSelector
+2025-03-25 00:03:10.576 [base.py:1843] : SELECT DATABASE()
+2025-03-25 00:03:10.577 [base.py:1843] : [raw sql] {}
+2025-03-25 00:03:10.578 [base.py:1843] : SELECT @@sql_mode
+2025-03-25 00:03:10.579 [base.py:1843] : [raw sql] {}
+2025-03-25 00:03:10.580 [base.py:1843] : SELECT @@lower_case_table_names
+2025-03-25 00:03:10.582 [base.py:1843] : [raw sql] {}
+2025-03-25 00:03:10.583 [base.py:2699] : BEGIN (implicit)
+2025-03-25 00:03:10.585 [base.py:1843] : SELECT 1
+2025-03-25 00:03:10.585 [base.py:1843] : [generated in 0.00125s] {}
+2025-03-25 00:03:10.587 [sqlalchemy_db.py:44] : sqlalchemy数据库连接成功
+2025-03-25 00:03:10.587 [base.py:2702] : ROLLBACK
+2025-03-25 00:07:45.869 [base.py:1843] : SELECT DATABASE()
+2025-03-25 00:07:45.870 [base.py:1843] : [raw sql] {}
+2025-03-25 00:07:45.873 [base.py:1843] : SELECT @@sql_mode
+2025-03-25 00:07:45.874 [base.py:1843] : [raw sql] {}
+2025-03-25 00:07:45.875 [base.py:1843] : SELECT @@lower_case_table_names
+2025-03-25 00:07:45.876 [base.py:1843] : [raw sql] {}
+2025-03-25 00:07:45.878 [base.py:2699] : BEGIN (implicit)
+2025-03-25 00:07:45.879 [base.py:1843] : SELECT 1
+2025-03-25 00:07:45.880 [base.py:1843] : [generated in 0.00130s] {}
+2025-03-25 00:07:45.881 [sqlalchemy_db.py:44] : sqlalchemy数据库连接成功
+2025-03-25 00:07:45.882 [base.py:2702] : ROLLBACK
+2025-03-25 00:07:45.921 [selector_events.py:64] : Using selector: SelectSelector
+2025-03-25 00:07:45.977 [base.py:1843] : SELECT DATABASE()
+2025-03-25 00:07:45.978 [base.py:1843] : [raw sql] {}
+2025-03-25 00:07:45.982 [base.py:1843] : SELECT @@sql_mode
+2025-03-25 00:07:45.983 [base.py:1843] : [raw sql] {}
+2025-03-25 00:07:45.985 [base.py:1843] : SELECT @@lower_case_table_names
+2025-03-25 00:07:45.986 [base.py:1843] : [raw sql] {}
+2025-03-25 00:07:45.988 [base.py:2699] : BEGIN (implicit)
+2025-03-25 00:07:45.989 [base.py:1843] : SELECT 1
+2025-03-25 00:07:45.989 [base.py:1843] : [generated in 0.00103s] {}
+2025-03-25 00:07:45.990 [sqlalchemy_db.py:44] : sqlalchemy数据库连接成功
+2025-03-25 00:07:45.991 [base.py:2702] : ROLLBACK
+2025-03-25 00:08:45.682 [base.py:1843] : SELECT DATABASE()
+2025-03-25 00:08:45.683 [base.py:1843] : [raw sql] {}
+2025-03-25 00:08:45.686 [base.py:1843] : SELECT @@sql_mode
+2025-03-25 00:08:45.687 [base.py:1843] : [raw sql] {}
+2025-03-25 00:08:45.688 [base.py:1843] : SELECT @@lower_case_table_names
+2025-03-25 00:08:45.688 [base.py:1843] : [raw sql] {}
+2025-03-25 00:08:45.690 [base.py:2699] : BEGIN (implicit)
+2025-03-25 00:08:45.691 [base.py:1843] : SELECT 1
+2025-03-25 00:08:45.692 [base.py:1843] : [generated in 0.00097s] {}
+2025-03-25 00:08:45.693 [sqlalchemy_db.py:44] : sqlalchemy数据库连接成功
+2025-03-25 00:08:45.693 [base.py:2702] : ROLLBACK
+2025-03-25 00:08:45.735 [selector_events.py:64] : Using selector: SelectSelector
+2025-03-25 00:08:45.788 [base.py:1843] : SELECT DATABASE()
+2025-03-25 00:08:45.789 [base.py:1843] : [raw sql] {}
+2025-03-25 00:08:45.790 [base.py:1843] : SELECT @@sql_mode
+2025-03-25 00:08:45.791 [base.py:1843] : [raw sql] {}
+2025-03-25 00:08:45.792 [base.py:1843] : SELECT @@lower_case_table_names
+2025-03-25 00:08:45.793 [base.py:1843] : [raw sql] {}
+2025-03-25 00:08:45.794 [base.py:2699] : BEGIN (implicit)
+2025-03-25 00:08:45.795 [base.py:1843] : SELECT 1
+2025-03-25 00:08:45.796 [base.py:1843] : [generated in 0.00081s] {}
+2025-03-25 00:08:45.797 [sqlalchemy_db.py:44] : sqlalchemy数据库连接成功
+2025-03-25 00:08:45.798 [base.py:2702] : ROLLBACK

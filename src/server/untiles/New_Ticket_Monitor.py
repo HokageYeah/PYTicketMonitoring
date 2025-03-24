@@ -23,6 +23,9 @@ from sqlalchemy.orm import joinedload
 from src.sql.sqlalchemy_db import get_sqlalchemy_db
 from sqlalchemy import delete, not_, and_, or_
 from src.server.untiles.res_handler import api_response_handler
+from src.server.services.wx import WxService
+wx_service = WxService()
+
 class New_Ticket_Monitor:
     def __init__(self):
         self.db_config = {}
@@ -260,6 +263,10 @@ class New_Ticket_Monitor:
                         "venue_city_name": venue_city_name,
                         "venue_name": venue_name,
                     }, delete_ticket_perform_index, delete_sku_perform_index)
+                    # 调用自身写的接口/wx/mini.send.subscribe.message
+                    # todo 这里需要通知到微信小程序订阅号
+                    wx_service.wx_mini_send_subscribe_message(delete_item)
+
                     # 通知完成后删除通知后的数据
                     monitor_list[delete_monitor_list_item_index].get('monitor_person')[delete_person_index].get('ticket_perform')[delete_ticket_perform_index].get('sku_list')[delete_sku_perform_index] = None
                     if all(item is None for item in monitor_list[delete_monitor_list_item_index].get('monitor_person')[delete_person_index].get('ticket_perform')[delete_ticket_perform_index].get('sku_list')):
