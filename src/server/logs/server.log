@@ -4067,3 +4067,393 @@ FROM user_ticket_monitors
 2025-03-25 20:13:24.123 [base.py:1901] : [generated in 0.00020s] {}
 2025-03-25 20:13:24.123 [sqlalchemy_db.py:44] : sqlalchemyÊï∞ÊçÆÂ∫ìËøûÊé•ÊàêÂäü
 2025-03-25 20:13:24.123 [base.py:1123] : ROLLBACK
+2025-03-25 22:58:53.796 [base.py:1843] : SELECT DATABASE()
+2025-03-25 22:58:53.797 [base.py:1843] : [raw sql] {}
+2025-03-25 22:58:53.800 [base.py:1843] : SELECT @@sql_mode
+2025-03-25 22:58:53.800 [base.py:1843] : [raw sql] {}
+2025-03-25 22:58:53.802 [base.py:1843] : SELECT @@lower_case_table_names
+2025-03-25 22:58:53.803 [base.py:1843] : [raw sql] {}
+2025-03-25 22:58:53.805 [base.py:2699] : BEGIN (implicit)
+2025-03-25 22:58:53.806 [base.py:1843] : SELECT 1
+2025-03-25 22:58:53.807 [base.py:1843] : [generated in 0.00091s] {}
+2025-03-25 22:58:53.808 [sqlalchemy_db.py:44] : sqlalchemy ˝æ›ø‚¡¨Ω”≥…π¶
+2025-03-25 22:58:53.810 [base.py:2702] : ROLLBACK
+2025-03-25 22:58:56.877 [base.py:1843] : SELECT DATABASE()
+2025-03-25 22:58:56.877 [base.py:1843] : [raw sql] {}
+2025-03-25 22:58:56.879 [base.py:1843] : SELECT @@sql_mode
+2025-03-25 22:58:56.880 [base.py:1843] : [raw sql] {}
+2025-03-25 22:58:56.882 [base.py:1843] : SELECT @@lower_case_table_names
+2025-03-25 22:58:56.882 [base.py:1843] : [raw sql] {}
+2025-03-25 22:58:56.884 [base.py:2699] : BEGIN (implicit)
+2025-03-25 22:58:56.886 [base.py:1843] : SELECT 1
+2025-03-25 22:58:56.886 [base.py:1843] : [generated in 0.00105s] {}
+2025-03-25 22:58:56.887 [sqlalchemy_db.py:44] : sqlalchemy ˝æ›ø‚¡¨Ω”≥…π¶
+2025-03-25 22:58:56.888 [base.py:2702] : ROLLBACK
+2025-03-25 22:58:56.930 [selector_events.py:64] : Using selector: SelectSelector
+2025-03-25 22:58:56.994 [base.py:1843] : SELECT DATABASE()
+2025-03-25 22:58:56.994 [base.py:1843] : [raw sql] {}
+2025-03-25 22:58:56.996 [base.py:1843] : SELECT @@sql_mode
+2025-03-25 22:58:56.997 [base.py:1843] : [raw sql] {}
+2025-03-25 22:58:56.998 [base.py:1843] : SELECT @@lower_case_table_names
+2025-03-25 22:58:56.999 [base.py:1843] : [raw sql] {}
+2025-03-25 22:58:57.000 [base.py:2699] : BEGIN (implicit)
+2025-03-25 22:58:57.001 [base.py:1843] : SELECT 1
+2025-03-25 22:58:57.002 [base.py:1843] : [generated in 0.00125s] {}
+2025-03-25 22:58:57.003 [sqlalchemy_db.py:44] : sqlalchemy ˝æ›ø‚¡¨Ω”≥…π¶
+2025-03-25 22:58:57.004 [base.py:2702] : ROLLBACK
+2025-03-25 23:06:11.821 [base.py:1843] : SELECT DATABASE()
+2025-03-25 23:06:11.822 [base.py:1843] : [raw sql] {}
+2025-03-25 23:06:11.824 [base.py:1843] : SELECT @@sql_mode
+2025-03-25 23:06:11.824 [base.py:1843] : [raw sql] {}
+2025-03-25 23:06:11.826 [base.py:1843] : SELECT @@lower_case_table_names
+2025-03-25 23:06:11.826 [base.py:1843] : [raw sql] {}
+2025-03-25 23:06:11.827 [base.py:2699] : BEGIN (implicit)
+2025-03-25 23:06:11.829 [base.py:1843] : SELECT 1
+2025-03-25 23:06:11.829 [base.py:1843] : [generated in 0.00076s] {}
+2025-03-25 23:06:11.830 [sqlalchemy_db.py:44] : sqlalchemy ˝æ›ø‚¡¨Ω”≥…π¶
+2025-03-25 23:06:11.831 [base.py:2702] : ROLLBACK
+2025-03-25 23:06:11.872 [selector_events.py:64] : Using selector: SelectSelector
+2025-03-25 23:06:11.961 [base.py:1843] : SELECT DATABASE()
+2025-03-25 23:06:11.961 [base.py:1843] : [raw sql] {}
+2025-03-25 23:06:11.963 [base.py:1843] : SELECT @@sql_mode
+2025-03-25 23:06:11.963 [base.py:1843] : [raw sql] {}
+2025-03-25 23:06:11.965 [base.py:1843] : SELECT @@lower_case_table_names
+2025-03-25 23:06:11.965 [base.py:1843] : [raw sql] {}
+2025-03-25 23:06:11.967 [base.py:2699] : BEGIN (implicit)
+2025-03-25 23:06:11.968 [base.py:1843] : SELECT 1
+2025-03-25 23:06:11.969 [base.py:1843] : [generated in 0.00107s] {}
+2025-03-25 23:06:11.970 [sqlalchemy_db.py:44] : sqlalchemy ˝æ›ø‚¡¨Ω”≥…π¶
+2025-03-25 23:06:11.970 [base.py:2702] : ROLLBACK
+2025-03-25 23:08:05.328 [base.py:1843] : SELECT DATABASE()
+2025-03-25 23:08:05.330 [base.py:1843] : [raw sql] {}
+2025-03-25 23:08:05.332 [base.py:1843] : SELECT @@sql_mode
+2025-03-25 23:08:05.332 [base.py:1843] : [raw sql] {}
+2025-03-25 23:08:05.334 [base.py:1843] : SELECT @@lower_case_table_names
+2025-03-25 23:08:05.335 [base.py:1843] : [raw sql] {}
+2025-03-25 23:08:05.336 [base.py:2699] : BEGIN (implicit)
+2025-03-25 23:08:05.338 [base.py:1843] : SELECT 1
+2025-03-25 23:08:05.339 [base.py:1843] : [generated in 0.00124s] {}
+2025-03-25 23:08:05.340 [sqlalchemy_db.py:44] : sqlalchemy ˝æ›ø‚¡¨Ω”≥…π¶
+2025-03-25 23:08:05.341 [base.py:2702] : ROLLBACK
+2025-03-25 23:08:05.386 [selector_events.py:64] : Using selector: SelectSelector
+2025-03-25 23:08:05.441 [base.py:1843] : SELECT DATABASE()
+2025-03-25 23:08:05.441 [base.py:1843] : [raw sql] {}
+2025-03-25 23:08:05.443 [base.py:1843] : SELECT @@sql_mode
+2025-03-25 23:08:05.443 [base.py:1843] : [raw sql] {}
+2025-03-25 23:08:05.444 [base.py:1843] : SELECT @@lower_case_table_names
+2025-03-25 23:08:05.444 [base.py:1843] : [raw sql] {}
+2025-03-25 23:08:05.445 [base.py:2699] : BEGIN (implicit)
+2025-03-25 23:08:05.447 [base.py:1843] : SELECT 1
+2025-03-25 23:08:05.448 [base.py:1843] : [generated in 0.00093s] {}
+2025-03-25 23:08:05.449 [sqlalchemy_db.py:44] : sqlalchemy ˝æ›ø‚¡¨Ω”≥…π¶
+2025-03-25 23:08:05.450 [base.py:2702] : ROLLBACK
+2025-03-25 23:08:15.830 [base.py:1843] : SELECT DATABASE()
+2025-03-25 23:08:15.831 [base.py:1843] : [raw sql] {}
+2025-03-25 23:08:15.833 [base.py:1843] : SELECT @@sql_mode
+2025-03-25 23:08:15.834 [base.py:1843] : [raw sql] {}
+2025-03-25 23:08:15.835 [base.py:1843] : SELECT @@lower_case_table_names
+2025-03-25 23:08:15.836 [base.py:1843] : [raw sql] {}
+2025-03-25 23:08:15.837 [base.py:2699] : BEGIN (implicit)
+2025-03-25 23:08:15.839 [base.py:1843] : SELECT 1
+2025-03-25 23:08:15.839 [base.py:1843] : [generated in 0.00100s] {}
+2025-03-25 23:08:15.841 [sqlalchemy_db.py:44] : sqlalchemy ˝æ›ø‚¡¨Ω”≥…π¶
+2025-03-25 23:08:15.841 [base.py:2702] : ROLLBACK
+2025-03-25 23:08:15.885 [selector_events.py:64] : Using selector: SelectSelector
+2025-03-25 23:08:15.938 [base.py:1843] : SELECT DATABASE()
+2025-03-25 23:08:15.939 [base.py:1843] : [raw sql] {}
+2025-03-25 23:08:15.940 [base.py:1843] : SELECT @@sql_mode
+2025-03-25 23:08:15.941 [base.py:1843] : [raw sql] {}
+2025-03-25 23:08:15.942 [base.py:1843] : SELECT @@lower_case_table_names
+2025-03-25 23:08:15.943 [base.py:1843] : [raw sql] {}
+2025-03-25 23:08:15.944 [base.py:2699] : BEGIN (implicit)
+2025-03-25 23:08:15.945 [base.py:1843] : SELECT 1
+2025-03-25 23:08:15.946 [base.py:1843] : [generated in 0.00114s] {}
+2025-03-25 23:08:15.948 [sqlalchemy_db.py:44] : sqlalchemy ˝æ›ø‚¡¨Ω”≥…π¶
+2025-03-25 23:08:15.948 [base.py:2702] : ROLLBACK
+2025-03-25 23:15:58.767 [base.py:1843] : SELECT DATABASE()
+2025-03-25 23:15:58.768 [base.py:1843] : [raw sql] {}
+2025-03-25 23:15:58.771 [base.py:1843] : SELECT @@sql_mode
+2025-03-25 23:15:58.772 [base.py:1843] : [raw sql] {}
+2025-03-25 23:15:58.773 [base.py:1843] : SELECT @@lower_case_table_names
+2025-03-25 23:15:58.774 [base.py:1843] : [raw sql] {}
+2025-03-25 23:15:58.775 [base.py:2699] : BEGIN (implicit)
+2025-03-25 23:15:58.777 [base.py:1843] : SELECT 1
+2025-03-25 23:15:58.778 [base.py:1843] : [generated in 0.00103s] {}
+2025-03-25 23:15:58.779 [sqlalchemy_db.py:44] : sqlalchemy ˝æ›ø‚¡¨Ω”≥…π¶
+2025-03-25 23:15:58.779 [base.py:2702] : ROLLBACK
+2025-03-25 23:15:58.821 [selector_events.py:64] : Using selector: SelectSelector
+2025-03-25 23:15:58.888 [base.py:1843] : SELECT DATABASE()
+2025-03-25 23:15:58.889 [base.py:1843] : [raw sql] {}
+2025-03-25 23:15:58.891 [base.py:1843] : SELECT @@sql_mode
+2025-03-25 23:15:58.891 [base.py:1843] : [raw sql] {}
+2025-03-25 23:15:58.893 [base.py:1843] : SELECT @@lower_case_table_names
+2025-03-25 23:15:58.893 [base.py:1843] : [raw sql] {}
+2025-03-25 23:15:58.895 [base.py:2699] : BEGIN (implicit)
+2025-03-25 23:15:58.896 [base.py:1843] : SELECT 1
+2025-03-25 23:15:58.896 [base.py:1843] : [generated in 0.00072s] {}
+2025-03-25 23:15:58.897 [sqlalchemy_db.py:44] : sqlalchemy ˝æ›ø‚¡¨Ω”≥…π¶
+2025-03-25 23:15:58.898 [base.py:2702] : ROLLBACK
+2025-03-25 23:16:35.998 [base.py:1843] : SELECT DATABASE()
+2025-03-25 23:16:35.999 [base.py:1843] : [raw sql] {}
+2025-03-25 23:16:36.000 [base.py:1843] : SELECT @@sql_mode
+2025-03-25 23:16:36.001 [base.py:1843] : [raw sql] {}
+2025-03-25 23:16:36.003 [base.py:1843] : SELECT @@lower_case_table_names
+2025-03-25 23:16:36.003 [base.py:1843] : [raw sql] {}
+2025-03-25 23:16:36.005 [base.py:2699] : BEGIN (implicit)
+2025-03-25 23:16:36.006 [base.py:1843] : SELECT 1
+2025-03-25 23:16:36.006 [base.py:1843] : [generated in 0.00069s] {}
+2025-03-25 23:16:36.009 [sqlalchemy_db.py:44] : sqlalchemy ˝æ›ø‚¡¨Ω”≥…π¶
+2025-03-25 23:16:36.010 [base.py:2702] : ROLLBACK
+2025-03-25 23:16:36.061 [selector_events.py:64] : Using selector: SelectSelector
+2025-03-25 23:16:36.131 [base.py:1843] : SELECT DATABASE()
+2025-03-25 23:16:36.132 [base.py:1843] : [raw sql] {}
+2025-03-25 23:16:36.133 [base.py:1843] : SELECT @@sql_mode
+2025-03-25 23:16:36.134 [base.py:1843] : [raw sql] {}
+2025-03-25 23:16:36.135 [base.py:1843] : SELECT @@lower_case_table_names
+2025-03-25 23:16:36.136 [base.py:1843] : [raw sql] {}
+2025-03-25 23:16:36.137 [base.py:2699] : BEGIN (implicit)
+2025-03-25 23:16:36.138 [base.py:1843] : SELECT 1
+2025-03-25 23:16:36.139 [base.py:1843] : [generated in 0.00074s] {}
+2025-03-25 23:16:36.140 [sqlalchemy_db.py:44] : sqlalchemy ˝æ›ø‚¡¨Ω”≥…π¶
+2025-03-25 23:16:36.141 [base.py:2702] : ROLLBACK
+2025-03-25 23:17:03.984 [base.py:1843] : SELECT DATABASE()
+2025-03-25 23:17:03.984 [base.py:1843] : [raw sql] {}
+2025-03-25 23:17:03.986 [base.py:1843] : SELECT @@sql_mode
+2025-03-25 23:17:03.987 [base.py:1843] : [raw sql] {}
+2025-03-25 23:17:03.989 [base.py:1843] : SELECT @@lower_case_table_names
+2025-03-25 23:17:03.990 [base.py:1843] : [raw sql] {}
+2025-03-25 23:17:03.992 [base.py:2699] : BEGIN (implicit)
+2025-03-25 23:17:03.994 [base.py:1843] : SELECT 1
+2025-03-25 23:17:03.994 [base.py:1843] : [generated in 0.00093s] {}
+2025-03-25 23:17:03.995 [sqlalchemy_db.py:44] : sqlalchemy ˝æ›ø‚¡¨Ω”≥…π¶
+2025-03-25 23:17:03.996 [base.py:2702] : ROLLBACK
+2025-03-25 23:17:04.040 [selector_events.py:64] : Using selector: SelectSelector
+2025-03-25 23:17:04.095 [base.py:1843] : SELECT DATABASE()
+2025-03-25 23:17:04.095 [base.py:1843] : [raw sql] {}
+2025-03-25 23:17:04.097 [base.py:1843] : SELECT @@sql_mode
+2025-03-25 23:17:04.098 [base.py:1843] : [raw sql] {}
+2025-03-25 23:17:04.100 [base.py:1843] : SELECT @@lower_case_table_names
+2025-03-25 23:17:04.100 [base.py:1843] : [raw sql] {}
+2025-03-25 23:17:04.102 [base.py:2699] : BEGIN (implicit)
+2025-03-25 23:17:04.103 [base.py:1843] : SELECT 1
+2025-03-25 23:17:04.103 [base.py:1843] : [generated in 0.00080s] {}
+2025-03-25 23:17:04.104 [sqlalchemy_db.py:44] : sqlalchemy ˝æ›ø‚¡¨Ω”≥…π¶
+2025-03-25 23:17:04.105 [base.py:2702] : ROLLBACK
+2025-03-25 23:20:12.277 [base.py:1843] : SELECT DATABASE()
+2025-03-25 23:20:12.277 [base.py:1843] : [raw sql] {}
+2025-03-25 23:20:12.280 [base.py:1843] : SELECT @@sql_mode
+2025-03-25 23:20:12.280 [base.py:1843] : [raw sql] {}
+2025-03-25 23:20:12.282 [base.py:1843] : SELECT @@lower_case_table_names
+2025-03-25 23:20:12.282 [base.py:1843] : [raw sql] {}
+2025-03-25 23:20:12.283 [base.py:2699] : BEGIN (implicit)
+2025-03-25 23:20:12.284 [base.py:1843] : SELECT 1
+2025-03-25 23:20:12.285 [base.py:1843] : [generated in 0.00093s] {}
+2025-03-25 23:20:12.286 [sqlalchemy_db.py:44] : sqlalchemy ˝æ›ø‚¡¨Ω”≥…π¶
+2025-03-25 23:20:12.287 [base.py:2702] : ROLLBACK
+2025-03-25 23:20:12.332 [selector_events.py:64] : Using selector: SelectSelector
+2025-03-25 23:20:12.393 [base.py:1843] : SELECT DATABASE()
+2025-03-25 23:20:12.394 [base.py:1843] : [raw sql] {}
+2025-03-25 23:20:12.396 [base.py:1843] : SELECT @@sql_mode
+2025-03-25 23:20:12.396 [base.py:1843] : [raw sql] {}
+2025-03-25 23:20:12.397 [base.py:1843] : SELECT @@lower_case_table_names
+2025-03-25 23:20:12.398 [base.py:1843] : [raw sql] {}
+2025-03-25 23:20:12.399 [base.py:2699] : BEGIN (implicit)
+2025-03-25 23:20:12.400 [base.py:1843] : SELECT 1
+2025-03-25 23:20:12.400 [base.py:1843] : [generated in 0.00066s] {}
+2025-03-25 23:20:12.401 [sqlalchemy_db.py:44] : sqlalchemy ˝æ›ø‚¡¨Ω”≥…π¶
+2025-03-25 23:20:12.401 [base.py:2702] : ROLLBACK
+2025-03-25 23:20:31.595 [base.py:1843] : SELECT DATABASE()
+2025-03-25 23:20:31.596 [base.py:1843] : [raw sql] {}
+2025-03-25 23:20:31.598 [base.py:1843] : SELECT @@sql_mode
+2025-03-25 23:20:31.599 [base.py:1843] : [raw sql] {}
+2025-03-25 23:20:31.600 [base.py:1843] : SELECT @@lower_case_table_names
+2025-03-25 23:20:31.601 [base.py:1843] : [raw sql] {}
+2025-03-25 23:20:31.602 [base.py:2699] : BEGIN (implicit)
+2025-03-25 23:20:31.604 [base.py:1843] : SELECT 1
+2025-03-25 23:20:31.605 [base.py:1843] : [generated in 0.00177s] {}
+2025-03-25 23:20:31.606 [sqlalchemy_db.py:44] : sqlalchemy ˝æ›ø‚¡¨Ω”≥…π¶
+2025-03-25 23:20:31.607 [base.py:2702] : ROLLBACK
+2025-03-25 23:20:31.648 [selector_events.py:64] : Using selector: SelectSelector
+2025-03-25 23:20:31.700 [base.py:1843] : SELECT DATABASE()
+2025-03-25 23:20:31.700 [base.py:1843] : [raw sql] {}
+2025-03-25 23:20:31.702 [base.py:1843] : SELECT @@sql_mode
+2025-03-25 23:20:31.703 [base.py:1843] : [raw sql] {}
+2025-03-25 23:20:31.705 [base.py:1843] : SELECT @@lower_case_table_names
+2025-03-25 23:20:31.706 [base.py:1843] : [raw sql] {}
+2025-03-25 23:20:31.707 [base.py:2699] : BEGIN (implicit)
+2025-03-25 23:20:31.708 [base.py:1843] : SELECT 1
+2025-03-25 23:20:31.709 [base.py:1843] : [generated in 0.00089s] {}
+2025-03-25 23:20:31.710 [sqlalchemy_db.py:44] : sqlalchemy ˝æ›ø‚¡¨Ω”≥…π¶
+2025-03-25 23:20:31.710 [base.py:2702] : ROLLBACK
+2025-03-25 23:32:03.719 [base.py:1843] : SELECT DATABASE()
+2025-03-25 23:32:03.720 [base.py:1843] : [raw sql] {}
+2025-03-25 23:32:03.721 [base.py:1843] : SELECT @@sql_mode
+2025-03-25 23:32:03.722 [base.py:1843] : [raw sql] {}
+2025-03-25 23:32:03.723 [base.py:1843] : SELECT @@lower_case_table_names
+2025-03-25 23:32:03.724 [base.py:1843] : [raw sql] {}
+2025-03-25 23:32:03.725 [base.py:2699] : BEGIN (implicit)
+2025-03-25 23:32:03.726 [base.py:1843] : SELECT 1
+2025-03-25 23:32:03.727 [base.py:1843] : [generated in 0.00075s] {}
+2025-03-25 23:32:03.728 [sqlalchemy_db.py:44] : sqlalchemy ˝æ›ø‚¡¨Ω”≥…π¶
+2025-03-25 23:32:03.728 [base.py:2702] : ROLLBACK
+2025-03-25 23:32:03.775 [selector_events.py:64] : Using selector: SelectSelector
+2025-03-25 23:32:03.838 [base.py:1843] : SELECT DATABASE()
+2025-03-25 23:32:03.838 [base.py:1843] : [raw sql] {}
+2025-03-25 23:32:03.840 [base.py:1843] : SELECT @@sql_mode
+2025-03-25 23:32:03.840 [base.py:1843] : [raw sql] {}
+2025-03-25 23:32:03.841 [base.py:1843] : SELECT @@lower_case_table_names
+2025-03-25 23:32:03.842 [base.py:1843] : [raw sql] {}
+2025-03-25 23:32:03.843 [base.py:2699] : BEGIN (implicit)
+2025-03-25 23:32:03.843 [base.py:1843] : SELECT 1
+2025-03-25 23:32:03.844 [base.py:1843] : [generated in 0.00056s] {}
+2025-03-25 23:32:03.845 [sqlalchemy_db.py:44] : sqlalchemy ˝æ›ø‚¡¨Ω”≥…π¶
+2025-03-25 23:32:03.845 [base.py:2702] : ROLLBACK
+2025-03-25 23:32:28.896 [base.py:1843] : SELECT DATABASE()
+2025-03-25 23:32:28.897 [base.py:1843] : [raw sql] {}
+2025-03-25 23:32:28.900 [base.py:1843] : SELECT @@sql_mode
+2025-03-25 23:32:28.900 [base.py:1843] : [raw sql] {}
+2025-03-25 23:32:28.901 [base.py:1843] : SELECT @@lower_case_table_names
+2025-03-25 23:32:28.902 [base.py:1843] : [raw sql] {}
+2025-03-25 23:32:28.904 [base.py:2699] : BEGIN (implicit)
+2025-03-25 23:32:28.905 [base.py:1843] : SELECT 1
+2025-03-25 23:32:28.905 [base.py:1843] : [generated in 0.00078s] {}
+2025-03-25 23:32:28.906 [sqlalchemy_db.py:44] : sqlalchemy ˝æ›ø‚¡¨Ω”≥…π¶
+2025-03-25 23:32:28.907 [base.py:2702] : ROLLBACK
+2025-03-25 23:32:28.968 [selector_events.py:64] : Using selector: SelectSelector
+2025-03-25 23:32:29.022 [base.py:1843] : SELECT DATABASE()
+2025-03-25 23:32:29.023 [base.py:1843] : [raw sql] {}
+2025-03-25 23:32:29.025 [base.py:1843] : SELECT @@sql_mode
+2025-03-25 23:32:29.025 [base.py:1843] : [raw sql] {}
+2025-03-25 23:32:29.026 [base.py:1843] : SELECT @@lower_case_table_names
+2025-03-25 23:32:29.027 [base.py:1843] : [raw sql] {}
+2025-03-25 23:32:29.027 [base.py:2699] : BEGIN (implicit)
+2025-03-25 23:32:29.029 [base.py:1843] : SELECT 1
+2025-03-25 23:32:29.029 [base.py:1843] : [generated in 0.00095s] {}
+2025-03-25 23:32:29.030 [sqlalchemy_db.py:44] : sqlalchemy ˝æ›ø‚¡¨Ω”≥…π¶
+2025-03-25 23:32:29.031 [base.py:2702] : ROLLBACK
+2025-03-25 23:33:00.288 [base.py:1843] : SELECT DATABASE()
+2025-03-25 23:33:00.289 [base.py:1843] : [raw sql] {}
+2025-03-25 23:33:00.291 [base.py:1843] : SELECT @@sql_mode
+2025-03-25 23:33:00.291 [base.py:1843] : [raw sql] {}
+2025-03-25 23:33:00.292 [base.py:1843] : SELECT @@lower_case_table_names
+2025-03-25 23:33:00.293 [base.py:1843] : [raw sql] {}
+2025-03-25 23:33:00.294 [base.py:2699] : BEGIN (implicit)
+2025-03-25 23:33:00.296 [base.py:1843] : SELECT 1
+2025-03-25 23:33:00.296 [base.py:1843] : [generated in 0.00108s] {}
+2025-03-25 23:33:00.298 [sqlalchemy_db.py:44] : sqlalchemy ˝æ›ø‚¡¨Ω”≥…π¶
+2025-03-25 23:33:00.298 [base.py:2702] : ROLLBACK
+2025-03-25 23:33:00.338 [selector_events.py:64] : Using selector: SelectSelector
+2025-03-25 23:33:00.389 [base.py:1843] : SELECT DATABASE()
+2025-03-25 23:33:00.389 [base.py:1843] : [raw sql] {}
+2025-03-25 23:33:00.391 [base.py:1843] : SELECT @@sql_mode
+2025-03-25 23:33:00.392 [base.py:1843] : [raw sql] {}
+2025-03-25 23:33:00.393 [base.py:1843] : SELECT @@lower_case_table_names
+2025-03-25 23:33:00.394 [base.py:1843] : [raw sql] {}
+2025-03-25 23:33:00.397 [base.py:2699] : BEGIN (implicit)
+2025-03-25 23:33:00.399 [base.py:1843] : SELECT 1
+2025-03-25 23:33:00.399 [base.py:1843] : [generated in 0.00133s] {}
+2025-03-25 23:33:00.400 [sqlalchemy_db.py:44] : sqlalchemy ˝æ›ø‚¡¨Ω”≥…π¶
+2025-03-25 23:33:00.401 [base.py:2702] : ROLLBACK
+2025-03-25 23:36:46.638 [base.py:1843] : SELECT DATABASE()
+2025-03-25 23:36:46.638 [base.py:1843] : [raw sql] {}
+2025-03-25 23:36:46.640 [base.py:1843] : SELECT @@sql_mode
+2025-03-25 23:36:46.641 [base.py:1843] : [raw sql] {}
+2025-03-25 23:36:46.642 [base.py:1843] : SELECT @@lower_case_table_names
+2025-03-25 23:36:46.643 [base.py:1843] : [raw sql] {}
+2025-03-25 23:36:46.644 [base.py:2699] : BEGIN (implicit)
+2025-03-25 23:36:46.646 [base.py:1843] : SELECT 1
+2025-03-25 23:36:46.647 [base.py:1843] : [generated in 0.00083s] {}
+2025-03-25 23:36:46.648 [sqlalchemy_db.py:44] : sqlalchemy ˝æ›ø‚¡¨Ω”≥…π¶
+2025-03-25 23:36:46.648 [base.py:2702] : ROLLBACK
+2025-03-25 23:36:46.696 [selector_events.py:64] : Using selector: SelectSelector
+2025-03-25 23:36:46.757 [base.py:1843] : SELECT DATABASE()
+2025-03-25 23:36:46.758 [base.py:1843] : [raw sql] {}
+2025-03-25 23:36:46.759 [base.py:1843] : SELECT @@sql_mode
+2025-03-25 23:36:46.760 [base.py:1843] : [raw sql] {}
+2025-03-25 23:36:46.762 [base.py:1843] : SELECT @@lower_case_table_names
+2025-03-25 23:36:46.762 [base.py:1843] : [raw sql] {}
+2025-03-25 23:36:46.764 [base.py:2699] : BEGIN (implicit)
+2025-03-25 23:36:46.765 [base.py:1843] : SELECT 1
+2025-03-25 23:36:46.766 [base.py:1843] : [generated in 0.00073s] {}
+2025-03-25 23:36:46.767 [sqlalchemy_db.py:44] : sqlalchemy ˝æ›ø‚¡¨Ω”≥…π¶
+2025-03-25 23:36:46.767 [base.py:2702] : ROLLBACK
+2025-03-25 23:37:06.835 [base.py:1843] : SELECT DATABASE()
+2025-03-25 23:37:06.836 [base.py:1843] : [raw sql] {}
+2025-03-25 23:37:06.838 [base.py:1843] : SELECT @@sql_mode
+2025-03-25 23:37:06.838 [base.py:1843] : [raw sql] {}
+2025-03-25 23:37:06.840 [base.py:1843] : SELECT @@lower_case_table_names
+2025-03-25 23:37:06.840 [base.py:1843] : [raw sql] {}
+2025-03-25 23:37:06.842 [base.py:2699] : BEGIN (implicit)
+2025-03-25 23:37:06.843 [base.py:1843] : SELECT 1
+2025-03-25 23:37:06.845 [base.py:1843] : [generated in 0.00222s] {}
+2025-03-25 23:37:06.846 [sqlalchemy_db.py:44] : sqlalchemy ˝æ›ø‚¡¨Ω”≥…π¶
+2025-03-25 23:37:06.847 [base.py:2702] : ROLLBACK
+2025-03-25 23:37:06.895 [selector_events.py:64] : Using selector: SelectSelector
+2025-03-25 23:37:06.952 [base.py:1843] : SELECT DATABASE()
+2025-03-25 23:37:06.953 [base.py:1843] : [raw sql] {}
+2025-03-25 23:37:06.955 [base.py:1843] : SELECT @@sql_mode
+2025-03-25 23:37:06.956 [base.py:1843] : [raw sql] {}
+2025-03-25 23:37:06.957 [base.py:1843] : SELECT @@lower_case_table_names
+2025-03-25 23:37:06.958 [base.py:1843] : [raw sql] {}
+2025-03-25 23:37:06.959 [base.py:2699] : BEGIN (implicit)
+2025-03-25 23:37:06.959 [base.py:1843] : SELECT 1
+2025-03-25 23:37:06.961 [base.py:1843] : [generated in 0.00194s] {}
+2025-03-25 23:37:06.962 [sqlalchemy_db.py:44] : sqlalchemy ˝æ›ø‚¡¨Ω”≥…π¶
+2025-03-25 23:37:06.963 [base.py:2702] : ROLLBACK
+2025-03-25 23:37:55.985 [base.py:1843] : SELECT DATABASE()
+2025-03-25 23:37:55.986 [base.py:1843] : [raw sql] {}
+2025-03-25 23:37:55.987 [base.py:1843] : SELECT @@sql_mode
+2025-03-25 23:37:55.988 [base.py:1843] : [raw sql] {}
+2025-03-25 23:37:55.989 [base.py:1843] : SELECT @@lower_case_table_names
+2025-03-25 23:37:55.989 [base.py:1843] : [raw sql] {}
+2025-03-25 23:37:55.991 [base.py:2699] : BEGIN (implicit)
+2025-03-25 23:37:55.992 [base.py:1843] : SELECT 1
+2025-03-25 23:37:55.993 [base.py:1843] : [generated in 0.00106s] {}
+2025-03-25 23:37:55.994 [sqlalchemy_db.py:44] : sqlalchemy ˝æ›ø‚¡¨Ω”≥…π¶
+2025-03-25 23:37:55.994 [base.py:2702] : ROLLBACK
+2025-03-25 23:37:59.202 [base.py:1843] : SELECT DATABASE()
+2025-03-25 23:37:59.203 [base.py:1843] : [raw sql] {}
+2025-03-25 23:37:59.205 [base.py:1843] : SELECT @@sql_mode
+2025-03-25 23:37:59.206 [base.py:1843] : [raw sql] {}
+2025-03-25 23:37:59.208 [base.py:1843] : SELECT @@lower_case_table_names
+2025-03-25 23:37:59.208 [base.py:1843] : [raw sql] {}
+2025-03-25 23:37:59.210 [base.py:2699] : BEGIN (implicit)
+2025-03-25 23:37:59.212 [base.py:1843] : SELECT 1
+2025-03-25 23:37:59.212 [base.py:1843] : [generated in 0.00110s] {}
+2025-03-25 23:37:59.214 [sqlalchemy_db.py:44] : sqlalchemy ˝æ›ø‚¡¨Ω”≥…π¶
+2025-03-25 23:37:59.214 [base.py:2702] : ROLLBACK
+2025-03-25 23:37:59.254 [selector_events.py:64] : Using selector: SelectSelector
+2025-03-25 23:37:59.307 [base.py:1843] : SELECT DATABASE()
+2025-03-25 23:37:59.308 [base.py:1843] : [raw sql] {}
+2025-03-25 23:37:59.309 [base.py:1843] : SELECT @@sql_mode
+2025-03-25 23:37:59.310 [base.py:1843] : [raw sql] {}
+2025-03-25 23:37:59.312 [base.py:1843] : SELECT @@lower_case_table_names
+2025-03-25 23:37:59.312 [base.py:1843] : [raw sql] {}
+2025-03-25 23:37:59.314 [base.py:2699] : BEGIN (implicit)
+2025-03-25 23:37:59.315 [base.py:1843] : SELECT 1
+2025-03-25 23:37:59.316 [base.py:1843] : [generated in 0.00110s] {}
+2025-03-25 23:37:59.317 [sqlalchemy_db.py:44] : sqlalchemy ˝æ›ø‚¡¨Ω”≥…π¶
+2025-03-25 23:37:59.317 [base.py:2702] : ROLLBACK
+2025-03-25 23:41:52.915 [base.py:1843] : SELECT DATABASE()
+2025-03-25 23:41:52.916 [base.py:1843] : [raw sql] {}
+2025-03-25 23:41:52.918 [base.py:1843] : SELECT @@sql_mode
+2025-03-25 23:41:52.919 [base.py:1843] : [raw sql] {}
+2025-03-25 23:41:52.920 [base.py:1843] : SELECT @@lower_case_table_names
+2025-03-25 23:41:52.921 [base.py:1843] : [raw sql] {}
+2025-03-25 23:41:52.922 [base.py:2699] : BEGIN (implicit)
+2025-03-25 23:41:52.923 [base.py:1843] : SELECT 1
+2025-03-25 23:41:52.924 [base.py:1843] : [generated in 0.00147s] {}
+2025-03-25 23:41:52.926 [sqlalchemy_db.py:44] : sqlalchemy ˝æ›ø‚¡¨Ω”≥…π¶
+2025-03-25 23:41:52.927 [base.py:2702] : ROLLBACK
+2025-03-25 23:41:52.985 [selector_events.py:64] : Using selector: SelectSelector
+2025-03-25 23:41:53.046 [base.py:1843] : SELECT DATABASE()
+2025-03-25 23:41:53.046 [base.py:1843] : [raw sql] {}
+2025-03-25 23:41:53.048 [base.py:1843] : SELECT @@sql_mode
+2025-03-25 23:41:53.049 [base.py:1843] : [raw sql] {}
+2025-03-25 23:41:53.050 [base.py:1843] : SELECT @@lower_case_table_names
+2025-03-25 23:41:53.050 [base.py:1843] : [raw sql] {}
+2025-03-25 23:41:53.051 [base.py:2699] : BEGIN (implicit)
+2025-03-25 23:41:53.052 [base.py:1843] : SELECT 1
+2025-03-25 23:41:53.053 [base.py:1843] : [generated in 0.00087s] {}
+2025-03-25 23:41:53.054 [sqlalchemy_db.py:44] : sqlalchemy ˝æ›ø‚¡¨Ω”≥…π¶
+2025-03-25 23:41:53.054 [base.py:2702] : ROLLBACK

@@ -42,9 +42,10 @@ class Settings(BaseSettings):
     QQ_MAIL_USERNAME: Optional[str] = "" # 邮件服务器用户名
     QQ_MAIL_PASSWORD: Optional[str] = "" # 邮件服务器密码
     QQ_MAIL_FROM: Optional[str] = "" # 通知邮件地址
-    QQ_MAIL_SSL_TLS: Optional[bool] = True # 是否开启SSL/TLS
     QQ_MAIL_STARTTLS: Optional[bool] = False # 是否开启STARTTLS
+    QQ_MAIL_SSL_TLS: Optional[bool] = True # 是否开启SSL/TLS
     QQ_MAIL_USE_CREDENTIALS: Optional[bool] = True # 是否使用凭证
+    QQ_VALIDATE_CERTS: Optional[bool] = True # 是否验证证书
 
     # 添加环境变量字段
     ENV: str = "development"

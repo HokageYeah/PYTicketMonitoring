@@ -156,8 +156,8 @@ conf = ConnectionConfig(
     MAIL_PORT = 465,                      # SSL端口
     MAIL_SERVER = "smtp.qq.com",
     MAIL_FROM_NAME = "Your App Name",
-    MAIL_STARTTLS = False,                # 禁用STARTTLS
-    MAIL_SSL_TLS = True,                  # 强制启用SSL
+    MAIL_STARTTLS = False,                # 关闭STARTTLS
+    MAIL_SSL_TLS = True,                  # 启用SSL/TLS
     USE_CREDENTIALS = True,
     VALIDATE_CERTS = True
 )
@@ -167,14 +167,37 @@ class EmailSchema(BaseModel):
 
 @wx_router.post("/wx/mini.test.email")
 async def simple_send(email: EmailSchema) -> JSONResponse:
-    html = """<p>Hi this test mail, thanks for using Fastapi-mail</p> """
+    # try:
+    #     html = """<p>Hi this test mail, thanks for using Fastapi-mail</p> """
 
+    #     message = MessageSchema(
+    #         subject="服务通知",
+    #         recipients=email.dict().get("email"),
+    #         body=html,
+    #         subtype=MessageType.html)
+
+    #     fm = FastMail(conf)
+    #     await fm.send_message(message)
+    #     print('email has been sent')
+    #     return JSONResponse(status_code=200, content={"message": "email has been sent"})
+    # except Exception as e:
+    #     print(f"邮件发送错误: {str(e)}")
+    #     return JSONResponse(status_code=500, content={"message": f"邮件发送失败: {str(e)}"})
+    html = """<p>Hi this test mail, thanks for using Fastapi-mail</p> """
     message = MessageSchema(
-        subject="Fastapi-Mail module",
+        subject="服务通知",
         recipients=email.dict().get("email"),
         body=html,
         subtype=MessageType.html)
-
-    fm = FastMail(conf)
-    await fm.send_message(message)
+    try:
+        fm = FastMail(conf)
+        await fm.send_message(message)
+        print('email has been sent')
+    except Exception as e:
+        if "Malformed SMTP response line" in str(e):
+            print(f"邮件已发送，但出现已知错误: {str(e)}")
+        else:
+            # 其他未知错误则抛出
+            print(f"邮件发送错误: {str(e)}")
+            return JSONResponse(status_code=500, content={"message": f"邮件发送失败: {str(e)}"})
     return JSONResponse(status_code=200, content={"message": "email has been sent"})
