@@ -91,13 +91,32 @@ class New_Ticket_Monitor:
             'price_name': {
                 "value": price_name,
                 "color": "#173177"
-            }
+            },
+            'remark': {
+                "value": "该场次的票已经回流，请及时购票",
+                "color": "#173177"
+            },
+            'wx_token': wx_token,
         }
+        # 调用自身写的接口/wx/mini.send.subscribe.message
+        # todo 这里需要通知到微信小程序订阅号
+        params = {
+            "touser": wx_token,
+            "data": {
+                "thing1": {"value": notification_content.get('show_name', '').get('value', '')},
+                "time2": {"value": notification_content.get('datetime', '').get('value', '')},
+                "thing3": {"value": notification_content.get('venue_city_name', '').get('value', '') | notification_content.get('venue_name', '').get('value', '')},
+                "thing6": {"value": notification_content.get('perform_name', '').get('value', '') | notification_content.get('price_name', '').get('value', '')},
+                "thing4": {"value": notification_content.get('remark', '').get('value', '')},
+            },
+        }
+        wx_service.wx_mini_send_subscribe_message(params, 'TICKET_RETURN_NOTICE')
+        # 下面是发送通知到用户微信公众号
         self.access_token = self.wx_notice.get_access_token()
         # 获取用户微信openid列表
         # todo 这里需要优化，因为微信的接口调用失败，所以需要优化
         user_wx_openid_dict = self.wx_notice.get_user_wx_openid_list(self.access_token, '')
-        # 发送通知
+        # 发送通知（发送通知到用户微信公众号）
         for wx_token in user_wx_openid_dict.get('data').get('openid'):
             self.wx_notice.send_public_notice(self.access_token, notification_content, user_wx_code=wx_token, template_id='CPHntQfk-7GchRhjbi22SsXP84Bndjlc4N4Q5oEFTp8')
         pass
@@ -161,8 +180,21 @@ class New_Ticket_Monitor:
                     # task_list.append(self.check_ticket(show_id, monitor_item.get('ticket_perform'), platform))
                     response = self.check_ticket(show_id, '', monitor_item.get('ticket_perform'), platform)
                     if response.get("ret") != ["SUCCESS::调用成功"]:
-                        # todo 这里过期了需要通知开发者，目前先打印信息
+                        # todo 这里过期了需要邮件通知开发者，目前先打印信息
                         error_msg = response.get("ret")[0].split('::')[1]
+                        params = {
+                            "error_msg": error_msg,
+                            "error_time": datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+                            "error_platform": platform,
+                            "error_api": "https://mtop.damai.cn/h5/mtop.alibaba.detail.subpage.getdetail/2.0/",
+                        }
+                        print('发送邮件------params------', params)
+                         # 使用修改后的同步方法发送邮件
+                        try:
+                            result = wx_service.api_error_send_email(params)
+                            print('邮件发送结果:', result)
+                        except Exception as e:
+                            logging.error(f"发送邮件通知失败: {str(e)}")
                         print('monitor_platform------error_msg------', response.get("ret"))
                         continue
                     if response.get("data").get("result").get("performCalendar") is None:
@@ -241,7 +273,7 @@ class New_Ticket_Monitor:
                         continue
                     conbined_index = combined_list[1]
                     combined_index_list.append(conbined_index)
-            print('combined_index_list------', combined_index_list)
+            print('combined_index_list------123', combined_index_list)
             try:
                 for index in combined_index_list:
                     # 此循环表示肯定有回流票了，打印一个分割线
@@ -258,15 +290,12 @@ class New_Ticket_Monitor:
                     # 需要通知的wx_token也是需要删除的delete_item
                     # todo  需要通知的wx_token 此处代码先注释掉，因为微信的接口调用失败
                     # todo  这里需要通知到微信小程序订阅号上
+                    print('delete_item------', delete_item)
                     self.send_notification(delete_item, {
                         "show_name": show_name,
                         "venue_city_name": venue_city_name,
                         "venue_name": venue_name,
                     }, delete_ticket_perform_index, delete_sku_perform_index)
-                    # 调用自身写的接口/wx/mini.send.subscribe.message
-                    # todo 这里需要通知到微信小程序订阅号
-                    wx_service.wx_mini_send_subscribe_message(delete_item)
-
                     # 通知完成后删除通知后的数据
                     monitor_list[delete_monitor_list_item_index].get('monitor_person')[delete_person_index].get('ticket_perform')[delete_ticket_perform_index].get('sku_list')[delete_sku_perform_index] = None
                     if all(item is None for item in monitor_list[delete_monitor_list_item_index].get('monitor_person')[delete_person_index].get('ticket_perform')[delete_ticket_perform_index].get('sku_list')):
@@ -292,7 +321,7 @@ class New_Ticket_Monitor:
                     print(notification_content)
                     print('##########################演唱会已下架打印结束##########################')
                     monitor_list[delete_index] = None
-                            # 发送通知（发送通知到用户微信公众号）
+                    # 发送通知（发送通知到用户微信公众号）
                     notification_content = {
                         'datetime': {
                             "value": datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
@@ -305,14 +334,20 @@ class New_Ticket_Monitor:
                         'delete_show_id': {
                             "value": delete_show_id,
                             "color": "#173177"
+                        },
+                        'remark': {
+                            "value": "演唱会已下架，已经删除此条监控",
+                            "color": "#173177"
                         }
                     }
+                    # todo 需要发送给小程序订阅消息
                     self.access_token = self.wx_notice.get_access_token()
                     # 获取用户微信openid列表
                     user_wx_openid_dict = self.wx_notice.get_user_wx_openid_list(self.access_token, '')
-                    # 发送通知
+                    # 发送通知 （发送通知到用户微信公众号）
                     for wx_code in user_wx_openid_dict.get('data').get('openid'):
                         self.wx_notice.send_public_notice(self.access_token, notification_content, user_wx_code=wx_code, template_id='gNM1Hj4yVnpebScA_NZPB6qFwMWSrR2Jb6Ntg7VmFIE')
+                    # todo 需要通知到微信小程序订阅号
                 # 递归删除monitor_list中的None
                 monitor_list = self.recursive_delete_none(monitor_list)
                 self.db_config[platform]['monitor_list'] = monitor_list

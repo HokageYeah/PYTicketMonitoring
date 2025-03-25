@@ -24,6 +24,10 @@ from src.server.schemas.wxMiniLoginSchema import WxMiniSendSubscribeMessageParam
 from src.server.middleware.jwt_auth import get_current_user, require_role
 from src.server.schemas.wxMiniLoginSchema import WxMiniGetAccessTokenParams
 from src.server.api.endpoints.validate_params import validate_wx_mini_get_access_token_params
+from fastapi_mail import ConnectionConfig, FastMail, MessageSchema, MessageType
+from fastapi.responses import JSONResponse
+from pydantic import BaseModel, EmailStr
+from typing import List
 wx_router = APIRouter()
 wx_service = WxService()
 user_service = UserService()
@@ -64,16 +68,17 @@ async def wx_mini_save_subscribe_template(
         res = wx_service.wx_mini_save_subscribe_template(params, user)
         return res
     return None
-# 微信发送订阅消息 subscribe-wx-template
+# 微信发送回流票的订阅消息 subscribe-wx-template
 @wx_router.post('/wx/mini.send.subscribe.message', response_model=WxMiniApiResponse)
 async def wx_mini_send_subscribe_message(
     platform: str = Query(WxPlatformEnum.WX_MINI.value, description="平台名称"),
+    params: dict = Body(...),
     user: User = Depends(get_current_user)
 ):
     print('wx_mini_send_subscribe_message---platform---------', platform)
     print('wx_mini_send_subscribe_message---params.platform---------', WxPlatformEnum.WX_MINI.value)
     if platform == WxPlatformEnum.WX_MINI.value:
-        send_subscribe_message_data = wx_service.wx_mini_send_subscribe_message(user)
+        send_subscribe_message_data = wx_service.wx_mini_send_subscribe_message(params)
         return send_subscribe_message_data  
     return None
 
@@ -142,3 +147,34 @@ async def get_all_users(
     """获取所有用户（仅管理员）"""
     users = db.query(User).all()
     return users
+
+
+conf = ConnectionConfig(
+    MAIL_USERNAME = "2410292164@qq.com",  # 必须与登录邮箱一致
+    MAIL_PASSWORD = "acfmhesqnkyzdjcc",    # 授权码(非邮箱密码)
+    MAIL_FROM = "2410292164@qq.com",       # 必须与MAIL_USERNAME一致
+    MAIL_PORT = 465,                      # SSL端口
+    MAIL_SERVER = "smtp.qq.com",
+    MAIL_FROM_NAME = "Your App Name",
+    MAIL_STARTTLS = False,                # 禁用STARTTLS
+    MAIL_SSL_TLS = True,                  # 强制启用SSL
+    USE_CREDENTIALS = True,
+    VALIDATE_CERTS = True
+)
+
+class EmailSchema(BaseModel):
+    email: List[EmailStr]
+
+@wx_router.post("/wx/mini.test.email")
+async def simple_send(email: EmailSchema) -> JSONResponse:
+    html = """<p>Hi this test mail, thanks for using Fastapi-mail</p> """
+
+    message = MessageSchema(
+        subject="Fastapi-Mail module",
+        recipients=email.dict().get("email"),
+        body=html,
+        subtype=MessageType.html)
+
+    fm = FastMail(conf)
+    await fm.send_message(message)
+    return JSONResponse(status_code=200, content={"message": "email has been sent"})

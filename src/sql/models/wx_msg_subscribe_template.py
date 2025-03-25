@@ -14,6 +14,8 @@ class WxMsgSubscribeTemplate(Base):
     template_content = Column(String(255), index=True, unique=False, nullable=False)
     page = Column(String(255), index=True, unique=False, nullable=False)
     miniprogram_state = Column(String(255), index=True, unique=False, nullable=False)
+    # 模板服务的业务代码
+    template_business_code = Column(String(255), index=True, unique=False, nullable=False)
     status = Column(Integer, default=1)
     create_time = Column(DateTime, nullable=False, server_default=text('CURRENT_TIMESTAMP'))
     update_time = Column(DateTime, nullable=False, server_default=text('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'))

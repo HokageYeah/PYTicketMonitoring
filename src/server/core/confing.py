@@ -3,6 +3,7 @@ from functools import lru_cache
 from typing import Optional
 import os
 from dotenv import load_dotenv
+from fastapi_mail import ConnectionConfig
 # 获取当前环境
 ENV = os.getenv("ENV", "development")
 print(f"当前环境: {ENV}")
@@ -36,11 +37,14 @@ class Settings(BaseSettings):
     MAX_RETRIES: Optional[int] = 3      # 最大重试次数
 
     # 邮件配置
-    SMTP_SERVER: Optional[str] = "smtp.gmail.com" # 邮件服务器
-    SMTP_PORT: Optional[int] = 587 # 邮件服务器端口
-    SMTP_USERNAME: Optional[str] = "" # 邮件服务器用户名
-    SMTP_PASSWORD: Optional[str] = "" # 邮件服务器密码
-    NOTIFICATION_EMAIL: Optional[str] = "" # 通知邮件地址
+    QQ_MAIL_SERVER: Optional[str] = "smtp.gmail.com" # 邮件服务器
+    QQ_MAIL_PORT: Optional[int] = 587 # 邮件服务器端口
+    QQ_MAIL_USERNAME: Optional[str] = "" # 邮件服务器用户名
+    QQ_MAIL_PASSWORD: Optional[str] = "" # 邮件服务器密码
+    QQ_MAIL_FROM: Optional[str] = "" # 通知邮件地址
+    QQ_MAIL_SSL_TLS: Optional[bool] = True # 是否开启SSL/TLS
+    QQ_MAIL_STARTTLS: Optional[bool] = False # 是否开启STARTTLS
+    QQ_MAIL_USE_CREDENTIALS: Optional[bool] = True # 是否使用凭证
 
     # 添加环境变量字段
     ENV: str = "development"
@@ -70,6 +74,26 @@ def get_settings():
     """获取配置实例"""
     print(f"setting.py加载配置文件: {Settings().DB_NAME}")
     return Settings()
+
+def get_mail_config(settings: Settings = None):
+    """获取邮件连接配置"""
+    print(f"获取邮件连接配置: {settings}")
+    if settings is None:
+        settings = get_settings()
+    
+    return ConnectionConfig(
+        MAIL_USERNAME=settings.QQ_MAIL_USERNAME,
+        MAIL_PASSWORD=settings.QQ_MAIL_PASSWORD,
+        MAIL_FROM=settings.QQ_MAIL_FROM,
+        MAIL_FROM_NAME=settings.QQ_MAIL_FROM,
+        MAIL_SERVER=settings.QQ_MAIL_SERVER,
+        MAIL_PORT=settings.QQ_MAIL_PORT,
+        MAIL_SSL_TLS=settings.QQ_MAIL_SSL_TLS,
+        MAIL_STARTTLS=settings.QQ_MAIL_STARTTLS,
+        MAIL_USE_CREDENTIALS=settings.QQ_MAIL_USE_CREDENTIALS,
+        TEMPLATE_FOLDER=None  # 可以设置邮件模板目录
+    )
+
 
 # 获取配置实例
 settings = get_settings()

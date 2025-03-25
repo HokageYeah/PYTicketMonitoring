@@ -4,6 +4,10 @@ from src.sql.models.user import User
 from src.server.services.userService import UserService
 import time
 from src.server.untiles.res_handler import wx_mini_response_handler
+from src.server.untiles.Email_Sender import EmailSender
+from src.server.core.confing import settings
+import asyncio
+import logging
 user_service = UserService()
 
 class WxService:
@@ -20,7 +24,9 @@ class WxService:
         # 调用获取access_token
         self.wx_mini_get_access_token()
         # 调用access_token 记录次数，超过三次返回错误
-        self.access_token_count = 0
+        self.access_token_count = 0,
+        # 初始化邮件服务
+        self.email_service = EmailSender(settings)
     # 小程序登录
     @wx_mini_response_handler(api_path='/wx/mini.login.by.code', success_msg='微信登录成功', error_msg='微信登录调用失败')
     def wx_mini_login_code2Session(self, code):
@@ -54,7 +60,7 @@ class WxService:
         return time.time() >= self.expires_time
     # 微信发送订阅消息
     @wx_mini_response_handler(api_path='/wx/mini.send.subscribe.message', success_msg='微信发送订阅消息成功', error_msg='微信发送订阅消息调用失败')
-    def wx_mini_send_subscribe_message(self, user: User):
+    def wx_mini_send_subscribe_message(self, params: dict, template_business_code: str):
         # 调用access_token 记录次数，超过三次返回错误
         self.access_token_count += 1
         if self.access_token_count > 3:
@@ -65,26 +71,20 @@ class WxService:
             print('WxService---wx_mini_send_subscribe_message---access_token过期-----')
             self.wx_mini_get_access_token()
             # 更新access_token后，重新调用
-            return self.wx_mini_send_subscribe_message(user)
+            return self.wx_mini_send_subscribe_message(params)
         else:
             print('WxService---wx_mini_send_subscribe_message---access_token未过期-----')
             # 调用发送订阅消息
             self.access_token_count = 0
             url = f"{self.BASE_URL}/cgi-bin/message/subscribe/send?access_token={self.access_token}"
-            template_info = user_service.get_user_subscribe_template(user).get('data',{})
-            params = {
-                "touser": user.openid,
+            template_info = user_service.get_user_subscribe_template(params.get('touser', ''), template_business_code).get('data',{})
+            print('template_info---------', template_info)
+            req_params = {
+                **params,
                 "template_id": template_info['template_id'],
                 "page": template_info['page'],
-                "data": {
-                    "thing1": {"value": "王瑛捷郑州演唱会"},
-                    "time2": {"value": "2023-10-01 10:00"},
-                    "thing3": {"value": "郑州｜ 郑州奥体中心"},
-                    "thing6": {"value": "2025-03-12 10:00 场次"},
-                    "thing4": {"value": "该场次的票已经回流，请及时购票"},
-                },
             }
-            response = requests.post(url, json=params)
+            response = requests.post(url, json=req_params)
             print('WxService---wx_mini_send_subscribe_message---response-----', response)
             return response.json()
     # 微信订阅消息模板存储
@@ -108,3 +108,57 @@ class WxService:
         # self.expires_in = 0
         self.expires_time = time.time() + self.expires_in
         return access_token_data
+    # 发送邮件
+    # def api_error_send_email(self, params):
+    #     # 创建异步任务发送邮件
+    #     async def send_email_async():
+    #         await self.email_service.send_three_party_api_error_email(
+    #             params
+    #         )
+    #     # 在非异步环境中运行异步函数
+    #     loop = asyncio.new_event_loop()
+    #     asyncio.set_event_loop(loop)
+    #     loop.run_until_complete(send_email_async())
+    #     loop.close()
+    #     logging.info(f"已发送邮件通知到 {self.email_settings.QQ_MAIL_FROM}")
+    #     return '邮件发送成功'
+    #     # loop = asyncio.new_event_loop()
+    #     # asyncio.set_event_loop(loop)
+    #     # result = loop.run_until_complete(self.email_service.send_three_party_api_error_email(params))
+    #     # loop.close()
+    #     # logging.info(f"已发送邮件通知到 {settings.QQ_MAIL_FROM}")
+    #     # return result
+
+    # 在 WxService 类中添加或修改 api_error_send_email 方法
+    def api_error_send_email(self, params):
+        """
+        同步版本的API错误邮件发送方法
+        
+        参数:
+            params: 错误参数
+        
+        返回:
+            发送结果
+        """
+        try:
+            # 创建事件循环来运行异步函数
+            loop = asyncio.new_event_loop()
+            asyncio.set_event_loop(loop)
+            try:
+                # 运行异步函数并获取结果
+                # 设置整体超时时间为20秒
+                result = loop.run_until_complete(
+                    asyncio.wait_for(
+                        self.email_service.send_three_party_api_error_email(params),
+                        timeout=20
+                    )
+                )
+                print(f"WxService api_error_send_email result: {result}")
+                return result
+            finally:
+                # 确保关闭事件循环
+                print(f"WxService api_error_send_email loop: {loop}")
+                loop.close()
+        except Exception as e:
+            logging.error(f"api_error_send_email 执行失败: {str(e)}")
+            return {"status": "error", "message": str(e)}

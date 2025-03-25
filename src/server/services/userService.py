@@ -191,7 +191,8 @@ class UserService:
                 template_content='演出名称 {{thing1.DATA}} 时间 {{time2.DATA}} 地点 {{thing3.DATA}} 场次 {{thing6.DATA}} 备注 {{thing4.DATA}}',
                 page=page,
                 status=1,
-                miniprogram_state=miniprogram_state
+                miniprogram_state=miniprogram_state,
+                template_business_code='TICKET_RETURN_NOTICE'
             )
             if not subscribe_template:
                 self.sqlalchemy_db.add(template_data)
@@ -203,24 +204,27 @@ class UserService:
             return {}
     # 查询获取用户的模板信息
     @wx_mini_response_handler( api_path='/wx/mini.send.subscribe.message')
-    def get_user_subscribe_template(self, user: User):
+    def get_user_subscribe_template(self, openid: str, template_business_code: str):
         with get_sqlalchemy_db() as db:
             self.sqlalchemy_db = db
             # 关联表查询 根据用户id查询WxMsgSubscribeUse获取template_id, 在根据template_id查询WxMsgSubscribeTemplate获取模板信息
-            subscribe_template = self.sqlalchemy_db.query(WxMsgSubscribeUse).filter(WxMsgSubscribeUse.user_id == user.user_id).first()
+            subscribe_template = self.sqlalchemy_db.query(WxMsgSubscribeUse).filter(WxMsgSubscribeUse.openid == openid).first()
             if subscribe_template:
                 subscribe_template_id = subscribe_template.template_id
-                template_info = self.sqlalchemy_db.query(WxMsgSubscribeTemplate).filter(WxMsgSubscribeTemplate.template_id == subscribe_template_id).first()
+                template_info = self.sqlalchemy_db.query(WxMsgSubscribeTemplate) \
+                    .filter(WxMsgSubscribeTemplate.template_id == subscribe_template_id, WxMsgSubscribeTemplate.template_business_code == template_business_code) \
+                    .first()
                 print('template_info---------', template_info)
                 return {
                     'template_id': template_info.template_id,
                     'template_name': template_info.template_name,
                     'template_content': template_info.template_content,
                     'page': template_info.page,
-                    'miniprogram_state': template_info.miniprogram_state
+                    'miniprogram_state': template_info.miniprogram_state,
+                    'template_business_code': template_info.template_business_code
                 }
             else:
-                raise SendSubscribeMsgUserException(user.openid)
+                raise SendSubscribeMsgUserException(openid)
     # 获取用户订阅监控列表
     @wx_mini_response_handler(api_path='/wx/mini.get.user.subscribe.monitor.list', error_msg='获取用户订阅监控列表调用失败', success_msg='获取用户订阅监控列表调用成功')
     # @cache_result(cache, 'subscribe_monitor_list')

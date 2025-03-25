@@ -12,7 +12,7 @@ cd TicketMonitoring
 # 安装python运行需要的包
 python3 -m pip install -r requirements.txt
 # 执行程序
-python3 start.py
+python3 main.py
 ```
 程序默认没有用代理，若要添加代理请修改`config.json`(自建隧道代理查看GitHub：[ProxyServer](https://github.com/ThinkerWen/ProxyServer))
 
@@ -187,6 +187,21 @@ docker run -d --restart=unless-stopped -v /etc/ticket-monitor/config.json:/app/c
    cache = TTLCache(maxsize=1000, ttl=60)
    cache['key'] = 'value'
    ```
+10. fastapi-mail
+   说明：fastapi-mail 是一个fastapi的邮件发送库，可以方便的进行邮件发送
+   使用 fastapi-mail 库相比原始的 smtplib 实现有以下优势：
+    * 1. 异步支持 ：原生支持 FastAPI 的异步特性，提高系统性能
+    * 2. 简化代码 ：大幅减少了代码量，更加简洁易读
+    * 3. 更好的错误处理 ：提供了更完善的错误处理机制
+    * 4. 模板支持 ：支持 Jinja2 模板，可以更方便地创建复杂邮件
+    * 5. 附件支持 ：简化了附件的处理流程
+    * 6. 批量发送 ：更容易实现批量邮件发送
+    * 7. 类型提示 ：完整的类型提示，提高代码可维护性
+   使用：
+   ```python
+   from fastapi_mail import FastMail, MessageSchema, ConnectionConfig
+   ```
+
 #### python项目转换为 HTTPS
 首先，你需要获取 SSL 证书。有几种方式：
 - 使用自签名证书（开发环境）

@@ -85,7 +85,7 @@ def api_response_handler(platform=WxPlatformEnum.WX_MINI.value, api_path=None, e
                 logging.error(f"{func.__name__} 执行失败: {str(e)}")
                 
                 # 使用自定义错误消息或异常信息
-                error_message = error_msg if error_msg else str(e)
+                error_message = error_msg + str(e) if error_msg else str(e)
                 
                 # 检查是否有额外的错误数据需要传递
                 sig = inspect.signature(func)
