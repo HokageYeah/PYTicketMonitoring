@@ -28,6 +28,8 @@ from fastapi_mail import ConnectionConfig, FastMail, MessageSchema, MessageType
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel, EmailStr
 from typing import List
+from src.server.core.confing import settings
+
 wx_router = APIRouter()
 wx_service = WxService()
 user_service = UserService()
@@ -150,12 +152,12 @@ async def get_all_users(
 
 
 conf = ConnectionConfig(
-    MAIL_USERNAME = "2410292164@qq.com",  # 必须与登录邮箱一致
-    MAIL_PASSWORD = "acfmhesqnkyzdjcc",    # 授权码(非邮箱密码)
-    MAIL_FROM = "2410292164@qq.com",       # 必须与MAIL_USERNAME一致
-    MAIL_PORT = 465,                      # SSL端口
-    MAIL_SERVER = "smtp.qq.com",
-    MAIL_FROM_NAME = "Your App Name",
+    MAIL_USERNAME = settings.QQ_MAIL_USERNAME,  # 必须与登录邮箱一致
+    MAIL_PASSWORD = settings.QQ_MAIL_PASSWORD,    # 授权码(非邮箱密码)
+    MAIL_FROM = settings.QQ_MAIL_FROM,       # 必须与MAIL_USERNAME一致
+    MAIL_PORT = settings.QQ_MAIL_PORT,                      # SSL端口
+    MAIL_SERVER = settings.QQ_MAIL_SERVER,
+    MAIL_FROM_NAME = "测试",
     MAIL_STARTTLS = False,                # 关闭STARTTLS
     MAIL_SSL_TLS = True,                  # 启用SSL/TLS
     USE_CREDENTIALS = True,
@@ -183,7 +185,7 @@ async def simple_send(email: EmailSchema) -> JSONResponse:
     # except Exception as e:
     #     print(f"邮件发送错误: {str(e)}")
     #     return JSONResponse(status_code=500, content={"message": f"邮件发送失败: {str(e)}"})
-    html = """<p>Hi this test mail, thanks for using Fastapi-mail</p> """
+    html = """<p>你好，这是一封测试邮件</p> """
     message = MessageSchema(
         subject="服务通知",
         recipients=email.dict().get("email"),
@@ -200,4 +202,4 @@ async def simple_send(email: EmailSchema) -> JSONResponse:
             # 其他未知错误则抛出
             print(f"邮件发送错误: {str(e)}")
             return JSONResponse(status_code=500, content={"message": f"邮件发送失败: {str(e)}"})
-    return JSONResponse(status_code=200, content={"message": "email has been sent"})
+    return JSONResponse(status_code=200, content={"message": "邮件已发送"})

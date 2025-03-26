@@ -1,10 +1,11 @@
 import smtplib
 from email.mime.text import MIMEText
+from src.server.core.confing import settings
 
 def test_smtp_connection():
     try:
         server = smtplib.SMTP_SSL('smtp.qq.com', 465)
-        server.login('2410292164@qq.com', 'acfmhesqnkyzdjcc')
+        server.login(settings.QQ_MAIL_USERNAME, settings.QQ_MAIL_PASSWORD)
         print("连接成功！")
         server.quit()
     except Exception as e:

@@ -4457,3 +4457,177 @@ FROM user_ticket_monitors
 2025-03-25 23:41:53.053 [base.py:1843] : [generated in 0.00087s] {}
 2025-03-25 23:41:53.054 [sqlalchemy_db.py:44] : sqlalchemy���ݿ����ӳɹ�
 2025-03-25 23:41:53.054 [base.py:2702] : ROLLBACK
+2025-03-26 10:23:44.854 [authentication.py:129] : Building SSL context
+2025-03-26 10:23:44.879 [authentication.py:140] : Switching to SSL
+2025-03-26 10:23:44.890 [authentication.py:143] : SSL has been enabled
+2025-03-26 10:23:44.890 [protocol.py:338] : Starting authorization phase
+2025-03-26 10:23:44.890 [protocol.py:352] : The provided initial strategy is caching_sha2_password
+2025-03-26 10:23:44.890 [__init__.py:149] : package: mysql.connector.plugins
+2025-03-26 10:23:44.890 [__init__.py:150] : plugin_name: caching_sha2_password
+2025-03-26 10:23:44.890 [__init__.py:154] : AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-03-26 10:23:44.892 [authentication.py:263] : Server's response is an auth switch request
+2025-03-26 10:23:44.893 [authentication.py:173] : Switching to strategy mysql_native_password
+2025-03-26 10:23:44.893 [__init__.py:149] : package: mysql.connector.plugins
+2025-03-26 10:23:44.893 [__init__.py:150] : plugin_name: mysql_native_password
+2025-03-26 10:23:44.894 [__init__.py:154] : AUTHENTICATION_PLUGIN_CLASS: MySQLNativePasswordAuthPlugin
+2025-03-26 10:23:44.894 [mysql_native_password.py:114] : # request: b'\xbd\xc9\x0bO\xd9\xa5P\xc9j\xcba\t\x17|!\xed\xf2>\xf41' size: 20
+2025-03-26 10:23:44.911 [mysql_native_password.py:118] : # server response packet: b'\x07\x00\x00\x05\x00\x00\x00\x02\x00\x00\x00'
+2025-03-26 10:23:44.912 [authentication.py:278] : mysql_native_password completed succesfully
+2025-03-26 10:23:44.921 [base.py:1896] : SELECT DATABASE()
+2025-03-26 10:23:44.921 [base.py:1901] : [raw sql] {}
+2025-03-26 10:23:44.923 [base.py:1896] : SELECT @@sql_mode
+2025-03-26 10:23:44.923 [base.py:1901] : [raw sql] {}
+2025-03-26 10:23:44.923 [base.py:1896] : SELECT @@lower_case_table_names
+2025-03-26 10:23:44.923 [base.py:1901] : [raw sql] {}
+2025-03-26 10:23:44.925 [base.py:1097] : BEGIN (implicit)
+2025-03-26 10:23:44.926 [base.py:1896] : SELECT 1
+2025-03-26 10:23:44.927 [base.py:1901] : [generated in 0.00068s] {}
+2025-03-26 10:23:44.927 [sqlalchemy_db.py:44] : sqlalchemy数据库连接成功
+2025-03-26 10:23:44.927 [base.py:1123] : ROLLBACK
+2025-03-26 10:23:47.226 [authentication.py:129] : Building SSL context
+2025-03-26 10:23:47.249 [authentication.py:140] : Switching to SSL
+2025-03-26 10:23:47.259 [authentication.py:143] : SSL has been enabled
+2025-03-26 10:23:47.259 [protocol.py:338] : Starting authorization phase
+2025-03-26 10:23:47.259 [protocol.py:352] : The provided initial strategy is caching_sha2_password
+2025-03-26 10:23:47.259 [__init__.py:149] : package: mysql.connector.plugins
+2025-03-26 10:23:47.259 [__init__.py:150] : plugin_name: caching_sha2_password
+2025-03-26 10:23:47.259 [__init__.py:154] : AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-03-26 10:23:47.260 [authentication.py:263] : Server's response is an auth switch request
+2025-03-26 10:23:47.260 [authentication.py:173] : Switching to strategy mysql_native_password
+2025-03-26 10:23:47.260 [__init__.py:149] : package: mysql.connector.plugins
+2025-03-26 10:23:47.260 [__init__.py:150] : plugin_name: mysql_native_password
+2025-03-26 10:23:47.261 [__init__.py:154] : AUTHENTICATION_PLUGIN_CLASS: MySQLNativePasswordAuthPlugin
+2025-03-26 10:23:47.261 [mysql_native_password.py:114] : # request: b'\x92\rc%"mz*dK\xf72\xb8B\xb2\xb8\xc8\xaaVx' size: 20
+2025-03-26 10:23:47.261 [mysql_native_password.py:118] : # server response packet: b'\x07\x00\x00\x05\x00\x00\x00\x02\x00\x00\x00'
+2025-03-26 10:23:47.261 [authentication.py:278] : mysql_native_password completed succesfully
+2025-03-26 10:23:47.263 [base.py:1896] : SELECT DATABASE()
+2025-03-26 10:23:47.263 [base.py:1901] : [raw sql] {}
+2025-03-26 10:23:47.263 [base.py:1896] : SELECT @@sql_mode
+2025-03-26 10:23:47.264 [base.py:1901] : [raw sql] {}
+2025-03-26 10:23:47.264 [base.py:1896] : SELECT @@lower_case_table_names
+2025-03-26 10:23:47.264 [base.py:1901] : [raw sql] {}
+2025-03-26 10:23:47.265 [base.py:1097] : BEGIN (implicit)
+2025-03-26 10:23:47.265 [base.py:1896] : SELECT 1
+2025-03-26 10:23:47.265 [base.py:1901] : [generated in 0.00022s] {}
+2025-03-26 10:23:47.266 [sqlalchemy_db.py:44] : sqlalchemy数据库连接成功
+2025-03-26 10:23:47.266 [base.py:1123] : ROLLBACK
+2025-03-26 10:23:47.291 [selector_events.py:59] : Using selector: KqueueSelector
+2025-03-26 10:23:47.317 [authentication.py:129] : Building SSL context
+2025-03-26 10:23:47.339 [authentication.py:140] : Switching to SSL
+2025-03-26 10:23:47.347 [authentication.py:143] : SSL has been enabled
+2025-03-26 10:23:47.347 [protocol.py:338] : Starting authorization phase
+2025-03-26 10:23:47.347 [protocol.py:352] : The provided initial strategy is caching_sha2_password
+2025-03-26 10:23:47.348 [authentication.py:263] : Server's response is an auth switch request
+2025-03-26 10:23:47.348 [authentication.py:173] : Switching to strategy mysql_native_password
+2025-03-26 10:23:47.348 [mysql_native_password.py:114] : # request: b'\xda\x03\xa5\x8b\xfb>R\x9b\xd9\xb0\x9b\xc9\xdb\xda\xaao\xda\xf7\xf7f' size: 20
+2025-03-26 10:23:47.348 [mysql_native_password.py:118] : # server response packet: b'\x07\x00\x00\x05\x00\x00\x00\x02\x00\x00\x00'
+2025-03-26 10:23:47.348 [authentication.py:278] : mysql_native_password completed succesfully
+2025-03-26 10:23:47.349 [base.py:1896] : SELECT DATABASE()
+2025-03-26 10:23:47.349 [base.py:1901] : [raw sql] {}
+2025-03-26 10:23:47.350 [base.py:1896] : SELECT @@sql_mode
+2025-03-26 10:23:47.351 [base.py:1901] : [raw sql] {}
+2025-03-26 10:23:47.351 [base.py:1896] : SELECT @@lower_case_table_names
+2025-03-26 10:23:47.351 [base.py:1901] : [raw sql] {}
+2025-03-26 10:23:47.352 [base.py:1097] : BEGIN (implicit)
+2025-03-26 10:23:47.352 [base.py:1896] : SELECT 1
+2025-03-26 10:23:47.352 [base.py:1901] : [generated in 0.00024s] {}
+2025-03-26 10:23:47.353 [sqlalchemy_db.py:44] : sqlalchemy数据库连接成功
+2025-03-26 10:23:47.353 [base.py:1123] : ROLLBACK
+2025-03-26 10:24:47.987 [authentication.py:129] : Building SSL context
+2025-03-26 10:24:48.011 [authentication.py:140] : Switching to SSL
+2025-03-26 10:24:48.020 [authentication.py:143] : SSL has been enabled
+2025-03-26 10:24:48.020 [protocol.py:338] : Starting authorization phase
+2025-03-26 10:24:48.020 [protocol.py:352] : The provided initial strategy is caching_sha2_password
+2025-03-26 10:24:48.021 [__init__.py:149] : package: mysql.connector.plugins
+2025-03-26 10:24:48.021 [__init__.py:150] : plugin_name: caching_sha2_password
+2025-03-26 10:24:48.021 [__init__.py:154] : AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-03-26 10:24:48.021 [authentication.py:263] : Server's response is an auth switch request
+2025-03-26 10:24:48.021 [authentication.py:173] : Switching to strategy mysql_native_password
+2025-03-26 10:24:48.021 [__init__.py:149] : package: mysql.connector.plugins
+2025-03-26 10:24:48.021 [__init__.py:150] : plugin_name: mysql_native_password
+2025-03-26 10:24:48.022 [__init__.py:154] : AUTHENTICATION_PLUGIN_CLASS: MySQLNativePasswordAuthPlugin
+2025-03-26 10:24:48.022 [mysql_native_password.py:114] : # request: b'\x83\xa8\x98\x1eU)h}\x07\xf2\xb1\x82\xb2\xf5Rw\xc8\x8a\xb4g' size: 20
+2025-03-26 10:24:48.022 [mysql_native_password.py:118] : # server response packet: b'\x07\x00\x00\x05\x00\x00\x00\x02\x00\x00\x00'
+2025-03-26 10:24:48.022 [authentication.py:278] : mysql_native_password completed succesfully
+2025-03-26 10:24:48.024 [base.py:1896] : SELECT DATABASE()
+2025-03-26 10:24:48.024 [base.py:1901] : [raw sql] {}
+2025-03-26 10:24:48.025 [base.py:1896] : SELECT @@sql_mode
+2025-03-26 10:24:48.025 [base.py:1901] : [raw sql] {}
+2025-03-26 10:24:48.027 [base.py:1896] : SELECT @@lower_case_table_names
+2025-03-26 10:24:48.028 [base.py:1901] : [raw sql] {}
+2025-03-26 10:24:48.029 [base.py:1097] : BEGIN (implicit)
+2025-03-26 10:24:48.029 [base.py:1896] : SELECT 1
+2025-03-26 10:24:48.029 [base.py:1901] : [generated in 0.00032s] {}
+2025-03-26 10:24:48.030 [sqlalchemy_db.py:44] : sqlalchemy数据库连接成功
+2025-03-26 10:24:48.030 [base.py:1123] : ROLLBACK
+2025-03-26 10:24:48.056 [selector_events.py:59] : Using selector: KqueueSelector
+2025-03-26 10:24:48.135 [authentication.py:129] : Building SSL context
+2025-03-26 10:24:48.160 [authentication.py:140] : Switching to SSL
+2025-03-26 10:24:48.168 [authentication.py:143] : SSL has been enabled
+2025-03-26 10:24:48.169 [protocol.py:338] : Starting authorization phase
+2025-03-26 10:24:48.169 [protocol.py:352] : The provided initial strategy is caching_sha2_password
+2025-03-26 10:24:48.169 [authentication.py:263] : Server's response is an auth switch request
+2025-03-26 10:24:48.169 [authentication.py:173] : Switching to strategy mysql_native_password
+2025-03-26 10:24:48.170 [mysql_native_password.py:114] : # request: b'D\x8b\xd9\x1aV\x86\x9f\xd3\xdc\xe6\xbd\x89\xce6\xcd\x08\xfc1u1' size: 20
+2025-03-26 10:24:48.170 [mysql_native_password.py:118] : # server response packet: b'\x07\x00\x00\x05\x00\x00\x00\x02\x00\x00\x00'
+2025-03-26 10:24:48.170 [authentication.py:278] : mysql_native_password completed succesfully
+2025-03-26 10:24:48.172 [base.py:1896] : SELECT DATABASE()
+2025-03-26 10:24:48.172 [base.py:1901] : [raw sql] {}
+2025-03-26 10:24:48.173 [base.py:1896] : SELECT @@sql_mode
+2025-03-26 10:24:48.173 [base.py:1901] : [raw sql] {}
+2025-03-26 10:24:48.174 [base.py:1896] : SELECT @@lower_case_table_names
+2025-03-26 10:24:48.175 [base.py:1901] : [raw sql] {}
+2025-03-26 10:24:48.175 [base.py:1097] : BEGIN (implicit)
+2025-03-26 10:24:48.175 [base.py:1896] : SELECT 1
+2025-03-26 10:24:48.176 [base.py:1901] : [generated in 0.00025s] {}
+2025-03-26 10:24:48.176 [sqlalchemy_db.py:44] : sqlalchemy数据库连接成功
+2025-03-26 10:24:48.176 [base.py:1123] : ROLLBACK
+2025-03-26 10:28:44.557 [authentication.py:129] : Building SSL context
+2025-03-26 10:28:44.580 [authentication.py:140] : Switching to SSL
+2025-03-26 10:28:44.590 [authentication.py:143] : SSL has been enabled
+2025-03-26 10:28:44.591 [protocol.py:338] : Starting authorization phase
+2025-03-26 10:28:44.591 [protocol.py:352] : The provided initial strategy is caching_sha2_password
+2025-03-26 10:28:44.591 [__init__.py:149] : package: mysql.connector.plugins
+2025-03-26 10:28:44.591 [__init__.py:150] : plugin_name: caching_sha2_password
+2025-03-26 10:28:44.591 [__init__.py:154] : AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-03-26 10:28:44.591 [authentication.py:263] : Server's response is an auth switch request
+2025-03-26 10:28:44.591 [authentication.py:173] : Switching to strategy mysql_native_password
+2025-03-26 10:28:44.591 [__init__.py:149] : package: mysql.connector.plugins
+2025-03-26 10:28:44.591 [__init__.py:150] : plugin_name: mysql_native_password
+2025-03-26 10:28:44.592 [__init__.py:154] : AUTHENTICATION_PLUGIN_CLASS: MySQLNativePasswordAuthPlugin
+2025-03-26 10:28:44.592 [mysql_native_password.py:114] : # request: b'3\xc4NG\xa4\xbc.6\xff\xbd\xb0\xd4\xb4dzv; \x07h' size: 20
+2025-03-26 10:28:44.592 [mysql_native_password.py:118] : # server response packet: b'\x07\x00\x00\x05\x00\x00\x00\x02\x00\x00\x00'
+2025-03-26 10:28:44.592 [authentication.py:278] : mysql_native_password completed succesfully
+2025-03-26 10:28:44.594 [base.py:1896] : SELECT DATABASE()
+2025-03-26 10:28:44.595 [base.py:1901] : [raw sql] {}
+2025-03-26 10:28:44.596 [base.py:1896] : SELECT @@sql_mode
+2025-03-26 10:28:44.596 [base.py:1901] : [raw sql] {}
+2025-03-26 10:28:44.596 [base.py:1896] : SELECT @@lower_case_table_names
+2025-03-26 10:28:44.596 [base.py:1901] : [raw sql] {}
+2025-03-26 10:28:44.597 [base.py:1097] : BEGIN (implicit)
+2025-03-26 10:28:44.597 [base.py:1896] : SELECT 1
+2025-03-26 10:28:44.597 [base.py:1901] : [generated in 0.00021s] {}
+2025-03-26 10:28:44.598 [sqlalchemy_db.py:44] : sqlalchemy数据库连接成功
+2025-03-26 10:28:44.598 [base.py:1123] : ROLLBACK
+2025-03-26 10:28:44.624 [selector_events.py:59] : Using selector: KqueueSelector
+2025-03-26 10:28:44.651 [authentication.py:129] : Building SSL context
+2025-03-26 10:28:44.673 [authentication.py:140] : Switching to SSL
+2025-03-26 10:28:44.682 [authentication.py:143] : SSL has been enabled
+2025-03-26 10:28:44.683 [protocol.py:338] : Starting authorization phase
+2025-03-26 10:28:44.683 [protocol.py:352] : The provided initial strategy is caching_sha2_password
+2025-03-26 10:28:44.683 [authentication.py:263] : Server's response is an auth switch request
+2025-03-26 10:28:44.683 [authentication.py:173] : Switching to strategy mysql_native_password
+2025-03-26 10:28:44.683 [mysql_native_password.py:114] : # request: b"\x9e~\xb3\xfbN\xbb\xdf']\xe3\x84\xe8\x9d\xc7S2+ \xf4L" size: 20
+2025-03-26 10:28:44.683 [mysql_native_password.py:118] : # server response packet: b'\x07\x00\x00\x05\x00\x00\x00\x02\x00\x00\x00'
+2025-03-26 10:28:44.683 [authentication.py:278] : mysql_native_password completed succesfully
+2025-03-26 10:28:44.684 [base.py:1896] : SELECT DATABASE()
+2025-03-26 10:28:44.685 [base.py:1901] : [raw sql] {}
+2025-03-26 10:28:44.686 [base.py:1896] : SELECT @@sql_mode
+2025-03-26 10:28:44.686 [base.py:1901] : [raw sql] {}
+2025-03-26 10:28:44.687 [base.py:1896] : SELECT @@lower_case_table_names
+2025-03-26 10:28:44.687 [base.py:1901] : [raw sql] {}
+2025-03-26 10:28:44.687 [base.py:1097] : BEGIN (implicit)
+2025-03-26 10:28:44.688 [base.py:1896] : SELECT 1
+2025-03-26 10:28:44.688 [base.py:1901] : [generated in 0.00089s] {}
+2025-03-26 10:28:44.689 [sqlalchemy_db.py:44] : sqlalchemy数据库连接成功
+2025-03-26 10:28:44.689 [base.py:1123] : ROLLBACK
