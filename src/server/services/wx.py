@@ -95,30 +95,43 @@ class WxService:
     # 获取access_token
     @wx_mini_response_handler(api_path='/wx/mini.get.access.token', success_msg='获取access_token成功', error_msg='获取access_token调用失败')
     # @wx_api_error_decorator(platform=WxPlatformEnum.WX_MINI.value, api_path='https://api.weixin.qq.com/cgi-bin/token', error_msg='获取access_token调用失败')
-    def wx_mini_get_access_token(self):
+    async def wx_mini_get_access_token(self):
         url = f"{self.BASE_URL}/cgi-bin/token"
         params = {
             **self.data,
             "grant_type": "client_credential"
         }
-        response = requests.get(url, params=params)
-        access_token_data = response.json() 
-        print('WxService---wx_mini_get_access_token---access_token_data-----', access_token_data)
-        self.access_token = access_token_data.get('access_token')  
-        self.expires_in = access_token_data.get('expires_in')
-        # self.api_error_send_email({
-        #     'error_msg': '获取access_token调用失败',
-        #     'error_time': '2025-03-26 10:10:10',
-        #     'error_platform': WxPlatformEnum.WX_MINI.value,
-        #     'error_api': 'https://api.weixin.qq.com/cgi-bin/token',
-        #     'error_code': access_token_data.get('errcode'),
-        #     'execution_time': f"3秒"
-        # })
+        async with httpx.AsyncClient() as client:
+            response = await client.get(url, params=params) 
+            access_token_data = response.json() 
+            print('WxService---wx_mini_get_access_token---access_token_data-----', access_token_data)
+            self.access_token = access_token_data.get('access_token')  
+            self.expires_in = access_token_data.get('expires_in')
+            # 创建一个异步任务来发送邮件，但不等待它完成
+            # 这样可以避免事件循环冲突
+            asyncio.create_task(self._send_email_async({
+                'error_msg': '获取access_token调用失败',
+                'error_time': '2025-03-26 10:10:10',
+                'error_platform': WxPlatformEnum.WX_MINI.value,
+                'error_api': 'https://api.weixin.qq.com/cgi-bin/token',
+                'error_code': '40001',
+                'execution_time': f"3秒"
+            }))
         # self.expires_in = 0
         self.expires_time = time.time() + self.expires_in
         return access_token_data
         # 测试报错
         # return { 'errcode': 40001, 'errmsg': 'invalid code' }
+    # 添加一个新的异步方法来发送邮件
+    async def _send_email_async(self, params):
+        """
+        异步发送邮件的辅助方法
+        """
+        try:
+            await self.email_service.send_three_party_api_error_email(params)
+            logging.info(f"已发送邮件通知到 {settings.QQ_MAIL_FROM}")
+        except Exception as e:
+            logging.error(f"发送邮件失败: {str(e)}")
 
     # @wx_mini_response_handler(api_path='/wx/mini.get.access.token', success_msg='获取access_token成功', error_msg='获取access_token调用失败')
     # @wx_api_error_decorator(platform=WxPlatformEnum.WX_MINI.value, 
@@ -163,6 +176,44 @@ class WxService:
     #     # return result
 
     # 在 WxService 类中添加或修改 api_error_send_email 方法
+    # def api_error_send_email(self, params):
+    #     """
+    #     同步版本的API错误邮件发送方法
+        
+    #     参数:
+    #         params: 错误参数
+        
+    #     返回:
+    #         发送结果
+    #     """
+    #     try:
+    #         # 获取当前事件循环
+    #         testloop = asyncio.get_event_loop()
+    #         print('testloop---------', testloop.is_running())
+    #         # 创建事件循环来运行异步函数
+    #         loop = asyncio.new_event_loop()
+    #         asyncio.set_event_loop(loop)
+    #         try:
+    #             # 运行异步函数并获取结果
+    #             # 设置整体超时时间为20秒
+    #             result = loop.run_until_complete(
+    #                 asyncio.wait_for(
+    #                     self.email_service.send_three_party_api_error_email(params),
+    #                     timeout=20
+    #                 )
+    #             )
+    #             print(f"WxService api_error_send_email result: {result}")
+    #             return result
+    #         finally:
+    #             # 确保关闭事件循环
+    #             print(f"WxService api_error_send_email loop: {loop}")
+    #             loop.close()
+    #     except Exception as e:
+    #         logging.error(f"api_error_send_email 执行失败: {str(e)}")
+    #         return {"status": "error", "message": str(e)}
+
+
+    # 在 WxService 类中修改 api_error_send_email 方法
     def api_error_send_email(self, params):
         """
         同步版本的API错误邮件发送方法
@@ -174,24 +225,35 @@ class WxService:
             发送结果
         """
         try:
-            # 创建事件循环来运行异步函数
-            loop = asyncio.new_event_loop()
-            asyncio.set_event_loop(loop)
+            # 获取当前事件循环
             try:
-                # 运行异步函数并获取结果
-                # 设置整体超时时间为20秒
-                result = loop.run_until_complete(
-                    asyncio.wait_for(
-                        self.email_service.send_three_party_api_error_email(params),
-                        timeout=20
-                    )
-                )
-                print(f"WxService api_error_send_email result: {result}")
-                return result
-            finally:
-                # 确保关闭事件循环
+                loop = asyncio.get_event_loop()
                 print(f"WxService api_error_send_email loop: {loop}")
-                loop.close()
+            except RuntimeError:
+                # 如果没有事件循环，创建一个新的
+                loop = asyncio.new_event_loop()
+                asyncio.set_event_loop(loop)
+                print(f"WxService api_error_send_email created new loop: {loop}")
+
+            # 检查事件循环是否正在运行
+            if loop.is_running():
+                # 如果事件循环正在运行，我们不能再运行一个事件循环
+                # 在这种情况下，我们可以选择跳过发送邮件或使用其他方式
+                print(f"事件循环正在运行，跳过发送邮件")
+                logging.info(f"事件循环正在运行，跳过发送邮件通知到 {settings.QQ_MAIL_FROM}")
+                return '事件循环正在运行，跳过发送邮件'
+            else:
+                # 如果事件循环没有运行，我们可以运行异步函数
+                async def send_email_async():
+                    await self.email_service.send_three_party_api_error_email(params)
+                
+                try:
+                    loop.run_until_complete(send_email_async())
+                    logging.info(f"已发送邮件通知到 {settings.QQ_MAIL_FROM}")
+                    return '邮件发送成功'
+                except Exception as e:
+                    logging.error(f"api_error_send_email 执行失败: {str(e)}")
+                    return f'邮件发送失败: {str(e)}'
         except Exception as e:
             logging.error(f"api_error_send_email 执行失败: {str(e)}")
-            return {"status": "error", "message": str(e)}
+            return f'邮件发送失败: {str(e)}'

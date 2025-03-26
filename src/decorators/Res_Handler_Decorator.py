@@ -106,15 +106,15 @@ def api_response_handler(platform=WxPlatformEnum.WX_MINI.value, api_path=None, e
         return wrapper
     return decorator
 
-# 添加平台特定的响应处理装饰器
-def wx_mini_response_handler(api_path=None, error_msg=None, success_msg=None):
-    """微信小程序API响应处理装饰器"""
-    return api_response_handler(
-        platform=WxPlatformEnum.WX_MINI.value,
-        api_path=api_path,
-        error_msg=error_msg,
-        success_msg=success_msg
-    )
+# # 添加平台特定的响应处理装饰器
+# def wx_mini_response_handler(api_path=None, error_msg=None, success_msg=None):
+#     """微信小程序API响应处理装饰器"""
+#     return api_response_handler(
+#         platform=WxPlatformEnum.WX_MINI.value,
+#         api_path=api_path,
+#         error_msg=error_msg,
+#         success_msg=success_msg
+#     )
 
 def damai_response_handler(api_path=None, error_msg=None, success_msg=None):
     """大麦网API响应处理装饰器"""
@@ -182,3 +182,133 @@ def error_response(message, data=None, platform=WxPlatformEnum.WX_MINI.value, ap
         'v': 1,
         'api': api_path or '/api'
     }
+
+
+
+
+
+
+
+import functools
+import asyncio
+import inspect
+import logging
+
+def wx_mini_response_handler(platform=WxPlatformEnum.WX_MINI.value, api_path=None, error_msg=None, success_msg=None):
+    def decorator(func):
+        @functools.wraps(func)
+        def wrapper(*args, **kwargs):
+            # 如果没有提供API路径，则从函数名生成
+            nonlocal api_path
+            if api_path is None:
+                # 将函数名转换为API路径格式
+                func_name = func.__name__
+                api_name = '.'.join(func_name.split('_'))
+                api_path = f'/api.{api_name}'
+            try:
+                # 检查函数是否是协程函数
+                if asyncio.iscoroutinefunction(func):
+                    # 获取当前事件循环
+                    try:
+                        loop = asyncio.get_event_loop()
+                    except RuntimeError:
+                        # 如果没有事件循环，创建一个新的
+                        loop = asyncio.new_event_loop()
+                        asyncio.set_event_loop(loop)
+                    
+                    # 检查事件循环是否正在运行
+                    if loop.is_running():
+                        # 如果事件循环正在运行，我们需要使用 run_coroutine_threadsafe
+                        # 但这在同步上下文中不起作用，所以我们需要一个替代方案
+                        # 在这种情况下，我们返回协程对象，让调用者处理它
+                        logging.warning(f"{func.__name__} 返回协程对象，需要在异步上下文中使用 await")
+                        return {
+                            'platform': platform,
+                            'ret': ["ERROR::" + f"{error_msg}: 需要在异步上下文中调用"],
+                            'data': {},
+                            'v': 1,
+                            'api': api_path
+                        }
+                    else:
+                        # 如果事件循环没有运行，我们可以运行协程
+                        try:
+                            result = loop.run_until_complete(func(*args, **kwargs))
+                        except Exception as e:
+                            logging.error(f"{func.__name__} 执行失败: {str(e)}")
+                            return {
+                                'platform': platform,
+                                'ret': ["ERROR::" + f"{error_msg}: {str(e)}"],
+                                'data': {},
+                                'v': 1,
+                                'api': api_path
+                            }
+                else:
+                    # 如果是普通函数，直接调用
+                    result = func(*args, **kwargs)
+                
+                # 处理结果
+                if result and isinstance(result, dict) and result.get('errcode', 0) == 0:
+                    return {
+                        'platform': platform,
+                        'ret': [f"SUCCESS::{success_msg}"],
+                        'data': result,
+                        'v': 1,
+                        'api': api_path
+                    }
+                else:
+                    return {
+                        'platform': platform,
+                        'ret': ["ERROR::" + result.get('errmsg', error_msg)],
+                        'data': result,
+                        'v': 1,
+                        'api': api_path
+                    }
+            except Exception as e:
+                logging.error(f"{func.__name__}::error--------- {str(e)}")
+                return {
+                    'platform': platform,
+                    'ret': ["ERROR::" + f"{error_msg}: {str(e)}"],
+                    'data': {},
+                    'v': 1,
+                    'api': api_path
+                }
+        
+        # 创建一个异步包装器
+        @functools.wraps(func)
+        async def async_wrapper(*args, **kwargs):
+            try:
+                # 直接等待异步函数
+                result = await func(*args, **kwargs)
+                
+                # 处理结果
+                if result and isinstance(result, dict) and result.get('errcode', 0) == 0:
+                    return {
+                        'platform': platform,
+                        'ret': [f"SUCCESS::{success_msg}"],
+                        'data': result,
+                        'v': 1,
+                        'api': api_path
+                    }
+                else:
+                    return {
+                        'platform': platform,
+                        'ret': ["ERROR::" + result.get('errmsg', error_msg)],
+                        'data': result,
+                        'v': 1,
+                        'api': api_path
+                    }
+            except Exception as e:
+                logging.error(f"{func.__name__}::error--------- {str(e)}")
+                return {
+                    'code': -1,
+                    'msg': f"{error_msg}: {str(e)}",
+                    'data': {}
+                }
+        
+        # 根据原函数是否为协程函数返回相应的包装器
+        if asyncio.iscoroutinefunction(func):
+            return async_wrapper
+        else:
+            return wrapper
+    
+    return decorator
