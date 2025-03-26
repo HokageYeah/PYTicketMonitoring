@@ -3,11 +3,13 @@ from src.server.schemas.wxMiniLoginSchema import WxPlatformEnum
 from src.sql.models.user import User
 from src.server.services.userService import UserService
 import time
-from src.server.untiles.res_handler import wx_mini_response_handler
+from src.decorators.Res_Handler_Decorator import wx_mini_response_handler
 from src.server.untiles.Email_Sender import EmailSender
 from src.server.core.confing import settings
 import asyncio
 import logging
+from src.decorators.Wx_Api_Error_Decorator import wx_api_error_decorator
+import httpx
 user_service = UserService()
 
 class WxService:
@@ -21,8 +23,6 @@ class WxService:
         self.access_token = ''
         self.expires_in = 0
         self.expires_time = time.time() + self.expires_in
-        # 调用获取access_token
-        self.wx_mini_get_access_token()
         # 调用access_token 记录次数，超过三次返回错误
         self.access_token_count = 0,
         # 初始化邮件服务
@@ -94,6 +94,7 @@ class WxService:
         return res
     # 获取access_token
     @wx_mini_response_handler(api_path='/wx/mini.get.access.token', success_msg='获取access_token成功', error_msg='获取access_token调用失败')
+    # @wx_api_error_decorator(platform=WxPlatformEnum.WX_MINI.value, api_path='https://api.weixin.qq.com/cgi-bin/token', error_msg='获取access_token调用失败')
     def wx_mini_get_access_token(self):
         url = f"{self.BASE_URL}/cgi-bin/token"
         params = {
@@ -105,9 +106,41 @@ class WxService:
         print('WxService---wx_mini_get_access_token---access_token_data-----', access_token_data)
         self.access_token = access_token_data.get('access_token')  
         self.expires_in = access_token_data.get('expires_in')
+        # self.api_error_send_email({
+        #     'error_msg': '获取access_token调用失败',
+        #     'error_time': '2025-03-26 10:10:10',
+        #     'error_platform': WxPlatformEnum.WX_MINI.value,
+        #     'error_api': 'https://api.weixin.qq.com/cgi-bin/token',
+        #     'error_code': access_token_data.get('errcode'),
+        #     'execution_time': f"3秒"
+        # })
         # self.expires_in = 0
         self.expires_time = time.time() + self.expires_in
         return access_token_data
+        # 测试报错
+        # return { 'errcode': 40001, 'errmsg': 'invalid code' }
+
+    # @wx_mini_response_handler(api_path='/wx/mini.get.access.token', success_msg='获取access_token成功', error_msg='获取access_token调用失败')
+    # @wx_api_error_decorator(platform=WxPlatformEnum.WX_MINI.value, 
+    #                    api_path='https://api.weixin.qq.com/cgi-bin/token', 
+    #                    error_msg='获取access_token调用失败')
+    # async def wx_mini_get_access_token(self):
+    #     url = f"{self.BASE_URL}/cgi-bin/token"
+    #     params = {
+    #         **self.data,
+    #         "grant_type": "client_credential"
+    #     }
+    #     # 使用异步HTTP客户端（如aiohttp）
+    #     async with httpx.AsyncClient() as client:
+    #         response = await client.get(url, params=params)
+    #         access_token_data = response.json()
+        
+    #     self.access_token = access_token_data.get('access_token')  
+    #     self.expires_in = access_token_data.get('expires_in')
+    #     self.expires_time = time.time() + self.expires_in
+    #     return {'errcode': 40001, 'errmsg': 'invalid code'}  # 测试用错误
+
+    
     # 发送邮件
     # def api_error_send_email(self, params):
     #     # 创建异步任务发送邮件

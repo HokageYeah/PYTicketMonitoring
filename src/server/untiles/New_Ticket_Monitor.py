@@ -22,7 +22,7 @@ from src.sql.models import Show, Performance, TicketPrice, UserShowMonitor, User
 from sqlalchemy.orm import joinedload
 from src.sql.sqlalchemy_db import get_sqlalchemy_db
 from sqlalchemy import delete, not_, and_, or_
-from src.server.untiles.res_handler import api_response_handler
+from src.decorators.Res_Handler_Decorator import api_response_handler
 from src.server.services.wx import WxService
 wx_service = WxService()
 
@@ -180,7 +180,7 @@ class New_Ticket_Monitor:
                     # task_list.append(self.check_ticket(show_id, monitor_item.get('ticket_perform'), platform))
                     response = self.check_ticket(show_id, '', monitor_item.get('ticket_perform'), platform)
                     if response.get("ret") != ["SUCCESS::调用成功"]:
-                        # todo 这里过期了需要邮件通知开发者，目前先打印信息
+                        # 这里过期了需要邮件通知开发者，目前先打印信息
                         error_msg = response.get("ret")[0].split('::')[1]
                         params = {
                             "error_msg": error_msg,
@@ -192,6 +192,8 @@ class New_Ticket_Monitor:
                          # 使用修改后的同步方法发送邮件
                         try:
                             result = wx_service.api_error_send_email(params)
+                            # 异步发送邮件需要调用上面的这个
+                            # result = wx_service.email_service.send_three_party_api_error_email(params)
                             print('邮件发送结果:', result)
                         except Exception as e:
                             logging.error(f"发送邮件通知失败: {str(e)}")

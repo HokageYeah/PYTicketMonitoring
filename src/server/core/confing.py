@@ -46,7 +46,8 @@ class Settings(BaseSettings):
     QQ_MAIL_SSL_TLS: Optional[bool] = True # 是否开启SSL/TLS
     QQ_MAIL_USE_CREDENTIALS: Optional[bool] = True # 是否使用凭证
     QQ_VALIDATE_CERTS: Optional[bool] = True # 是否验证证书
-
+    QQ_MAIL_TO: Optional[str] = "" # 接收邮件地址
+    QQ_MAIL_FROM_NAME: Optional[str] = "" # 发送邮件名称
     # 添加环境变量字段
     ENV: str = "development"
     # 数据库配置
@@ -86,12 +87,12 @@ def get_mail_config(settings: Settings = None):
         MAIL_USERNAME=settings.QQ_MAIL_USERNAME,
         MAIL_PASSWORD=settings.QQ_MAIL_PASSWORD,
         MAIL_FROM=settings.QQ_MAIL_FROM,
-        MAIL_FROM_NAME=settings.QQ_MAIL_FROM,
-        MAIL_SERVER=settings.QQ_MAIL_SERVER,
         MAIL_PORT=settings.QQ_MAIL_PORT,
+        MAIL_FROM_NAME=settings.QQ_MAIL_FROM_NAME,
+        MAIL_SERVER=settings.QQ_MAIL_SERVER,
         MAIL_SSL_TLS=settings.QQ_MAIL_SSL_TLS,
         MAIL_STARTTLS=settings.QQ_MAIL_STARTTLS,
-        MAIL_USE_CREDENTIALS=settings.QQ_MAIL_USE_CREDENTIALS,
+        USE_CREDENTIALS=settings.QQ_MAIL_USE_CREDENTIALS,
         TEMPLATE_FOLDER=None  # 可以设置邮件模板目录
     )
 

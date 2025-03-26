@@ -21,7 +21,7 @@ import time
 import re
 from src.server.untiles.New_Ticket_Monitor import New_Ticket_Monitor
 from src.sql.monitor.monitor_db_operate import MonitorDbOperate
-from src.server.untiles.res_handler import damai_response_handler
+from src.decorators.Res_Handler_Decorator import damai_response_handler
 from src.sql.models.user import User
 logger = logging.getLogger(__name__)
 monitor_db_operate = MonitorDbOperate()

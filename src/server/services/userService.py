@@ -13,7 +13,7 @@ from src.sql.models.wx_msg_subscribe_user import WxMsgSubscribeUse
 from src.server.untiles.custom_exceptions import SaveSubscribeTemplateException, SendSubscribeMsgUserException
 from src.sql.models.wx_msg_subscribe_template import WxMsgSubscribeTemplate
 from src.sql.models import Show, Performance, TicketPrice, UserShowMonitor, UserTicketMonitor
-from src.server.untiles.res_handler import wx_mini_response_handler
+from src.decorators.Res_Handler_Decorator import wx_mini_response_handler
 from collections import defaultdict
 import cachetools
 from src.decorators.Cache_Decorator import cache_result, clear_cache

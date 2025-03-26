@@ -169,22 +169,6 @@ class EmailSchema(BaseModel):
 
 @wx_router.post("/wx/mini.test.email")
 async def simple_send(email: EmailSchema) -> JSONResponse:
-    # try:
-    #     html = """<p>Hi this test mail, thanks for using Fastapi-mail</p> """
-
-    #     message = MessageSchema(
-    #         subject="服务通知",
-    #         recipients=email.dict().get("email"),
-    #         body=html,
-    #         subtype=MessageType.html)
-
-    #     fm = FastMail(conf)
-    #     await fm.send_message(message)
-    #     print('email has been sent')
-    #     return JSONResponse(status_code=200, content={"message": "email has been sent"})
-    # except Exception as e:
-    #     print(f"邮件发送错误: {str(e)}")
-    #     return JSONResponse(status_code=500, content={"message": f"邮件发送失败: {str(e)}"})
     html = """<p>你好，这是一封测试邮件</p> """
     message = MessageSchema(
         subject="服务通知",
