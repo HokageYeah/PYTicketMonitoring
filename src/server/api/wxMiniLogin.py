@@ -53,7 +53,9 @@ async def wx_mini_get_access_token(
     print('wx_mini_get_access_token---platform---------', platform)
     print('wx_mini_get_access_token---params.platform---------', WxPlatformEnum.WX_MINI.value)
     if platform == WxPlatformEnum.WX_MINI.value:
+        print('wx_mini_get_access_token---api---------1')
         access_token_data = await wx_service.wx_mini_get_access_token()
+        print('wx_mini_get_access_token---api---------2', access_token_data)
         return access_token_data
     return None
 

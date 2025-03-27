@@ -22,7 +22,7 @@ from src.sql.models import Show, Performance, TicketPrice, UserShowMonitor, User
 from sqlalchemy.orm import joinedload
 from src.sql.sqlalchemy_db import get_sqlalchemy_db
 from sqlalchemy import delete, not_, and_, or_
-from src.decorators.Res_Handler_Decorator import api_response_handler
+from src.decorators.Res_Handler_Decorator import new_api_response_handler
 from src.server.services.wx import WxService
 wx_service = WxService()
 
@@ -37,7 +37,7 @@ class New_Ticket_Monitor:
         self.access_token = ''
         self.delete_monitor_list = []
     # 发送通知的实现
-    @api_response_handler(api_path='/wx/mini.send.subscribe.message', success_msg='发送通知成功', error_msg='发送通知失败')
+    @new_api_response_handler(api_path='/wx/mini.send.subscribe.message', success_msg='发送通知成功', error_msg='发送通知失败')
     def send_notification(self, delete_item, send_info, delete_ticket_perform_index, delete_sku_perform_index):
         # 获取需要通知的wx_token
         wx_token = delete_item.get('wx_token')
@@ -194,7 +194,7 @@ class New_Ticket_Monitor:
                             result = wx_service.api_error_send_email(params)
                             # 异步发送邮件需要调用上面的这个
                             # result = wx_service.email_service.send_three_party_api_error_email(params)
-                            print('邮件发送结果:', result)
+                            print('邮件发送结果1:', result)
                         except Exception as e:
                             logging.error(f"发送邮件通知失败: {str(e)}")
                         print('monitor_platform------error_msg------', response.get("ret"))
