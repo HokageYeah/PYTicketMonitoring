@@ -7690,3 +7690,143 @@ WHERE shows.show_id IN (%(show_id_1_1)s, %(show_id_1_2)s) AND shows.platform = %
 2025-03-27 18:50:11.060 [base.py:1901] : [generated in 0.00020s] {}
 2025-03-27 18:50:11.060 [sqlalchemy_db.py:44] : sqlalchemyÊï∞ÊçÆÂ∫ìËøûÊé•ÊàêÂäü
 2025-03-27 18:50:11.060 [base.py:1123] : ROLLBACK
+2025-03-27 22:32:29.665 [base.py:1843] : SELECT DATABASE()
+2025-03-27 22:32:29.667 [base.py:1843] : [raw sql] {}
+2025-03-27 22:32:29.670 [base.py:1843] : SELECT @@sql_mode
+2025-03-27 22:32:29.671 [base.py:1843] : [raw sql] {}
+2025-03-27 22:32:29.672 [base.py:1843] : SELECT @@lower_case_table_names
+2025-03-27 22:32:29.673 [base.py:1843] : [raw sql] {}
+2025-03-27 22:32:29.675 [base.py:2699] : BEGIN (implicit)
+2025-03-27 22:32:29.677 [base.py:1843] : SELECT 1
+2025-03-27 22:32:29.678 [base.py:1843] : [generated in 0.00110s] {}
+2025-03-27 22:32:29.680 [sqlalchemy_db.py:44] : sqlalchemy ˝æ›ø‚¡¨Ω”≥…π¶
+2025-03-27 22:32:29.680 [base.py:2702] : ROLLBACK
+2025-03-27 22:32:32.072 [base.py:1843] : SELECT DATABASE()
+2025-03-27 22:32:32.073 [base.py:1843] : [raw sql] {}
+2025-03-27 22:32:32.075 [base.py:1843] : SELECT @@sql_mode
+2025-03-27 22:32:32.076 [base.py:1843] : [raw sql] {}
+2025-03-27 22:32:32.077 [base.py:1843] : SELECT @@lower_case_table_names
+2025-03-27 22:32:32.077 [base.py:1843] : [raw sql] {}
+2025-03-27 22:32:32.079 [base.py:2699] : BEGIN (implicit)
+2025-03-27 22:32:32.081 [base.py:1843] : SELECT 1
+2025-03-27 22:32:32.082 [base.py:1843] : [generated in 0.00119s] {}
+2025-03-27 22:32:32.083 [sqlalchemy_db.py:44] : sqlalchemy ˝æ›ø‚¡¨Ω”≥…π¶
+2025-03-27 22:32:32.084 [base.py:2702] : ROLLBACK
+2025-03-27 22:32:32.122 [selector_events.py:64] : Using selector: SelectSelector
+2025-03-27 22:32:32.184 [base.py:1843] : SELECT DATABASE()
+2025-03-27 22:32:32.185 [base.py:1843] : [raw sql] {}
+2025-03-27 22:32:32.187 [base.py:1843] : SELECT @@sql_mode
+2025-03-27 22:32:32.187 [base.py:1843] : [raw sql] {}
+2025-03-27 22:32:32.189 [base.py:1843] : SELECT @@lower_case_table_names
+2025-03-27 22:32:32.189 [base.py:1843] : [raw sql] {}
+2025-03-27 22:32:32.191 [base.py:2699] : BEGIN (implicit)
+2025-03-27 22:32:32.192 [base.py:1843] : SELECT 1
+2025-03-27 22:32:32.193 [base.py:1843] : [generated in 0.00109s] {}
+2025-03-27 22:32:32.194 [sqlalchemy_db.py:44] : sqlalchemy ˝æ›ø‚¡¨Ω”≥…π¶
+2025-03-27 22:32:32.194 [base.py:2702] : ROLLBACK
+2025-03-27 22:32:42.026 [_trace.py:87] : connect_tcp.started host='api.weixin.qq.com' port=443 local_address=None timeout=5.0 socket_options=None
+2025-03-27 22:32:42.054 [_trace.py:87] : connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x0000019B9F8D9160>
+2025-03-27 22:32:42.055 [_trace.py:87] : start_tls.started ssl_context=<ssl.SSLContext object at 0x0000019B9F8B0440> server_hostname='api.weixin.qq.com' timeout=5.0
+2025-03-27 22:32:42.104 [_trace.py:87] : start_tls.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x0000019B9F856990>
+2025-03-27 22:32:42.104 [_trace.py:87] : send_request_headers.started request=<Request [b'GET']>
+2025-03-27 22:32:42.105 [_trace.py:87] : send_request_headers.complete
+2025-03-27 22:32:42.105 [_trace.py:87] : send_request_body.started request=<Request [b'GET']>
+2025-03-27 22:32:42.106 [_trace.py:87] : send_request_body.complete
+2025-03-27 22:32:42.106 [_trace.py:87] : receive_response_headers.started request=<Request [b'GET']>
+2025-03-27 22:32:42.409 [_trace.py:87] : receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Connection', b'keep-alive'), (b'Content-Type', b'application/json; encoding=utf-8'), (b'Date', b'Thu, 27 Mar 2025 14:32:41 GMT'), (b'Content-Length', b'173')])
+2025-03-27 22:32:42.410 [_client.py:1740] : HTTP Request: GET https://api.weixin.qq.com/cgi-bin/token?appid=wxcce30ba44a2065a5&secret=c49f74d704577e5842e84ab43ff3333d&grant_type=client_credential "HTTP/1.1 200 OK"
+2025-03-27 22:32:42.411 [_trace.py:87] : receive_response_body.started request=<Request [b'GET']>
+2025-03-27 22:32:42.411 [_trace.py:87] : receive_response_body.complete
+2025-03-27 22:32:42.412 [_trace.py:87] : response_closed.started
+2025-03-27 22:32:42.412 [_trace.py:87] : response_closed.complete
+2025-03-27 22:32:42.413 [_trace.py:87] : close.started
+2025-03-27 22:32:42.414 [_trace.py:87] : close.complete
+2025-03-27 22:33:12.129 [base.py:1843] : SELECT DATABASE()
+2025-03-27 22:33:12.130 [base.py:1843] : [raw sql] {}
+2025-03-27 22:33:12.132 [base.py:1843] : SELECT @@sql_mode
+2025-03-27 22:33:12.132 [base.py:1843] : [raw sql] {}
+2025-03-27 22:33:12.133 [base.py:1843] : SELECT @@lower_case_table_names
+2025-03-27 22:33:12.134 [base.py:1843] : [raw sql] {}
+2025-03-27 22:33:12.135 [base.py:2699] : BEGIN (implicit)
+2025-03-27 22:33:12.136 [base.py:1843] : SELECT 1
+2025-03-27 22:33:12.137 [base.py:1843] : [generated in 0.00070s] {}
+2025-03-27 22:33:12.138 [sqlalchemy_db.py:44] : sqlalchemy ˝æ›ø‚¡¨Ω”≥…π¶
+2025-03-27 22:33:12.138 [base.py:2702] : ROLLBACK
+2025-03-27 22:33:12.180 [selector_events.py:64] : Using selector: SelectSelector
+2025-03-27 22:33:12.231 [base.py:1843] : SELECT DATABASE()
+2025-03-27 22:33:12.232 [base.py:1843] : [raw sql] {}
+2025-03-27 22:33:12.234 [base.py:1843] : SELECT @@sql_mode
+2025-03-27 22:33:12.235 [base.py:1843] : [raw sql] {}
+2025-03-27 22:33:12.236 [base.py:1843] : SELECT @@lower_case_table_names
+2025-03-27 22:33:12.236 [base.py:1843] : [raw sql] {}
+2025-03-27 22:33:12.237 [base.py:2699] : BEGIN (implicit)
+2025-03-27 22:33:12.238 [base.py:1843] : SELECT 1
+2025-03-27 22:33:12.239 [base.py:1843] : [generated in 0.00068s] {}
+2025-03-27 22:33:12.239 [sqlalchemy_db.py:44] : sqlalchemy ˝æ›ø‚¡¨Ω”≥…π¶
+2025-03-27 22:33:12.240 [base.py:2702] : ROLLBACK
+2025-03-27 22:33:19.472 [_trace.py:87] : connect_tcp.started host='api.weixin.qq.com' port=443 local_address=None timeout=5.0 socket_options=None
+2025-03-27 22:33:19.504 [_trace.py:87] : connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x000001AED3BC1010>
+2025-03-27 22:33:19.504 [_trace.py:87] : start_tls.started ssl_context=<ssl.SSLContext object at 0x000001AED3B903B0> server_hostname='api.weixin.qq.com' timeout=5.0
+2025-03-27 22:33:19.561 [_trace.py:87] : start_tls.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x000001AED3B36990>
+2025-03-27 22:33:19.561 [_trace.py:87] : send_request_headers.started request=<Request [b'GET']>
+2025-03-27 22:33:19.562 [_trace.py:87] : send_request_headers.complete
+2025-03-27 22:33:19.563 [_trace.py:87] : send_request_body.started request=<Request [b'GET']>
+2025-03-27 22:33:19.564 [_trace.py:87] : send_request_body.complete
+2025-03-27 22:33:19.564 [_trace.py:87] : receive_response_headers.started request=<Request [b'GET']>
+2025-03-27 22:33:19.742 [_trace.py:87] : receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Connection', b'keep-alive'), (b'Content-Type', b'application/json; encoding=utf-8'), (b'Date', b'Thu, 27 Mar 2025 14:33:18 GMT'), (b'Content-Length', b'173')])
+2025-03-27 22:33:19.743 [_client.py:1740] : HTTP Request: GET https://api.weixin.qq.com/cgi-bin/token?appid=wxcce30ba44a2065a5&secret=c49f74d704577e5842e84ab43ff3333d&grant_type=client_credential "HTTP/1.1 200 OK"
+2025-03-27 22:33:19.744 [_trace.py:87] : receive_response_body.started request=<Request [b'GET']>
+2025-03-27 22:33:19.745 [_trace.py:87] : receive_response_body.complete
+2025-03-27 22:33:19.745 [_trace.py:87] : response_closed.started
+2025-03-27 22:33:19.746 [_trace.py:87] : response_closed.complete
+2025-03-27 22:33:19.747 [_trace.py:87] : close.started
+2025-03-27 22:33:19.748 [_trace.py:87] : close.complete
+2025-03-27 22:33:19.749 [Res_Handler_Decorator.py:231] : wx_mini_get_access_token “µŒÒ¥ÌŒÛ: ERROR::invalid code
+2025-03-27 22:33:19.753 [Res_Handler_Decorator.py:166] :  ¬º˛—≠ª∑’˝‘⁄‘À––£¨∑¢ÀÕ” º˛Õ®÷™µΩ 2410292164@qq.com
+2025-03-27 22:33:20.750 [Email_Sender.py:71] : ∑¢ÀÕµ⁄»˝∑ΩAPI¥ÌŒÛ” º˛ ß∞‹: (-1, "Malformed SMTP response line: b'\\x00\\x00\\x00\\x1a\\x00\\x00\\x00\\n'")
+2025-03-27 23:04:13.983 [base.py:1843] : SELECT DATABASE()
+2025-03-27 23:04:13.984 [base.py:1843] : [raw sql] {}
+2025-03-27 23:04:13.987 [base.py:1843] : SELECT @@sql_mode
+2025-03-27 23:04:13.988 [base.py:1843] : [raw sql] {}
+2025-03-27 23:04:13.989 [base.py:1843] : SELECT @@lower_case_table_names
+2025-03-27 23:04:13.990 [base.py:1843] : [raw sql] {}
+2025-03-27 23:04:13.992 [base.py:2699] : BEGIN (implicit)
+2025-03-27 23:04:13.993 [base.py:1843] : SELECT 1
+2025-03-27 23:04:13.994 [base.py:1843] : [generated in 0.00100s] {}
+2025-03-27 23:04:13.995 [sqlalchemy_db.py:44] : sqlalchemy ˝æ›ø‚¡¨Ω”≥…π¶
+2025-03-27 23:04:13.995 [base.py:2702] : ROLLBACK
+2025-03-27 23:04:14.034 [selector_events.py:64] : Using selector: SelectSelector
+2025-03-27 23:04:14.088 [base.py:1843] : SELECT DATABASE()
+2025-03-27 23:04:14.088 [base.py:1843] : [raw sql] {}
+2025-03-27 23:04:14.090 [base.py:1843] : SELECT @@sql_mode
+2025-03-27 23:04:14.091 [base.py:1843] : [raw sql] {}
+2025-03-27 23:04:14.092 [base.py:1843] : SELECT @@lower_case_table_names
+2025-03-27 23:04:14.093 [base.py:1843] : [raw sql] {}
+2025-03-27 23:04:14.094 [base.py:2699] : BEGIN (implicit)
+2025-03-27 23:04:14.095 [base.py:1843] : SELECT 1
+2025-03-27 23:04:14.096 [base.py:1843] : [generated in 0.00078s] {}
+2025-03-27 23:04:14.097 [sqlalchemy_db.py:44] : sqlalchemy ˝æ›ø‚¡¨Ω”≥…π¶
+2025-03-27 23:04:14.097 [base.py:2702] : ROLLBACK
+2025-03-27 23:04:24.170 [base.py:1843] : SELECT DATABASE()
+2025-03-27 23:04:24.171 [base.py:1843] : [raw sql] {}
+2025-03-27 23:04:24.174 [base.py:1843] : SELECT @@sql_mode
+2025-03-27 23:04:24.175 [base.py:1843] : [raw sql] {}
+2025-03-27 23:04:24.178 [base.py:1843] : SELECT @@lower_case_table_names
+2025-03-27 23:04:24.178 [base.py:1843] : [raw sql] {}
+2025-03-27 23:04:24.180 [base.py:2699] : BEGIN (implicit)
+2025-03-27 23:04:24.181 [base.py:1843] : SELECT 1
+2025-03-27 23:04:24.182 [base.py:1843] : [generated in 0.00136s] {}
+2025-03-27 23:04:24.184 [sqlalchemy_db.py:44] : sqlalchemy ˝æ›ø‚¡¨Ω”≥…π¶
+2025-03-27 23:04:24.184 [base.py:2702] : ROLLBACK
+2025-03-27 23:04:24.222 [selector_events.py:64] : Using selector: SelectSelector
+2025-03-27 23:04:24.275 [base.py:1843] : SELECT DATABASE()
+2025-03-27 23:04:24.276 [base.py:1843] : [raw sql] {}
+2025-03-27 23:04:24.277 [base.py:1843] : SELECT @@sql_mode
+2025-03-27 23:04:24.278 [base.py:1843] : [raw sql] {}
+2025-03-27 23:04:24.279 [base.py:1843] : SELECT @@lower_case_table_names
+2025-03-27 23:04:24.280 [base.py:1843] : [raw sql] {}
+2025-03-27 23:04:24.281 [base.py:2699] : BEGIN (implicit)
+2025-03-27 23:04:24.282 [base.py:1843] : SELECT 1
+2025-03-27 23:04:24.283 [base.py:1843] : [generated in 0.00139s] {}
+2025-03-27 23:04:24.284 [sqlalchemy_db.py:44] : sqlalchemy ˝æ›ø‚¡¨Ω”≥…π¶
+2025-03-27 23:04:24.285 [base.py:2702] : ROLLBACK

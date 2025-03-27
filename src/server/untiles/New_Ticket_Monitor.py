@@ -111,11 +111,12 @@ class New_Ticket_Monitor:
             },
         }
         wx_service.wx_mini_send_subscribe_message(params, 'TICKET_RETURN_NOTICE')
-        # 下面是发送通知到用户微信公众号
-        self.access_token = self.wx_notice.get_access_token()
+        # 下面是发送通知到用户微信公众号（已经优化，添加了错误处理、邮件上报）
+        self.access_token = self.wx_notice.get_access_token().get('data')
         # 获取用户微信openid列表
-        # todo 这里需要优化，因为微信的接口调用失败，所以需要优化
-        user_wx_openid_dict = self.wx_notice.get_user_wx_openid_list(self.access_token, '')
+        # todo 这里需要优化，因为微信的接口调用失败，所以需要优化（已经优化，添加错误处理、邮件上报）
+        user_wx_openid_dict = self.wx_notice.get_user_wx_openid_list(self.access_token, '').get('data', {})
+        print('user_wx_openid_dict------', user_wx_openid_dict)
         # 发送通知（发送通知到用户微信公众号）
         for wx_token in user_wx_openid_dict.get('data').get('openid'):
             self.wx_notice.send_public_notice(self.access_token, notification_content, user_wx_code=wx_token, template_id='CPHntQfk-7GchRhjbi22SsXP84Bndjlc4N4Q5oEFTp8')
@@ -291,7 +292,7 @@ class New_Ticket_Monitor:
                     venue_name = monitor_list[delete_monitor_list_item_index].get('venue_name')
                     # 需要通知的wx_token也是需要删除的delete_item
                     # todo  需要通知的wx_token 此处代码先注释掉，因为微信的接口调用失败
-                    # todo  这里需要通知到微信小程序订阅号上
+                    # todo  这里需要通知到微信小程序订阅号上（已经优化，添加错误处理、邮件上报）
                     print('delete_item------', delete_item)
                     self.send_notification(delete_item, {
                         "show_name": show_name,
@@ -343,7 +344,7 @@ class New_Ticket_Monitor:
                         }
                     }
                     # todo 需要发送给小程序订阅消息
-                    self.access_token = self.wx_notice.get_access_token()
+                    self.access_token = self.wx_notice.get_access_token().get('data')
                     # 获取用户微信openid列表
                     user_wx_openid_dict = self.wx_notice.get_user_wx_openid_list(self.access_token, '')
                     # 发送通知 （发送通知到用户微信公众号）

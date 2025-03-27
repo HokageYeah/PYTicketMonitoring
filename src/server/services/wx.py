@@ -108,10 +108,10 @@ class WxService:
             access_token_data = response.json() 
             print('WxService---wx_mini_get_access_token---api---------3', access_token_data)
             # 测试
-            # access_token_data = {
-            #     'errcode': 40001,
-            #     'errmsg': 'invalid code',
-            # }
+            access_token_data = {
+                'errcode': 40001,
+                'errmsg': 'invalid code',
+            }
 
         # self.expires_in = 0
         # 判断小程序接口请求是否报错
