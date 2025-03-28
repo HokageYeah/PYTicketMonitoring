@@ -6370,3 +6370,531 @@ FROM user_ticket_monitors
 2025-03-28 19:52:58.799 [New_DB_Mointor.py:232] : [实例 d2e893ac] 检查完成: 2025-03-28 19:52:58.799018, 耗时: 0.003537秒
 2025-03-28 19:52:58.799 [New_DB_Mointor.py:250] : [实例 d2e893ac] 检测到 user_ticket_monitor 有变化，调用票务监控接口
 2025-03-28 19:52:58.799 [New_DB_Mointor.py:257] : [实例 d2e893ac] 循环 #4 执行耗时: 0.00秒, 将休眠: 20.00秒
+2025-03-28 20:03:10.468 [authentication.py:129] : Building SSL context
+2025-03-28 20:03:10.490 [authentication.py:140] : Switching to SSL
+2025-03-28 20:03:10.499 [authentication.py:143] : SSL has been enabled
+2025-03-28 20:03:10.499 [protocol.py:338] : Starting authorization phase
+2025-03-28 20:03:10.499 [protocol.py:352] : The provided initial strategy is caching_sha2_password
+2025-03-28 20:03:10.499 [__init__.py:149] : package: mysql.connector.plugins
+2025-03-28 20:03:10.499 [__init__.py:150] : plugin_name: caching_sha2_password
+2025-03-28 20:03:10.499 [__init__.py:154] : AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-03-28 20:03:10.499 [authentication.py:263] : Server's response is an auth switch request
+2025-03-28 20:03:10.499 [authentication.py:173] : Switching to strategy mysql_native_password
+2025-03-28 20:03:10.499 [__init__.py:149] : package: mysql.connector.plugins
+2025-03-28 20:03:10.499 [__init__.py:150] : plugin_name: mysql_native_password
+2025-03-28 20:03:10.500 [__init__.py:154] : AUTHENTICATION_PLUGIN_CLASS: MySQLNativePasswordAuthPlugin
+2025-03-28 20:03:10.500 [mysql_native_password.py:114] : # request: b'\x82\xd4+X\x95iV\xa5\xd5\xa1)\x9bX\x96\x17Y\xf3\x9bw\x01' size: 20
+2025-03-28 20:03:10.500 [mysql_native_password.py:118] : # server response packet: b'\x07\x00\x00\x05\x00\x00\x00\x02\x00\x00\x00'
+2025-03-28 20:03:10.501 [authentication.py:278] : mysql_native_password completed succesfully
+2025-03-28 20:03:10.504 [base.py:1896] : SELECT DATABASE()
+2025-03-28 20:03:10.504 [base.py:1901] : [raw sql] {}
+2025-03-28 20:03:10.505 [base.py:1896] : SELECT @@sql_mode
+2025-03-28 20:03:10.505 [base.py:1901] : [raw sql] {}
+2025-03-28 20:03:10.506 [base.py:1896] : SELECT @@lower_case_table_names
+2025-03-28 20:03:10.506 [base.py:1901] : [raw sql] {}
+2025-03-28 20:03:10.507 [base.py:1097] : BEGIN (implicit)
+2025-03-28 20:03:10.507 [base.py:1896] : SELECT 1
+2025-03-28 20:03:10.508 [base.py:1901] : [generated in 0.00022s] {}
+2025-03-28 20:03:10.508 [sqlalchemy_db.py:44] : sqlalchemy数据库连接成功
+2025-03-28 20:03:10.508 [base.py:1123] : ROLLBACK
+2025-03-28 20:03:13.334 [authentication.py:129] : Building SSL context
+2025-03-28 20:03:13.369 [authentication.py:140] : Switching to SSL
+2025-03-28 20:03:13.377 [authentication.py:143] : SSL has been enabled
+2025-03-28 20:03:13.377 [protocol.py:338] : Starting authorization phase
+2025-03-28 20:03:13.377 [protocol.py:352] : The provided initial strategy is caching_sha2_password
+2025-03-28 20:03:13.377 [__init__.py:149] : package: mysql.connector.plugins
+2025-03-28 20:03:13.377 [__init__.py:150] : plugin_name: caching_sha2_password
+2025-03-28 20:03:13.377 [__init__.py:154] : AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-03-28 20:03:13.377 [authentication.py:263] : Server's response is an auth switch request
+2025-03-28 20:03:13.377 [authentication.py:173] : Switching to strategy mysql_native_password
+2025-03-28 20:03:13.378 [__init__.py:149] : package: mysql.connector.plugins
+2025-03-28 20:03:13.378 [__init__.py:150] : plugin_name: mysql_native_password
+2025-03-28 20:03:13.378 [__init__.py:154] : AUTHENTICATION_PLUGIN_CLASS: MySQLNativePasswordAuthPlugin
+2025-03-28 20:03:13.378 [mysql_native_password.py:114] : # request: b'b\xa0\xd4T$\xca\x8af\xed\xe5b\xf3\xe0\x0c\x9a\n\xa4\xc6\xd0\xda' size: 20
+2025-03-28 20:03:13.378 [mysql_native_password.py:118] : # server response packet: b'\x07\x00\x00\x05\x00\x00\x00\x02\x00\x00\x00'
+2025-03-28 20:03:13.378 [authentication.py:278] : mysql_native_password completed succesfully
+2025-03-28 20:03:13.380 [base.py:1896] : SELECT DATABASE()
+2025-03-28 20:03:13.380 [base.py:1901] : [raw sql] {}
+2025-03-28 20:03:13.381 [base.py:1896] : SELECT @@sql_mode
+2025-03-28 20:03:13.381 [base.py:1901] : [raw sql] {}
+2025-03-28 20:03:13.381 [base.py:1896] : SELECT @@lower_case_table_names
+2025-03-28 20:03:13.381 [base.py:1901] : [raw sql] {}
+2025-03-28 20:03:13.382 [base.py:1097] : BEGIN (implicit)
+2025-03-28 20:03:13.383 [base.py:1896] : SELECT 1
+2025-03-28 20:03:13.383 [base.py:1901] : [generated in 0.00021s] {}
+2025-03-28 20:03:13.383 [sqlalchemy_db.py:44] : sqlalchemy数据库连接成功
+2025-03-28 20:03:13.383 [base.py:1123] : ROLLBACK
+2025-03-28 20:03:13.406 [selector_events.py:59] : Using selector: KqueueSelector
+2025-03-28 20:03:13.429 [authentication.py:129] : Building SSL context
+2025-03-28 20:03:13.450 [authentication.py:140] : Switching to SSL
+2025-03-28 20:03:13.473 [authentication.py:143] : SSL has been enabled
+2025-03-28 20:03:13.473 [protocol.py:338] : Starting authorization phase
+2025-03-28 20:03:13.474 [protocol.py:352] : The provided initial strategy is caching_sha2_password
+2025-03-28 20:03:13.475 [authentication.py:263] : Server's response is an auth switch request
+2025-03-28 20:03:13.475 [authentication.py:173] : Switching to strategy mysql_native_password
+2025-03-28 20:03:13.476 [mysql_native_password.py:114] : # request: b'&\x83T\x7fzxn\x11\x7f\xbb\xd7\x11\xbb4[\xc7\xb0\xb8\xc4\xbd' size: 20
+2025-03-28 20:03:13.476 [mysql_native_password.py:118] : # server response packet: b'\x07\x00\x00\x05\x00\x00\x00\x02\x00\x00\x00'
+2025-03-28 20:03:13.476 [authentication.py:278] : mysql_native_password completed succesfully
+2025-03-28 20:03:13.479 [base.py:1896] : SELECT DATABASE()
+2025-03-28 20:03:13.479 [base.py:1901] : [raw sql] {}
+2025-03-28 20:03:13.480 [base.py:1896] : SELECT @@sql_mode
+2025-03-28 20:03:13.480 [base.py:1901] : [raw sql] {}
+2025-03-28 20:03:13.481 [base.py:1896] : SELECT @@lower_case_table_names
+2025-03-28 20:03:13.481 [base.py:1901] : [raw sql] {}
+2025-03-28 20:03:13.481 [base.py:1097] : BEGIN (implicit)
+2025-03-28 20:03:13.482 [base.py:1896] : SELECT 1
+2025-03-28 20:03:13.482 [base.py:1901] : [generated in 0.00039s] {}
+2025-03-28 20:03:13.482 [sqlalchemy_db.py:44] : sqlalchemy数据库连接成功
+2025-03-28 20:03:13.482 [base.py:1123] : ROLLBACK
+2025-03-28 20:03:15.220 [New_DB_Mointor.py:151] : 创建 NewDBDataMonitor 单例
+2025-03-28 20:03:15.221 [New_DB_Mointor.py:163] : 创建监控实例 ID: f850ed4a
+2025-03-28 20:03:15.222 [New_DB_Mointor.py:276] : [实例 f850ed4a] 数据库监控器已启动
+2025-03-28 20:03:15.222 [New_DB_Mointor.py:239] : [实例 f850ed4a] 监控循环启动
+2025-03-28 20:03:15.223 [New_DB_Mointor.py:245] : [实例 f850ed4a] 循环 #1 开始: 2025-03-28 20:03:15
+2025-03-28 20:03:15.223 [New_DB_Mointor.py:180] : [实例 f850ed4a] 开始检查: 2025-03-28 20:03:15.223875
+2025-03-28 20:03:15.224 [base.py:1097] : BEGIN (implicit)
+2025-03-28 20:03:15.239 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-28 20:03:15.239 [base.py:1901] : [generated in 0.00055s] {}
+2025-03-28 20:03:15.241 [New_DB_Mointor.py:190] : [实例 f850ed4a] 检测到记录数变化: 0 -> 6
+2025-03-28 20:03:15.241 [base.py:1123] : ROLLBACK
+2025-03-28 20:03:15.241 [New_DB_Mointor.py:232] : [实例 f850ed4a] 检查完成: 2025-03-28 20:03:15.241553, 耗时: 0.017678秒
+2025-03-28 20:03:15.241 [New_DB_Mointor.py:250] : [实例 f850ed4a] 检测到 user_ticket_monitor 有变化，调用票务监控接口
+2025-03-28 20:03:15.241 [New_Ticket_Monitor.py:130] : 开始监控演唱会...
+2025-03-28 20:03:15.241 [Monitor_Thread_Manager.py:29] : 监控线程已启动
+2025-03-28 20:03:15.242 [base.py:1097] : BEGIN (implicit)
+2025-03-28 20:03:15.242 [New_DB_Mointor.py:257] : [实例 f850ed4a] 循环 #1 执行耗时: 0.02秒, 将休眠: 19.98秒
+2025-03-28 20:03:15.243 [base.py:1896] : SELECT DISTINCT shows.platform AS shows_platform 
+FROM shows
+2025-03-28 20:03:15.243 [base.py:1901] : [generated in 0.00036s] {}
+2025-03-28 20:03:15.248 [base.py:1896] : SELECT shows.show_id AS shows_show_id, shows.show_name AS shows_show_name, shows.venue_city_name AS shows_venue_city_name, shows.venue_name AS shows_venue_name, shows.created_at AS shows_created_at, shows.updated_at AS shows_updated_at, shows.cover_url AS shows_cover_url, shows.poster_url AS shows_poster_url, shows.platform AS shows_platform, user_ticket_monitors_1.monitor_ticket_id AS user_ticket_monitors_1_monitor_ticket_id, user_ticket_monitors_1.user_show_monitor_id AS user_ticket_monitors_1_user_show_monitor_id, user_ticket_monitors_1.perform_id AS user_ticket_monitors_1_perform_id, user_ticket_monitors_1.sku_id AS user_ticket_monitors_1_sku_id, user_ticket_monitors_1.deadline AS user_ticket_monitors_1_deadline, user_ticket_monitors_1.is_notified AS user_ticket_monitors_1_is_notified, user_ticket_monitors_1.created_at AS user_ticket_monitors_1_created_at, user_ticket_monitors_1.updated_at AS user_ticket_monitors_1_updated_at, user_ticket_monitors_1.platform AS user_ticket_monitors_1_platform, user_show_monitors_1.monitor_id AS user_show_monitors_1_monitor_id, user_show_monitors_1.user_id AS user_show_monitors_1_user_id, user_show_monitors_1.wx_token AS user_show_monitors_1_wx_token, user_show_monitors_1.show_id AS user_show_monitors_1_show_id, user_show_monitors_1.deadline AS user_show_monitors_1_deadline, user_show_monitors_1.is_active AS user_show_monitors_1_is_active, user_show_monitors_1.created_at AS user_show_monitors_1_created_at, user_show_monitors_1.updated_at AS user_show_monitors_1_updated_at, user_show_monitors_1.platform AS user_show_monitors_1_platform 
+FROM shows LEFT OUTER JOIN user_show_monitors AS user_show_monitors_1 ON shows.show_id = user_show_monitors_1.show_id LEFT OUTER JOIN user_ticket_monitors AS user_ticket_monitors_1 ON user_show_monitors_1.monitor_id = user_ticket_monitors_1.user_show_monitor_id 
+WHERE shows.platform = %(platform_1)s
+2025-03-28 20:03:15.249 [base.py:1901] : [generated in 0.00058s] {'platform_1': 'DM'}
+2025-03-28 20:03:15.252 [base.py:1896] : SELECT performances.perform_id AS performances_perform_id, performances.show_id AS performances_show_id, performances.perform_name AS performances_perform_name, performances.perform_time AS performances_perform_time, performances.created_at AS performances_created_at, performances.updated_at AS performances_updated_at, performances.platform AS performances_platform 
+FROM performances 
+WHERE performances.perform_id = %(pk_1)s
+2025-03-28 20:03:15.253 [base.py:1901] : [generated in 0.00036s] {'pk_1': '225971036'}
+2025-03-28 20:03:15.256 [base.py:1896] : SELECT ticket_prices.sku_id AS ticket_prices_sku_id, ticket_prices.perform_id AS ticket_prices_perform_id, ticket_prices.price_id AS ticket_prices_price_id, ticket_prices.price_name AS ticket_prices_price_name, ticket_prices.created_at AS ticket_prices_created_at, ticket_prices.updated_at AS ticket_prices_updated_at, ticket_prices.platform AS ticket_prices_platform 
+FROM ticket_prices 
+WHERE ticket_prices.sku_id = %(pk_1)s
+2025-03-28 20:03:15.256 [base.py:1901] : [generated in 0.00041s] {'pk_1': '5922136130262'}
+2025-03-28 20:03:15.257 [base.py:1896] : SELECT ticket_prices.sku_id AS ticket_prices_sku_id, ticket_prices.perform_id AS ticket_prices_perform_id, ticket_prices.price_id AS ticket_prices_price_id, ticket_prices.price_name AS ticket_prices_price_name, ticket_prices.created_at AS ticket_prices_created_at, ticket_prices.updated_at AS ticket_prices_updated_at, ticket_prices.platform AS ticket_prices_platform 
+FROM ticket_prices 
+WHERE ticket_prices.sku_id = %(pk_1)s
+2025-03-28 20:03:15.257 [base.py:1901] : [cached since 0.001684s ago] {'pk_1': '5922136130261'}
+2025-03-28 20:03:15.258 [base.py:1896] : SELECT ticket_prices.sku_id AS ticket_prices_sku_id, ticket_prices.perform_id AS ticket_prices_perform_id, ticket_prices.price_id AS ticket_prices_price_id, ticket_prices.price_name AS ticket_prices_price_name, ticket_prices.created_at AS ticket_prices_created_at, ticket_prices.updated_at AS ticket_prices_updated_at, ticket_prices.platform AS ticket_prices_platform 
+FROM ticket_prices 
+WHERE ticket_prices.sku_id = %(pk_1)s
+2025-03-28 20:03:15.258 [base.py:1901] : [cached since 0.00298s ago] {'pk_1': '5922136130260'}
+2025-03-28 20:03:15.260 [base.py:1896] : SELECT performances.perform_id AS performances_perform_id, performances.show_id AS performances_show_id, performances.perform_name AS performances_perform_name, performances.perform_time AS performances_perform_time, performances.created_at AS performances_created_at, performances.updated_at AS performances_updated_at, performances.platform AS performances_platform 
+FROM performances 
+WHERE performances.perform_id = %(pk_1)s
+2025-03-28 20:03:15.260 [base.py:1901] : [cached since 0.007529s ago] {'pk_1': '225079001'}
+2025-03-28 20:03:15.261 [base.py:1896] : SELECT ticket_prices.sku_id AS ticket_prices_sku_id, ticket_prices.perform_id AS ticket_prices_perform_id, ticket_prices.price_id AS ticket_prices_price_id, ticket_prices.price_name AS ticket_prices_price_name, ticket_prices.created_at AS ticket_prices_created_at, ticket_prices.updated_at AS ticket_prices_updated_at, ticket_prices.platform AS ticket_prices_platform 
+FROM ticket_prices 
+WHERE ticket_prices.sku_id = %(pk_1)s
+2025-03-28 20:03:15.261 [base.py:1901] : [cached since 0.005275s ago] {'pk_1': '5918965242238'}
+2025-03-28 20:03:15.262 [base.py:1896] : SELECT ticket_prices.sku_id AS ticket_prices_sku_id, ticket_prices.perform_id AS ticket_prices_perform_id, ticket_prices.price_id AS ticket_prices_price_id, ticket_prices.price_name AS ticket_prices_price_name, ticket_prices.created_at AS ticket_prices_created_at, ticket_prices.updated_at AS ticket_prices_updated_at, ticket_prices.platform AS ticket_prices_platform 
+FROM ticket_prices 
+WHERE ticket_prices.sku_id = %(pk_1)s
+2025-03-28 20:03:15.262 [base.py:1901] : [cached since 0.006472s ago] {'pk_1': '5918965242237'}
+2025-03-28 20:03:15.263 [base.py:1896] : SELECT ticket_prices.sku_id AS ticket_prices_sku_id, ticket_prices.perform_id AS ticket_prices_perform_id, ticket_prices.price_id AS ticket_prices_price_id, ticket_prices.price_name AS ticket_prices_price_name, ticket_prices.created_at AS ticket_prices_created_at, ticket_prices.updated_at AS ticket_prices_updated_at, ticket_prices.platform AS ticket_prices_platform 
+FROM ticket_prices 
+WHERE ticket_prices.sku_id = %(pk_1)s
+2025-03-28 20:03:15.263 [base.py:1901] : [cached since 0.007407s ago] {'pk_1': '5918965242236'}
+2025-03-28 20:03:15.264 [base.py:1123] : ROLLBACK
+2025-03-28 20:03:15.264 [base.py:1097] : BEGIN (implicit)
+2025-03-28 20:03:15.265 [base.py:1896] : SELECT DISTINCT shows.platform AS shows_platform 
+FROM shows
+2025-03-28 20:03:15.265 [base.py:1901] : [cached since 0.02201s ago] {}
+2025-03-28 20:03:15.266 [base.py:1896] : SELECT shows.show_id AS shows_show_id, shows.show_name AS shows_show_name, shows.venue_city_name AS shows_venue_city_name, shows.venue_name AS shows_venue_name, shows.created_at AS shows_created_at, shows.updated_at AS shows_updated_at, shows.cover_url AS shows_cover_url, shows.poster_url AS shows_poster_url, shows.platform AS shows_platform, user_ticket_monitors_1.monitor_ticket_id AS user_ticket_monitors_1_monitor_ticket_id, user_ticket_monitors_1.user_show_monitor_id AS user_ticket_monitors_1_user_show_monitor_id, user_ticket_monitors_1.perform_id AS user_ticket_monitors_1_perform_id, user_ticket_monitors_1.sku_id AS user_ticket_monitors_1_sku_id, user_ticket_monitors_1.deadline AS user_ticket_monitors_1_deadline, user_ticket_monitors_1.is_notified AS user_ticket_monitors_1_is_notified, user_ticket_monitors_1.created_at AS user_ticket_monitors_1_created_at, user_ticket_monitors_1.updated_at AS user_ticket_monitors_1_updated_at, user_ticket_monitors_1.platform AS user_ticket_monitors_1_platform, user_show_monitors_1.monitor_id AS user_show_monitors_1_monitor_id, user_show_monitors_1.user_id AS user_show_monitors_1_user_id, user_show_monitors_1.wx_token AS user_show_monitors_1_wx_token, user_show_monitors_1.show_id AS user_show_monitors_1_show_id, user_show_monitors_1.deadline AS user_show_monitors_1_deadline, user_show_monitors_1.is_active AS user_show_monitors_1_is_active, user_show_monitors_1.created_at AS user_show_monitors_1_created_at, user_show_monitors_1.updated_at AS user_show_monitors_1_updated_at, user_show_monitors_1.platform AS user_show_monitors_1_platform 
+FROM shows LEFT OUTER JOIN user_show_monitors AS user_show_monitors_1 ON shows.show_id = user_show_monitors_1.show_id LEFT OUTER JOIN user_ticket_monitors AS user_ticket_monitors_1 ON user_show_monitors_1.monitor_id = user_ticket_monitors_1.user_show_monitor_id 
+WHERE shows.platform = %(platform_1)s
+2025-03-28 20:03:15.266 [base.py:1901] : [cached since 0.01807s ago] {'platform_1': 'DM'}
+2025-03-28 20:03:15.268 [base.py:1896] : SELECT performances.perform_id AS performances_perform_id, performances.show_id AS performances_show_id, performances.perform_name AS performances_perform_name, performances.perform_time AS performances_perform_time, performances.created_at AS performances_created_at, performances.updated_at AS performances_updated_at, performances.platform AS performances_platform 
+FROM performances 
+WHERE performances.perform_id = %(pk_1)s
+2025-03-28 20:03:15.268 [base.py:1901] : [cached since 0.01613s ago] {'pk_1': '225971036'}
+2025-03-28 20:03:15.269 [base.py:1896] : SELECT ticket_prices.sku_id AS ticket_prices_sku_id, ticket_prices.perform_id AS ticket_prices_perform_id, ticket_prices.price_id AS ticket_prices_price_id, ticket_prices.price_name AS ticket_prices_price_name, ticket_prices.created_at AS ticket_prices_created_at, ticket_prices.updated_at AS ticket_prices_updated_at, ticket_prices.platform AS ticket_prices_platform 
+FROM ticket_prices 
+WHERE ticket_prices.sku_id = %(pk_1)s
+2025-03-28 20:03:15.270 [base.py:1901] : [cached since 0.01403s ago] {'pk_1': '5922136130262'}
+2025-03-28 20:03:15.270 [base.py:1896] : SELECT ticket_prices.sku_id AS ticket_prices_sku_id, ticket_prices.perform_id AS ticket_prices_perform_id, ticket_prices.price_id AS ticket_prices_price_id, ticket_prices.price_name AS ticket_prices_price_name, ticket_prices.created_at AS ticket_prices_created_at, ticket_prices.updated_at AS ticket_prices_updated_at, ticket_prices.platform AS ticket_prices_platform 
+FROM ticket_prices 
+WHERE ticket_prices.sku_id = %(pk_1)s
+2025-03-28 20:03:15.270 [base.py:1901] : [cached since 0.01502s ago] {'pk_1': '5922136130261'}
+2025-03-28 20:03:15.271 [base.py:1896] : SELECT ticket_prices.sku_id AS ticket_prices_sku_id, ticket_prices.perform_id AS ticket_prices_perform_id, ticket_prices.price_id AS ticket_prices_price_id, ticket_prices.price_name AS ticket_prices_price_name, ticket_prices.created_at AS ticket_prices_created_at, ticket_prices.updated_at AS ticket_prices_updated_at, ticket_prices.platform AS ticket_prices_platform 
+FROM ticket_prices 
+WHERE ticket_prices.sku_id = %(pk_1)s
+2025-03-28 20:03:15.272 [base.py:1901] : [cached since 0.01616s ago] {'pk_1': '5922136130260'}
+2025-03-28 20:03:15.272 [base.py:1896] : SELECT performances.perform_id AS performances_perform_id, performances.show_id AS performances_show_id, performances.perform_name AS performances_perform_name, performances.perform_time AS performances_perform_time, performances.created_at AS performances_created_at, performances.updated_at AS performances_updated_at, performances.platform AS performances_platform 
+FROM performances 
+WHERE performances.perform_id = %(pk_1)s
+2025-03-28 20:03:15.273 [base.py:1901] : [cached since 0.02031s ago] {'pk_1': '225079001'}
+2025-03-28 20:03:15.273 [base.py:1896] : SELECT ticket_prices.sku_id AS ticket_prices_sku_id, ticket_prices.perform_id AS ticket_prices_perform_id, ticket_prices.price_id AS ticket_prices_price_id, ticket_prices.price_name AS ticket_prices_price_name, ticket_prices.created_at AS ticket_prices_created_at, ticket_prices.updated_at AS ticket_prices_updated_at, ticket_prices.platform AS ticket_prices_platform 
+FROM ticket_prices 
+WHERE ticket_prices.sku_id = %(pk_1)s
+2025-03-28 20:03:15.273 [base.py:1901] : [cached since 0.01797s ago] {'pk_1': '5918965242238'}
+2025-03-28 20:03:15.274 [base.py:1896] : SELECT ticket_prices.sku_id AS ticket_prices_sku_id, ticket_prices.perform_id AS ticket_prices_perform_id, ticket_prices.price_id AS ticket_prices_price_id, ticket_prices.price_name AS ticket_prices_price_name, ticket_prices.created_at AS ticket_prices_created_at, ticket_prices.updated_at AS ticket_prices_updated_at, ticket_prices.platform AS ticket_prices_platform 
+FROM ticket_prices 
+WHERE ticket_prices.sku_id = %(pk_1)s
+2025-03-28 20:03:15.274 [base.py:1901] : [cached since 0.01884s ago] {'pk_1': '5918965242237'}
+2025-03-28 20:03:15.276 [base.py:1896] : SELECT ticket_prices.sku_id AS ticket_prices_sku_id, ticket_prices.perform_id AS ticket_prices_perform_id, ticket_prices.price_id AS ticket_prices_price_id, ticket_prices.price_name AS ticket_prices_price_name, ticket_prices.created_at AS ticket_prices_created_at, ticket_prices.updated_at AS ticket_prices_updated_at, ticket_prices.platform AS ticket_prices_platform 
+FROM ticket_prices 
+WHERE ticket_prices.sku_id = %(pk_1)s
+2025-03-28 20:03:15.276 [base.py:1901] : [cached since 0.021s ago] {'pk_1': '5918965242236'}
+2025-03-28 20:03:15.277 [base.py:1123] : ROLLBACK
+2025-03-28 20:03:15.278 [New_Ticket_Monitor.py:387] : DM 监控中
+2025-03-28 20:03:17.490 [New_Ticket_Monitor.py:387] : DM 监控中
+2025-03-28 20:03:18.371 [New_Ticket_Monitor.py:387] : DM 监控中
+2025-03-28 20:03:19.376 [base.py:1097] : BEGIN (implicit)
+2025-03-28 20:03:19.379 [base.py:1896] : SELECT user_ticket_monitors.monitor_ticket_id AS user_ticket_monitors_monitor_ticket_id 
+FROM user_ticket_monitors INNER JOIN user_show_monitors ON user_ticket_monitors.user_show_monitor_id = user_show_monitors.monitor_id 
+WHERE user_show_monitors.wx_token = %(wx_token_1)s AND user_show_monitors.show_id = %(show_id_1)s AND user_ticket_monitors.perform_id = %(perform_id_1)s AND user_ticket_monitors.sku_id = %(sku_id_1)s AND user_show_monitors.platform = %(platform_1)s
+2025-03-28 20:03:19.379 [base.py:1901] : [generated in 0.00119s] {'wx_token_1': 'oAYJs5WqKOH5VuIFulvWy9Np7QJE', 'show_id_1': '896118209331', 'perform_id_1': '225079001', 'sku_id_1': '5918965242237', 'platform_1': 'DM'}
+2025-03-28 20:03:19.382 [base.py:1896] : SELECT user_ticket_monitors.monitor_ticket_id AS user_ticket_monitors_monitor_ticket_id 
+FROM user_ticket_monitors INNER JOIN user_show_monitors ON user_ticket_monitors.user_show_monitor_id = user_show_monitors.monitor_id 
+WHERE user_show_monitors.wx_token = %(wx_token_1)s AND user_show_monitors.show_id = %(show_id_1)s AND user_ticket_monitors.perform_id = %(perform_id_1)s AND user_ticket_monitors.sku_id = %(sku_id_1)s AND user_show_monitors.platform = %(platform_1)s
+2025-03-28 20:03:19.382 [base.py:1901] : [cached since 0.004442s ago] {'wx_token_1': 'oAYJs5WqKOH5VuIFulvWy9Np7QJE', 'show_id_1': '896118209331', 'perform_id_1': '225971036', 'sku_id_1': '5922136130262', 'platform_1': 'DM'}
+2025-03-28 20:03:19.383 [base.py:1896] : SELECT user_ticket_monitors.monitor_ticket_id AS user_ticket_monitors_monitor_ticket_id 
+FROM user_ticket_monitors INNER JOIN user_show_monitors ON user_ticket_monitors.user_show_monitor_id = user_show_monitors.monitor_id 
+WHERE user_show_monitors.wx_token = %(wx_token_1)s AND user_show_monitors.show_id = %(show_id_1)s AND user_ticket_monitors.perform_id = %(perform_id_1)s AND user_ticket_monitors.sku_id = %(sku_id_1)s AND user_show_monitors.platform = %(platform_1)s
+2025-03-28 20:03:19.383 [base.py:1901] : [cached since 0.005932s ago] {'wx_token_1': 'oAYJs5WqKOH5VuIFulvWy9Np7QJE', 'show_id_1': '896118209331', 'perform_id_1': '225971036', 'sku_id_1': '5922136130260', 'platform_1': 'DM'}
+2025-03-28 20:03:19.385 [base.py:1896] : SELECT user_ticket_monitors.monitor_ticket_id AS user_ticket_monitors_monitor_ticket_id 
+FROM user_ticket_monitors INNER JOIN user_show_monitors ON user_ticket_monitors.user_show_monitor_id = user_show_monitors.monitor_id 
+WHERE user_show_monitors.wx_token = %(wx_token_1)s AND user_show_monitors.show_id = %(show_id_1)s AND user_ticket_monitors.perform_id = %(perform_id_1)s AND user_ticket_monitors.sku_id = %(sku_id_1)s AND user_show_monitors.platform = %(platform_1)s
+2025-03-28 20:03:19.386 [base.py:1901] : [cached since 0.008234s ago] {'wx_token_1': 'oAYJs5WqKOH5VuIFulvWy9Np7QJE', 'show_id_1': '896118209331', 'perform_id_1': '225079001', 'sku_id_1': '5918965242238', 'platform_1': 'DM'}
+2025-03-28 20:03:19.388 [base.py:1896] : SELECT user_ticket_monitors.monitor_ticket_id AS user_ticket_monitors_monitor_ticket_id 
+FROM user_ticket_monitors INNER JOIN user_show_monitors ON user_ticket_monitors.user_show_monitor_id = user_show_monitors.monitor_id 
+WHERE user_show_monitors.wx_token = %(wx_token_1)s AND user_show_monitors.show_id = %(show_id_1)s AND user_ticket_monitors.perform_id = %(perform_id_1)s AND user_ticket_monitors.sku_id = %(sku_id_1)s AND user_show_monitors.platform = %(platform_1)s
+2025-03-28 20:03:19.388 [base.py:1901] : [cached since 0.01064s ago] {'wx_token_1': 'oAYJs5WqKOH5VuIFulvWy9Np7QJE', 'show_id_1': '896118209331', 'perform_id_1': '225971036', 'sku_id_1': '5922136130261', 'platform_1': 'DM'}
+2025-03-28 20:03:19.390 [base.py:1896] : SELECT user_ticket_monitors.monitor_ticket_id AS user_ticket_monitors_monitor_ticket_id 
+FROM user_ticket_monitors INNER JOIN user_show_monitors ON user_ticket_monitors.user_show_monitor_id = user_show_monitors.monitor_id 
+WHERE user_show_monitors.wx_token = %(wx_token_1)s AND user_show_monitors.show_id = %(show_id_1)s AND user_ticket_monitors.perform_id = %(perform_id_1)s AND user_ticket_monitors.sku_id = %(sku_id_1)s AND user_show_monitors.platform = %(platform_1)s
+2025-03-28 20:03:19.391 [base.py:1901] : [cached since 0.01321s ago] {'wx_token_1': 'oAYJs5WqKOH5VuIFulvWy9Np7QJE', 'show_id_1': '896118209331', 'perform_id_1': '225079001', 'sku_id_1': '5918965242236', 'platform_1': 'DM'}
+2025-03-28 20:03:19.396 [base.py:1896] : DELETE FROM user_ticket_monitors USING user_ticket_monitors, user_show_monitors WHERE (user_ticket_monitors.monitor_ticket_id NOT IN (%(monitor_ticket_id_1_1)s, %(monitor_ticket_id_1_2)s, %(monitor_ticket_id_1_3)s, %(monitor_ticket_id_1_4)s, %(monitor_ticket_id_1_5)s, %(monitor_ticket_id_1_6)s)) AND user_show_monitors.platform = %(platform_1)s
+2025-03-28 20:03:19.396 [base.py:1901] : [generated in 0.00070s] {'platform_1': 'DM', 'monitor_ticket_id_1_1': 128, 'monitor_ticket_id_1_2': 134, 'monitor_ticket_id_1_3': 132, 'monitor_ticket_id_1_4': 129, 'monitor_ticket_id_1_5': 133, 'monitor_ticket_id_1_6': 127}
+2025-03-28 20:03:19.399 [base.py:1896] : SELECT user_show_monitors.monitor_id AS user_show_monitors_monitor_id 
+FROM user_show_monitors 
+WHERE user_show_monitors.wx_token = %(wx_token_1)s AND user_show_monitors.show_id = %(show_id_1)s AND user_show_monitors.platform = %(platform_1)s
+2025-03-28 20:03:19.399 [base.py:1901] : [generated in 0.00043s] {'wx_token_1': 'oAYJs5WqKOH5VuIFulvWy9Np7QJE', 'show_id_1': '896118209331', 'platform_1': 'DM'}
+2025-03-28 20:03:19.401 [base.py:1896] : DELETE FROM user_show_monitors WHERE (user_show_monitors.monitor_id NOT IN (%(monitor_id_1_1)s)) AND user_show_monitors.platform = %(platform_1)s
+2025-03-28 20:03:19.402 [base.py:1901] : [generated in 0.00066s] {'platform_1': 'DM', 'monitor_id_1_1': 61}
+2025-03-28 20:03:19.405 [base.py:1896] : SELECT ticket_prices.price_id AS ticket_prices_price_id 
+FROM ticket_prices 
+WHERE ticket_prices.perform_id = %(perform_id_1)s AND ticket_prices.sku_id = %(sku_id_1)s AND ticket_prices.platform = %(platform_1)s
+2025-03-28 20:03:19.405 [base.py:1901] : [generated in 0.00054s] {'perform_id_1': '225971036', 'sku_id_1': '5922136130260', 'platform_1': 'DM'}
+2025-03-28 20:03:19.407 [base.py:1896] : SELECT ticket_prices.price_id AS ticket_prices_price_id 
+FROM ticket_prices 
+WHERE ticket_prices.perform_id = %(perform_id_1)s AND ticket_prices.sku_id = %(sku_id_1)s AND ticket_prices.platform = %(platform_1)s
+2025-03-28 20:03:19.407 [base.py:1901] : [cached since 0.00295s ago] {'perform_id_1': '225079001', 'sku_id_1': '5918965242236', 'platform_1': 'DM'}
+2025-03-28 20:03:19.408 [base.py:1896] : SELECT ticket_prices.price_id AS ticket_prices_price_id 
+FROM ticket_prices 
+WHERE ticket_prices.perform_id = %(perform_id_1)s AND ticket_prices.sku_id = %(sku_id_1)s AND ticket_prices.platform = %(platform_1)s
+2025-03-28 20:03:19.408 [base.py:1901] : [cached since 0.003999s ago] {'perform_id_1': '225971036', 'sku_id_1': '5922136130261', 'platform_1': 'DM'}
+2025-03-28 20:03:19.410 [base.py:1896] : SELECT ticket_prices.price_id AS ticket_prices_price_id 
+FROM ticket_prices 
+WHERE ticket_prices.perform_id = %(perform_id_1)s AND ticket_prices.sku_id = %(sku_id_1)s AND ticket_prices.platform = %(platform_1)s
+2025-03-28 20:03:19.410 [base.py:1901] : [cached since 0.005751s ago] {'perform_id_1': '225079001', 'sku_id_1': '5918965242237', 'platform_1': 'DM'}
+2025-03-28 20:03:19.411 [base.py:1896] : SELECT ticket_prices.price_id AS ticket_prices_price_id 
+FROM ticket_prices 
+WHERE ticket_prices.perform_id = %(perform_id_1)s AND ticket_prices.sku_id = %(sku_id_1)s AND ticket_prices.platform = %(platform_1)s
+2025-03-28 20:03:19.411 [base.py:1901] : [cached since 0.006939s ago] {'perform_id_1': '225971036', 'sku_id_1': '5922136130262', 'platform_1': 'DM'}
+2025-03-28 20:03:19.412 [base.py:1896] : SELECT ticket_prices.price_id AS ticket_prices_price_id 
+FROM ticket_prices 
+WHERE ticket_prices.perform_id = %(perform_id_1)s AND ticket_prices.sku_id = %(sku_id_1)s AND ticket_prices.platform = %(platform_1)s
+2025-03-28 20:03:19.412 [base.py:1901] : [cached since 0.007802s ago] {'perform_id_1': '225079001', 'sku_id_1': '5918965242238', 'platform_1': 'DM'}
+2025-03-28 20:03:19.413 [base.py:1896] : DELETE FROM ticket_prices WHERE (ticket_prices.price_id NOT IN (%(price_id_1_1)s, %(price_id_1_2)s, %(price_id_1_3)s, %(price_id_1_4)s, %(price_id_1_5)s, %(price_id_1_6)s)) AND ticket_prices.platform = %(platform_1)s
+2025-03-28 20:03:19.413 [base.py:1901] : [generated in 0.00042s] {'platform_1': 'DM', 'price_id_1_1': '302502579', 'price_id_1_2': '302094174', 'price_id_1_3': '302502581', 'price_id_1_4': '302091244', 'price_id_1_5': '302502583', 'price_id_1_6': '302130235'}
+2025-03-28 20:03:19.415 [base.py:1896] : SELECT performances.perform_id AS performances_perform_id 
+FROM performances 
+WHERE performances.show_id = %(show_id_1)s AND performances.perform_id = %(perform_id_1)s AND performances.platform = %(platform_1)s
+2025-03-28 20:03:19.415 [base.py:1901] : [generated in 0.00038s] {'show_id_1': '896118209331', 'perform_id_1': '225971036', 'platform_1': 'DM'}
+2025-03-28 20:03:19.416 [base.py:1896] : SELECT performances.perform_id AS performances_perform_id 
+FROM performances 
+WHERE performances.show_id = %(show_id_1)s AND performances.perform_id = %(perform_id_1)s AND performances.platform = %(platform_1)s
+2025-03-28 20:03:19.416 [base.py:1901] : [cached since 0.001417s ago] {'show_id_1': '896118209331', 'perform_id_1': '225079001', 'platform_1': 'DM'}
+2025-03-28 20:03:19.417 [base.py:1896] : DELETE FROM performances WHERE (performances.perform_id NOT IN (%(perform_id_1_1)s, %(perform_id_1_2)s)) AND performances.platform = %(platform_1)s
+2025-03-28 20:03:19.417 [base.py:1901] : [generated in 0.00027s] {'platform_1': 'DM', 'perform_id_1_1': '225971036', 'perform_id_1_2': '225079001'}
+2025-03-28 20:03:19.418 [base.py:1896] : SELECT shows.show_id AS shows_show_id 
+FROM shows 
+WHERE shows.show_id IN (%(show_id_1_1)s) AND shows.platform = %(platform_1)s
+2025-03-28 20:03:19.419 [base.py:1901] : [generated in 0.00029s] {'platform_1': 'DM', 'show_id_1_1': '896118209331'}
+2025-03-28 20:03:19.421 [base.py:1896] : DELETE FROM shows WHERE (shows.show_id NOT IN (%(show_id_1_1)s)) AND shows.platform = %(platform_1)s
+2025-03-28 20:03:19.421 [base.py:1901] : [generated in 0.00041s] {'platform_1': 'DM', 'show_id_1_1': '896118209331'}
+2025-03-28 20:03:19.422 [base.py:1140] : COMMIT
+2025-03-28 20:03:22.316 [base.py:1097] : BEGIN (implicit)
+2025-03-28 20:03:22.318 [base.py:1896] : SELECT users.user_id AS users_user_id, users.username AS users_username, users.password AS users_password, users.openid AS users_openid, users.session_key AS users_session_key, users.status AS users_status, users.create_time AS users_create_time, users.update_time AS users_update_time, users.user_avatar_pic AS users_user_avatar_pic, users.user_address AS users_user_address, users.user_role AS users_user_role 
+FROM users 
+WHERE users.user_id = %(user_id_1)s 
+ LIMIT %(param_1)s
+2025-03-28 20:03:22.319 [base.py:1901] : [generated in 0.00054s] {'user_id_1': 1, 'param_1': 1}
+2025-03-28 20:03:22.324 [authentication.py:129] : Building SSL context
+2025-03-28 20:03:22.352 [authentication.py:140] : Switching to SSL
+2025-03-28 20:03:22.360 [authentication.py:143] : SSL has been enabled
+2025-03-28 20:03:22.360 [protocol.py:338] : Starting authorization phase
+2025-03-28 20:03:22.360 [protocol.py:352] : The provided initial strategy is caching_sha2_password
+2025-03-28 20:03:22.360 [authentication.py:263] : Server's response is an auth switch request
+2025-03-28 20:03:22.361 [authentication.py:173] : Switching to strategy mysql_native_password
+2025-03-28 20:03:22.361 [mysql_native_password.py:114] : # request: b'\xd7\xcdCo\xf3p\xbf\xa5\x8f\x9f5\x19\xc7\x88\xc6\xab\x1b\x15\\\xb5' size: 20
+2025-03-28 20:03:22.361 [mysql_native_password.py:118] : # server response packet: b'\x07\x00\x00\x05\x00\x00\x00\x02\x00\x00\x00'
+2025-03-28 20:03:22.361 [authentication.py:278] : mysql_native_password completed succesfully
+2025-03-28 20:03:22.362 [base.py:1097] : BEGIN (implicit)
+2025-03-28 20:03:22.363 [base.py:1896] : SELECT shows.show_id AS shows_show_id, shows.show_name AS shows_show_name, shows.venue_city_name AS shows_venue_city_name, shows.venue_name AS shows_venue_name, shows.created_at AS shows_created_at, shows.updated_at AS shows_updated_at, shows.cover_url AS shows_cover_url, shows.poster_url AS shows_poster_url, shows.platform AS shows_platform 
+FROM shows 
+WHERE shows.show_id = %(show_id_1)s 
+ LIMIT %(param_1)s
+2025-03-28 20:03:22.363 [base.py:1901] : [generated in 0.00029s] {'show_id_1': '896783835965', 'param_1': 1}
+2025-03-28 20:03:22.369 [base.py:1896] : INSERT INTO shows (show_id, show_name, venue_city_name, venue_name, cover_url, poster_url, platform) VALUES (%(show_id)s, %(show_name)s, %(venue_city_name)s, %(venue_name)s, %(cover_url)s, %(poster_url)s, %(platform)s)
+2025-03-28 20:03:22.370 [base.py:1901] : [generated in 0.00079s] {'show_id': '896783835965', 'show_name': '【北京】【520专场·早鸟5折】《流星花园》宝岛偶像剧主题曲演唱会', 'venue_city_name': '北京市', 'venue_name': '北京展览馆剧场', 'cover_url': 'https://img.alicdn.com/bao/uploaded/https://img.alicdn.com/imgextra/i1/2251059038/O1CN01XlUVcF2GdSgKHyXG6_!!2251059038.png', 'poster_url': None, 'platform': 'DM'}
+2025-03-28 20:03:22.375 [base.py:1140] : COMMIT
+2025-03-28 20:03:22.379 [base.py:1097] : BEGIN (implicit)
+2025-03-28 20:03:22.380 [base.py:1896] : SELECT user_show_monitors.monitor_id AS user_show_monitors_monitor_id, user_show_monitors.user_id AS user_show_monitors_user_id, user_show_monitors.wx_token AS user_show_monitors_wx_token, user_show_monitors.show_id AS user_show_monitors_show_id, user_show_monitors.deadline AS user_show_monitors_deadline, user_show_monitors.is_active AS user_show_monitors_is_active, user_show_monitors.created_at AS user_show_monitors_created_at, user_show_monitors.updated_at AS user_show_monitors_updated_at, user_show_monitors.platform AS user_show_monitors_platform 
+FROM user_show_monitors 
+WHERE user_show_monitors.wx_token = %(wx_token_1)s AND user_show_monitors.show_id = %(show_id_1)s 
+ LIMIT %(param_1)s
+2025-03-28 20:03:22.380 [base.py:1901] : [generated in 0.00051s] {'wx_token_1': 'oAYJs5WqKOH5VuIFulvWy9Np7QJE', 'show_id_1': '896783835965', 'param_1': 1}
+2025-03-28 20:03:22.382 [base.py:1896] : INSERT INTO user_show_monitors (user_id, wx_token, show_id, deadline, is_active, platform) VALUES (%(user_id)s, %(wx_token)s, %(show_id)s, %(deadline)s, %(is_active)s, %(platform)s)
+2025-03-28 20:03:22.383 [base.py:1901] : [generated in 0.00029s] {'user_id': 1, 'wx_token': 'oAYJs5WqKOH5VuIFulvWy9Np7QJE', 'show_id': '896783835965', 'deadline': '2025-05-18 00:00:00', 'is_active': 1, 'platform': 'DM'}
+2025-03-28 20:03:22.384 [base.py:1140] : COMMIT
+2025-03-28 20:03:22.385 [base.py:1097] : BEGIN (implicit)
+2025-03-28 20:03:22.386 [base.py:1896] : SELECT shows.show_id AS shows_show_id, shows.show_name AS shows_show_name, shows.venue_city_name AS shows_venue_city_name, shows.venue_name AS shows_venue_name, shows.created_at AS shows_created_at, shows.updated_at AS shows_updated_at, shows.cover_url AS shows_cover_url, shows.poster_url AS shows_poster_url, shows.platform AS shows_platform 
+FROM shows 
+WHERE shows.show_id = %(pk_1)s
+2025-03-28 20:03:22.386 [base.py:1901] : [generated in 0.00053s] {'pk_1': '896783835965'}
+2025-03-28 20:03:22.389 [base.py:1896] : SELECT user_show_monitors.monitor_id AS user_show_monitors_monitor_id, user_show_monitors.user_id AS user_show_monitors_user_id, user_show_monitors.wx_token AS user_show_monitors_wx_token, user_show_monitors.show_id AS user_show_monitors_show_id, user_show_monitors.deadline AS user_show_monitors_deadline, user_show_monitors.is_active AS user_show_monitors_is_active, user_show_monitors.created_at AS user_show_monitors_created_at, user_show_monitors.updated_at AS user_show_monitors_updated_at, user_show_monitors.platform AS user_show_monitors_platform 
+FROM user_show_monitors 
+WHERE %(param_1)s = user_show_monitors.show_id
+2025-03-28 20:03:22.389 [base.py:1901] : [generated in 0.00062s] {'param_1': '896783835965'}
+2025-03-28 20:03:22.391 [base.py:1896] : SELECT performances.perform_id AS performances_perform_id, performances.show_id AS performances_show_id, performances.perform_name AS performances_perform_name, performances.perform_time AS performances_perform_time, performances.created_at AS performances_created_at, performances.updated_at AS performances_updated_at, performances.platform AS performances_platform 
+FROM performances 
+WHERE performances.show_id = %(show_id_1)s AND performances.perform_id = %(perform_id_1)s 
+ LIMIT %(param_1)s
+2025-03-28 20:03:22.391 [base.py:1901] : [generated in 0.00026s] {'show_id_1': '896783835965', 'perform_id_1': '225048029', 'param_1': 1}
+2025-03-28 20:03:22.395 [base.py:1896] : INSERT INTO performances (perform_id, show_id, perform_name, perform_time, platform) VALUES (%(perform_id)s, %(show_id)s, %(perform_name)s, %(perform_time)s, %(platform)s)
+2025-03-28 20:03:22.395 [base.py:1901] : [generated in 0.00045s] {'perform_id': '225048029', 'show_id': '896783835965', 'perform_name': '2025-05-20 星期二 19:30', 'perform_time': None, 'platform': 'DM'}
+2025-03-28 20:03:22.396 [base.py:1140] : COMMIT
+2025-03-28 20:03:22.397 [base.py:1097] : BEGIN (implicit)
+2025-03-28 20:03:22.397 [base.py:1896] : SELECT shows.show_id AS shows_show_id, shows.show_name AS shows_show_name, shows.venue_city_name AS shows_venue_city_name, shows.venue_name AS shows_venue_name, shows.created_at AS shows_created_at, shows.updated_at AS shows_updated_at, shows.cover_url AS shows_cover_url, shows.poster_url AS shows_poster_url, shows.platform AS shows_platform 
+FROM shows 
+WHERE shows.show_id = %(pk_1)s
+2025-03-28 20:03:22.397 [base.py:1901] : [cached since 0.01147s ago] {'pk_1': '896783835965'}
+2025-03-28 20:03:22.399 [base.py:1896] : SELECT performances.perform_id AS performances_perform_id, performances.show_id AS performances_show_id, performances.perform_name AS performances_perform_name, performances.perform_time AS performances_perform_time, performances.created_at AS performances_created_at, performances.updated_at AS performances_updated_at, performances.platform AS performances_platform 
+FROM performances 
+WHERE %(param_1)s = performances.show_id
+2025-03-28 20:03:22.399 [base.py:1901] : [generated in 0.00025s] {'param_1': '896783835965'}
+2025-03-28 20:03:22.400 [base.py:1896] : SELECT ticket_prices.sku_id AS ticket_prices_sku_id, ticket_prices.perform_id AS ticket_prices_perform_id, ticket_prices.price_id AS ticket_prices_price_id, ticket_prices.price_name AS ticket_prices_price_name, ticket_prices.created_at AS ticket_prices_created_at, ticket_prices.updated_at AS ticket_prices_updated_at, ticket_prices.platform AS ticket_prices_platform 
+FROM ticket_prices 
+WHERE ticket_prices.perform_id = %(perform_id_1)s AND ticket_prices.sku_id = %(sku_id_1)s 
+ LIMIT %(param_1)s
+2025-03-28 20:03:22.400 [base.py:1901] : [generated in 0.00022s] {'perform_id_1': '225048029', 'sku_id_1': '5749735840772', 'param_1': 1}
+2025-03-28 20:03:22.402 [base.py:1896] : INSERT INTO ticket_prices (sku_id, perform_id, price_id, price_name, platform) VALUES (%(sku_id)s, %(perform_id)s, %(price_id)s, %(price_name)s, %(platform)s)
+2025-03-28 20:03:22.402 [base.py:1901] : [generated in 0.00048s] {'sku_id': '5749735840772', 'perform_id': '225048029', 'price_id': '301506786', 'price_name': '180元', 'platform': 'DM'}
+2025-03-28 20:03:22.403 [base.py:1140] : COMMIT
+2025-03-28 20:03:22.405 [base.py:1097] : BEGIN (implicit)
+2025-03-28 20:03:22.406 [base.py:1896] : SELECT performances.perform_id AS performances_perform_id, performances.show_id AS performances_show_id, performances.perform_name AS performances_perform_name, performances.perform_time AS performances_perform_time, performances.created_at AS performances_created_at, performances.updated_at AS performances_updated_at, performances.platform AS performances_platform 
+FROM performances 
+WHERE performances.perform_id = %(pk_1)s
+2025-03-28 20:03:22.406 [base.py:1901] : [generated in 0.00031s] {'pk_1': '225048029'}
+2025-03-28 20:03:22.407 [base.py:1896] : SELECT ticket_prices.sku_id AS ticket_prices_sku_id, ticket_prices.perform_id AS ticket_prices_perform_id, ticket_prices.price_id AS ticket_prices_price_id, ticket_prices.price_name AS ticket_prices_price_name, ticket_prices.created_at AS ticket_prices_created_at, ticket_prices.updated_at AS ticket_prices_updated_at, ticket_prices.platform AS ticket_prices_platform 
+FROM ticket_prices 
+WHERE %(param_1)s = ticket_prices.perform_id
+2025-03-28 20:03:22.408 [base.py:1901] : [generated in 0.00027s] {'param_1': '225048029'}
+2025-03-28 20:03:22.410 [base.py:1896] : SELECT user_show_monitors.monitor_id AS user_show_monitors_monitor_id, user_show_monitors.user_id AS user_show_monitors_user_id, user_show_monitors.wx_token AS user_show_monitors_wx_token, user_show_monitors.show_id AS user_show_monitors_show_id, user_show_monitors.deadline AS user_show_monitors_deadline, user_show_monitors.is_active AS user_show_monitors_is_active, user_show_monitors.created_at AS user_show_monitors_created_at, user_show_monitors.updated_at AS user_show_monitors_updated_at, user_show_monitors.platform AS user_show_monitors_platform 
+FROM user_show_monitors 
+WHERE user_show_monitors.monitor_id = %(pk_1)s
+2025-03-28 20:03:22.410 [base.py:1901] : [generated in 0.00048s] {'pk_1': 87}
+2025-03-28 20:03:22.413 [base.py:1896] : SELECT user_ticket_monitors.monitor_ticket_id AS user_ticket_monitors_monitor_ticket_id, user_ticket_monitors.user_show_monitor_id AS user_ticket_monitors_user_show_monitor_id, user_ticket_monitors.perform_id AS user_ticket_monitors_perform_id, user_ticket_monitors.sku_id AS user_ticket_monitors_sku_id, user_ticket_monitors.deadline AS user_ticket_monitors_deadline, user_ticket_monitors.is_notified AS user_ticket_monitors_is_notified, user_ticket_monitors.created_at AS user_ticket_monitors_created_at, user_ticket_monitors.updated_at AS user_ticket_monitors_updated_at, user_ticket_monitors.platform AS user_ticket_monitors_platform 
+FROM user_ticket_monitors 
+WHERE user_ticket_monitors.user_show_monitor_id = %(user_show_monitor_id_1)s AND user_ticket_monitors.perform_id = %(perform_id_1)s AND user_ticket_monitors.sku_id = %(sku_id_1)s AND user_ticket_monitors.platform = %(platform_1)s 
+ LIMIT %(param_1)s
+2025-03-28 20:03:22.413 [base.py:1901] : [generated in 0.00049s] {'user_show_monitor_id_1': 87, 'perform_id_1': '225048029', 'sku_id_1': '5749735840772', 'platform_1': 'DM', 'param_1': 1}
+2025-03-28 20:03:22.415 [base.py:1896] : INSERT INTO user_ticket_monitors (user_show_monitor_id, perform_id, sku_id, deadline, is_notified, platform) VALUES (%(user_show_monitor_id)s, %(perform_id)s, %(sku_id)s, %(deadline)s, %(is_notified)s, %(platform)s)
+2025-03-28 20:03:22.415 [base.py:1901] : [generated in 0.00026s] {'user_show_monitor_id': 87, 'perform_id': '225048029', 'sku_id': '5749735840772', 'deadline': '2025-05-18 00:00:00', 'is_notified': 0, 'platform': 'DM'}
+2025-03-28 20:03:22.416 [base.py:1140] : COMMIT
+2025-03-28 20:03:22.417 [base.py:1097] : BEGIN (implicit)
+2025-03-28 20:03:22.417 [base.py:1896] : SELECT user_show_monitors.monitor_id AS user_show_monitors_monitor_id, user_show_monitors.user_id AS user_show_monitors_user_id, user_show_monitors.wx_token AS user_show_monitors_wx_token, user_show_monitors.show_id AS user_show_monitors_show_id, user_show_monitors.deadline AS user_show_monitors_deadline, user_show_monitors.is_active AS user_show_monitors_is_active, user_show_monitors.created_at AS user_show_monitors_created_at, user_show_monitors.updated_at AS user_show_monitors_updated_at, user_show_monitors.platform AS user_show_monitors_platform 
+FROM user_show_monitors 
+WHERE user_show_monitors.monitor_id = %(pk_1)s
+2025-03-28 20:03:22.417 [base.py:1901] : [cached since 0.007888s ago] {'pk_1': 87}
+2025-03-28 20:03:22.420 [base.py:1896] : SELECT user_ticket_monitors.monitor_ticket_id AS user_ticket_monitors_monitor_ticket_id, user_ticket_monitors.user_show_monitor_id AS user_ticket_monitors_user_show_monitor_id, user_ticket_monitors.perform_id AS user_ticket_monitors_perform_id, user_ticket_monitors.sku_id AS user_ticket_monitors_sku_id, user_ticket_monitors.deadline AS user_ticket_monitors_deadline, user_ticket_monitors.is_notified AS user_ticket_monitors_is_notified, user_ticket_monitors.created_at AS user_ticket_monitors_created_at, user_ticket_monitors.updated_at AS user_ticket_monitors_updated_at, user_ticket_monitors.platform AS user_ticket_monitors_platform 
+FROM user_ticket_monitors 
+WHERE %(param_1)s = user_ticket_monitors.user_show_monitor_id
+2025-03-28 20:03:22.420 [base.py:1901] : [generated in 0.00075s] {'param_1': 87}
+2025-03-28 20:03:22.422 [base.py:1896] : SELECT performances.perform_id AS performances_perform_id, performances.show_id AS performances_show_id, performances.perform_name AS performances_perform_name, performances.perform_time AS performances_perform_time, performances.created_at AS performances_created_at, performances.updated_at AS performances_updated_at, performances.platform AS performances_platform 
+FROM performances 
+WHERE performances.perform_id = %(pk_1)s
+2025-03-28 20:03:22.422 [base.py:1901] : [cached since 0.01664s ago] {'pk_1': '225048029'}
+2025-03-28 20:03:22.424 [base.py:1896] : SELECT user_ticket_monitors.monitor_ticket_id AS user_ticket_monitors_monitor_ticket_id, user_ticket_monitors.user_show_monitor_id AS user_ticket_monitors_user_show_monitor_id, user_ticket_monitors.perform_id AS user_ticket_monitors_perform_id, user_ticket_monitors.sku_id AS user_ticket_monitors_sku_id, user_ticket_monitors.deadline AS user_ticket_monitors_deadline, user_ticket_monitors.is_notified AS user_ticket_monitors_is_notified, user_ticket_monitors.created_at AS user_ticket_monitors_created_at, user_ticket_monitors.updated_at AS user_ticket_monitors_updated_at, user_ticket_monitors.platform AS user_ticket_monitors_platform 
+FROM user_ticket_monitors 
+WHERE %(param_1)s = user_ticket_monitors.perform_id
+2025-03-28 20:03:22.424 [base.py:1901] : [generated in 0.00023s] {'param_1': '225048029'}
+2025-03-28 20:03:22.425 [base.py:1896] : SELECT ticket_prices.sku_id AS ticket_prices_sku_id, ticket_prices.perform_id AS ticket_prices_perform_id, ticket_prices.price_id AS ticket_prices_price_id, ticket_prices.price_name AS ticket_prices_price_name, ticket_prices.created_at AS ticket_prices_created_at, ticket_prices.updated_at AS ticket_prices_updated_at, ticket_prices.platform AS ticket_prices_platform 
+FROM ticket_prices 
+WHERE ticket_prices.sku_id = %(pk_1)s
+2025-03-28 20:03:22.426 [base.py:1901] : [generated in 0.00091s] {'pk_1': '5749735840772'}
+2025-03-28 20:03:22.428 [base.py:1896] : SELECT user_ticket_monitors.monitor_ticket_id AS user_ticket_monitors_monitor_ticket_id, user_ticket_monitors.user_show_monitor_id AS user_ticket_monitors_user_show_monitor_id, user_ticket_monitors.perform_id AS user_ticket_monitors_perform_id, user_ticket_monitors.sku_id AS user_ticket_monitors_sku_id, user_ticket_monitors.deadline AS user_ticket_monitors_deadline, user_ticket_monitors.is_notified AS user_ticket_monitors_is_notified, user_ticket_monitors.created_at AS user_ticket_monitors_created_at, user_ticket_monitors.updated_at AS user_ticket_monitors_updated_at, user_ticket_monitors.platform AS user_ticket_monitors_platform 
+FROM user_ticket_monitors 
+WHERE %(param_1)s = user_ticket_monitors.sku_id
+2025-03-28 20:03:22.428 [base.py:1901] : [generated in 0.00031s] {'param_1': '5749735840772'}
+2025-03-28 20:03:22.429 [base.py:1896] : SELECT ticket_prices.sku_id AS ticket_prices_sku_id, ticket_prices.perform_id AS ticket_prices_perform_id, ticket_prices.price_id AS ticket_prices_price_id, ticket_prices.price_name AS ticket_prices_price_name, ticket_prices.created_at AS ticket_prices_created_at, ticket_prices.updated_at AS ticket_prices_updated_at, ticket_prices.platform AS ticket_prices_platform 
+FROM ticket_prices 
+WHERE ticket_prices.perform_id = %(perform_id_1)s AND ticket_prices.sku_id = %(sku_id_1)s 
+ LIMIT %(param_1)s
+2025-03-28 20:03:22.429 [base.py:1901] : [cached since 0.0292s ago] {'perform_id_1': '225048029', 'sku_id_1': '5749735840774', 'param_1': 1}
+2025-03-28 20:03:22.431 [base.py:1896] : INSERT INTO ticket_prices (sku_id, perform_id, price_id, price_name, platform) VALUES (%(sku_id)s, %(perform_id)s, %(price_id)s, %(price_name)s, %(platform)s)
+2025-03-28 20:03:22.431 [base.py:1901] : [cached since 0.02899s ago] {'sku_id': '5749735840774', 'perform_id': '225048029', 'price_id': '301518630', 'price_name': '280元', 'platform': 'DM'}
+2025-03-28 20:03:22.432 [base.py:1140] : COMMIT
+2025-03-28 20:03:22.433 [base.py:1097] : BEGIN (implicit)
+2025-03-28 20:03:22.433 [base.py:1896] : SELECT performances.perform_id AS performances_perform_id, performances.show_id AS performances_show_id, performances.perform_name AS performances_perform_name, performances.perform_time AS performances_perform_time, performances.created_at AS performances_created_at, performances.updated_at AS performances_updated_at, performances.platform AS performances_platform 
+FROM performances 
+WHERE performances.perform_id = %(pk_1)s
+2025-03-28 20:03:22.433 [base.py:1901] : [cached since 0.02732s ago] {'pk_1': '225048029'}
+2025-03-28 20:03:22.434 [base.py:1896] : SELECT ticket_prices.sku_id AS ticket_prices_sku_id, ticket_prices.perform_id AS ticket_prices_perform_id, ticket_prices.price_id AS ticket_prices_price_id, ticket_prices.price_name AS ticket_prices_price_name, ticket_prices.created_at AS ticket_prices_created_at, ticket_prices.updated_at AS ticket_prices_updated_at, ticket_prices.platform AS ticket_prices_platform 
+FROM ticket_prices 
+WHERE %(param_1)s = ticket_prices.perform_id
+2025-03-28 20:03:22.434 [base.py:1901] : [cached since 0.02652s ago] {'param_1': '225048029'}
+2025-03-28 20:03:22.435 [base.py:1896] : SELECT user_show_monitors.monitor_id AS user_show_monitors_monitor_id, user_show_monitors.user_id AS user_show_monitors_user_id, user_show_monitors.wx_token AS user_show_monitors_wx_token, user_show_monitors.show_id AS user_show_monitors_show_id, user_show_monitors.deadline AS user_show_monitors_deadline, user_show_monitors.is_active AS user_show_monitors_is_active, user_show_monitors.created_at AS user_show_monitors_created_at, user_show_monitors.updated_at AS user_show_monitors_updated_at, user_show_monitors.platform AS user_show_monitors_platform 
+FROM user_show_monitors 
+WHERE user_show_monitors.monitor_id = %(pk_1)s
+2025-03-28 20:03:22.435 [base.py:1901] : [cached since 0.02523s ago] {'pk_1': 87}
+2025-03-28 20:03:22.436 [base.py:1896] : SELECT user_ticket_monitors.monitor_ticket_id AS user_ticket_monitors_monitor_ticket_id, user_ticket_monitors.user_show_monitor_id AS user_ticket_monitors_user_show_monitor_id, user_ticket_monitors.perform_id AS user_ticket_monitors_perform_id, user_ticket_monitors.sku_id AS user_ticket_monitors_sku_id, user_ticket_monitors.deadline AS user_ticket_monitors_deadline, user_ticket_monitors.is_notified AS user_ticket_monitors_is_notified, user_ticket_monitors.created_at AS user_ticket_monitors_created_at, user_ticket_monitors.updated_at AS user_ticket_monitors_updated_at, user_ticket_monitors.platform AS user_ticket_monitors_platform 
+FROM user_ticket_monitors 
+WHERE user_ticket_monitors.user_show_monitor_id = %(user_show_monitor_id_1)s AND user_ticket_monitors.perform_id = %(perform_id_1)s AND user_ticket_monitors.sku_id = %(sku_id_1)s AND user_ticket_monitors.platform = %(platform_1)s 
+ LIMIT %(param_1)s
+2025-03-28 20:03:22.436 [base.py:1901] : [cached since 0.0233s ago] {'user_show_monitor_id_1': 87, 'perform_id_1': '225048029', 'sku_id_1': '5749735840774', 'platform_1': 'DM', 'param_1': 1}
+2025-03-28 20:03:22.439 [base.py:1896] : INSERT INTO user_ticket_monitors (user_show_monitor_id, perform_id, sku_id, deadline, is_notified, platform) VALUES (%(user_show_monitor_id)s, %(perform_id)s, %(sku_id)s, %(deadline)s, %(is_notified)s, %(platform)s)
+2025-03-28 20:03:22.439 [base.py:1901] : [cached since 0.02408s ago] {'user_show_monitor_id': 87, 'perform_id': '225048029', 'sku_id': '5749735840774', 'deadline': '2025-05-18 00:00:00', 'is_notified': 0, 'platform': 'DM'}
+2025-03-28 20:03:22.440 [base.py:1140] : COMMIT
+2025-03-28 20:03:22.441 [base.py:1097] : BEGIN (implicit)
+2025-03-28 20:03:22.442 [base.py:1896] : SELECT user_show_monitors.monitor_id AS user_show_monitors_monitor_id, user_show_monitors.user_id AS user_show_monitors_user_id, user_show_monitors.wx_token AS user_show_monitors_wx_token, user_show_monitors.show_id AS user_show_monitors_show_id, user_show_monitors.deadline AS user_show_monitors_deadline, user_show_monitors.is_active AS user_show_monitors_is_active, user_show_monitors.created_at AS user_show_monitors_created_at, user_show_monitors.updated_at AS user_show_monitors_updated_at, user_show_monitors.platform AS user_show_monitors_platform 
+FROM user_show_monitors 
+WHERE user_show_monitors.monitor_id = %(pk_1)s
+2025-03-28 20:03:22.442 [base.py:1901] : [cached since 0.03251s ago] {'pk_1': 87}
+2025-03-28 20:03:22.444 [base.py:1896] : SELECT user_ticket_monitors.monitor_ticket_id AS user_ticket_monitors_monitor_ticket_id, user_ticket_monitors.user_show_monitor_id AS user_ticket_monitors_user_show_monitor_id, user_ticket_monitors.perform_id AS user_ticket_monitors_perform_id, user_ticket_monitors.sku_id AS user_ticket_monitors_sku_id, user_ticket_monitors.deadline AS user_ticket_monitors_deadline, user_ticket_monitors.is_notified AS user_ticket_monitors_is_notified, user_ticket_monitors.created_at AS user_ticket_monitors_created_at, user_ticket_monitors.updated_at AS user_ticket_monitors_updated_at, user_ticket_monitors.platform AS user_ticket_monitors_platform 
+FROM user_ticket_monitors 
+WHERE %(param_1)s = user_ticket_monitors.user_show_monitor_id
+2025-03-28 20:03:22.444 [base.py:1901] : [cached since 0.02509s ago] {'param_1': 87}
+2025-03-28 20:03:22.445 [base.py:1896] : SELECT performances.perform_id AS performances_perform_id, performances.show_id AS performances_show_id, performances.perform_name AS performances_perform_name, performances.perform_time AS performances_perform_time, performances.created_at AS performances_created_at, performances.updated_at AS performances_updated_at, performances.platform AS performances_platform 
+FROM performances 
+WHERE performances.perform_id = %(pk_1)s
+2025-03-28 20:03:22.446 [base.py:1901] : [cached since 0.03993s ago] {'pk_1': '225048029'}
+2025-03-28 20:03:22.446 [base.py:1896] : SELECT user_ticket_monitors.monitor_ticket_id AS user_ticket_monitors_monitor_ticket_id, user_ticket_monitors.user_show_monitor_id AS user_ticket_monitors_user_show_monitor_id, user_ticket_monitors.perform_id AS user_ticket_monitors_perform_id, user_ticket_monitors.sku_id AS user_ticket_monitors_sku_id, user_ticket_monitors.deadline AS user_ticket_monitors_deadline, user_ticket_monitors.is_notified AS user_ticket_monitors_is_notified, user_ticket_monitors.created_at AS user_ticket_monitors_created_at, user_ticket_monitors.updated_at AS user_ticket_monitors_updated_at, user_ticket_monitors.platform AS user_ticket_monitors_platform 
+FROM user_ticket_monitors 
+WHERE %(param_1)s = user_ticket_monitors.perform_id
+2025-03-28 20:03:22.447 [base.py:1901] : [cached since 0.02307s ago] {'param_1': '225048029'}
+2025-03-28 20:03:22.448 [base.py:1896] : SELECT ticket_prices.sku_id AS ticket_prices_sku_id, ticket_prices.perform_id AS ticket_prices_perform_id, ticket_prices.price_id AS ticket_prices_price_id, ticket_prices.price_name AS ticket_prices_price_name, ticket_prices.created_at AS ticket_prices_created_at, ticket_prices.updated_at AS ticket_prices_updated_at, ticket_prices.platform AS ticket_prices_platform 
+FROM ticket_prices 
+WHERE ticket_prices.sku_id = %(pk_1)s
+2025-03-28 20:03:22.448 [base.py:1901] : [cached since 0.02311s ago] {'pk_1': '5749735840774'}
+2025-03-28 20:03:22.449 [base.py:1896] : SELECT user_ticket_monitors.monitor_ticket_id AS user_ticket_monitors_monitor_ticket_id, user_ticket_monitors.user_show_monitor_id AS user_ticket_monitors_user_show_monitor_id, user_ticket_monitors.perform_id AS user_ticket_monitors_perform_id, user_ticket_monitors.sku_id AS user_ticket_monitors_sku_id, user_ticket_monitors.deadline AS user_ticket_monitors_deadline, user_ticket_monitors.is_notified AS user_ticket_monitors_is_notified, user_ticket_monitors.created_at AS user_ticket_monitors_created_at, user_ticket_monitors.updated_at AS user_ticket_monitors_updated_at, user_ticket_monitors.platform AS user_ticket_monitors_platform 
+FROM user_ticket_monitors 
+WHERE %(param_1)s = user_ticket_monitors.sku_id
+2025-03-28 20:03:22.449 [base.py:1901] : [cached since 0.0214s ago] {'param_1': '5749735840774'}
+2025-03-28 20:03:22.449 [base.py:1123] : ROLLBACK
+2025-03-28 20:03:29.429 [base.py:1097] : BEGIN (implicit)
+2025-03-28 20:03:29.430 [base.py:1896] : SELECT DISTINCT shows.platform AS shows_platform 
+FROM shows
+2025-03-28 20:03:29.430 [base.py:1901] : [cached since 14.19s ago] {}
+2025-03-28 20:03:29.433 [base.py:1896] : SELECT shows.show_id AS shows_show_id, shows.show_name AS shows_show_name, shows.venue_city_name AS shows_venue_city_name, shows.venue_name AS shows_venue_name, shows.created_at AS shows_created_at, shows.updated_at AS shows_updated_at, shows.cover_url AS shows_cover_url, shows.poster_url AS shows_poster_url, shows.platform AS shows_platform, user_ticket_monitors_1.monitor_ticket_id AS user_ticket_monitors_1_monitor_ticket_id, user_ticket_monitors_1.user_show_monitor_id AS user_ticket_monitors_1_user_show_monitor_id, user_ticket_monitors_1.perform_id AS user_ticket_monitors_1_perform_id, user_ticket_monitors_1.sku_id AS user_ticket_monitors_1_sku_id, user_ticket_monitors_1.deadline AS user_ticket_monitors_1_deadline, user_ticket_monitors_1.is_notified AS user_ticket_monitors_1_is_notified, user_ticket_monitors_1.created_at AS user_ticket_monitors_1_created_at, user_ticket_monitors_1.updated_at AS user_ticket_monitors_1_updated_at, user_ticket_monitors_1.platform AS user_ticket_monitors_1_platform, user_show_monitors_1.monitor_id AS user_show_monitors_1_monitor_id, user_show_monitors_1.user_id AS user_show_monitors_1_user_id, user_show_monitors_1.wx_token AS user_show_monitors_1_wx_token, user_show_monitors_1.show_id AS user_show_monitors_1_show_id, user_show_monitors_1.deadline AS user_show_monitors_1_deadline, user_show_monitors_1.is_active AS user_show_monitors_1_is_active, user_show_monitors_1.created_at AS user_show_monitors_1_created_at, user_show_monitors_1.updated_at AS user_show_monitors_1_updated_at, user_show_monitors_1.platform AS user_show_monitors_1_platform 
+FROM shows LEFT OUTER JOIN user_show_monitors AS user_show_monitors_1 ON shows.show_id = user_show_monitors_1.show_id LEFT OUTER JOIN user_ticket_monitors AS user_ticket_monitors_1 ON user_show_monitors_1.monitor_id = user_ticket_monitors_1.user_show_monitor_id 
+WHERE shows.platform = %(platform_1)s
+2025-03-28 20:03:29.434 [base.py:1901] : [cached since 14.19s ago] {'platform_1': 'DM'}
+2025-03-28 20:03:29.440 [base.py:1896] : SELECT performances.perform_id AS performances_perform_id, performances.show_id AS performances_show_id, performances.perform_name AS performances_perform_name, performances.perform_time AS performances_perform_time, performances.created_at AS performances_created_at, performances.updated_at AS performances_updated_at, performances.platform AS performances_platform 
+FROM performances 
+WHERE performances.perform_id = %(pk_1)s
+2025-03-28 20:03:29.440 [base.py:1901] : [cached since 14.19s ago] {'pk_1': '225971036'}
+2025-03-28 20:03:29.442 [base.py:1896] : SELECT ticket_prices.sku_id AS ticket_prices_sku_id, ticket_prices.perform_id AS ticket_prices_perform_id, ticket_prices.price_id AS ticket_prices_price_id, ticket_prices.price_name AS ticket_prices_price_name, ticket_prices.created_at AS ticket_prices_created_at, ticket_prices.updated_at AS ticket_prices_updated_at, ticket_prices.platform AS ticket_prices_platform 
+FROM ticket_prices 
+WHERE ticket_prices.sku_id = %(pk_1)s
+2025-03-28 20:03:29.442 [base.py:1901] : [cached since 14.19s ago] {'pk_1': '5922136130262'}
+2025-03-28 20:03:29.444 [base.py:1896] : SELECT ticket_prices.sku_id AS ticket_prices_sku_id, ticket_prices.perform_id AS ticket_prices_perform_id, ticket_prices.price_id AS ticket_prices_price_id, ticket_prices.price_name AS ticket_prices_price_name, ticket_prices.created_at AS ticket_prices_created_at, ticket_prices.updated_at AS ticket_prices_updated_at, ticket_prices.platform AS ticket_prices_platform 
+FROM ticket_prices 
+WHERE ticket_prices.sku_id = %(pk_1)s
+2025-03-28 20:03:29.444 [base.py:1901] : [cached since 14.19s ago] {'pk_1': '5922136130261'}
+2025-03-28 20:03:29.446 [base.py:1896] : SELECT ticket_prices.sku_id AS ticket_prices_sku_id, ticket_prices.perform_id AS ticket_prices_perform_id, ticket_prices.price_id AS ticket_prices_price_id, ticket_prices.price_name AS ticket_prices_price_name, ticket_prices.created_at AS ticket_prices_created_at, ticket_prices.updated_at AS ticket_prices_updated_at, ticket_prices.platform AS ticket_prices_platform 
+FROM ticket_prices 
+WHERE ticket_prices.sku_id = %(pk_1)s
+2025-03-28 20:03:29.447 [base.py:1901] : [cached since 14.19s ago] {'pk_1': '5922136130260'}
+2025-03-28 20:03:29.451 [base.py:1896] : SELECT performances.perform_id AS performances_perform_id, performances.show_id AS performances_show_id, performances.perform_name AS performances_perform_name, performances.perform_time AS performances_perform_time, performances.created_at AS performances_created_at, performances.updated_at AS performances_updated_at, performances.platform AS performances_platform 
+FROM performances 
+WHERE performances.perform_id = %(pk_1)s
+2025-03-28 20:03:29.451 [base.py:1901] : [cached since 14.2s ago] {'pk_1': '225079001'}
+2025-03-28 20:03:29.454 [base.py:1896] : SELECT ticket_prices.sku_id AS ticket_prices_sku_id, ticket_prices.perform_id AS ticket_prices_perform_id, ticket_prices.price_id AS ticket_prices_price_id, ticket_prices.price_name AS ticket_prices_price_name, ticket_prices.created_at AS ticket_prices_created_at, ticket_prices.updated_at AS ticket_prices_updated_at, ticket_prices.platform AS ticket_prices_platform 
+FROM ticket_prices 
+WHERE ticket_prices.sku_id = %(pk_1)s
+2025-03-28 20:03:29.455 [base.py:1901] : [cached since 14.2s ago] {'pk_1': '5918965242238'}
+2025-03-28 20:03:29.457 [base.py:1896] : SELECT ticket_prices.sku_id AS ticket_prices_sku_id, ticket_prices.perform_id AS ticket_prices_perform_id, ticket_prices.price_id AS ticket_prices_price_id, ticket_prices.price_name AS ticket_prices_price_name, ticket_prices.created_at AS ticket_prices_created_at, ticket_prices.updated_at AS ticket_prices_updated_at, ticket_prices.platform AS ticket_prices_platform 
+FROM ticket_prices 
+WHERE ticket_prices.sku_id = %(pk_1)s
+2025-03-28 20:03:29.457 [base.py:1901] : [cached since 14.2s ago] {'pk_1': '5918965242237'}
+2025-03-28 20:03:29.459 [base.py:1896] : SELECT ticket_prices.sku_id AS ticket_prices_sku_id, ticket_prices.perform_id AS ticket_prices_perform_id, ticket_prices.price_id AS ticket_prices_price_id, ticket_prices.price_name AS ticket_prices_price_name, ticket_prices.created_at AS ticket_prices_created_at, ticket_prices.updated_at AS ticket_prices_updated_at, ticket_prices.platform AS ticket_prices_platform 
+FROM ticket_prices 
+WHERE ticket_prices.sku_id = %(pk_1)s
+2025-03-28 20:03:29.459 [base.py:1901] : [cached since 14.2s ago] {'pk_1': '5918965242236'}
+2025-03-28 20:03:29.461 [base.py:1896] : SELECT performances.perform_id AS performances_perform_id, performances.show_id AS performances_show_id, performances.perform_name AS performances_perform_name, performances.perform_time AS performances_perform_time, performances.created_at AS performances_created_at, performances.updated_at AS performances_updated_at, performances.platform AS performances_platform 
+FROM performances 
+WHERE performances.perform_id = %(pk_1)s
+2025-03-28 20:03:29.461 [base.py:1901] : [cached since 14.21s ago] {'pk_1': '225048029'}
+2025-03-28 20:03:29.462 [base.py:1896] : SELECT ticket_prices.sku_id AS ticket_prices_sku_id, ticket_prices.perform_id AS ticket_prices_perform_id, ticket_prices.price_id AS ticket_prices_price_id, ticket_prices.price_name AS ticket_prices_price_name, ticket_prices.created_at AS ticket_prices_created_at, ticket_prices.updated_at AS ticket_prices_updated_at, ticket_prices.platform AS ticket_prices_platform 
+FROM ticket_prices 
+WHERE ticket_prices.sku_id = %(pk_1)s
+2025-03-28 20:03:29.463 [base.py:1901] : [cached since 14.21s ago] {'pk_1': '5749735840774'}
+2025-03-28 20:03:29.466 [base.py:1896] : SELECT ticket_prices.sku_id AS ticket_prices_sku_id, ticket_prices.perform_id AS ticket_prices_perform_id, ticket_prices.price_id AS ticket_prices_price_id, ticket_prices.price_name AS ticket_prices_price_name, ticket_prices.created_at AS ticket_prices_created_at, ticket_prices.updated_at AS ticket_prices_updated_at, ticket_prices.platform AS ticket_prices_platform 
+FROM ticket_prices 
+WHERE ticket_prices.sku_id = %(pk_1)s
+2025-03-28 20:03:29.466 [base.py:1901] : [cached since 14.21s ago] {'pk_1': '5749735840772'}
+2025-03-28 20:03:29.468 [base.py:1123] : ROLLBACK
+2025-03-28 20:03:29.469 [New_Ticket_Monitor.py:387] : DM 监控中
+2025-03-28 20:03:30.897 [New_Ticket_Monitor.py:387] : DM 监控中
+2025-03-28 20:03:31.949 [New_Ticket_Monitor.py:387] : DM 监控中
+2025-03-28 20:03:33.356 [New_Ticket_Monitor.py:387] : DM 监控中
+2025-03-28 20:03:35.229 [New_DB_Mointor.py:264] : [实例 f850ed4a] 循环 #1 结束: 2025-03-28 20:03:35, 总耗时: 20.01秒
+2025-03-28 20:03:35.229 [New_DB_Mointor.py:245] : [实例 f850ed4a] 循环 #2 开始: 2025-03-28 20:03:35
+2025-03-28 20:03:35.229 [New_DB_Mointor.py:180] : [实例 f850ed4a] 开始检查: 2025-03-28 20:03:35.229637
+2025-03-28 20:03:35.230 [base.py:1097] : BEGIN (implicit)
+2025-03-28 20:03:35.230 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-28 20:03:35.230 [base.py:1901] : [cached since 19.99s ago] {}
+2025-03-28 20:03:35.232 [New_DB_Mointor.py:190] : [实例 f850ed4a] 检测到记录数变化: 6 -> 8
+2025-03-28 20:03:35.232 [base.py:1123] : ROLLBACK
+2025-03-28 20:03:35.232 [New_DB_Mointor.py:232] : [实例 f850ed4a] 检查完成: 2025-03-28 20:03:35.232742, 耗时: 0.003105秒
+2025-03-28 20:03:35.232 [New_DB_Mointor.py:250] : [实例 f850ed4a] 检测到 user_ticket_monitor 有变化，调用票务监控接口
+2025-03-28 20:03:35.232 [New_DB_Mointor.py:257] : [实例 f850ed4a] 循环 #2 执行耗时: 0.00秒, 将休眠: 20.00秒
+2025-03-28 20:03:35.380 [New_Ticket_Monitor.py:387] : DM 监控中
+2025-03-28 20:03:37.068 [selector_events.py:59] : Using selector: KqueueSelector
+2025-03-28 20:03:37.166 [_trace.py:87] : connect_tcp.started host='127.0.0.1' port=7890 local_address=None timeout=5.0 socket_options=None
+2025-03-28 20:03:37.167 [_trace.py:87] : connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x11067d8b0>
+2025-03-28 20:03:37.167 [_trace.py:87] : send_request_headers.started request=<Request [b'CONNECT']>
+2025-03-28 20:03:37.167 [_trace.py:87] : send_request_headers.complete
+2025-03-28 20:03:37.167 [_trace.py:87] : send_request_body.started request=<Request [b'CONNECT']>
+2025-03-28 20:03:37.167 [_trace.py:87] : send_request_body.complete
+2025-03-28 20:03:37.167 [_trace.py:87] : receive_response_headers.started request=<Request [b'CONNECT']>
+2025-03-28 20:03:37.168 [_trace.py:87] : receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'Connection established', [])
+2025-03-28 20:03:37.168 [_trace.py:87] : start_tls.started ssl_context=<ssl.SSLContext object at 0x1105f6dc0> server_hostname='api.weixin.qq.com' timeout=5.0
+2025-03-28 20:03:37.545 [_trace.py:87] : start_tls.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x11067dc40>
+2025-03-28 20:03:37.545 [_trace.py:87] : send_request_headers.started request=<Request [b'GET']>
+2025-03-28 20:03:37.545 [_trace.py:87] : send_request_headers.complete
+2025-03-28 20:03:37.545 [_trace.py:87] : send_request_body.started request=<Request [b'GET']>
+2025-03-28 20:03:37.546 [_trace.py:87] : send_request_body.complete
+2025-03-28 20:03:37.546 [_trace.py:87] : receive_response_headers.started request=<Request [b'GET']>
+2025-03-28 20:03:37.900 [_trace.py:87] : receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Connection', b'keep-alive'), (b'Content-Type', b'application/json; encoding=utf-8'), (b'Date', b'Fri, 28 Mar 2025 12:03:38 GMT'), (b'Content-Length', b'173')])
+2025-03-28 20:03:37.900 [_client.py:1740] : HTTP Request: GET https://api.weixin.qq.com/cgi-bin/token?appid=wxcce30ba44a2065a5&secret=c49f74d704577e5842e84ab43ff3333d&grant_type=client_credential "HTTP/1.1 200 OK"
+2025-03-28 20:03:37.901 [_trace.py:87] : receive_response_body.started request=<Request [b'GET']>
+2025-03-28 20:03:37.901 [_trace.py:87] : receive_response_body.complete
+2025-03-28 20:03:37.901 [_trace.py:87] : response_closed.started
+2025-03-28 20:03:37.902 [_trace.py:87] : response_closed.complete
+2025-03-28 20:03:37.905 [base.py:1097] : BEGIN (implicit)
+2025-03-28 20:03:37.907 [base.py:1896] : SELECT wx_msg_subscribe_user.id AS wx_msg_subscribe_user_id, wx_msg_subscribe_user.user_id AS wx_msg_subscribe_user_user_id, wx_msg_subscribe_user.openid AS wx_msg_subscribe_user_openid, wx_msg_subscribe_user.template_id AS wx_msg_subscribe_user_template_id, wx_msg_subscribe_user.subscribe_status AS wx_msg_subscribe_user_subscribe_status, wx_msg_subscribe_user.status AS wx_msg_subscribe_user_status, wx_msg_subscribe_user.create_time AS wx_msg_subscribe_user_create_time, wx_msg_subscribe_user.update_time AS wx_msg_subscribe_user_update_time 
+FROM wx_msg_subscribe_user 
+WHERE wx_msg_subscribe_user.openid = %(openid_1)s 
+ LIMIT %(param_1)s
+2025-03-28 20:03:37.907 [base.py:1901] : [generated in 0.00041s] {'openid_1': 'oAYJs5WqKOH5VuIFulvWy9Np7QJE', 'param_1': 1}
+2025-03-28 20:03:37.909 [base.py:1896] : SELECT wx_msg_subscribe_template.id AS wx_msg_subscribe_template_id, wx_msg_subscribe_template.entry AS wx_msg_subscribe_template_entry, wx_msg_subscribe_template.template_id AS wx_msg_subscribe_template_template_id, wx_msg_subscribe_template.template_name AS wx_msg_subscribe_template_template_name, wx_msg_subscribe_template.template_content AS wx_msg_subscribe_template_template_content, wx_msg_subscribe_template.page AS wx_msg_subscribe_template_page, wx_msg_subscribe_template.miniprogram_state AS wx_msg_subscribe_template_miniprogram_state, wx_msg_subscribe_template.template_business_code AS wx_msg_subscribe_template_template_business_code, wx_msg_subscribe_template.status AS wx_msg_subscribe_template_status, wx_msg_subscribe_template.create_time AS wx_msg_subscribe_template_create_time, wx_msg_subscribe_template.update_time AS wx_msg_subscribe_template_update_time 
+FROM wx_msg_subscribe_template 
+WHERE wx_msg_subscribe_template.template_id = %(template_id_1)s AND wx_msg_subscribe_template.template_business_code = %(template_business_code_1)s 
+ LIMIT %(param_1)s
+2025-03-28 20:03:37.910 [base.py:1901] : [generated in 0.00074s] {'template_id_1': 'YcOF2JL-yxU5rHL3oAhZq_srkY5epENXsMqgYbXNJiU', 'template_business_code_1': 'TICKET_RETURN_NOTICE', 'param_1': 1}
+2025-03-28 20:03:37.912 [base.py:1123] : ROLLBACK
+2025-03-28 20:03:38.858 [Res_Handler_Decorator.py:237] : wx_mini_send_subscribe_message 业务错误: ERROR::argument invalid! data.thing1.value invalid rid: 67e6901b-5a40c825-00da18c8
