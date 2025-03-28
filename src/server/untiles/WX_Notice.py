@@ -34,7 +34,8 @@ class WX_Notice:
     def send_public_notice(self, access_token, content, user_wx_code, template_id):
         # 发送公众号通知
         send_notice_url = f'https://api.weixin.qq.com/cgi-bin/message/template/send?access_token={access_token}'
-        # 发送请求获取 access_token
+        # 发送请求获取 access_token'
+        print('WX_Notice---send_public_notice---send_notice_url---', send_notice_url)
         try:
             response = requests.post(url=send_notice_url, json={
                 'touser': user_wx_code,

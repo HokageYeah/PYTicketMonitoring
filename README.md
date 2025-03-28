@@ -70,7 +70,13 @@ docker run -d --restart=unless-stopped -v /etc/ticket-monitor/config.json:/app/c
    # 启动服务
    uvicorn main:app --reload
    ```
-2. sqlalchemy
+2. uvicorn
+   说明：uvicorn 是一个python的web框架，可以方便的进行web开发，uvicorn是一个支持异步的asgi服务器，可以方便的进行异步开发
+   使用：
+   ```python
+   uvicorn main:app --reload
+   ```
+3. sqlalchemy
    说明：sqlalchemy 是python的一个orm框架，可以方便的进行数据库操作
    使用：
    ```python
@@ -84,7 +90,7 @@ docker run -d --restart=unless-stopped -v /etc/ticket-monitor/config.json:/app/c
    session.add(User(name="John", email="john@example.com"))
    session.commit()
    ```
-3. alembic
+4. alembic
    说明：alembic 是sqlalchemy的一个迁移工具，可以方便的进行数据库迁移
    Alembic 命令及其作用：
    ```bash
@@ -135,7 +141,7 @@ docker run -d --restart=unless-stopped -v /etc/ticket-monitor/config.json:/app/c
 
    ```
    前移脚本在src/scripts/manage_db.py中
-4. jwt
+5. jwt
    说明：jwt 是json web token，可以方便的进行token认证
    使用：
    ```python
@@ -145,7 +151,7 @@ docker run -d --restart=unless-stopped -v /etc/ticket-monitor/config.json:/app/c
    # 解码token
    payload = decode(token, key, algorithms=["HS256"])
    ```
-5. mysql
+6. mysql
    说明：mysql 是数据库，可以方便的进行数据存储
    使用：
    ```python
@@ -153,14 +159,14 @@ docker run -d --restart=unless-stopped -v /etc/ticket-monitor/config.json:/app/c
    from src.config.config import DATABASE_URL
    engine = create_engine(DATABASE_URL)
    ```
-6. python-dotenv
+7. python-dotenv
    说明：python-dotenv 是一个python的库，可以方便的进行环境变量管理，他可以读取.env文件的环境变量，并设置到环境变量中。配合pydantic-settings库使用，在项目启动的时候，会读取.env文件的环境变量，并设置到pydantic-settings库中
    使用：
    ```python
    from dotenv import load_dotenv
    load_dotenv()
    ```
-7. pydantic-settings
+8. pydantic-settings
    说明：pydantic-settings 是一个python的库，可以方便的进行配置管理
    使用：
    ```python
@@ -170,7 +176,7 @@ docker run -d --restart=unless-stopped -v /etc/ticket-monitor/config.json:/app/c
        ...
    settings = Settings()
    ```
-8. pydantic
+9.  pydantic
    说明：pydantic 是一个python的库，可以方便的进行数据验证
    使用：
    ```python
@@ -179,7 +185,7 @@ docker run -d --restart=unless-stopped -v /etc/ticket-monitor/config.json:/app/c
        id: int
        name: str
    ```
-9. cachetools
+10. cachetools
    说明：cachetools 是一个python的库，可以方便的进行缓存管理，可以减少数据库查询，提高接口响应速度。
    使用：
    ```python
@@ -187,7 +193,7 @@ docker run -d --restart=unless-stopped -v /etc/ticket-monitor/config.json:/app/c
    cache = TTLCache(maxsize=1000, ttl=60)
    cache['key'] = 'value'
    ```
-10. fastapi-mail
+11. fastapi-mail
    说明：fastapi-mail 是一个fastapi的邮件发送库，可以方便的进行邮件发送
    使用 fastapi-mail 库相比原始的 smtplib 实现有以下优势：
     * 1. 异步支持 ：原生支持 FastAPI 的异步特性，提高系统性能
@@ -201,6 +207,24 @@ docker run -d --restart=unless-stopped -v /etc/ticket-monitor/config.json:/app/c
    ```python
    from fastapi_mail import FastMail, MessageSchema, ConnectionConfig
    ```
+12. httpx
+    说明：httpx 是一个python的库，可以方便的进行http请求
+    使用：
+    ```python
+    import httpx
+    response = httpx.get('https://api.github.com')
+    print(response.text)
+    ```
+13. uvloop
+    说明：uvloop 是一个python的库，可以方便的进行异步io操作（异步io操作可以提高程序的性能）推荐使用，项目中暂未替换
+    ```python
+      import asyncio
+      import uvloop
+      asyncio.set_event_loop_policy(uvloop.EventLoopPolicy())
+      # 编写asyncio的代码，与之前写的代码一致。
+      # 内部的事件循环自动化会变为uvloop
+      asyncio.run(...)
+    ```
 
 #### python项目转换为 HTTPS
 首先，你需要获取 SSL 证书。有几种方式：

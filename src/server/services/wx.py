@@ -23,7 +23,7 @@ class WxService:
         self.expires_in = 0
         self.expires_time = time.time() + self.expires_in
         # 调用access_token 记录次数，超过三次返回错误
-        self.access_token_count = 0,
+        self.access_token_count = 0
         # 初始化邮件服务
         self.email_service = EmailSender(settings)
     # 小程序登录
@@ -59,18 +59,22 @@ class WxService:
         return time.time() >= self.expires_time
     # 微信发送订阅消息
     @wx_mini_response_handler(api_path='/wx/mini.send.subscribe.message', success_msg='微信发送订阅消息成功', error_msg='微信发送订阅消息调用失败')
-    def wx_mini_send_subscribe_message(self, params: dict, template_business_code: str):
+    async def wx_mini_send_subscribe_message(self, params: dict, template_business_code: str):
         # 调用access_token 记录次数，超过三次返回错误
+        print('WxService---wx_mini_send_subscribe_message---params-----1')
         self.access_token_count += 1
+        print('WxService---wx_mini_send_subscribe_message---params-----2', self.access_token_count)
         if self.access_token_count > 3:
             return {
                 'ret': ["ERROR::获取access_token超过最大次数"],
             }
         if self.is_access_token_expired():
             print('WxService---wx_mini_send_subscribe_message---access_token过期-----')
-            self.wx_mini_get_access_token()
+            # 异步
+            await self.wx_mini_get_access_token()
+            print('WxService---wx_mini_send_subscribe_message---access_token过期-----1')
             # 更新access_token后，重新调用
-            return self.wx_mini_send_subscribe_message(params)
+            return await self.wx_mini_send_subscribe_message(params, template_business_code)
         else:
             print('WxService---wx_mini_send_subscribe_message---access_token未过期-----')
             # 调用发送订阅消息
@@ -83,9 +87,20 @@ class WxService:
                 "template_id": template_info['template_id'],
                 "page": template_info['page'],
             }
+            print('WxService---wx_mini_send_subscribe_message---req_params-----', req_params)
             response = requests.post(url, json=req_params)
-            print('WxService---wx_mini_send_subscribe_message---response-----', response)
-            return response.json()
+            res_data = response.json()
+            if 'errcode' in res_data or 'errmsg' in res_data:
+                print('WxService---wx_mini_send_subscribe_message---response-----', res_data)
+                errcode = res_data.get('errcode')
+                errmsg = res_data.get('errmsg')
+                print('wx_notice---get_access_token---api---------', errcode, errmsg)
+                return {
+                    'ret': ["ERROR::"+errmsg, "ERRORCODE::"+str(errcode)],
+                }
+            else:
+                print('WxService---wx_mini_send_subscribe_message---response-----', response)
+                return response.json()
     # 微信订阅消息模板存储
     @wx_mini_response_handler(api_path='/wx/mini.save.subscribe.template', success_msg='订阅消息模板存储成功', error_msg='订阅消息模板存储调用失败')
     def wx_mini_save_subscribe_template(self, params, user):
@@ -108,10 +123,10 @@ class WxService:
             access_token_data = response.json() 
             print('WxService---wx_mini_get_access_token---api---------3', access_token_data)
             # 测试
-            access_token_data = {
-                'errcode': 40001,
-                'errmsg': 'invalid code',
-            }
+            # access_token_data = {
+            #     'errcode': 40001,
+            #     'errmsg': 'invalid code',
+            # }
 
         # self.expires_in = 0
         # 判断小程序接口请求是否报错
@@ -231,22 +246,19 @@ class WxService:
                 loop = asyncio.new_event_loop()
                 asyncio.set_event_loop(loop)
                 print(f"WxService api_error_send_email created new loop: {loop}")
-            # 如果事件循环没有运行，我们可以运行异步函数
-            async def send_email_async():
-                await self.email_service.send_three_party_api_error_email(params)
             # 检查事件循环是否正在运行
             if loop.is_running():
                 # 如果事件循环正在运行，我们不能再运行一个事件循环
                 # 在这种情况下，我们可以选择跳过发送邮件或使用其他方式
-                print(f"事件循环正在运行，使用当前事件循环发送邮件")
+                print(f"事件循环正在运行，使用当前事件循环")
                 # 如果事件循环正在运行，创建后台任务
-                asyncio.create_task(send_email_async())
+                asyncio.create_task(self.email_service.send_three_party_api_error_email(params))
                 logging.info(f"事件循环正在运行，发送邮件通知到 {settings.QQ_MAIL_FROM}")
                 return '事件循环正在运行，发送邮件成功'
             else:
                 try:
                     # 如果事件循环没有运行，同步执行, 同步执行需要等待邮件发送完成
-                    loop.run_until_complete(send_email_async())
+                    loop.run_until_complete(self.email_service.send_three_party_api_error_email(params))
                     logging.info(f"已发送邮件通知到 {settings.QQ_MAIL_FROM}")
                     return '邮件发送成功'
                 except Exception as e:

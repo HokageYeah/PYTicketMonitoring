@@ -153,22 +153,28 @@ def api_error_send_email(params):
             loop = asyncio.new_event_loop()
             asyncio.set_event_loop(loop)
             print(f"WxService api_error_send_email created new loop: {loop}")
-        # 如果事件循环没有运行，我们可以运行异步函数
-        async def send_email_async():
-            await email_service.send_three_party_api_error_email(params)
         # 检查事件循环是否正在运行
         if loop.is_running():
             # 如果事件循环正在运行，我们不能再运行一个事件循环
             # 在这种情况下，我们可以选择跳过发送邮件或使用其他方式
             print(f"事件循环正在运行，使用当前事件循环发送邮件")
             # 如果事件循环正在运行，创建后台任务
-            asyncio.create_task(send_email_async())
+            print('api_error_send_email------1')
+            asyncio.create_task(email_service.send_three_party_api_error_email(params))
             logging.info(f"事件循环正在运行，发送邮件通知到 {settings.QQ_MAIL_FROM}")
             return '事件循环正在运行，发送邮件成功'
         else:
             try:
                 # 如果事件循环没有运行，同步执行, 同步执行需要等待邮件发送完成
-                loop.run_until_complete(send_email_async())
+                # 方式一
+                    # loop = asyncio.get_event_loop() # 创建一个事件循环
+                    # loop.run_until_complete(result) # 将协程当做任务提交到事件循环的任务列表中，协程执行完成之后终止。
+ 
+                # 方式二
+                    # asyncio.run 本质上方式一是一样的，内部先 创建事件循环 然后执行 run_until_complete，一个简便的写法。
+                    # asyncio.run 函数在 Python 3.7 中加入 asyncio 模块，
+                print('api_error_send_email------2')
+                loop.run_until_complete(email_service.send_three_party_api_error_email(params))
                 logging.info(f"已发送邮件通知到 {settings.QQ_MAIL_FROM}")
                 return '邮件发送成功'
             except Exception as e:

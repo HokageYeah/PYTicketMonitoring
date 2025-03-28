@@ -80,7 +80,7 @@ async def wx_mini_send_subscribe_message(
     print('wx_mini_send_subscribe_message---platform---------', platform)
     print('wx_mini_send_subscribe_message---params.platform---------', WxPlatformEnum.WX_MINI.value)
     if platform == WxPlatformEnum.WX_MINI.value:
-        send_subscribe_message_data = wx_service.wx_mini_send_subscribe_message(params)
+        send_subscribe_message_data = await wx_service.wx_mini_send_subscribe_message(params, 'TICKET_RETURN_NOTICE')
         return send_subscribe_message_data  
     return None
 

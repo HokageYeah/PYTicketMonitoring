@@ -105,12 +105,14 @@ class New_Ticket_Monitor:
             "data": {
                 "thing1": {"value": notification_content.get('show_name', '').get('value', '')},
                 "time2": {"value": notification_content.get('datetime', '').get('value', '')},
-                "thing3": {"value": notification_content.get('venue_city_name', '').get('value', '') | notification_content.get('venue_name', '').get('value', '')},
-                "thing6": {"value": notification_content.get('perform_name', '').get('value', '') | notification_content.get('price_name', '').get('value', '')},
+                "thing3": {"value": f"{notification_content.get('venue_city_name', '').get('value', '')} | {notification_content.get('venue_name', '').get('value', '')}"},
+                "thing6": {"value": f"{notification_content.get('perform_name', '').get('value', '')} | {notification_content.get('price_name', '').get('value', '')}"},
                 "thing4": {"value": notification_content.get('remark', '').get('value', '')},
             },
         }
-        wx_service.wx_mini_send_subscribe_message(params, 'TICKET_RETURN_NOTICE')
+        print('wx_mini_send_subscribe_message---params------', params)
+        # 调用异步方法
+        asyncio.run(wx_service.wx_mini_send_subscribe_message(params, 'TICKET_RETURN_NOTICE'))
         # 下面是发送通知到用户微信公众号（已经优化，添加了错误处理、邮件上报）
         self.access_token = self.wx_notice.get_access_token().get('data')
         # 获取用户微信openid列表
