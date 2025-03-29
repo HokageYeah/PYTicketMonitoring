@@ -100,13 +100,23 @@ class New_Ticket_Monitor:
         }
         # 调用自身写的接口/wx/mini.send.subscribe.message
         # todo 这里需要通知到微信小程序订阅号
+        # 判断 notification_content 字典中所有的值是否超过20个字符，如果超过则截取20个字符
+        print('notification_content------1', notification_content)
+        for key, value in notification_content.items():
+            print('notification_content------key------', key)
+            print('notification_content------value------', value)
+            if(isinstance(value, dict) and len(value.get('value', '')) > 20):
+                print('notification_content------value------1', value)
+                notification_content[key]['value'] = value.get('value', '')[:20]
+                print('notification_content------value------2', notification_content[key])
+        print('notification_content------2', notification_content)
         params = {
             "touser": wx_token,
             "data": {
                 "thing1": {"value": notification_content.get('show_name', '').get('value', '')},
                 "time2": {"value": notification_content.get('datetime', '').get('value', '')},
-                "thing3": {"value": f"{notification_content.get('venue_city_name', '').get('value', '')} | {notification_content.get('venue_name', '').get('value', '')}"},
-                "thing6": {"value": f"{notification_content.get('perform_name', '').get('value', '')} | {notification_content.get('price_name', '').get('value', '')}"},
+                "thing3": {"value": f"{notification_content.get('venue_city_name', '').get('value', '')}|{notification_content.get('venue_name', '').get('value', '')}|{notification_content.get('price_name', '').get('value', '')}"},
+                "thing6": {"value": f"{notification_content.get('perform_name', '').get('value', '')}"},
                 "thing4": {"value": notification_content.get('remark', '').get('value', '')},
             },
         }
@@ -120,7 +130,7 @@ class New_Ticket_Monitor:
         user_wx_openid_dict = self.wx_notice.get_user_wx_openid_list(self.access_token, '').get('data', {})
         print('user_wx_openid_dict------', user_wx_openid_dict)
         # 发送通知（发送通知到用户微信公众号）
-        for wx_token in user_wx_openid_dict.get('data').get('openid'):
+        for wx_token in user_wx_openid_dict.get('openid'):
             self.wx_notice.send_public_notice(self.access_token, notification_content, user_wx_code=wx_token, template_id='CPHntQfk-7GchRhjbi22SsXP84Bndjlc4N4Q5oEFTp8')
         pass
     # 监控演唱会

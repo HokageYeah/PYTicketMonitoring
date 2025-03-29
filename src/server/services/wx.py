@@ -65,6 +65,7 @@ class WxService:
         self.access_token_count += 1
         print('WxService---wx_mini_send_subscribe_message---params-----2', self.access_token_count)
         if self.access_token_count > 3:
+            self.access_token_count = 0
             return {
                 'ret': ["ERROR::获取access_token超过最大次数"],
             }
@@ -90,7 +91,7 @@ class WxService:
             print('WxService---wx_mini_send_subscribe_message---req_params-----', req_params)
             response = requests.post(url, json=req_params)
             res_data = response.json()
-            if 'errcode' in res_data or 'errmsg' in res_data:
+            if 'errcode' in res_data and res_data.get('errcode') != 0:
                 print('WxService---wx_mini_send_subscribe_message---response-----', res_data)
                 errcode = res_data.get('errcode')
                 errmsg = res_data.get('errmsg')
@@ -130,7 +131,7 @@ class WxService:
 
         # self.expires_in = 0
         # 判断小程序接口请求是否报错
-        if 'errcode' in access_token_data or 'errmsg' in access_token_data:
+        if 'errcode' in access_token_data and access_token_data.get('errcode') != 0:
             errcode = access_token_data.get('errcode')
             errmsg = access_token_data.get('errmsg')
             print('WxService---wx_mini_get_access_token---api---------4', errcode, errmsg)

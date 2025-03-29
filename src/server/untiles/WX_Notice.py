@@ -20,7 +20,7 @@ class WX_Notice:
             access_token_data = response.json()
             print('WX_Notice---get_access_token---response---', response.json().get('access_token'))
                  # 判断小程序接口请求是否报错
-            if 'errcode' in access_token_data or 'errmsg' in access_token_data:
+            if 'errcode' in access_token_data and access_token_data.get('errcode') != 0:
                 errcode = access_token_data.get('errcode')
                 errmsg = access_token_data.get('errmsg')
                 print('wx_notice---get_access_token---api---------', errcode, errmsg)
@@ -56,7 +56,7 @@ class WX_Notice:
         response = requests.get(get_user_wx_openid_list_url)
         response_data = response.json()
         # 判断小程序接口请求是否报错
-        if 'errcode' in response_data or 'errmsg' in response_data:
+        if 'errcode' in response_data and response_data.get('errcode') != 0:
             errcode = response_data.get('errcode')
             errmsg = response_data.get('errmsg')
             print('wx_notice---get_user_wx_openid_list---api---------', errcode, errmsg)
