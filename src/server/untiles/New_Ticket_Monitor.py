@@ -323,13 +323,16 @@ class New_Ticket_Monitor:
                 monitor_list = self.recursive_delete_none(monitor_list)
                 # 根据delete_monitor_list删除monitor_list中的数据
                 for delete_monitor_item in self.delete_monitor_list:
+                    print('delete_monitor_item------', delete_monitor_item)
                     delete_show_id = delete_monitor_item.get('show_id')
                     delete_index = next((i for i, item in enumerate(monitor_list) if item.get('show_id') == delete_show_id), -1)
                     if delete_index == -1:
                         continue
+                    print('delete_monitor_item------monitor_list----', monitor_list[delete_index])
                     show_name = monitor_list[delete_index].get('show_name')
                     venue_city_name = monitor_list[delete_index].get('venue_city_name')
                     venue_name = monitor_list[delete_index].get('venue_name')
+                    monitor_person_list = monitor_list[delete_index].get('monitor_person')
                     # 通知文案
                     notification_content = f"\n当前时间：{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n演唱会名称：{show_name}\n演唱会show_id：{delete_show_id}\n已下架，现在删除此条监控\n"
                     print('##########################演唱会已下架打印开始##########################')
@@ -346,6 +349,14 @@ class New_Ticket_Monitor:
                             "value": show_name,
                             "color": "#173177"
                         },
+                        'venue_city_name': {
+                            "value": venue_city_name,
+                            "color": "#173177"
+                        },
+                        'venue_name': {
+                            "value": venue_name,
+                            "color": "#173177"
+                        },
                         'delete_show_id': {
                             "value": delete_show_id,
                             "color": "#173177"
@@ -355,7 +366,23 @@ class New_Ticket_Monitor:
                             "color": "#173177"
                         }
                     }
-                    # todo 需要发送给小程序订阅消息
+                    # todo 需要发送给小程序订阅消息(已优化，添加订阅通知处理)
+                    for monitor_person in monitor_person_list:
+                        print('monitor_person------', monitor_person)
+                        wx_token = monitor_person.get('wx_token')
+                        perform_name = monitor_person.get('perform_name')
+                        params = {
+                            "touser": wx_token,
+                            "data": {
+                                "thing1": {"value": show_name},
+                                "time2": {"value": notification_content.get('datetime', '').get('value', '')},
+                                "thing3": {"value": f"{notification_content.get('venue_city_name', '').get('value', '')}|{notification_content.get('venue_name', '').get('value', '')}"},
+                                "thing6": {"value": perform_name},
+                                "thing4": {"value": notification_content.get('remark', '').get('value', '')},
+                            },
+                        }
+                        # 调用异步方法
+                        asyncio.run(wx_service.wx_mini_send_subscribe_message(params, 'TICKET_RETURN_NOTICE'))
                     self.access_token = self.wx_notice.get_access_token().get('data')
                     # 获取用户微信openid列表
                     user_wx_openid_dict = self.wx_notice.get_user_wx_openid_list(self.access_token, '')
