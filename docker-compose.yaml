@@ -1,0 +1,72 @@
+version: '3'
+services:
+  ticket_monitor:
+    build: . # 使用当前目录的 Dockerfile 构建镜像
+    container_name: ticket_monitor # 指定容器名称（否则Docker会随机生成）
+    # 当容器因非人为干预的原因退出（如程序崩溃、系统重启等）时，Docker会自动重启容器。
+    restart: unless-stopped
+    ports:
+      # 将宿主机的8001端口映射到容器的8001端口
+      - "8001:8001" # 只暴露必要的应用端口
+    volumes: # 挂载数据卷
+      # 将宿主机的src目录挂载到容器的/app/src目录
+      # - ./src:/app/src  # 用户挂载了./src目录到容器，这在开发时方便，但生产环境应该将代码打包进镜像，避免修改。因此需要移除volumes中的./src:/app/src挂载。
+      # 将宿主机的.env.production文件挂载到容器的/.env.production文件
+      - ./.env.production:/app/.env.production
+    env_file: # 从文件加载敏感环境变量（可选） 
+      # 用户之前将.env.production挂载到容器中，但直接在docker-compose里写密码也不安全。应该使用Docker的env_file指令来引入外部环境变量文件，避免敏感信息暴露在compose文件中。
+      - .env
+    environment:
+      # 设置环境变量
+      - ENV=production
+    networks:
+      # 将容器连接到ticket-network网络
+      - ticket-network
+    depends_on:
+      # 将容器连接到mysql容器
+      # - mysql
+      # 虽然depends_on可以确保启动顺序，但应用可能在MySQL未完全就绪时连接失败。可以考虑添加健康检查（healthcheck）来确保MySQL服务可用后再启动应用容器
+      mysql:
+        condition: service_healthy  # 等待MySQL健康检查通过后再启动
+
+  mysql:
+    # 使用官方的mysql镜像
+    image: mysql:8.0
+    # 设置容器名称
+    container_name: ticket-mysql
+    # 当容器因非人为干预的原因退出（如程序崩溃、系统重启等）时，Docker会自动重启容器。
+    restart: unless-stopped
+    # 设置mysql配置
+    # environment:
+    #   - MYSQL_ROOT_PASSWORD=aa123456 # 设置mysql的root密码
+    #   - MYSQL_DATABASE=ticket_monitor_db # 设置mysql的数据库名称
+    #   - MYSQL_USER=ticket # 创建普通用户
+    #   - MYSQL_PASSWORD=ticket123 # 普通用户密码
+    env_file: # 从文件加载敏感环境变量（推荐！）
+      - .env   # 单独管理数据库密码（见下方说明）
+    # 设置mysql数据卷
+    volumes:
+      - mysql-data:/var/lib/mysql
+    # 将宿主机的3306端口映射到容器的3306端口
+    # 如果需要暴露端口，请使用ports指令，否则不要暴露端口
+    # 原配置中将MySQL的3306端口映射到宿主机，这样暴露在公网很危险。生产环境中应该仅允许内部容器网络访问，所以需要移除ports中的3306:3306映射。
+    # ports:
+    #   - "3306:3306"
+    # 将容器连接到ticket-network网络
+    networks:
+      - ticket-network
+    # 设置健康检查
+    healthcheck:   # 添加健康检查，确保MySQL完全就绪
+      test: ["CMD-SHELL", "mysqladmin ping -h localhost -u root --password=$$DB_PASSWORD"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+# 定义容器间通信的网络
+networks:
+  ticket-network:
+    driver: bridge # 使用桥接网络（默认）
+
+# 定义数据持久化的存储卷
+volumes:
+  mysql-data: # 定义名为mysql-data的持久化卷

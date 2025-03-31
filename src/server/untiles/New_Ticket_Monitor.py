@@ -109,15 +109,18 @@ class New_Ticket_Monitor:
                 print('notification_content------value------1', value)
                 notification_content[key]['value'] = value.get('value', '')[:20]
                 print('notification_content------value------2', notification_content[key])
+            if key == 'venue_name' and len(notification_content.get('venue_name', '').get('value', '')) > 20:
+                print('notification_content------value------3', notification_content.get('venue_name', '').get('value', ''))
+                notification_content[key]['value'] = notification_content.get('venue_name', '').get('value', '')[:10]
         print('notification_content------2', notification_content)
         params = {
             "touser": wx_token,
             "data": {
                 "thing1": {"value": notification_content.get('show_name', '').get('value', '')},
                 "time2": {"value": notification_content.get('datetime', '').get('value', '')},
-                "thing3": {"value": f"{notification_content.get('venue_city_name', '').get('value', '')}|{notification_content.get('venue_name', '').get('value', '')}|{notification_content.get('price_name', '').get('value', '')}"},
+                "thing3": {"value": f"{notification_content.get('venue_name', '').get('value', '')}"},
                 "thing6": {"value": f"{notification_content.get('perform_name', '').get('value', '')}"},
-                "thing4": {"value": notification_content.get('remark', '').get('value', '')},
+                "thing4": {"value": f"{notification_content.get('remark', '').get('value', '')}"},
             },
         }
         print('wx_mini_send_subscribe_message---params------', params)
@@ -305,12 +308,15 @@ class New_Ticket_Monitor:
                     # 需要通知的wx_token也是需要删除的delete_item
                     # todo  需要通知的wx_token 此处代码先注释掉，因为微信的接口调用失败
                     # todo  这里需要通知到微信小程序订阅号上（已经优化，添加错误处理、邮件上报）
-                    print('delete_item------', delete_item)
+                    print('delete_item------delete_item------1', delete_item)
                     self.send_notification(delete_item, {
                         "show_name": show_name,
                         "venue_city_name": venue_city_name,
                         "venue_name": venue_name,
                     }, delete_ticket_perform_index, delete_sku_perform_index)
+                    print('delete_item------delete_item------2', delete_item)
+                    print('delete_item------delete_ticket_perform_index------', delete_ticket_perform_index)
+                    print('delete_item------delete_sku_perform_index------', delete_sku_perform_index)
                     # 通知完成后删除通知后的数据
                     monitor_list[delete_monitor_list_item_index].get('monitor_person')[delete_person_index].get('ticket_perform')[delete_ticket_perform_index].get('sku_list')[delete_sku_perform_index] = None
                     if all(item is None for item in monitor_list[delete_monitor_list_item_index].get('monitor_person')[delete_person_index].get('ticket_perform')[delete_ticket_perform_index].get('sku_list')):

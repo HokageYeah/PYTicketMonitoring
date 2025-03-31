@@ -1,108 +1,1711 @@
-2025-03-30 23:47:24.838 [base.py:1843] : SELECT performances.perform_id AS performances_perform_id, performances.show_id AS performances_show_id, performances.perform_name AS performances_perform_name, performances.perform_time AS performances_perform_time, performances.created_at AS performances_created_at, performances.updated_at AS performances_updated_at, performances.platform AS performances_platform 
-FROM performances 
-WHERE performances.perform_id = %(pk_1)s
-2025-03-30 23:47:24.847 [base.py:1843] : [cached since 56.23s ago] {'pk_1': '227046015'}
-2025-03-30 23:47:24.852 [base.py:1843] : SELECT ticket_prices.sku_id AS ticket_prices_sku_id, ticket_prices.perform_id AS ticket_prices_perform_id, ticket_prices.price_id AS ticket_prices_price_id, ticket_prices.price_name AS ticket_prices_price_name, ticket_prices.created_at AS ticket_prices_created_at, ticket_prices.updated_at AS ticket_prices_updated_at, ticket_prices.platform AS ticket_prices_platform 
-FROM ticket_prices 
-WHERE ticket_prices.sku_id = %(pk_1)s
-2025-03-30 23:47:24.855 [base.py:1843] : [cached since 56.23s ago] {'pk_1': '5927000503564'}
-2025-03-30 23:47:24.859 [base.py:2702] : ROLLBACK
-2025-03-30 23:47:24.861 [New_Ticket_Monitor.py:424] : DM �����
-2025-03-30 23:47:25.048 [New_Ticket_Monitor.py:424] : DM �����
-2025-03-30 23:47:25.225 [base.py:2699] : BEGIN (implicit)
-2025-03-30 23:47:25.226 [base.py:1843] : SELECT user_ticket_monitors.monitor_ticket_id AS user_ticket_monitors_monitor_ticket_id 
-FROM user_ticket_monitors INNER JOIN user_show_monitors ON user_ticket_monitors.user_show_monitor_id = user_show_monitors.monitor_id 
-WHERE user_show_monitors.wx_token = %(wx_token_1)s AND user_show_monitors.show_id = %(show_id_1)s AND user_ticket_monitors.perform_id = %(perform_id_1)s AND user_ticket_monitors.sku_id = %(sku_id_1)s AND user_show_monitors.platform = %(platform_1)s
-2025-03-30 23:47:25.228 [base.py:1843] : [cached since 56.31s ago] {'wx_token_1': 'oAYJs5WqKOH5VuIFulvWy9Np7QJE', 'show_id_1': '901502735157', 'perform_id_1': '227046015', 'sku_id_1': '5927000503564', 'platform_1': 'DM'}
-2025-03-30 23:47:25.230 [base.py:1843] : DELETE FROM user_ticket_monitors USING user_ticket_monitors, user_show_monitors WHERE (user_ticket_monitors.monitor_ticket_id NOT IN (%(monitor_ticket_id_1_1)s)) AND user_show_monitors.platform = %(platform_1)s
-2025-03-30 23:47:25.232 [base.py:1843] : [cached since 56.31s ago] {'platform_1': 'DM', 'monitor_ticket_id_1_1': 25}
-2025-03-30 23:47:25.234 [base.py:1843] : SELECT user_show_monitors.monitor_id AS user_show_monitors_monitor_id 
-FROM user_show_monitors 
-WHERE user_show_monitors.wx_token = %(wx_token_1)s AND user_show_monitors.show_id = %(show_id_1)s AND user_show_monitors.platform = %(platform_1)s
-2025-03-30 23:47:25.235 [base.py:1843] : [cached since 56.31s ago] {'wx_token_1': 'oAYJs5WqKOH5VuIFulvWy9Np7QJE', 'show_id_1': '901502735157', 'platform_1': 'DM'}
-2025-03-30 23:47:25.238 [base.py:1843] : DELETE FROM user_show_monitors WHERE (user_show_monitors.monitor_id NOT IN (%(monitor_id_1_1)s)) AND user_show_monitors.platform = %(platform_1)s
-2025-03-30 23:47:25.238 [base.py:1843] : [cached since 56.3s ago] {'platform_1': 'DM', 'monitor_id_1_1': 7}
-2025-03-30 23:47:25.240 [base.py:1843] : SELECT ticket_prices.price_id AS ticket_prices_price_id 
-FROM ticket_prices 
-WHERE ticket_prices.perform_id = %(perform_id_1)s AND ticket_prices.sku_id = %(sku_id_1)s AND ticket_prices.platform = %(platform_1)s
-2025-03-30 23:47:25.242 [base.py:1843] : [cached since 56.3s ago] {'perform_id_1': '227046015', 'sku_id_1': '5927000503564', 'platform_1': 'DM'}
-2025-03-30 23:47:25.244 [base.py:1843] : DELETE FROM ticket_prices WHERE (ticket_prices.price_id NOT IN (%(price_id_1_1)s)) AND ticket_prices.platform = %(platform_1)s
-2025-03-30 23:47:25.245 [base.py:1843] : [cached since 56.3s ago] {'platform_1': 'DM', 'price_id_1_1': '303728177'}
-2025-03-30 23:47:25.247 [base.py:1843] : SELECT performances.perform_id AS performances_perform_id 
-FROM performances 
-WHERE performances.show_id = %(show_id_1)s AND performances.perform_id = %(perform_id_1)s AND performances.platform = %(platform_1)s
-2025-03-30 23:47:25.249 [base.py:1843] : [cached since 56.3s ago] {'show_id_1': '901502735157', 'perform_id_1': '227046015', 'platform_1': 'DM'}
-2025-03-30 23:47:25.251 [base.py:1843] : DELETE FROM performances WHERE (performances.perform_id NOT IN (%(perform_id_1_1)s)) AND performances.platform = %(platform_1)s
-2025-03-30 23:47:25.252 [base.py:1843] : [cached since 56.3s ago] {'platform_1': 'DM', 'perform_id_1_1': '227046015'}
-2025-03-30 23:47:25.254 [base.py:1843] : SELECT shows.show_id AS shows_show_id 
-FROM shows 
-WHERE shows.show_id IN (%(show_id_1_1)s) AND shows.platform = %(platform_1)s
-2025-03-30 23:47:25.255 [base.py:1843] : [cached since 56.3s ago] {'platform_1': 'DM', 'show_id_1_1': '901502735157'}
-2025-03-30 23:47:25.258 [base.py:1843] : DELETE FROM shows WHERE (shows.show_id NOT IN (%(show_id_1_1)s)) AND shows.platform = %(platform_1)s
-2025-03-30 23:47:25.258 [base.py:1843] : [cached since 56.3s ago] {'platform_1': 'DM', 'show_id_1_1': '901502735157'}
-2025-03-30 23:47:25.260 [base.py:2705] : COMMIT
-2025-03-30 23:47:28.563 [New_DB_Mointor.py:264] : [ʵ�� ca742bc2] ѭ�� #3 ����: 2025-03-30 23:47:28, �ܺ�ʱ: 20.00��
-2025-03-30 23:47:28.564 [New_DB_Mointor.py:245] : [ʵ�� ca742bc2] ѭ�� #4 ��ʼ: 2025-03-30 23:47:28
-2025-03-30 23:47:28.564 [New_DB_Mointor.py:180] : [ʵ�� ca742bc2] ��ʼ���: 2025-03-30 23:47:28.564427
-2025-03-30 23:47:28.565 [base.py:2699] : BEGIN (implicit)
-2025-03-30 23:47:28.566 [base.py:1843] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+2025-03-31 18:47:11.837 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #334 执行耗时: 0.14秒, 将休眠: 19.86秒
+2025-03-31 18:47:31.726 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #334 结束: 2025-03-31 18:47:31, 总耗时: 20.03秒
+2025-03-31 18:47:31.729 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #335 开始: 2025-03-31 18:47:31
+2025-03-31 18:47:31.729 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 18:47:31.729427
+2025-03-31 18:47:31.738 [base.py:1097] : BEGIN (implicit)
+2025-03-31 18:47:31.767 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
 FROM user_ticket_monitors
-2025-03-30 23:47:28.567 [base.py:1843] : [cached since 59.98s ago] {}
-2025-03-30 23:47:28.569 [base.py:1843] : SELECT user_ticket_monitors.monitor_ticket_id AS user_ticket_monitors_monitor_ticket_id, user_ticket_monitors.updated_at AS user_ticket_monitors_updated_at 
+2025-03-31 18:47:31.771 [base.py:1901] : [cached since 6683s ago] {}
+2025-03-31 18:47:31.787 [base.py:1123] : ROLLBACK
+2025-03-31 18:47:31.794 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 18:47:31.793828, 耗时: 0.064401秒
+2025-03-31 18:47:31.801 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #335 执行耗时: 0.07秒, 将休眠: 19.93秒
+2025-03-31 18:47:51.748 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #335 结束: 2025-03-31 18:47:51, 总耗时: 20.02秒
+2025-03-31 18:47:51.751 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #336 开始: 2025-03-31 18:47:51
+2025-03-31 18:47:51.753 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 18:47:51.753141
+2025-03-31 18:47:51.765 [base.py:1097] : BEGIN (implicit)
+2025-03-31 18:47:51.784 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
 FROM user_ticket_monitors
-2025-03-30 23:47:28.570 [base.py:1843] : [generated in 0.00103s] {}
-2025-03-30 23:47:28.572 [base.py:2702] : ROLLBACK
-2025-03-30 23:47:28.573 [New_DB_Mointor.py:232] : [ʵ�� ca742bc2] ������: 2025-03-30 23:47:28.573237, ��ʱ: 0.00881��
-2025-03-30 23:47:28.573 [New_DB_Mointor.py:250] : [ʵ�� ca742bc2] ��⵽ user_ticket_monitor �б仯������Ʊ���ؽӿ�
-2025-03-30 23:47:28.574 [New_DB_Mointor.py:257] : [ʵ�� ca742bc2] ѭ�� #4 ִ�к�ʱ: 0.01��, ������: 19.99��
-2025-03-30 23:47:35.263 [base.py:2699] : BEGIN (implicit)
-2025-03-30 23:47:35.265 [base.py:1843] : SELECT DISTINCT shows.platform AS shows_platform 
-FROM shows
-2025-03-30 23:47:35.266 [base.py:1843] : [cached since 66.67s ago] {}
-2025-03-30 23:47:35.269 [base.py:1843] : SELECT shows.show_id AS shows_show_id, shows.show_name AS shows_show_name, shows.venue_city_name AS shows_venue_city_name, shows.venue_name AS shows_venue_name, shows.created_at AS shows_created_at, shows.updated_at AS shows_updated_at, shows.cover_url AS shows_cover_url, shows.poster_url AS shows_poster_url, shows.platform AS shows_platform, user_ticket_monitors_1.monitor_ticket_id AS user_ticket_monitors_1_monitor_ticket_id, user_ticket_monitors_1.user_show_monitor_id AS user_ticket_monitors_1_user_show_monitor_id, user_ticket_monitors_1.perform_id AS user_ticket_monitors_1_perform_id, user_ticket_monitors_1.sku_id AS user_ticket_monitors_1_sku_id, user_ticket_monitors_1.deadline AS user_ticket_monitors_1_deadline, user_ticket_monitors_1.is_notified AS user_ticket_monitors_1_is_notified, user_ticket_monitors_1.created_at AS user_ticket_monitors_1_created_at, user_ticket_monitors_1.updated_at AS user_ticket_monitors_1_updated_at, user_ticket_monitors_1.platform AS user_ticket_monitors_1_platform, user_show_monitors_1.monitor_id AS user_show_monitors_1_monitor_id, user_show_monitors_1.user_id AS user_show_monitors_1_user_id, user_show_monitors_1.wx_token AS user_show_monitors_1_wx_token, user_show_monitors_1.show_id AS user_show_monitors_1_show_id, user_show_monitors_1.deadline AS user_show_monitors_1_deadline, user_show_monitors_1.is_active AS user_show_monitors_1_is_active, user_show_monitors_1.created_at AS user_show_monitors_1_created_at, user_show_monitors_1.updated_at AS user_show_monitors_1_updated_at, user_show_monitors_1.platform AS user_show_monitors_1_platform 
-FROM shows LEFT OUTER JOIN user_show_monitors AS user_show_monitors_1 ON shows.show_id = user_show_monitors_1.show_id LEFT OUTER JOIN user_ticket_monitors AS user_ticket_monitors_1 ON user_show_monitors_1.monitor_id = user_ticket_monitors_1.user_show_monitor_id 
-WHERE shows.platform = %(platform_1)s
-2025-03-30 23:47:35.274 [base.py:1843] : [cached since 66.66s ago] {'platform_1': 'DM'}
-2025-03-30 23:47:35.277 [base.py:1843] : SELECT performances.perform_id AS performances_perform_id, performances.show_id AS performances_show_id, performances.perform_name AS performances_perform_name, performances.perform_time AS performances_perform_time, performances.created_at AS performances_created_at, performances.updated_at AS performances_updated_at, performances.platform AS performances_platform 
-FROM performances 
-WHERE performances.perform_id = %(pk_1)s
-2025-03-30 23:47:35.278 [base.py:1843] : [cached since 66.66s ago] {'pk_1': '227046015'}
-2025-03-30 23:47:35.281 [base.py:1843] : SELECT ticket_prices.sku_id AS ticket_prices_sku_id, ticket_prices.perform_id AS ticket_prices_perform_id, ticket_prices.price_id AS ticket_prices_price_id, ticket_prices.price_name AS ticket_prices_price_name, ticket_prices.created_at AS ticket_prices_created_at, ticket_prices.updated_at AS ticket_prices_updated_at, ticket_prices.platform AS ticket_prices_platform 
-FROM ticket_prices 
-WHERE ticket_prices.sku_id = %(pk_1)s
-2025-03-30 23:47:35.283 [base.py:1843] : [cached since 66.66s ago] {'pk_1': '5927000503564'}
-2025-03-30 23:47:35.286 [base.py:2702] : ROLLBACK
-2025-03-30 23:47:35.287 [New_Ticket_Monitor.py:424] : DM �����
-2025-03-30 23:47:35.479 [New_Ticket_Monitor.py:424] : DM �����
-2025-03-30 23:47:35.661 [base.py:2699] : BEGIN (implicit)
-2025-03-30 23:47:35.662 [base.py:1843] : SELECT user_ticket_monitors.monitor_ticket_id AS user_ticket_monitors_monitor_ticket_id 
-FROM user_ticket_monitors INNER JOIN user_show_monitors ON user_ticket_monitors.user_show_monitor_id = user_show_monitors.monitor_id 
-WHERE user_show_monitors.wx_token = %(wx_token_1)s AND user_show_monitors.show_id = %(show_id_1)s AND user_ticket_monitors.perform_id = %(perform_id_1)s AND user_ticket_monitors.sku_id = %(sku_id_1)s AND user_show_monitors.platform = %(platform_1)s
-2025-03-30 23:47:35.664 [base.py:1843] : [cached since 66.75s ago] {'wx_token_1': 'oAYJs5WqKOH5VuIFulvWy9Np7QJE', 'show_id_1': '901502735157', 'perform_id_1': '227046015', 'sku_id_1': '5927000503564', 'platform_1': 'DM'}
-2025-03-30 23:47:35.668 [base.py:1843] : DELETE FROM user_ticket_monitors USING user_ticket_monitors, user_show_monitors WHERE (user_ticket_monitors.monitor_ticket_id NOT IN (%(monitor_ticket_id_1_1)s)) AND user_show_monitors.platform = %(platform_1)s
-2025-03-30 23:47:35.668 [base.py:1843] : [cached since 66.74s ago] {'platform_1': 'DM', 'monitor_ticket_id_1_1': 25}
-2025-03-30 23:47:35.671 [base.py:1843] : SELECT user_show_monitors.monitor_id AS user_show_monitors_monitor_id 
-FROM user_show_monitors 
-WHERE user_show_monitors.wx_token = %(wx_token_1)s AND user_show_monitors.show_id = %(show_id_1)s AND user_show_monitors.platform = %(platform_1)s
-2025-03-30 23:47:35.672 [base.py:1843] : [cached since 66.74s ago] {'wx_token_1': 'oAYJs5WqKOH5VuIFulvWy9Np7QJE', 'show_id_1': '901502735157', 'platform_1': 'DM'}
-2025-03-30 23:47:35.674 [base.py:1843] : DELETE FROM user_show_monitors WHERE (user_show_monitors.monitor_id NOT IN (%(monitor_id_1_1)s)) AND user_show_monitors.platform = %(platform_1)s
-2025-03-30 23:47:35.675 [base.py:1843] : [cached since 66.74s ago] {'platform_1': 'DM', 'monitor_id_1_1': 7}
-2025-03-30 23:47:35.677 [base.py:1843] : SELECT ticket_prices.price_id AS ticket_prices_price_id 
-FROM ticket_prices 
-WHERE ticket_prices.perform_id = %(perform_id_1)s AND ticket_prices.sku_id = %(sku_id_1)s AND ticket_prices.platform = %(platform_1)s
-2025-03-30 23:47:35.678 [base.py:1843] : [cached since 66.74s ago] {'perform_id_1': '227046015', 'sku_id_1': '5927000503564', 'platform_1': 'DM'}
-2025-03-30 23:47:35.682 [base.py:1843] : DELETE FROM ticket_prices WHERE (ticket_prices.price_id NOT IN (%(price_id_1_1)s)) AND ticket_prices.platform = %(platform_1)s
-2025-03-30 23:47:35.682 [base.py:1843] : [cached since 66.74s ago] {'platform_1': 'DM', 'price_id_1_1': '303728177'}
-2025-03-30 23:47:35.685 [base.py:1843] : SELECT performances.perform_id AS performances_perform_id 
-FROM performances 
-WHERE performances.show_id = %(show_id_1)s AND performances.perform_id = %(perform_id_1)s AND performances.platform = %(platform_1)s
-2025-03-30 23:47:35.686 [base.py:1843] : [cached since 66.74s ago] {'show_id_1': '901502735157', 'perform_id_1': '227046015', 'platform_1': 'DM'}
-2025-03-30 23:47:35.689 [base.py:1843] : DELETE FROM performances WHERE (performances.perform_id NOT IN (%(perform_id_1_1)s)) AND performances.platform = %(platform_1)s
-2025-03-30 23:47:35.689 [base.py:1843] : [cached since 66.74s ago] {'platform_1': 'DM', 'perform_id_1_1': '227046015'}
-2025-03-30 23:47:35.692 [base.py:1843] : SELECT shows.show_id AS shows_show_id 
-FROM shows 
-WHERE shows.show_id IN (%(show_id_1_1)s) AND shows.platform = %(platform_1)s
-2025-03-30 23:47:35.693 [base.py:1843] : [cached since 66.74s ago] {'platform_1': 'DM', 'show_id_1_1': '901502735157'}
-2025-03-30 23:47:35.696 [base.py:1843] : DELETE FROM shows WHERE (shows.show_id NOT IN (%(show_id_1_1)s)) AND shows.platform = %(platform_1)s
-2025-03-30 23:47:35.697 [base.py:1843] : [cached since 66.74s ago] {'platform_1': 'DM', 'show_id_1_1': '901502735157'}
-2025-03-30 23:47:35.699 [base.py:2705] : COMMIT
+2025-03-31 18:47:51.789 [base.py:1901] : [cached since 6703s ago] {}
+2025-03-31 18:47:51.802 [base.py:1123] : ROLLBACK
+2025-03-31 18:47:51.812 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 18:47:51.809492, 耗时: 0.056351秒
+2025-03-31 18:47:51.813 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #336 执行耗时: 0.06秒, 将休眠: 19.94秒
+2025-03-31 18:48:11.761 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #336 结束: 2025-03-31 18:48:11, 总耗时: 20.01秒
+2025-03-31 18:48:11.766 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #337 开始: 2025-03-31 18:48:11
+2025-03-31 18:48:11.766 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 18:48:11.766331
+2025-03-31 18:48:11.783 [base.py:1097] : BEGIN (implicit)
+2025-03-31 18:48:11.808 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 18:48:11.820 [base.py:1901] : [cached since 6723s ago] {}
+2025-03-31 18:48:11.829 [base.py:1123] : ROLLBACK
+2025-03-31 18:48:11.830 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 18:48:11.830284, 耗时: 0.063953秒
+2025-03-31 18:48:11.830 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #337 执行耗时: 0.06秒, 将休眠: 19.94秒
+2025-03-31 18:48:31.770 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #337 结束: 2025-03-31 18:48:31, 总耗时: 20.00秒
+2025-03-31 18:48:31.773 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #338 开始: 2025-03-31 18:48:31
+2025-03-31 18:48:31.773 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 18:48:31.773479
+2025-03-31 18:48:31.777 [base.py:1097] : BEGIN (implicit)
+2025-03-31 18:48:31.781 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 18:48:31.783 [base.py:1901] : [cached since 6743s ago] {}
+2025-03-31 18:48:31.787 [base.py:1123] : ROLLBACK
+2025-03-31 18:48:31.789 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 18:48:31.789846, 耗时: 0.016367秒
+2025-03-31 18:48:31.790 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #338 执行耗时: 0.02秒, 将休眠: 19.98秒
+2025-03-31 18:48:51.789 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #338 结束: 2025-03-31 18:48:51, 总耗时: 20.00秒
+2025-03-31 18:48:51.803 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #339 开始: 2025-03-31 18:48:51
+2025-03-31 18:48:51.825 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 18:48:51.806208
+2025-03-31 18:48:51.835 [base.py:1097] : BEGIN (implicit)
+2025-03-31 18:48:51.845 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 18:48:51.846 [base.py:1901] : [cached since 6763s ago] {}
+2025-03-31 18:48:51.851 [base.py:1123] : ROLLBACK
+2025-03-31 18:48:51.854 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 18:48:51.854684, 耗时: 0.048476秒
+2025-03-31 18:48:51.854 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #339 执行耗时: 0.06秒, 将休眠: 19.94秒
+2025-03-31 18:49:11.799 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #339 结束: 2025-03-31 18:49:11, 总耗时: 20.00秒
+2025-03-31 18:49:11.802 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #340 开始: 2025-03-31 18:49:11
+2025-03-31 18:49:11.803 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 18:49:11.803068
+2025-03-31 18:49:11.831 [base.py:1097] : BEGIN (implicit)
+2025-03-31 18:49:11.849 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 18:49:11.857 [base.py:1901] : [cached since 6783s ago] {}
+2025-03-31 18:49:11.889 [base.py:1123] : ROLLBACK
+2025-03-31 18:49:11.897 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 18:49:11.897402, 耗时: 0.094334秒
+2025-03-31 18:49:11.898 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #340 执行耗时: 0.10秒, 将休眠: 19.90秒
+2025-03-31 18:49:31.804 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #340 结束: 2025-03-31 18:49:31, 总耗时: 20.00秒
+2025-03-31 18:49:31.806 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #341 开始: 2025-03-31 18:49:31
+2025-03-31 18:49:31.807 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 18:49:31.807050
+2025-03-31 18:49:31.854 [base.py:1097] : BEGIN (implicit)
+2025-03-31 18:49:31.873 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 18:49:31.874 [base.py:1901] : [cached since 6803s ago] {}
+2025-03-31 18:49:31.895 [base.py:1123] : ROLLBACK
+2025-03-31 18:49:31.896 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 18:49:31.896706, 耗时: 0.089656秒
+2025-03-31 18:49:31.897 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #341 执行耗时: 0.09秒, 将休眠: 19.91秒
+2025-03-31 18:49:51.810 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #341 结束: 2025-03-31 18:49:51, 总耗时: 20.00秒
+2025-03-31 18:49:51.811 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #342 开始: 2025-03-31 18:49:51
+2025-03-31 18:49:51.811 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 18:49:51.811948
+2025-03-31 18:49:51.835 [base.py:1097] : BEGIN (implicit)
+2025-03-31 18:49:51.839 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 18:49:51.840 [base.py:1901] : [cached since 6823s ago] {}
+2025-03-31 18:49:51.852 [base.py:1123] : ROLLBACK
+2025-03-31 18:49:51.857 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 18:49:51.857725, 耗时: 0.045777秒
+2025-03-31 18:49:51.862 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #342 执行耗时: 0.05秒, 将休眠: 19.95秒
+2025-03-31 18:50:11.824 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #342 结束: 2025-03-31 18:50:11, 总耗时: 20.01秒
+2025-03-31 18:50:11.826 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #343 开始: 2025-03-31 18:50:11
+2025-03-31 18:50:11.827 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 18:50:11.827045
+2025-03-31 18:50:11.832 [base.py:1097] : BEGIN (implicit)
+2025-03-31 18:50:11.853 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 18:50:11.860 [base.py:1901] : [cached since 6843s ago] {}
+2025-03-31 18:50:11.882 [base.py:1123] : ROLLBACK
+2025-03-31 18:50:11.888 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 18:50:11.886594, 耗时: 0.059549秒
+2025-03-31 18:50:11.888 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #343 执行耗时: 0.06秒, 将休眠: 19.94秒
+2025-03-31 18:50:31.832 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #343 结束: 2025-03-31 18:50:31, 总耗时: 20.01秒
+2025-03-31 18:50:31.838 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #344 开始: 2025-03-31 18:50:31
+2025-03-31 18:50:31.838 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 18:50:31.838555
+2025-03-31 18:50:31.847 [base.py:1097] : BEGIN (implicit)
+2025-03-31 18:50:31.854 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 18:50:31.855 [base.py:1901] : [cached since 6863s ago] {}
+2025-03-31 18:50:31.867 [base.py:1123] : ROLLBACK
+2025-03-31 18:50:31.870 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 18:50:31.870252, 耗时: 0.031697秒
+2025-03-31 18:50:31.870 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #344 执行耗时: 0.03秒, 将休眠: 19.97秒
+2025-03-31 18:50:51.843 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #344 结束: 2025-03-31 18:50:51, 总耗时: 20.01秒
+2025-03-31 18:50:51.844 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #345 开始: 2025-03-31 18:50:51
+2025-03-31 18:50:51.844 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 18:50:51.844485
+2025-03-31 18:50:51.845 [base.py:1097] : BEGIN (implicit)
+2025-03-31 18:50:51.846 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 18:50:51.846 [base.py:1901] : [cached since 6883s ago] {}
+2025-03-31 18:50:51.847 [base.py:1123] : ROLLBACK
+2025-03-31 18:50:51.848 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 18:50:51.848129, 耗时: 0.003644秒
+2025-03-31 18:50:51.848 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #345 执行耗时: 0.00秒, 将休眠: 20.00秒
+2025-03-31 18:51:11.850 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #345 结束: 2025-03-31 18:51:11, 总耗时: 20.01秒
+2025-03-31 18:51:11.851 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #346 开始: 2025-03-31 18:51:11
+2025-03-31 18:51:11.851 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 18:51:11.851279
+2025-03-31 18:51:11.863 [base.py:1097] : BEGIN (implicit)
+2025-03-31 18:51:11.883 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 18:51:11.884 [base.py:1901] : [cached since 6903s ago] {}
+2025-03-31 18:51:11.888 [base.py:1123] : ROLLBACK
+2025-03-31 18:51:11.897 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 18:51:11.897201, 耗时: 0.045922秒
+2025-03-31 18:51:11.897 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #346 执行耗时: 0.05秒, 将休眠: 19.95秒
+2025-03-31 18:51:31.862 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #346 结束: 2025-03-31 18:51:31, 总耗时: 20.01秒
+2025-03-31 18:51:31.865 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #347 开始: 2025-03-31 18:51:31
+2025-03-31 18:51:31.866 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 18:51:31.866375
+2025-03-31 18:51:31.872 [base.py:1097] : BEGIN (implicit)
+2025-03-31 18:51:31.889 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 18:51:31.890 [base.py:1901] : [cached since 6923s ago] {}
+2025-03-31 18:51:31.897 [base.py:1123] : ROLLBACK
+2025-03-31 18:51:31.901 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 18:51:31.901822, 耗时: 0.035447秒
+2025-03-31 18:51:31.902 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #347 执行耗时: 0.04秒, 将休眠: 19.96秒
+2025-03-31 18:51:51.871 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #347 结束: 2025-03-31 18:51:51, 总耗时: 20.01秒
+2025-03-31 18:51:51.880 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #348 开始: 2025-03-31 18:51:51
+2025-03-31 18:51:51.880 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 18:51:51.880768
+2025-03-31 18:51:51.886 [base.py:1097] : BEGIN (implicit)
+2025-03-31 18:51:51.911 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 18:51:51.913 [base.py:1901] : [cached since 6943s ago] {}
+2025-03-31 18:51:51.917 [base.py:1123] : ROLLBACK
+2025-03-31 18:51:51.919 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 18:51:51.919104, 耗时: 0.038336秒
+2025-03-31 18:51:51.919 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #348 执行耗时: 0.04秒, 将休眠: 19.96秒
+2025-03-31 18:52:11.884 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #348 结束: 2025-03-31 18:52:11, 总耗时: 20.00秒
+2025-03-31 18:52:11.885 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #349 开始: 2025-03-31 18:52:11
+2025-03-31 18:52:11.888 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 18:52:11.888048
+2025-03-31 18:52:11.893 [base.py:1097] : BEGIN (implicit)
+2025-03-31 18:52:11.901 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 18:52:11.902 [base.py:1901] : [cached since 6963s ago] {}
+2025-03-31 18:52:11.905 [base.py:1123] : ROLLBACK
+2025-03-31 18:52:11.906 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 18:52:11.906285, 耗时: 0.018237秒
+2025-03-31 18:52:11.906 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #349 执行耗时: 0.02秒, 将休眠: 19.98秒
+2025-03-31 18:52:31.892 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #349 结束: 2025-03-31 18:52:31, 总耗时: 20.01秒
+2025-03-31 18:52:31.893 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #350 开始: 2025-03-31 18:52:31
+2025-03-31 18:52:31.893 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 18:52:31.893695
+2025-03-31 18:52:31.905 [base.py:1097] : BEGIN (implicit)
+2025-03-31 18:52:31.908 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 18:52:31.909 [base.py:1901] : [cached since 6983s ago] {}
+2025-03-31 18:52:31.918 [base.py:1123] : ROLLBACK
+2025-03-31 18:52:31.921 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 18:52:31.920988, 耗时: 0.027293秒
+2025-03-31 18:52:31.921 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #350 执行耗时: 0.03秒, 将休眠: 19.97秒
+2025-03-31 18:52:51.901 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #350 结束: 2025-03-31 18:52:51, 总耗时: 20.01秒
+2025-03-31 18:52:51.903 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #351 开始: 2025-03-31 18:52:51
+2025-03-31 18:52:51.903 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 18:52:51.903583
+2025-03-31 18:52:51.907 [base.py:1097] : BEGIN (implicit)
+2025-03-31 18:52:51.917 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 18:52:51.917 [base.py:1901] : [cached since 7003s ago] {}
+2025-03-31 18:52:51.920 [base.py:1123] : ROLLBACK
+2025-03-31 18:52:51.922 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 18:52:51.922535, 耗时: 0.018952秒
+2025-03-31 18:52:51.923 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #351 执行耗时: 0.02秒, 将休眠: 19.98秒
+2025-03-31 18:53:11.909 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #351 结束: 2025-03-31 18:53:11, 总耗时: 20.01秒
+2025-03-31 18:53:11.910 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #352 开始: 2025-03-31 18:53:11
+2025-03-31 18:53:11.910 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 18:53:11.910454
+2025-03-31 18:53:11.915 [base.py:1097] : BEGIN (implicit)
+2025-03-31 18:53:11.918 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 18:53:11.919 [base.py:1901] : [cached since 7023s ago] {}
+2025-03-31 18:53:11.921 [base.py:1123] : ROLLBACK
+2025-03-31 18:53:11.922 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 18:53:11.922666, 耗时: 0.012212秒
+2025-03-31 18:53:11.922 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #352 执行耗时: 0.01秒, 将休眠: 19.99秒
+2025-03-31 18:53:31.918 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #352 结束: 2025-03-31 18:53:31, 总耗时: 20.01秒
+2025-03-31 18:53:31.920 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #353 开始: 2025-03-31 18:53:31
+2025-03-31 18:53:31.921 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 18:53:31.921059
+2025-03-31 18:53:31.926 [base.py:1097] : BEGIN (implicit)
+2025-03-31 18:53:31.944 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 18:53:31.948 [base.py:1901] : [cached since 7043s ago] {}
+2025-03-31 18:53:31.955 [base.py:1123] : ROLLBACK
+2025-03-31 18:53:31.963 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 18:53:31.961751, 耗时: 0.040692秒
+2025-03-31 18:53:31.967 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #353 执行耗时: 0.05秒, 将休眠: 19.95秒
+2025-03-31 18:53:51.970 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #353 结束: 2025-03-31 18:53:51, 总耗时: 20.02秒
+2025-03-31 18:53:51.974 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #354 开始: 2025-03-31 18:53:51
+2025-03-31 18:53:51.974 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 18:53:51.974947
+2025-03-31 18:53:51.976 [base.py:1097] : BEGIN (implicit)
+2025-03-31 18:53:51.985 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 18:53:51.985 [base.py:1901] : [cached since 7063s ago] {}
+2025-03-31 18:53:52.020 [base.py:1123] : ROLLBACK
+2025-03-31 18:53:52.034 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 18:53:52.034223, 耗时: 0.059276秒
+2025-03-31 18:53:52.034 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #354 执行耗时: 0.06秒, 将休眠: 19.94秒
+2025-03-31 18:54:11.980 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #354 结束: 2025-03-31 18:54:11, 总耗时: 20.01秒
+2025-03-31 18:54:11.983 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #355 开始: 2025-03-31 18:54:11
+2025-03-31 18:54:11.984 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 18:54:11.984007
+2025-03-31 18:54:11.988 [base.py:1097] : BEGIN (implicit)
+2025-03-31 18:54:11.996 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 18:54:11.997 [base.py:1901] : [cached since 7083s ago] {}
+2025-03-31 18:54:12.001 [base.py:1123] : ROLLBACK
+2025-03-31 18:54:12.003 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 18:54:12.002876, 耗时: 0.018869秒
+2025-03-31 18:54:12.003 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #355 执行耗时: 0.02秒, 将休眠: 19.98秒
+2025-03-31 18:54:32.014 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #355 结束: 2025-03-31 18:54:31, 总耗时: 20.01秒
+2025-03-31 18:54:32.016 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #356 开始: 2025-03-31 18:54:32
+2025-03-31 18:54:32.016 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 18:54:32.016462
+2025-03-31 18:54:32.020 [base.py:1097] : BEGIN (implicit)
+2025-03-31 18:54:32.037 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 18:54:32.038 [base.py:1901] : [cached since 7104s ago] {}
+2025-03-31 18:54:32.047 [base.py:1123] : ROLLBACK
+2025-03-31 18:54:32.049 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 18:54:32.049245, 耗时: 0.032783秒
+2025-03-31 18:54:32.049 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #356 执行耗时: 0.03秒, 将休眠: 19.97秒
+2025-03-31 18:54:52.022 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #356 结束: 2025-03-31 18:54:52, 总耗时: 20.01秒
+2025-03-31 18:54:52.023 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #357 开始: 2025-03-31 18:54:52
+2025-03-31 18:54:52.023 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 18:54:52.023336
+2025-03-31 18:54:52.024 [base.py:1097] : BEGIN (implicit)
+2025-03-31 18:54:52.025 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 18:54:52.025 [base.py:1901] : [cached since 7124s ago] {}
+2025-03-31 18:54:52.026 [base.py:1123] : ROLLBACK
+2025-03-31 18:54:52.027 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 18:54:52.027007, 耗时: 0.003671秒
+2025-03-31 18:54:52.027 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #357 执行耗时: 0.00秒, 将休眠: 20.00秒
+2025-03-31 18:55:12.028 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #357 结束: 2025-03-31 18:55:12, 总耗时: 20.01秒
+2025-03-31 18:55:12.029 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #358 开始: 2025-03-31 18:55:12
+2025-03-31 18:55:12.029 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 18:55:12.029342
+2025-03-31 18:55:12.029 [base.py:1097] : BEGIN (implicit)
+2025-03-31 18:55:12.030 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 18:55:12.030 [base.py:1901] : [cached since 7144s ago] {}
+2025-03-31 18:55:12.032 [base.py:1123] : ROLLBACK
+2025-03-31 18:55:12.033 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 18:55:12.033616, 耗时: 0.004274秒
+2025-03-31 18:55:12.033 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #358 执行耗时: 0.00秒, 将休眠: 20.00秒
+2025-03-31 18:55:32.033 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #358 结束: 2025-03-31 18:55:32, 总耗时: 20.00秒
+2025-03-31 18:55:32.034 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #359 开始: 2025-03-31 18:55:32
+2025-03-31 18:55:32.034 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 18:55:32.034803
+2025-03-31 18:55:32.047 [base.py:1097] : BEGIN (implicit)
+2025-03-31 18:55:32.071 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 18:55:32.072 [base.py:1901] : [cached since 7164s ago] {}
+2025-03-31 18:55:32.076 [base.py:1123] : ROLLBACK
+2025-03-31 18:55:32.082 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 18:55:32.082494, 耗时: 0.047691秒
+2025-03-31 18:55:32.082 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #359 执行耗时: 0.05秒, 将休眠: 19.95秒
+2025-03-31 18:55:52.040 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #359 结束: 2025-03-31 18:55:52, 总耗时: 20.01秒
+2025-03-31 18:55:52.041 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #360 开始: 2025-03-31 18:55:52
+2025-03-31 18:55:52.053 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 18:55:52.053841
+2025-03-31 18:55:52.071 [base.py:1097] : BEGIN (implicit)
+2025-03-31 18:55:52.118 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 18:55:52.118 [base.py:1901] : [cached since 7184s ago] {}
+2025-03-31 18:55:52.121 [base.py:1123] : ROLLBACK
+2025-03-31 18:55:52.126 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 18:55:52.125458, 耗时: 0.071617秒
+2025-03-31 18:55:52.127 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #360 执行耗时: 0.09秒, 将休眠: 19.91秒
+2025-03-31 18:56:12.047 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #360 结束: 2025-03-31 18:56:12, 总耗时: 20.01秒
+2025-03-31 18:56:12.049 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #361 开始: 2025-03-31 18:56:12
+2025-03-31 18:56:12.049 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 18:56:12.049630
+2025-03-31 18:56:12.052 [base.py:1097] : BEGIN (implicit)
+2025-03-31 18:56:12.059 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 18:56:12.059 [base.py:1901] : [cached since 7204s ago] {}
+2025-03-31 18:56:12.066 [base.py:1123] : ROLLBACK
+2025-03-31 18:56:12.068 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 18:56:12.067912, 耗时: 0.018282秒
+2025-03-31 18:56:12.077 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #361 执行耗时: 0.03秒, 将休眠: 19.97秒
+2025-03-31 18:56:32.058 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #361 结束: 2025-03-31 18:56:32, 总耗时: 20.01秒
+2025-03-31 18:56:32.061 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #362 开始: 2025-03-31 18:56:32
+2025-03-31 18:56:32.062 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 18:56:32.062643
+2025-03-31 18:56:32.077 [base.py:1097] : BEGIN (implicit)
+2025-03-31 18:56:32.080 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 18:56:32.080 [base.py:1901] : [cached since 7224s ago] {}
+2025-03-31 18:56:32.091 [base.py:1123] : ROLLBACK
+2025-03-31 18:56:32.093 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 18:56:32.092929, 耗时: 0.030286秒
+2025-03-31 18:56:32.093 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #362 执行耗时: 0.03秒, 将休眠: 19.97秒
+2025-03-31 18:56:52.068 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #362 结束: 2025-03-31 18:56:52, 总耗时: 20.01秒
+2025-03-31 18:56:52.069 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #363 开始: 2025-03-31 18:56:52
+2025-03-31 18:56:52.069 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 18:56:52.069414
+2025-03-31 18:56:52.084 [base.py:1097] : BEGIN (implicit)
+2025-03-31 18:56:52.095 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 18:56:52.096 [base.py:1901] : [cached since 7244s ago] {}
+2025-03-31 18:56:52.110 [base.py:1123] : ROLLBACK
+2025-03-31 18:56:52.119 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 18:56:52.119572, 耗时: 0.050158秒
+2025-03-31 18:56:52.119 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #363 执行耗时: 0.05秒, 将休眠: 19.95秒
+2025-03-31 18:57:12.076 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #363 结束: 2025-03-31 18:57:12, 总耗时: 20.01秒
+2025-03-31 18:57:12.078 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #364 开始: 2025-03-31 18:57:12
+2025-03-31 18:57:12.078 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 18:57:12.078484
+2025-03-31 18:57:12.084 [base.py:1097] : BEGIN (implicit)
+2025-03-31 18:57:12.093 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 18:57:12.094 [base.py:1901] : [cached since 7264s ago] {}
+2025-03-31 18:57:12.096 [base.py:1123] : ROLLBACK
+2025-03-31 18:57:12.097 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 18:57:12.097873, 耗时: 0.019389秒
+2025-03-31 18:57:12.098 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #364 执行耗时: 0.02秒, 将休眠: 19.98秒
+2025-03-31 18:57:32.086 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #364 结束: 2025-03-31 18:57:32, 总耗时: 20.01秒
+2025-03-31 18:57:32.087 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #365 开始: 2025-03-31 18:57:32
+2025-03-31 18:57:32.087 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 18:57:32.087151
+2025-03-31 18:57:32.089 [base.py:1097] : BEGIN (implicit)
+2025-03-31 18:57:32.092 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 18:57:32.092 [base.py:1901] : [cached since 7284s ago] {}
+2025-03-31 18:57:32.104 [base.py:1123] : ROLLBACK
+2025-03-31 18:57:32.107 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 18:57:32.107066, 耗时: 0.019915秒
+2025-03-31 18:57:32.107 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #365 执行耗时: 0.02秒, 将休眠: 19.98秒
+2025-03-31 18:57:52.094 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #365 结束: 2025-03-31 18:57:52, 总耗时: 20.01秒
+2025-03-31 18:57:52.095 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #366 开始: 2025-03-31 18:57:52
+2025-03-31 18:57:52.096 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 18:57:52.096009
+2025-03-31 18:57:52.099 [base.py:1097] : BEGIN (implicit)
+2025-03-31 18:57:52.101 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 18:57:52.101 [base.py:1901] : [cached since 7304s ago] {}
+2025-03-31 18:57:52.104 [base.py:1123] : ROLLBACK
+2025-03-31 18:57:52.106 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 18:57:52.106392, 耗时: 0.010383秒
+2025-03-31 18:57:52.106 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #366 执行耗时: 0.01秒, 将休眠: 19.99秒
+2025-03-31 18:58:12.107 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #366 结束: 2025-03-31 18:58:12, 总耗时: 20.01秒
+2025-03-31 18:58:12.107 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #367 开始: 2025-03-31 18:58:12
+2025-03-31 18:58:12.107 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 18:58:12.107783
+2025-03-31 18:58:12.110 [base.py:1097] : BEGIN (implicit)
+2025-03-31 18:58:12.116 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 18:58:12.116 [base.py:1901] : [cached since 7324s ago] {}
+2025-03-31 18:58:12.122 [base.py:1123] : ROLLBACK
+2025-03-31 18:58:12.123 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 18:58:12.123476, 耗时: 0.015693秒
+2025-03-31 18:58:12.123 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #367 执行耗时: 0.02秒, 将休眠: 19.98秒
+2025-03-31 18:58:32.129 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #367 结束: 2025-03-31 18:58:32, 总耗时: 20.01秒
+2025-03-31 18:58:32.130 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #368 开始: 2025-03-31 18:58:32
+2025-03-31 18:58:32.130 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 18:58:32.130564
+2025-03-31 18:58:32.133 [base.py:1097] : BEGIN (implicit)
+2025-03-31 18:58:32.138 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 18:58:32.139 [base.py:1901] : [cached since 7344s ago] {}
+2025-03-31 18:58:32.155 [base.py:1123] : ROLLBACK
+2025-03-31 18:58:32.157 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 18:58:32.157659, 耗时: 0.027095秒
+2025-03-31 18:58:32.158 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #368 执行耗时: 0.03秒, 将休眠: 19.97秒
+2025-03-31 18:58:52.182 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #368 结束: 2025-03-31 18:58:52, 总耗时: 20.05秒
+2025-03-31 18:58:52.184 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #369 开始: 2025-03-31 18:58:52
+2025-03-31 18:58:52.185 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 18:58:52.185500
+2025-03-31 18:58:52.190 [base.py:1097] : BEGIN (implicit)
+2025-03-31 18:58:52.253 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 18:58:52.253 [base.py:1901] : [cached since 7364s ago] {}
+2025-03-31 18:58:52.257 [base.py:1123] : ROLLBACK
+2025-03-31 18:58:52.264 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 18:58:52.264210, 耗时: 0.07871秒
+2025-03-31 18:58:52.265 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #369 执行耗时: 0.08秒, 将休眠: 19.92秒
+2025-03-31 18:59:12.194 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #369 结束: 2025-03-31 18:59:12, 总耗时: 20.01秒
+2025-03-31 18:59:12.196 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #370 开始: 2025-03-31 18:59:12
+2025-03-31 18:59:12.196 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 18:59:12.196224
+2025-03-31 18:59:12.206 [base.py:1097] : BEGIN (implicit)
+2025-03-31 18:59:12.214 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 18:59:12.218 [base.py:1901] : [cached since 7384s ago] {}
+2025-03-31 18:59:12.221 [base.py:1123] : ROLLBACK
+2025-03-31 18:59:12.222 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 18:59:12.222122, 耗时: 0.025898秒
+2025-03-31 18:59:12.224 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #370 执行耗时: 0.03秒, 将休眠: 19.97秒
+2025-03-31 18:59:32.201 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #370 结束: 2025-03-31 18:59:32, 总耗时: 20.01秒
+2025-03-31 18:59:32.203 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #371 开始: 2025-03-31 18:59:32
+2025-03-31 18:59:32.203 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 18:59:32.203407
+2025-03-31 18:59:32.206 [base.py:1097] : BEGIN (implicit)
+2025-03-31 18:59:32.215 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 18:59:32.216 [base.py:1901] : [cached since 7404s ago] {}
+2025-03-31 18:59:32.220 [base.py:1123] : ROLLBACK
+2025-03-31 18:59:32.222 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 18:59:32.222339, 耗时: 0.018932秒
+2025-03-31 18:59:32.222 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #371 执行耗时: 0.02秒, 将休眠: 19.98秒
+2025-03-31 18:59:52.209 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #371 结束: 2025-03-31 18:59:52, 总耗时: 20.01秒
+2025-03-31 18:59:52.210 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #372 开始: 2025-03-31 18:59:52
+2025-03-31 18:59:52.210 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 18:59:52.210323
+2025-03-31 18:59:52.213 [base.py:1097] : BEGIN (implicit)
+2025-03-31 18:59:52.223 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 18:59:52.224 [base.py:1901] : [cached since 7424s ago] {}
+2025-03-31 18:59:52.233 [base.py:1123] : ROLLBACK
+2025-03-31 18:59:52.235 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 18:59:52.235073, 耗时: 0.02475秒
+2025-03-31 18:59:52.235 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #372 执行耗时: 0.03秒, 将休眠: 19.97秒
+2025-03-31 19:00:12.217 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #372 结束: 2025-03-31 19:00:12, 总耗时: 20.01秒
+2025-03-31 19:00:12.221 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #373 开始: 2025-03-31 19:00:12
+2025-03-31 19:00:12.221 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:00:12.221875
+2025-03-31 19:00:12.252 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:00:12.266 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:00:12.271 [base.py:1901] : [cached since 7444s ago] {}
+2025-03-31 19:00:12.278 [base.py:1123] : ROLLBACK
+2025-03-31 19:00:12.290 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:00:12.289967, 耗时: 0.068092秒
+2025-03-31 19:00:12.290 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #373 执行耗时: 0.07秒, 将休眠: 19.93秒
+2025-03-31 19:00:32.225 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #373 结束: 2025-03-31 19:00:32, 总耗时: 20.00秒
+2025-03-31 19:00:32.226 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #374 开始: 2025-03-31 19:00:32
+2025-03-31 19:00:32.227 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:00:32.227251
+2025-03-31 19:00:32.235 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:00:32.243 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:00:32.243 [base.py:1901] : [cached since 7464s ago] {}
+2025-03-31 19:00:32.247 [base.py:1123] : ROLLBACK
+2025-03-31 19:00:32.248 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:00:32.248165, 耗时: 0.020914秒
+2025-03-31 19:00:32.248 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #374 执行耗时: 0.02秒, 将休眠: 19.98秒
+2025-03-31 19:00:52.230 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #374 结束: 2025-03-31 19:00:52, 总耗时: 20.00秒
+2025-03-31 19:00:52.231 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #375 开始: 2025-03-31 19:00:52
+2025-03-31 19:00:52.231 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:00:52.231464
+2025-03-31 19:00:52.237 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:00:52.242 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:00:52.245 [base.py:1901] : [cached since 7484s ago] {}
+2025-03-31 19:00:52.248 [base.py:1123] : ROLLBACK
+2025-03-31 19:00:52.249 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:00:52.249240, 耗时: 0.017776秒
+2025-03-31 19:00:52.249 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #375 执行耗时: 0.02秒, 将休眠: 19.98秒
+2025-03-31 19:01:12.237 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #375 结束: 2025-03-31 19:01:12, 总耗时: 20.01秒
+2025-03-31 19:01:12.239 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #376 开始: 2025-03-31 19:01:12
+2025-03-31 19:01:12.239 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:01:12.239254
+2025-03-31 19:01:12.243 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:01:12.249 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:01:12.250 [base.py:1901] : [cached since 7504s ago] {}
+2025-03-31 19:01:12.255 [base.py:1123] : ROLLBACK
+2025-03-31 19:01:12.262 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:01:12.262465, 耗时: 0.023211秒
+2025-03-31 19:01:12.263 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #376 执行耗时: 0.02秒, 将休眠: 19.98秒
+2025-03-31 19:01:32.246 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #376 结束: 2025-03-31 19:01:32, 总耗时: 20.01秒
+2025-03-31 19:01:32.247 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #377 开始: 2025-03-31 19:01:32
+2025-03-31 19:01:32.247 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:01:32.247889
+2025-03-31 19:01:32.250 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:01:32.253 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:01:32.253 [base.py:1901] : [cached since 7524s ago] {}
+2025-03-31 19:01:32.260 [base.py:1123] : ROLLBACK
+2025-03-31 19:01:32.261 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:01:32.261561, 耗时: 0.013672秒
+2025-03-31 19:01:32.261 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #377 执行耗时: 0.01秒, 将休眠: 19.99秒
+2025-03-31 19:01:52.253 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #377 结束: 2025-03-31 19:01:52, 总耗时: 20.01秒
+2025-03-31 19:01:52.254 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #378 开始: 2025-03-31 19:01:52
+2025-03-31 19:01:52.254 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:01:52.254352
+2025-03-31 19:01:52.257 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:01:52.259 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:01:52.260 [base.py:1901] : [cached since 7544s ago] {}
+2025-03-31 19:01:52.271 [base.py:1123] : ROLLBACK
+2025-03-31 19:01:52.273 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:01:52.273302, 耗时: 0.01895秒
+2025-03-31 19:01:52.274 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #378 执行耗时: 0.02秒, 将休眠: 19.98秒
+2025-03-31 19:02:12.256 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #378 结束: 2025-03-31 19:02:12, 总耗时: 20.00秒
+2025-03-31 19:02:12.258 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #379 开始: 2025-03-31 19:02:12
+2025-03-31 19:02:12.258 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:02:12.258423
+2025-03-31 19:02:12.271 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:02:12.273 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:02:12.274 [base.py:1901] : [cached since 7564s ago] {}
+2025-03-31 19:02:12.282 [base.py:1123] : ROLLBACK
+2025-03-31 19:02:12.284 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:02:12.283959, 耗时: 0.025536秒
+2025-03-31 19:02:12.284 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #379 执行耗时: 0.03秒, 将休眠: 19.97秒
+2025-03-31 19:02:32.264 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #379 结束: 2025-03-31 19:02:32, 总耗时: 20.01秒
+2025-03-31 19:02:32.265 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #380 开始: 2025-03-31 19:02:32
+2025-03-31 19:02:32.265 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:02:32.265339
+2025-03-31 19:02:32.277 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:02:32.281 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:02:32.282 [base.py:1901] : [cached since 7584s ago] {}
+2025-03-31 19:02:32.284 [base.py:1123] : ROLLBACK
+2025-03-31 19:02:32.285 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:02:32.285561, 耗时: 0.020222秒
+2025-03-31 19:02:32.285 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #380 执行耗时: 0.02秒, 将休眠: 19.98秒
+2025-03-31 19:02:52.298 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #380 结束: 2025-03-31 19:02:52, 总耗时: 20.01秒
+2025-03-31 19:02:52.300 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #381 开始: 2025-03-31 19:02:52
+2025-03-31 19:02:52.306 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:02:52.306667
+2025-03-31 19:02:52.342 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:02:52.360 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:02:52.361 [base.py:1901] : [cached since 7604s ago] {}
+2025-03-31 19:02:52.373 [base.py:1123] : ROLLBACK
+2025-03-31 19:02:52.376 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:02:52.376263, 耗时: 0.069596秒
+2025-03-31 19:02:52.376 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #381 执行耗时: 0.08秒, 将休眠: 19.92秒
+2025-03-31 19:03:12.306 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #381 结束: 2025-03-31 19:03:12, 总耗时: 20.00秒
+2025-03-31 19:03:12.307 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #382 开始: 2025-03-31 19:03:12
+2025-03-31 19:03:12.307 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:03:12.307708
+2025-03-31 19:03:12.311 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:03:12.317 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:03:12.318 [base.py:1901] : [cached since 7624s ago] {}
+2025-03-31 19:03:12.321 [base.py:1123] : ROLLBACK
+2025-03-31 19:03:12.322 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:03:12.322431, 耗时: 0.014723秒
+2025-03-31 19:03:12.322 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #382 执行耗时: 0.02秒, 将休眠: 19.98秒
+2025-03-31 19:03:32.313 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #382 结束: 2025-03-31 19:03:32, 总耗时: 20.01秒
+2025-03-31 19:03:32.314 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #383 开始: 2025-03-31 19:03:32
+2025-03-31 19:03:32.314 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:03:32.314354
+2025-03-31 19:03:32.317 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:03:32.341 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:03:32.341 [base.py:1901] : [cached since 7644s ago] {}
+2025-03-31 19:03:32.345 [base.py:1123] : ROLLBACK
+2025-03-31 19:03:32.346 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:03:32.346666, 耗时: 0.032312秒
+2025-03-31 19:03:32.346 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #383 执行耗时: 0.03秒, 将休眠: 19.97秒
+2025-03-31 19:03:52.320 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #383 结束: 2025-03-31 19:03:52, 总耗时: 20.01秒
+2025-03-31 19:03:52.321 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #384 开始: 2025-03-31 19:03:52
+2025-03-31 19:03:52.321 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:03:52.321671
+2025-03-31 19:03:52.324 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:03:52.326 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:03:52.327 [base.py:1901] : [cached since 7664s ago] {}
+2025-03-31 19:03:52.335 [base.py:1123] : ROLLBACK
+2025-03-31 19:03:52.338 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:03:52.337930, 耗时: 0.016259秒
+2025-03-31 19:03:52.338 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #384 执行耗时: 0.02秒, 将休眠: 19.98秒
+2025-03-31 19:04:12.327 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #384 结束: 2025-03-31 19:04:12, 总耗时: 20.01秒
+2025-03-31 19:04:12.328 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #385 开始: 2025-03-31 19:04:12
+2025-03-31 19:04:12.328 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:04:12.328687
+2025-03-31 19:04:12.340 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:04:12.342 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:04:12.343 [base.py:1901] : [cached since 7684s ago] {}
+2025-03-31 19:04:12.349 [base.py:1123] : ROLLBACK
+2025-03-31 19:04:12.350 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:04:12.350726, 耗时: 0.022039秒
+2025-03-31 19:04:12.350 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #385 执行耗时: 0.02秒, 将休眠: 19.98秒
+2025-03-31 19:04:32.334 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #385 结束: 2025-03-31 19:04:32, 总耗时: 20.01秒
+2025-03-31 19:04:32.335 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #386 开始: 2025-03-31 19:04:32
+2025-03-31 19:04:32.335 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:04:32.335705
+2025-03-31 19:04:32.344 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:04:32.358 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:04:32.358 [base.py:1901] : [cached since 7704s ago] {}
+2025-03-31 19:04:32.361 [base.py:1123] : ROLLBACK
+2025-03-31 19:04:32.362 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:04:32.362748, 耗时: 0.027043秒
+2025-03-31 19:04:32.362 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #386 执行耗时: 0.03秒, 将休眠: 19.97秒
+2025-03-31 19:04:52.342 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #386 结束: 2025-03-31 19:04:52, 总耗时: 20.01秒
+2025-03-31 19:04:52.343 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #387 开始: 2025-03-31 19:04:52
+2025-03-31 19:04:52.346 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:04:52.343897
+2025-03-31 19:04:52.350 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:04:52.352 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:04:52.353 [base.py:1901] : [cached since 7724s ago] {}
+2025-03-31 19:04:52.368 [base.py:1123] : ROLLBACK
+2025-03-31 19:04:52.379 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:04:52.379092, 耗时: 0.035195秒
+2025-03-31 19:04:52.379 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #387 执行耗时: 0.04秒, 将休眠: 19.96秒
+2025-03-31 19:05:12.352 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #387 结束: 2025-03-31 19:05:12, 总耗时: 20.01秒
+2025-03-31 19:05:12.354 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #388 开始: 2025-03-31 19:05:12
+2025-03-31 19:05:12.354 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:05:12.354303
+2025-03-31 19:05:12.364 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:05:12.379 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:05:12.380 [base.py:1901] : [cached since 7744s ago] {}
+2025-03-31 19:05:12.388 [base.py:1123] : ROLLBACK
+2025-03-31 19:05:12.394 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:05:12.394108, 耗时: 0.039805秒
+2025-03-31 19:05:12.397 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #388 执行耗时: 0.04秒, 将休眠: 19.96秒
+2025-03-31 19:05:32.358 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #388 结束: 2025-03-31 19:05:32, 总耗时: 20.00秒
+2025-03-31 19:05:32.360 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #389 开始: 2025-03-31 19:05:32
+2025-03-31 19:05:32.360 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:05:32.360300
+2025-03-31 19:05:32.365 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:05:32.376 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:05:32.376 [base.py:1901] : [cached since 7764s ago] {}
+2025-03-31 19:05:32.381 [base.py:1123] : ROLLBACK
+2025-03-31 19:05:32.384 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:05:32.384029, 耗时: 0.023729秒
+2025-03-31 19:05:32.384 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #389 执行耗时: 0.02秒, 将休眠: 19.98秒
+2025-03-31 19:05:52.371 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #389 结束: 2025-03-31 19:05:52, 总耗时: 20.01秒
+2025-03-31 19:05:52.381 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #390 开始: 2025-03-31 19:05:52
+2025-03-31 19:05:52.382 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:05:52.382106
+2025-03-31 19:05:52.416 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:05:52.447 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:05:52.448 [base.py:1901] : [cached since 7784s ago] {}
+2025-03-31 19:05:52.470 [base.py:1123] : ROLLBACK
+2025-03-31 19:05:52.475 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:05:52.475770, 耗时: 0.093664秒
+2025-03-31 19:05:52.477 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #390 执行耗时: 0.10秒, 将休眠: 19.90秒
+2025-03-31 19:06:12.382 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #390 结束: 2025-03-31 19:06:12, 总耗时: 20.00秒
+2025-03-31 19:06:12.383 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #391 开始: 2025-03-31 19:06:12
+2025-03-31 19:06:12.383 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:06:12.383938
+2025-03-31 19:06:12.397 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:06:12.407 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:06:12.410 [base.py:1901] : [cached since 7804s ago] {}
+2025-03-31 19:06:12.412 [base.py:1123] : ROLLBACK
+2025-03-31 19:06:12.416 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:06:12.416389, 耗时: 0.032451秒
+2025-03-31 19:06:12.416 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #391 执行耗时: 0.03秒, 将休眠: 19.97秒
+2025-03-31 19:06:32.390 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #391 结束: 2025-03-31 19:06:32, 总耗时: 20.01秒
+2025-03-31 19:06:32.392 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #392 开始: 2025-03-31 19:06:32
+2025-03-31 19:06:32.393 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:06:32.393012
+2025-03-31 19:06:32.400 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:06:32.412 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:06:32.413 [base.py:1901] : [cached since 7824s ago] {}
+2025-03-31 19:06:32.420 [base.py:1123] : ROLLBACK
+2025-03-31 19:06:32.422 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:06:32.422518, 耗时: 0.029506秒
+2025-03-31 19:06:32.422 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #392 执行耗时: 0.03秒, 将休眠: 19.97秒
+2025-03-31 19:06:52.398 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #392 结束: 2025-03-31 19:06:52, 总耗时: 20.01秒
+2025-03-31 19:06:52.411 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #393 开始: 2025-03-31 19:06:52
+2025-03-31 19:06:52.411 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:06:52.411459
+2025-03-31 19:06:52.414 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:06:52.435 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:06:52.435 [base.py:1901] : [cached since 7844s ago] {}
+2025-03-31 19:06:52.450 [base.py:1123] : ROLLBACK
+2025-03-31 19:06:52.452 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:06:52.452033, 耗时: 0.040574秒
+2025-03-31 19:06:52.452 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #393 执行耗时: 0.04秒, 将休眠: 19.96秒
+2025-03-31 19:07:12.423 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #393 结束: 2025-03-31 19:07:12, 总耗时: 20.01秒
+2025-03-31 19:07:12.425 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #394 开始: 2025-03-31 19:07:12
+2025-03-31 19:07:12.425 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:07:12.425655
+2025-03-31 19:07:12.444 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:07:12.456 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:07:12.461 [base.py:1901] : [cached since 7864s ago] {}
+2025-03-31 19:07:12.466 [base.py:1123] : ROLLBACK
+2025-03-31 19:07:12.471 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:07:12.470961, 耗时: 0.045306秒
+2025-03-31 19:07:12.471 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #394 执行耗时: 0.05秒, 将休眠: 19.95秒
+2025-03-31 19:07:32.431 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #394 结束: 2025-03-31 19:07:32, 总耗时: 20.01秒
+2025-03-31 19:07:32.432 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #395 开始: 2025-03-31 19:07:32
+2025-03-31 19:07:32.433 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:07:32.433364
+2025-03-31 19:07:32.438 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:07:32.451 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:07:32.452 [base.py:1901] : [cached since 7884s ago] {}
+2025-03-31 19:07:32.458 [base.py:1123] : ROLLBACK
+2025-03-31 19:07:32.463 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:07:32.460506, 耗时: 0.027142秒
+2025-03-31 19:07:32.463 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #395 执行耗时: 0.03秒, 将休眠: 19.97秒
+2025-03-31 19:07:52.436 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #395 结束: 2025-03-31 19:07:52, 总耗时: 20.00秒
+2025-03-31 19:07:52.442 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #396 开始: 2025-03-31 19:07:52
+2025-03-31 19:07:52.443 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:07:52.442877
+2025-03-31 19:07:52.454 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:07:52.457 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:07:52.462 [base.py:1901] : [cached since 7904s ago] {}
+2025-03-31 19:07:52.473 [base.py:1123] : ROLLBACK
+2025-03-31 19:07:52.478 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:07:52.475456, 耗时: 0.032579秒
+2025-03-31 19:07:52.481 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #396 执行耗时: 0.04秒, 将休眠: 19.96秒
+2025-03-31 19:08:12.453 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #396 结束: 2025-03-31 19:08:12, 总耗时: 20.01秒
+2025-03-31 19:08:12.454 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #397 开始: 2025-03-31 19:08:12
+2025-03-31 19:08:12.454 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:08:12.454353
+2025-03-31 19:08:12.459 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:08:12.467 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:08:12.467 [base.py:1901] : [cached since 7924s ago] {}
+2025-03-31 19:08:12.472 [base.py:1123] : ROLLBACK
+2025-03-31 19:08:12.474 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:08:12.474406, 耗时: 0.020053秒
+2025-03-31 19:08:12.474 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #397 执行耗时: 0.02秒, 将休眠: 19.98秒
+2025-03-31 19:08:32.460 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #397 结束: 2025-03-31 19:08:32, 总耗时: 20.01秒
+2025-03-31 19:08:32.460 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #398 开始: 2025-03-31 19:08:32
+2025-03-31 19:08:32.461 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:08:32.460984
+2025-03-31 19:08:32.463 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:08:32.475 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:08:32.481 [base.py:1901] : [cached since 7944s ago] {}
+2025-03-31 19:08:32.489 [base.py:1123] : ROLLBACK
+2025-03-31 19:08:32.491 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:08:32.491722, 耗时: 0.030738秒
+2025-03-31 19:08:32.492 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #398 执行耗时: 0.03秒, 将休眠: 19.97秒
+2025-03-31 19:08:52.464 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #398 结束: 2025-03-31 19:08:52, 总耗时: 20.00秒
+2025-03-31 19:08:52.470 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #399 开始: 2025-03-31 19:08:52
+2025-03-31 19:08:52.471 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:08:52.471075
+2025-03-31 19:08:52.495 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:08:52.509 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:08:52.512 [base.py:1901] : [cached since 7964s ago] {}
+2025-03-31 19:08:52.532 [base.py:1123] : ROLLBACK
+2025-03-31 19:08:52.537 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:08:52.537777, 耗时: 0.066702秒
+2025-03-31 19:08:52.538 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #399 执行耗时: 0.07秒, 将休眠: 19.93秒
+2025-03-31 19:09:12.471 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #399 结束: 2025-03-31 19:09:12, 总耗时: 20.01秒
+2025-03-31 19:09:12.478 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #400 开始: 2025-03-31 19:09:12
+2025-03-31 19:09:12.479 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:09:12.479074
+2025-03-31 19:09:12.490 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:09:12.493 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:09:12.499 [base.py:1901] : [cached since 7984s ago] {}
+2025-03-31 19:09:12.505 [base.py:1123] : ROLLBACK
+2025-03-31 19:09:12.507 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:09:12.507202, 耗时: 0.028128秒
+2025-03-31 19:09:12.507 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #400 执行耗时: 0.03秒, 将休眠: 19.97秒
+2025-03-31 19:09:32.492 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #400 结束: 2025-03-31 19:09:32, 总耗时: 20.01秒
+2025-03-31 19:09:32.493 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #401 开始: 2025-03-31 19:09:32
+2025-03-31 19:09:32.494 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:09:32.494080
+2025-03-31 19:09:32.524 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:09:32.532 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:09:32.533 [base.py:1901] : [cached since 8004s ago] {}
+2025-03-31 19:09:32.544 [base.py:1123] : ROLLBACK
+2025-03-31 19:09:32.545 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:09:32.545714, 耗时: 0.051634秒
+2025-03-31 19:09:32.546 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #401 执行耗时: 0.05秒, 将休眠: 19.95秒
+2025-03-31 19:09:52.505 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #401 结束: 2025-03-31 19:09:52, 总耗时: 20.01秒
+2025-03-31 19:09:52.506 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #402 开始: 2025-03-31 19:09:52
+2025-03-31 19:09:52.507 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:09:52.507710
+2025-03-31 19:09:52.527 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:09:52.556 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:09:52.564 [base.py:1901] : [cached since 8024s ago] {}
+2025-03-31 19:09:52.576 [base.py:1123] : ROLLBACK
+2025-03-31 19:09:52.582 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:09:52.582030, 耗时: 0.07432秒
+2025-03-31 19:09:52.585 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #402 执行耗时: 0.08秒, 将休眠: 19.92秒
+2025-03-31 19:10:12.513 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #402 结束: 2025-03-31 19:10:12, 总耗时: 20.01秒
+2025-03-31 19:10:12.514 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #403 开始: 2025-03-31 19:10:12
+2025-03-31 19:10:12.514 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:10:12.514181
+2025-03-31 19:10:12.518 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:10:12.525 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:10:12.526 [base.py:1901] : [cached since 8044s ago] {}
+2025-03-31 19:10:12.529 [base.py:1123] : ROLLBACK
+2025-03-31 19:10:12.532 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:10:12.531962, 耗时: 0.017781秒
+2025-03-31 19:10:12.532 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #403 执行耗时: 0.02秒, 将休眠: 19.98秒
+2025-03-31 19:10:32.521 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #403 结束: 2025-03-31 19:10:32, 总耗时: 20.01秒
+2025-03-31 19:10:32.678 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #404 开始: 2025-03-31 19:10:32
+2025-03-31 19:10:32.685 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:10:32.685721
+2025-03-31 19:10:32.703 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:10:32.713 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:10:32.714 [base.py:1901] : [cached since 8064s ago] {}
+2025-03-31 19:10:32.720 [base.py:1123] : ROLLBACK
+2025-03-31 19:10:32.724 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:10:32.723951, 耗时: 0.03823秒
+2025-03-31 19:10:32.724 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #404 执行耗时: 0.06秒, 将休眠: 19.94秒
+2025-03-31 19:10:52.666 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #404 结束: 2025-03-31 19:10:52, 总耗时: 20.01秒
+2025-03-31 19:10:52.668 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #405 开始: 2025-03-31 19:10:52
+2025-03-31 19:10:52.668 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:10:52.668359
+2025-03-31 19:10:52.676 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:10:52.681 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:10:52.682 [base.py:1901] : [cached since 8084s ago] {}
+2025-03-31 19:10:52.688 [base.py:1123] : ROLLBACK
+2025-03-31 19:10:52.690 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:10:52.690092, 耗时: 0.021733秒
+2025-03-31 19:10:52.690 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #405 执行耗时: 0.02秒, 将休眠: 19.98秒
+2025-03-31 19:11:12.675 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #405 结束: 2025-03-31 19:11:12, 总耗时: 20.01秒
+2025-03-31 19:11:12.677 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #406 开始: 2025-03-31 19:11:12
+2025-03-31 19:11:12.677 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:11:12.677518
+2025-03-31 19:11:12.686 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:11:12.690 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:11:12.690 [base.py:1901] : [cached since 8104s ago] {}
+2025-03-31 19:11:12.694 [base.py:1123] : ROLLBACK
+2025-03-31 19:11:12.694 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:11:12.694894, 耗时: 0.017376秒
+2025-03-31 19:11:12.695 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #406 执行耗时: 0.02秒, 将休眠: 19.98秒
+2025-03-31 19:11:32.685 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #406 结束: 2025-03-31 19:11:32, 总耗时: 20.01秒
+2025-03-31 19:11:32.687 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #407 开始: 2025-03-31 19:11:32
+2025-03-31 19:11:32.687 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:11:32.687307
+2025-03-31 19:11:32.691 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:11:32.697 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:11:32.697 [base.py:1901] : [cached since 8124s ago] {}
+2025-03-31 19:11:32.703 [base.py:1123] : ROLLBACK
+2025-03-31 19:11:32.705 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:11:32.705670, 耗时: 0.018363秒
+2025-03-31 19:11:32.706 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #407 执行耗时: 0.02秒, 将休眠: 19.98秒
+2025-03-31 19:11:52.694 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #407 结束: 2025-03-31 19:11:52, 总耗时: 20.01秒
+2025-03-31 19:11:52.696 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #408 开始: 2025-03-31 19:11:52
+2025-03-31 19:11:52.696 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:11:52.696408
+2025-03-31 19:11:52.701 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:11:52.710 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:11:52.715 [base.py:1901] : [cached since 8144s ago] {}
+2025-03-31 19:11:52.725 [base.py:1123] : ROLLBACK
+2025-03-31 19:11:52.726 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:11:52.726360, 耗时: 0.029952秒
+2025-03-31 19:11:52.726 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #408 执行耗时: 0.03秒, 将休眠: 19.97秒
+2025-03-31 19:12:12.701 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #408 结束: 2025-03-31 19:12:12, 总耗时: 20.00秒
+2025-03-31 19:12:12.702 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #409 开始: 2025-03-31 19:12:12
+2025-03-31 19:12:12.702 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:12:12.702531
+2025-03-31 19:12:12.717 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:12:12.724 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:12:12.724 [base.py:1901] : [cached since 8164s ago] {}
+2025-03-31 19:12:12.733 [base.py:1123] : ROLLBACK
+2025-03-31 19:12:12.734 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:12:12.734420, 耗时: 0.031889秒
+2025-03-31 19:12:12.734 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #409 执行耗时: 0.03秒, 将休眠: 19.97秒
+2025-03-31 19:12:32.712 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #409 结束: 2025-03-31 19:12:32, 总耗时: 20.01秒
+2025-03-31 19:12:32.713 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #410 开始: 2025-03-31 19:12:32
+2025-03-31 19:12:32.714 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:12:32.714666
+2025-03-31 19:12:32.722 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:12:32.730 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:12:32.731 [base.py:1901] : [cached since 8184s ago] {}
+2025-03-31 19:12:32.733 [base.py:1123] : ROLLBACK
+2025-03-31 19:12:32.740 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:12:32.740060, 耗时: 0.025394秒
+2025-03-31 19:12:32.740 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #410 执行耗时: 0.03秒, 将休眠: 19.97秒
+2025-03-31 19:12:52.715 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #410 结束: 2025-03-31 19:12:52, 总耗时: 20.00秒
+2025-03-31 19:12:52.716 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #411 开始: 2025-03-31 19:12:52
+2025-03-31 19:12:52.716 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:12:52.716549
+2025-03-31 19:12:52.723 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:12:52.728 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:12:52.728 [base.py:1901] : [cached since 8204s ago] {}
+2025-03-31 19:12:52.731 [base.py:1123] : ROLLBACK
+2025-03-31 19:12:52.740 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:12:52.740314, 耗时: 0.023765秒
+2025-03-31 19:12:52.740 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #411 执行耗时: 0.02秒, 将休眠: 19.98秒
+2025-03-31 19:13:12.721 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #411 结束: 2025-03-31 19:13:12, 总耗时: 20.00秒
+2025-03-31 19:13:12.723 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #412 开始: 2025-03-31 19:13:12
+2025-03-31 19:13:12.723 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:13:12.723778
+2025-03-31 19:13:12.729 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:13:12.732 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:13:12.733 [base.py:1901] : [cached since 8224s ago] {}
+2025-03-31 19:13:12.736 [base.py:1123] : ROLLBACK
+2025-03-31 19:13:12.739 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:13:12.739320, 耗时: 0.015542秒
+2025-03-31 19:13:12.739 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #412 执行耗时: 0.02秒, 将休眠: 19.98秒
+2025-03-31 19:13:32.729 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #412 结束: 2025-03-31 19:13:32, 总耗时: 20.01秒
+2025-03-31 19:13:32.730 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #413 开始: 2025-03-31 19:13:32
+2025-03-31 19:13:32.730 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:13:32.730916
+2025-03-31 19:13:32.733 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:13:32.735 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:13:32.735 [base.py:1901] : [cached since 8244s ago] {}
+2025-03-31 19:13:32.738 [base.py:1123] : ROLLBACK
+2025-03-31 19:13:32.739 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:13:32.739006, 耗时: 0.00809秒
+2025-03-31 19:13:32.739 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #413 执行耗时: 0.01秒, 将休眠: 19.99秒
+2025-03-31 19:13:52.737 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #413 结束: 2025-03-31 19:13:52, 总耗时: 20.01秒
+2025-03-31 19:13:52.740 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #414 开始: 2025-03-31 19:13:52
+2025-03-31 19:13:52.740 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:13:52.740330
+2025-03-31 19:13:52.748 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:13:52.754 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:13:52.757 [base.py:1901] : [cached since 8264s ago] {}
+2025-03-31 19:13:52.761 [base.py:1123] : ROLLBACK
+2025-03-31 19:13:52.762 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:13:52.762632, 耗时: 0.022302秒
+2025-03-31 19:13:52.762 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #414 执行耗时: 0.02秒, 将休眠: 19.98秒
+2025-03-31 19:14:12.745 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #414 结束: 2025-03-31 19:14:12, 总耗时: 20.01秒
+2025-03-31 19:14:12.747 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #415 开始: 2025-03-31 19:14:12
+2025-03-31 19:14:12.747 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:14:12.747800
+2025-03-31 19:14:12.754 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:14:12.763 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:14:12.764 [base.py:1901] : [cached since 8284s ago] {}
+2025-03-31 19:14:12.771 [base.py:1123] : ROLLBACK
+2025-03-31 19:14:12.772 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:14:12.772566, 耗时: 0.024766秒
+2025-03-31 19:14:12.772 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #415 执行耗时: 0.03秒, 将休眠: 19.97秒
+2025-03-31 19:14:32.753 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #415 结束: 2025-03-31 19:14:32, 总耗时: 20.01秒
+2025-03-31 19:14:32.755 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #416 开始: 2025-03-31 19:14:32
+2025-03-31 19:14:32.755 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:14:32.755404
+2025-03-31 19:14:32.758 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:14:32.760 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:14:32.760 [base.py:1901] : [cached since 8304s ago] {}
+2025-03-31 19:14:32.775 [base.py:1123] : ROLLBACK
+2025-03-31 19:14:32.776 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:14:32.776369, 耗时: 0.020965秒
+2025-03-31 19:14:32.776 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #416 执行耗时: 0.02秒, 将休眠: 19.98秒
+2025-03-31 19:14:52.761 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #416 结束: 2025-03-31 19:14:52, 总耗时: 20.01秒
+2025-03-31 19:14:52.762 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #417 开始: 2025-03-31 19:14:52
+2025-03-31 19:14:52.762 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:14:52.762835
+2025-03-31 19:14:52.765 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:14:52.767 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:14:52.767 [base.py:1901] : [cached since 8324s ago] {}
+2025-03-31 19:14:52.773 [base.py:1123] : ROLLBACK
+2025-03-31 19:14:52.774 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:14:52.774171, 耗时: 0.011336秒
+2025-03-31 19:14:52.774 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #417 执行耗时: 0.01秒, 将休眠: 19.99秒
+2025-03-31 19:15:12.769 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #417 结束: 2025-03-31 19:15:12, 总耗时: 20.01秒
+2025-03-31 19:15:12.772 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #418 开始: 2025-03-31 19:15:12
+2025-03-31 19:15:12.773 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:15:12.773062
+2025-03-31 19:15:12.790 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:15:12.802 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:15:12.804 [base.py:1901] : [cached since 8344s ago] {}
+2025-03-31 19:15:12.808 [base.py:1123] : ROLLBACK
+2025-03-31 19:15:12.811 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:15:12.811294, 耗时: 0.038232秒
+2025-03-31 19:15:12.811 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #418 执行耗时: 0.04秒, 将休眠: 19.96秒
+2025-03-31 19:15:32.779 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #418 结束: 2025-03-31 19:15:32, 总耗时: 20.01秒
+2025-03-31 19:15:32.780 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #419 开始: 2025-03-31 19:15:32
+2025-03-31 19:15:32.781 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:15:32.781205
+2025-03-31 19:15:32.785 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:15:32.788 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:15:32.789 [base.py:1901] : [cached since 8364s ago] {}
+2025-03-31 19:15:32.792 [base.py:1123] : ROLLBACK
+2025-03-31 19:15:32.793 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:15:32.793259, 耗时: 0.012054秒
+2025-03-31 19:15:32.793 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #419 执行耗时: 0.01秒, 将休眠: 19.99秒
+2025-03-31 19:15:52.787 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #419 结束: 2025-03-31 19:15:52, 总耗时: 20.01秒
+2025-03-31 19:15:52.789 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #420 开始: 2025-03-31 19:15:52
+2025-03-31 19:15:52.789 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:15:52.789447
+2025-03-31 19:15:52.806 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:15:52.823 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:15:52.824 [base.py:1901] : [cached since 8384s ago] {}
+2025-03-31 19:15:52.828 [base.py:1123] : ROLLBACK
+2025-03-31 19:15:52.831 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:15:52.830834, 耗时: 0.041387秒
+2025-03-31 19:15:52.834 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #420 执行耗时: 0.05秒, 将休眠: 19.95秒
+2025-03-31 19:16:12.795 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #420 结束: 2025-03-31 19:16:12, 总耗时: 20.01秒
+2025-03-31 19:16:12.802 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #421 开始: 2025-03-31 19:16:12
+2025-03-31 19:16:12.802 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:16:12.802765
+2025-03-31 19:16:12.810 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:16:12.815 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:16:12.816 [base.py:1901] : [cached since 8404s ago] {}
+2025-03-31 19:16:12.821 [base.py:1123] : ROLLBACK
+2025-03-31 19:16:12.822 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:16:12.822589, 耗时: 0.019824秒
+2025-03-31 19:16:12.822 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #421 执行耗时: 0.02秒, 将休眠: 19.98秒
+2025-03-31 19:16:32.811 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #421 结束: 2025-03-31 19:16:32, 总耗时: 20.01秒
+2025-03-31 19:16:32.825 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #422 开始: 2025-03-31 19:16:32
+2025-03-31 19:16:32.828 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:16:32.827878
+2025-03-31 19:16:32.858 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:16:32.879 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:16:32.884 [base.py:1901] : [cached since 8424s ago] {}
+2025-03-31 19:16:32.905 [base.py:1123] : ROLLBACK
+2025-03-31 19:16:32.909 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:16:32.908908, 耗时: 0.08103秒
+2025-03-31 19:16:32.909 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #422 执行耗时: 0.09秒, 将休眠: 19.91秒
+2025-03-31 19:16:52.824 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #422 结束: 2025-03-31 19:16:52, 总耗时: 20.00秒
+2025-03-31 19:16:52.826 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #423 开始: 2025-03-31 19:16:52
+2025-03-31 19:16:52.826 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:16:52.826496
+2025-03-31 19:16:52.847 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:16:52.854 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:16:52.857 [base.py:1901] : [cached since 8444s ago] {}
+2025-03-31 19:16:52.864 [base.py:1123] : ROLLBACK
+2025-03-31 19:16:52.866 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:16:52.866468, 耗时: 0.039972秒
+2025-03-31 19:16:52.866 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #423 执行耗时: 0.04秒, 将休眠: 19.96秒
+2025-03-31 19:17:12.830 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #423 结束: 2025-03-31 19:17:12, 总耗时: 20.00秒
+2025-03-31 19:17:12.831 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #424 开始: 2025-03-31 19:17:12
+2025-03-31 19:17:12.831 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:17:12.831618
+2025-03-31 19:17:12.852 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:17:12.858 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:17:12.862 [base.py:1901] : [cached since 8464s ago] {}
+2025-03-31 19:17:12.868 [base.py:1123] : ROLLBACK
+2025-03-31 19:17:12.869 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:17:12.869162, 耗时: 0.037544秒
+2025-03-31 19:17:12.869 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #424 执行耗时: 0.04秒, 将休眠: 19.96秒
+2025-03-31 19:17:32.833 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #424 结束: 2025-03-31 19:17:32, 总耗时: 20.00秒
+2025-03-31 19:17:32.836 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #425 开始: 2025-03-31 19:17:32
+2025-03-31 19:17:32.837 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:17:32.837153
+2025-03-31 19:17:32.846 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:17:32.853 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:17:32.854 [base.py:1901] : [cached since 8484s ago] {}
+2025-03-31 19:17:32.861 [base.py:1123] : ROLLBACK
+2025-03-31 19:17:32.863 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:17:32.863882, 耗时: 0.026729秒
+2025-03-31 19:17:32.864 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #425 执行耗时: 0.03秒, 将休眠: 19.97秒
+2025-03-31 19:17:52.866 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #425 结束: 2025-03-31 19:17:52, 总耗时: 20.01秒
+2025-03-31 19:17:52.878 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #426 开始: 2025-03-31 19:17:52
+2025-03-31 19:17:52.878 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:17:52.878220
+2025-03-31 19:17:52.955 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:17:52.966 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:17:52.966 [base.py:1901] : [cached since 8504s ago] {}
+2025-03-31 19:17:52.990 [base.py:1123] : ROLLBACK
+2025-03-31 19:17:53.003 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:17:53.003707, 耗时: 0.125487秒
+2025-03-31 19:17:53.004 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #426 执行耗时: 0.13秒, 将休眠: 19.87秒
+2025-03-31 19:18:12.886 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #426 结束: 2025-03-31 19:18:12, 总耗时: 20.01秒
+2025-03-31 19:18:12.887 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #427 开始: 2025-03-31 19:18:12
+2025-03-31 19:18:12.887 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:18:12.887146
+2025-03-31 19:18:12.894 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:18:12.910 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:18:12.913 [base.py:1901] : [cached since 8524s ago] {}
+2025-03-31 19:18:12.924 [base.py:1123] : ROLLBACK
+2025-03-31 19:18:12.927 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:18:12.927300, 耗时: 0.040154秒
+2025-03-31 19:18:12.927 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #427 执行耗时: 0.04秒, 将休眠: 19.96秒
+2025-03-31 19:18:32.896 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #427 结束: 2025-03-31 19:18:32, 总耗时: 20.01秒
+2025-03-31 19:18:32.900 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #428 开始: 2025-03-31 19:18:32
+2025-03-31 19:18:32.900 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:18:32.900347
+2025-03-31 19:18:32.914 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:18:32.923 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:18:32.923 [base.py:1901] : [cached since 8544s ago] {}
+2025-03-31 19:18:32.928 [base.py:1123] : ROLLBACK
+2025-03-31 19:18:32.932 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:18:32.932552, 耗时: 0.032205秒
+2025-03-31 19:18:32.933 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #428 执行耗时: 0.03秒, 将休眠: 19.97秒
+2025-03-31 19:18:52.906 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #428 结束: 2025-03-31 19:18:52, 总耗时: 20.01秒
+2025-03-31 19:18:52.907 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #429 开始: 2025-03-31 19:18:52
+2025-03-31 19:18:52.907 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:18:52.907327
+2025-03-31 19:18:52.933 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:18:52.935 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:18:52.936 [base.py:1901] : [cached since 8564s ago] {}
+2025-03-31 19:18:52.943 [base.py:1123] : ROLLBACK
+2025-03-31 19:18:52.945 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:18:52.945135, 耗时: 0.037808秒
+2025-03-31 19:18:52.946 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #429 执行耗时: 0.04秒, 将休眠: 19.96秒
+2025-03-31 19:19:12.924 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #429 结束: 2025-03-31 19:19:12, 总耗时: 20.01秒
+2025-03-31 19:19:13.032 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #430 开始: 2025-03-31 19:19:13
+2025-03-31 19:19:13.047 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:19:13.047701
+2025-03-31 19:19:13.133 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:19:13.147 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:19:13.148 [base.py:1901] : [cached since 8585s ago] {}
+2025-03-31 19:19:13.163 [base.py:1123] : ROLLBACK
+2025-03-31 19:19:13.165 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:19:13.165408, 耗时: 0.117707秒
+2025-03-31 19:19:13.166 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #430 执行耗时: 0.14秒, 将休眠: 19.86秒
+2025-03-31 19:19:33.032 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #430 结束: 2025-03-31 19:19:33, 总耗时: 20.01秒
+2025-03-31 19:19:33.033 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #431 开始: 2025-03-31 19:19:33
+2025-03-31 19:19:33.034 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:19:33.034085
+2025-03-31 19:19:33.039 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:19:33.047 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:19:33.051 [base.py:1901] : [cached since 8605s ago] {}
+2025-03-31 19:19:33.054 [base.py:1123] : ROLLBACK
+2025-03-31 19:19:33.055 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:19:33.055690, 耗时: 0.021605秒
+2025-03-31 19:19:33.056 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #431 执行耗时: 0.02秒, 将休眠: 19.98秒
+2025-03-31 19:19:53.039 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #431 结束: 2025-03-31 19:19:53, 总耗时: 20.01秒
+2025-03-31 19:19:53.040 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #432 开始: 2025-03-31 19:19:53
+2025-03-31 19:19:53.041 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:19:53.041035
+2025-03-31 19:19:53.049 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:19:53.058 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:19:53.059 [base.py:1901] : [cached since 8625s ago] {}
+2025-03-31 19:19:53.063 [base.py:1123] : ROLLBACK
+2025-03-31 19:19:53.068 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:19:53.068627, 耗时: 0.027592秒
+2025-03-31 19:19:53.069 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #432 执行耗时: 0.03秒, 将休眠: 19.97秒
+2025-03-31 19:20:13.046 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #432 结束: 2025-03-31 19:20:13, 总耗时: 20.01秒
+2025-03-31 19:20:13.048 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #433 开始: 2025-03-31 19:20:13
+2025-03-31 19:20:13.048 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:20:13.048230
+2025-03-31 19:20:13.050 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:20:13.052 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:20:13.052 [base.py:1901] : [cached since 8645s ago] {}
+2025-03-31 19:20:13.061 [base.py:1123] : ROLLBACK
+2025-03-31 19:20:13.070 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:20:13.070048, 耗时: 0.021818秒
+2025-03-31 19:20:13.070 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #433 执行耗时: 0.02秒, 将休眠: 19.98秒
+2025-03-31 19:20:33.054 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #433 结束: 2025-03-31 19:20:33, 总耗时: 20.01秒
+2025-03-31 19:20:33.055 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #434 开始: 2025-03-31 19:20:33
+2025-03-31 19:20:33.055 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:20:33.055292
+2025-03-31 19:20:33.060 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:20:33.071 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:20:33.071 [base.py:1901] : [cached since 8665s ago] {}
+2025-03-31 19:20:33.073 [base.py:1123] : ROLLBACK
+2025-03-31 19:20:33.074 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:20:33.074435, 耗时: 0.019143秒
+2025-03-31 19:20:33.074 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #434 执行耗时: 0.02秒, 将休眠: 19.98秒
+2025-03-31 19:20:53.061 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #434 结束: 2025-03-31 19:20:53, 总耗时: 20.01秒
+2025-03-31 19:20:53.061 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #435 开始: 2025-03-31 19:20:53
+2025-03-31 19:20:53.062 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:20:53.062057
+2025-03-31 19:20:53.064 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:20:53.066 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:20:53.066 [base.py:1901] : [cached since 8685s ago] {}
+2025-03-31 19:20:53.070 [base.py:1123] : ROLLBACK
+2025-03-31 19:20:53.072 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:20:53.071989, 耗时: 0.009932秒
+2025-03-31 19:20:53.072 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #435 执行耗时: 0.01秒, 将休眠: 19.99秒
+2025-03-31 19:21:13.068 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #435 结束: 2025-03-31 19:21:13, 总耗时: 20.01秒
+2025-03-31 19:21:13.068 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #436 开始: 2025-03-31 19:21:13
+2025-03-31 19:21:13.069 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:21:13.069090
+2025-03-31 19:21:13.071 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:21:13.073 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:21:13.073 [base.py:1901] : [cached since 8705s ago] {}
+2025-03-31 19:21:13.086 [base.py:1123] : ROLLBACK
+2025-03-31 19:21:13.087 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:21:13.087764, 耗时: 0.018674秒
+2025-03-31 19:21:13.088 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #436 执行耗时: 0.02秒, 将休眠: 19.98秒
+2025-03-31 19:21:33.129 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #436 结束: 2025-03-31 19:21:33, 总耗时: 20.01秒
+2025-03-31 19:21:33.149 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #437 开始: 2025-03-31 19:21:33
+2025-03-31 19:21:33.150 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:21:33.149946
+2025-03-31 19:21:33.210 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:21:33.917 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:21:33.918 [base.py:1901] : [cached since 8725s ago] {}
+2025-03-31 19:21:33.928 [base.py:1123] : ROLLBACK
+2025-03-31 19:21:33.934 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:21:33.934530, 耗时: 0.784584秒
+2025-03-31 19:21:33.934 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #437 执行耗时: 0.79秒, 将休眠: 19.21秒
+2025-03-31 19:21:53.154 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #437 结束: 2025-03-31 19:21:53, 总耗时: 20.00秒
+2025-03-31 19:21:53.156 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #438 开始: 2025-03-31 19:21:53
+2025-03-31 19:21:53.156 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:21:53.156176
+2025-03-31 19:21:53.163 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:21:53.172 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:21:53.173 [base.py:1901] : [cached since 8745s ago] {}
+2025-03-31 19:21:53.184 [base.py:1123] : ROLLBACK
+2025-03-31 19:21:53.186 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:21:53.186617, 耗时: 0.030441秒
+2025-03-31 19:21:53.187 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #438 执行耗时: 0.03秒, 将休眠: 19.97秒
+2025-03-31 19:22:13.163 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #438 结束: 2025-03-31 19:22:13, 总耗时: 20.01秒
+2025-03-31 19:22:13.165 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #439 开始: 2025-03-31 19:22:13
+2025-03-31 19:22:13.166 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:22:13.166379
+2025-03-31 19:22:13.176 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:22:13.185 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:22:13.186 [base.py:1901] : [cached since 8765s ago] {}
+2025-03-31 19:22:13.190 [base.py:1123] : ROLLBACK
+2025-03-31 19:22:13.193 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:22:13.192896, 耗时: 0.026517秒
+2025-03-31 19:22:13.193 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #439 执行耗时: 0.03秒, 将休眠: 19.97秒
+2025-03-31 19:22:33.173 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #439 结束: 2025-03-31 19:22:33, 总耗时: 20.01秒
+2025-03-31 19:22:33.175 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #440 开始: 2025-03-31 19:22:33
+2025-03-31 19:22:33.175 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:22:33.175750
+2025-03-31 19:22:33.185 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:22:33.197 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:22:33.197 [base.py:1901] : [cached since 8785s ago] {}
+2025-03-31 19:22:33.202 [base.py:1123] : ROLLBACK
+2025-03-31 19:22:33.204 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:22:33.204102, 耗时: 0.028352秒
+2025-03-31 19:22:33.204 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #440 执行耗时: 0.03秒, 将休眠: 19.97秒
+2025-03-31 19:22:53.181 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #440 结束: 2025-03-31 19:22:53, 总耗时: 20.01秒
+2025-03-31 19:22:53.182 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #441 开始: 2025-03-31 19:22:53
+2025-03-31 19:22:53.183 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:22:53.182993
+2025-03-31 19:22:53.185 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:22:53.187 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:22:53.187 [base.py:1901] : [cached since 8805s ago] {}
+2025-03-31 19:22:53.200 [base.py:1123] : ROLLBACK
+2025-03-31 19:22:53.201 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:22:53.201421, 耗时: 0.018428秒
+2025-03-31 19:22:53.201 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #441 执行耗时: 0.02秒, 将休眠: 19.98秒
+2025-03-31 19:23:13.273 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #441 结束: 2025-03-31 19:23:13, 总耗时: 20.01秒
+2025-03-31 19:23:13.277 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #442 开始: 2025-03-31 19:23:13
+2025-03-31 19:23:13.298 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:23:13.298641
+2025-03-31 19:23:13.322 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:23:13.328 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:23:13.329 [base.py:1901] : [cached since 8825s ago] {}
+2025-03-31 19:23:13.336 [base.py:1123] : ROLLBACK
+2025-03-31 19:23:13.339 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:23:13.339585, 耗时: 0.040944秒
+2025-03-31 19:23:13.340 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #442 执行耗时: 0.06秒, 将休眠: 19.94秒
+2025-03-31 19:23:33.290 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #442 结束: 2025-03-31 19:23:33, 总耗时: 20.01秒
+2025-03-31 19:23:33.293 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #443 开始: 2025-03-31 19:23:33
+2025-03-31 19:23:33.293 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:23:33.293829
+2025-03-31 19:23:33.303 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:23:33.306 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:23:33.307 [base.py:1901] : [cached since 8845s ago] {}
+2025-03-31 19:23:33.314 [base.py:1123] : ROLLBACK
+2025-03-31 19:23:33.315 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:23:33.314975, 耗时: 0.021146秒
+2025-03-31 19:23:33.315 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #443 执行耗时: 0.02秒, 将休眠: 19.98秒
+2025-03-31 19:23:53.299 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #443 结束: 2025-03-31 19:23:53, 总耗时: 20.00秒
+2025-03-31 19:23:53.302 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #444 开始: 2025-03-31 19:23:53
+2025-03-31 19:23:53.302 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:23:53.302544
+2025-03-31 19:23:53.307 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:23:53.312 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:23:53.312 [base.py:1901] : [cached since 8865s ago] {}
+2025-03-31 19:23:53.315 [base.py:1123] : ROLLBACK
+2025-03-31 19:23:53.317 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:23:53.317559, 耗时: 0.015015秒
+2025-03-31 19:23:53.317 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #444 执行耗时: 0.02秒, 将休眠: 19.98秒
+2025-03-31 19:24:13.309 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #444 结束: 2025-03-31 19:24:13, 总耗时: 20.01秒
+2025-03-31 19:24:13.311 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #445 开始: 2025-03-31 19:24:13
+2025-03-31 19:24:13.312 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:24:13.312118
+2025-03-31 19:24:13.317 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:24:13.322 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:24:13.324 [base.py:1901] : [cached since 8885s ago] {}
+2025-03-31 19:24:13.327 [base.py:1123] : ROLLBACK
+2025-03-31 19:24:13.331 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:24:13.331568, 耗时: 0.01945秒
+2025-03-31 19:24:13.332 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #445 执行耗时: 0.02秒, 将休眠: 19.98秒
+2025-03-31 19:24:33.319 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #445 结束: 2025-03-31 19:24:33, 总耗时: 20.01秒
+2025-03-31 19:24:33.320 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #446 开始: 2025-03-31 19:24:33
+2025-03-31 19:24:33.320 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:24:33.320491
+2025-03-31 19:24:33.330 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:24:33.333 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:24:33.333 [base.py:1901] : [cached since 8905s ago] {}
+2025-03-31 19:24:33.340 [base.py:1123] : ROLLBACK
+2025-03-31 19:24:33.344 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:24:33.343821, 耗时: 0.02333秒
+2025-03-31 19:24:33.344 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #446 执行耗时: 0.02秒, 将休眠: 19.98秒
+2025-03-31 19:24:53.323 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #446 结束: 2025-03-31 19:24:53, 总耗时: 20.00秒
+2025-03-31 19:24:53.325 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #447 开始: 2025-03-31 19:24:53
+2025-03-31 19:24:53.326 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:24:53.326224
+2025-03-31 19:24:53.331 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:24:53.339 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:24:53.340 [base.py:1901] : [cached since 8925s ago] {}
+2025-03-31 19:24:53.342 [base.py:1123] : ROLLBACK
+2025-03-31 19:24:53.353 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:24:53.351608, 耗时: 0.025384秒
+2025-03-31 19:24:53.353 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #447 执行耗时: 0.03秒, 将休眠: 19.97秒
+2025-03-31 19:25:13.336 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #447 结束: 2025-03-31 19:25:13, 总耗时: 20.01秒
+2025-03-31 19:25:13.337 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #448 开始: 2025-03-31 19:25:13
+2025-03-31 19:25:13.338 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:25:13.338006
+2025-03-31 19:25:13.342 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:25:13.400 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:25:13.408 [base.py:1901] : [cached since 8945s ago] {}
+2025-03-31 19:25:13.435 [base.py:1123] : ROLLBACK
+2025-03-31 19:25:13.441 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:25:13.440791, 耗时: 0.102785秒
+2025-03-31 19:25:13.441 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #448 执行耗时: 0.10秒, 将休眠: 19.90秒
+2025-03-31 19:25:33.344 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #448 结束: 2025-03-31 19:25:33, 总耗时: 20.01秒
+2025-03-31 19:25:33.347 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #449 开始: 2025-03-31 19:25:33
+2025-03-31 19:25:33.347 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:25:33.347564
+2025-03-31 19:25:33.359 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:25:33.365 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:25:33.366 [base.py:1901] : [cached since 8965s ago] {}
+2025-03-31 19:25:33.374 [base.py:1123] : ROLLBACK
+2025-03-31 19:25:33.376 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:25:33.375998, 耗时: 0.028434秒
+2025-03-31 19:25:33.376 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #449 执行耗时: 0.03秒, 将休眠: 19.97秒
+2025-03-31 19:25:53.350 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #449 结束: 2025-03-31 19:25:53, 总耗时: 20.00秒
+2025-03-31 19:25:53.352 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #450 开始: 2025-03-31 19:25:53
+2025-03-31 19:25:53.352 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:25:53.352149
+2025-03-31 19:25:53.363 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:25:53.371 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:25:53.371 [base.py:1901] : [cached since 8985s ago] {}
+2025-03-31 19:25:53.374 [base.py:1123] : ROLLBACK
+2025-03-31 19:25:53.375 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:25:53.375859, 耗时: 0.02371秒
+2025-03-31 19:25:53.376 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #450 执行耗时: 0.02秒, 将休眠: 19.98秒
+2025-03-31 19:26:13.359 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #450 结束: 2025-03-31 19:26:13, 总耗时: 20.01秒
+2025-03-31 19:26:13.361 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #451 开始: 2025-03-31 19:26:13
+2025-03-31 19:26:13.362 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:26:13.362277
+2025-03-31 19:26:13.377 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:26:13.383 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:26:13.384 [base.py:1901] : [cached since 9005s ago] {}
+2025-03-31 19:26:13.390 [base.py:1123] : ROLLBACK
+2025-03-31 19:26:13.392 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:26:13.392501, 耗时: 0.030224秒
+2025-03-31 19:26:13.392 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #451 执行耗时: 0.03秒, 将休眠: 19.97秒
+2025-03-31 19:26:33.370 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #451 结束: 2025-03-31 19:26:33, 总耗时: 20.01秒
+2025-03-31 19:26:33.371 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #452 开始: 2025-03-31 19:26:33
+2025-03-31 19:26:33.371 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:26:33.371951
+2025-03-31 19:26:33.375 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:26:33.377 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:26:33.377 [base.py:1901] : [cached since 9025s ago] {}
+2025-03-31 19:26:33.384 [base.py:1123] : ROLLBACK
+2025-03-31 19:26:33.386 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:26:33.386406, 耗时: 0.014455秒
+2025-03-31 19:26:33.388 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #452 执行耗时: 0.02秒, 将休眠: 19.98秒
+2025-03-31 19:26:53.384 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #452 结束: 2025-03-31 19:26:53, 总耗时: 20.01秒
+2025-03-31 19:26:53.387 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #453 开始: 2025-03-31 19:26:53
+2025-03-31 19:26:53.391 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:26:53.391810
+2025-03-31 19:26:53.412 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:26:53.427 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:26:53.429 [base.py:1901] : [cached since 9045s ago] {}
+2025-03-31 19:26:53.443 [base.py:1123] : ROLLBACK
+2025-03-31 19:26:53.446 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:26:53.446462, 耗时: 0.054652秒
+2025-03-31 19:26:53.447 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #453 执行耗时: 0.06秒, 将休眠: 19.94秒
+2025-03-31 19:27:13.389 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #453 结束: 2025-03-31 19:27:13, 总耗时: 20.00秒
+2025-03-31 19:27:13.390 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #454 开始: 2025-03-31 19:27:13
+2025-03-31 19:27:13.391 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:27:13.390995
+2025-03-31 19:27:13.395 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:27:13.405 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:27:13.409 [base.py:1901] : [cached since 9065s ago] {}
+2025-03-31 19:27:13.412 [base.py:1123] : ROLLBACK
+2025-03-31 19:27:13.413 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:27:13.413691, 耗时: 0.022696秒
+2025-03-31 19:27:13.414 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #454 执行耗时: 0.02秒, 将休眠: 19.98秒
+2025-03-31 19:27:33.396 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #454 结束: 2025-03-31 19:27:33, 总耗时: 20.01秒
+2025-03-31 19:27:33.397 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #455 开始: 2025-03-31 19:27:33
+2025-03-31 19:27:33.397 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:27:33.397379
+2025-03-31 19:27:33.400 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:27:33.402 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:27:33.402 [base.py:1901] : [cached since 9085s ago] {}
+2025-03-31 19:27:33.405 [base.py:1123] : ROLLBACK
+2025-03-31 19:27:33.406 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:27:33.406685, 耗时: 0.009306秒
+2025-03-31 19:27:33.406 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #455 执行耗时: 0.01秒, 将休眠: 19.99秒
+2025-03-31 19:27:53.403 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #455 结束: 2025-03-31 19:27:53, 总耗时: 20.01秒
+2025-03-31 19:27:53.406 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #456 开始: 2025-03-31 19:27:53
+2025-03-31 19:27:53.406 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:27:53.406875
+2025-03-31 19:27:53.410 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:27:53.412 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:27:53.412 [base.py:1901] : [cached since 9105s ago] {}
+2025-03-31 19:27:53.415 [base.py:1123] : ROLLBACK
+2025-03-31 19:27:53.416 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:27:53.416647, 耗时: 0.009772秒
+2025-03-31 19:27:53.416 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #456 执行耗时: 0.01秒, 将休眠: 19.99秒
+2025-03-31 19:28:13.407 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #456 结束: 2025-03-31 19:28:13, 总耗时: 20.00秒
+2025-03-31 19:28:13.408 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #457 开始: 2025-03-31 19:28:13
+2025-03-31 19:28:13.408 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:28:13.408692
+2025-03-31 19:28:13.411 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:28:13.413 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:28:13.413 [base.py:1901] : [cached since 9125s ago] {}
+2025-03-31 19:28:13.417 [base.py:1123] : ROLLBACK
+2025-03-31 19:28:13.418 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:28:13.418307, 耗时: 0.009615秒
+2025-03-31 19:28:13.418 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #457 执行耗时: 0.01秒, 将休眠: 19.99秒
+2025-03-31 19:28:33.414 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #457 结束: 2025-03-31 19:28:33, 总耗时: 20.01秒
+2025-03-31 19:28:33.415 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #458 开始: 2025-03-31 19:28:33
+2025-03-31 19:28:33.415 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:28:33.415320
+2025-03-31 19:28:33.421 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:28:33.431 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:28:33.434 [base.py:1901] : [cached since 9145s ago] {}
+2025-03-31 19:28:33.442 [base.py:1123] : ROLLBACK
+2025-03-31 19:28:33.444 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:28:33.444315, 耗时: 0.028995秒
+2025-03-31 19:28:33.445 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #458 执行耗时: 0.03秒, 将休眠: 19.97秒
+2025-03-31 19:28:53.422 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #458 结束: 2025-03-31 19:28:53, 总耗时: 20.01秒
+2025-03-31 19:28:53.423 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #459 开始: 2025-03-31 19:28:53
+2025-03-31 19:28:53.423 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:28:53.423390
+2025-03-31 19:28:53.425 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:28:53.426 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:28:53.426 [base.py:1901] : [cached since 9165s ago] {}
+2025-03-31 19:28:53.427 [base.py:1123] : ROLLBACK
+2025-03-31 19:28:53.429 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:28:53.429009, 耗时: 0.005619秒
+2025-03-31 19:28:53.429 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #459 执行耗时: 0.01秒, 将休眠: 19.99秒
+2025-03-31 19:29:13.424 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #459 结束: 2025-03-31 19:29:13, 总耗时: 20.00秒
+2025-03-31 19:29:13.425 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #460 开始: 2025-03-31 19:29:13
+2025-03-31 19:29:13.425 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:29:13.425576
+2025-03-31 19:29:13.428 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:29:13.430 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:29:13.430 [base.py:1901] : [cached since 9185s ago] {}
+2025-03-31 19:29:13.448 [base.py:1123] : ROLLBACK
+2025-03-31 19:29:13.454 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:29:13.454394, 耗时: 0.028818秒
+2025-03-31 19:29:13.454 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #460 执行耗时: 0.03秒, 将休眠: 19.97秒
+2025-03-31 19:29:33.428 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #460 结束: 2025-03-31 19:29:33, 总耗时: 20.00秒
+2025-03-31 19:29:33.429 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #461 开始: 2025-03-31 19:29:33
+2025-03-31 19:29:33.429 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:29:33.429891
+2025-03-31 19:29:33.443 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:29:33.447 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:29:33.448 [base.py:1901] : [cached since 9205s ago] {}
+2025-03-31 19:29:33.455 [base.py:1123] : ROLLBACK
+2025-03-31 19:29:33.457 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:29:33.456949, 耗时: 0.027058秒
+2025-03-31 19:29:33.457 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #461 执行耗时: 0.03秒, 将休眠: 19.97秒
+2025-03-31 19:29:53.435 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #461 结束: 2025-03-31 19:29:53, 总耗时: 20.01秒
+2025-03-31 19:29:53.436 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #462 开始: 2025-03-31 19:29:53
+2025-03-31 19:29:53.436 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:29:53.436857
+2025-03-31 19:29:53.456 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:29:53.463 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:29:53.464 [base.py:1901] : [cached since 9225s ago] {}
+2025-03-31 19:29:53.470 [base.py:1123] : ROLLBACK
+2025-03-31 19:29:53.476 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:29:53.475916, 耗时: 0.039059秒
+2025-03-31 19:29:53.476 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #462 执行耗时: 0.04秒, 将休眠: 19.96秒
+2025-03-31 19:30:13.442 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #462 结束: 2025-03-31 19:30:13, 总耗时: 20.01秒
+2025-03-31 19:30:13.443 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #463 开始: 2025-03-31 19:30:13
+2025-03-31 19:30:13.443 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:30:13.443949
+2025-03-31 19:30:13.446 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:30:13.448 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:30:13.448 [base.py:1901] : [cached since 9245s ago] {}
+2025-03-31 19:30:13.465 [base.py:1123] : ROLLBACK
+2025-03-31 19:30:13.466 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:30:13.466313, 耗时: 0.022364秒
+2025-03-31 19:30:13.466 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #463 执行耗时: 0.02秒, 将休眠: 19.98秒
+2025-03-31 19:30:33.447 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #463 结束: 2025-03-31 19:30:33, 总耗时: 20.00秒
+2025-03-31 19:30:33.449 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #464 开始: 2025-03-31 19:30:33
+2025-03-31 19:30:33.449 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:30:33.449272
+2025-03-31 19:30:33.452 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:30:33.461 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:30:33.461 [base.py:1901] : [cached since 9265s ago] {}
+2025-03-31 19:30:33.464 [base.py:1123] : ROLLBACK
+2025-03-31 19:30:33.465 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:30:33.465788, 耗时: 0.016516秒
+2025-03-31 19:30:33.465 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #464 执行耗时: 0.02秒, 将休眠: 19.98秒
+2025-03-31 19:30:53.455 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #464 结束: 2025-03-31 19:30:53, 总耗时: 20.01秒
+2025-03-31 19:30:53.457 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #465 开始: 2025-03-31 19:30:53
+2025-03-31 19:30:53.457 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:30:53.457218
+2025-03-31 19:30:53.482 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:30:53.489 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:30:53.490 [base.py:1901] : [cached since 9285s ago] {}
+2025-03-31 19:30:53.500 [base.py:1123] : ROLLBACK
+2025-03-31 19:30:53.502 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:30:53.502078, 耗时: 0.04486秒
+2025-03-31 19:30:53.502 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #465 执行耗时: 0.05秒, 将休眠: 19.95秒
+2025-03-31 19:31:13.462 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #465 结束: 2025-03-31 19:31:13, 总耗时: 20.01秒
+2025-03-31 19:31:13.464 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #466 开始: 2025-03-31 19:31:13
+2025-03-31 19:31:13.464 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:31:13.464483
+2025-03-31 19:31:13.467 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:31:13.469 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:31:13.469 [base.py:1901] : [cached since 9305s ago] {}
+2025-03-31 19:31:13.488 [base.py:1123] : ROLLBACK
+2025-03-31 19:31:13.498 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:31:13.491837, 耗时: 0.027354秒
+2025-03-31 19:31:13.498 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #466 执行耗时: 0.03秒, 将休眠: 19.97秒
+2025-03-31 19:31:33.471 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #466 结束: 2025-03-31 19:31:33, 总耗时: 20.01秒
+2025-03-31 19:31:33.473 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #467 开始: 2025-03-31 19:31:33
+2025-03-31 19:31:33.474 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:31:33.473963
+2025-03-31 19:31:33.478 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:31:33.491 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:31:33.491 [base.py:1901] : [cached since 9325s ago] {}
+2025-03-31 19:31:33.505 [base.py:1123] : ROLLBACK
+2025-03-31 19:31:33.511 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:31:33.510860, 耗时: 0.036897秒
+2025-03-31 19:31:33.511 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #467 执行耗时: 0.04秒, 将休眠: 19.96秒
+2025-03-31 19:31:53.498 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #467 结束: 2025-03-31 19:31:53, 总耗时: 20.02秒
+2025-03-31 19:31:53.500 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #468 开始: 2025-03-31 19:31:53
+2025-03-31 19:31:53.500 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:31:53.500466
+2025-03-31 19:31:53.503 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:31:53.505 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:31:53.505 [base.py:1901] : [cached since 9345s ago] {}
+2025-03-31 19:31:53.508 [base.py:1123] : ROLLBACK
+2025-03-31 19:31:53.509 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:31:53.509632, 耗时: 0.009166秒
+2025-03-31 19:31:53.509 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #468 执行耗时: 0.01秒, 将休眠: 19.99秒
+2025-03-31 19:32:13.513 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #468 结束: 2025-03-31 19:32:13, 总耗时: 20.01秒
+2025-03-31 19:32:13.515 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #469 开始: 2025-03-31 19:32:13
+2025-03-31 19:32:13.516 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:32:13.516212
+2025-03-31 19:32:13.539 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:32:13.561 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:32:13.561 [base.py:1901] : [cached since 9365s ago] {}
+2025-03-31 19:32:13.569 [base.py:1123] : ROLLBACK
+2025-03-31 19:32:13.571 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:32:13.571264, 耗时: 0.055052秒
+2025-03-31 19:32:13.571 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #469 执行耗时: 0.06秒, 将休眠: 19.94秒
+2025-03-31 19:32:33.525 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #469 结束: 2025-03-31 19:32:33, 总耗时: 20.01秒
+2025-03-31 19:32:33.526 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #470 开始: 2025-03-31 19:32:33
+2025-03-31 19:32:33.527 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:32:33.527047
+2025-03-31 19:32:33.530 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:32:33.534 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:32:33.535 [base.py:1901] : [cached since 9385s ago] {}
+2025-03-31 19:32:33.541 [base.py:1123] : ROLLBACK
+2025-03-31 19:32:33.542 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:32:33.542496, 耗时: 0.015449秒
+2025-03-31 19:32:33.542 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #470 执行耗时: 0.02秒, 将休眠: 19.98秒
+2025-03-31 19:32:53.531 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #470 结束: 2025-03-31 19:32:53, 总耗时: 20.00秒
+2025-03-31 19:32:53.533 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #471 开始: 2025-03-31 19:32:53
+2025-03-31 19:32:53.533 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:32:53.533485
+2025-03-31 19:32:53.536 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:32:53.538 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:32:53.539 [base.py:1901] : [cached since 9405s ago] {}
+2025-03-31 19:32:53.545 [base.py:1123] : ROLLBACK
+2025-03-31 19:32:53.550 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:32:53.550045, 耗时: 0.01656秒
+2025-03-31 19:32:53.550 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #471 执行耗时: 0.02秒, 将休眠: 19.98秒
+2025-03-31 19:33:13.539 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #471 结束: 2025-03-31 19:33:13, 总耗时: 20.01秒
+2025-03-31 19:33:13.543 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #472 开始: 2025-03-31 19:33:13
+2025-03-31 19:33:13.543 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:33:13.543544
+2025-03-31 19:33:13.547 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:33:13.550 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:33:13.551 [base.py:1901] : [cached since 9425s ago] {}
+2025-03-31 19:33:13.558 [base.py:1123] : ROLLBACK
+2025-03-31 19:33:13.560 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:33:13.560418, 耗时: 0.016874秒
+2025-03-31 19:33:13.560 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #472 执行耗时: 0.02秒, 将休眠: 19.98秒
+2025-03-31 19:33:33.549 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #472 结束: 2025-03-31 19:33:33, 总耗时: 20.01秒
+2025-03-31 19:33:33.550 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #473 开始: 2025-03-31 19:33:33
+2025-03-31 19:33:33.550 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:33:33.550382
+2025-03-31 19:33:33.557 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:33:33.565 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:33:33.565 [base.py:1901] : [cached since 9445s ago] {}
+2025-03-31 19:33:33.567 [base.py:1123] : ROLLBACK
+2025-03-31 19:33:33.568 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:33:33.568746, 耗时: 0.018364秒
+2025-03-31 19:33:33.568 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #473 执行耗时: 0.02秒, 将休眠: 19.98秒
+2025-03-31 19:33:53.585 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #473 结束: 2025-03-31 19:33:53, 总耗时: 20.02秒
+2025-03-31 19:33:53.630 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #474 开始: 2025-03-31 19:33:53
+2025-03-31 19:33:53.630 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:33:53.630895
+2025-03-31 19:33:53.645 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:33:53.647 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:33:53.647 [base.py:1901] : [cached since 9465s ago] {}
+2025-03-31 19:33:53.651 [base.py:1123] : ROLLBACK
+2025-03-31 19:33:53.664 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:33:53.664760, 耗时: 0.033865秒
+2025-03-31 19:33:53.670 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #474 执行耗时: 0.04秒, 将休眠: 19.96秒
+2025-03-31 19:34:13.636 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #474 结束: 2025-03-31 19:34:13, 总耗时: 20.01秒
+2025-03-31 19:34:13.638 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #475 开始: 2025-03-31 19:34:13
+2025-03-31 19:34:13.638 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:34:13.638139
+2025-03-31 19:34:13.647 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:34:13.652 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:34:13.653 [base.py:1901] : [cached since 9485s ago] {}
+2025-03-31 19:34:13.663 [base.py:1123] : ROLLBACK
+2025-03-31 19:34:13.667 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:34:13.667297, 耗时: 0.029158秒
+2025-03-31 19:34:13.667 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #475 执行耗时: 0.03秒, 将休眠: 19.97秒
+2025-03-31 19:34:33.644 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #475 结束: 2025-03-31 19:34:33, 总耗时: 20.01秒
+2025-03-31 19:34:33.645 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #476 开始: 2025-03-31 19:34:33
+2025-03-31 19:34:33.645 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:34:33.645747
+2025-03-31 19:34:33.648 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:34:33.651 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:34:33.651 [base.py:1901] : [cached since 9505s ago] {}
+2025-03-31 19:34:33.657 [base.py:1123] : ROLLBACK
+2025-03-31 19:34:33.658 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:34:33.658893, 耗时: 0.013146秒
+2025-03-31 19:34:33.659 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #476 执行耗时: 0.01秒, 将休眠: 19.99秒
+2025-03-31 19:34:53.651 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #476 结束: 2025-03-31 19:34:53, 总耗时: 20.01秒
+2025-03-31 19:34:53.652 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #477 开始: 2025-03-31 19:34:53
+2025-03-31 19:34:53.652 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:34:53.652688
+2025-03-31 19:34:53.657 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:34:53.667 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:34:53.668 [base.py:1901] : [cached since 9525s ago] {}
+2025-03-31 19:34:53.677 [base.py:1123] : ROLLBACK
+2025-03-31 19:34:53.679 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:34:53.678980, 耗时: 0.026292秒
+2025-03-31 19:34:53.679 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #477 执行耗时: 0.03秒, 将休眠: 19.97秒
+2025-03-31 19:35:13.658 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #477 结束: 2025-03-31 19:35:13, 总耗时: 20.00秒
+2025-03-31 19:35:13.665 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #478 开始: 2025-03-31 19:35:13
+2025-03-31 19:35:13.665 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:35:13.665320
+2025-03-31 19:35:13.677 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:35:13.686 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:35:13.698 [base.py:1901] : [cached since 9545s ago] {}
+2025-03-31 19:35:13.732 [base.py:1123] : ROLLBACK
+2025-03-31 19:35:13.735 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:35:13.735371, 耗时: 0.070051秒
+2025-03-31 19:35:13.735 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #478 执行耗时: 0.07秒, 将休眠: 19.93秒
+2025-03-31 19:35:33.670 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #478 结束: 2025-03-31 19:35:33, 总耗时: 20.01秒
+2025-03-31 19:35:33.671 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #479 开始: 2025-03-31 19:35:33
+2025-03-31 19:35:33.671 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:35:33.671976
+2025-03-31 19:35:33.674 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:35:33.676 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:35:33.676 [base.py:1901] : [cached since 9565s ago] {}
+2025-03-31 19:35:33.679 [base.py:1123] : ROLLBACK
+2025-03-31 19:35:33.680 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:35:33.680280, 耗时: 0.008304秒
+2025-03-31 19:35:33.680 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #479 执行耗时: 0.01秒, 将休眠: 19.99秒
+2025-03-31 19:35:53.677 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #479 结束: 2025-03-31 19:35:53, 总耗时: 20.01秒
+2025-03-31 19:35:53.678 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #480 开始: 2025-03-31 19:35:53
+2025-03-31 19:35:53.678 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:35:53.678969
+2025-03-31 19:35:53.686 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:35:53.689 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:35:53.696 [base.py:1901] : [cached since 9585s ago] {}
+2025-03-31 19:35:53.707 [base.py:1123] : ROLLBACK
+2025-03-31 19:35:53.708 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:35:53.708540, 耗时: 0.029571秒
+2025-03-31 19:35:53.708 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #480 执行耗时: 0.03秒, 将休眠: 19.97秒
+2025-03-31 19:36:13.687 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #480 结束: 2025-03-31 19:36:13, 总耗时: 20.01秒
+2025-03-31 19:36:13.691 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #481 开始: 2025-03-31 19:36:13
+2025-03-31 19:36:13.692 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:36:13.692019
+2025-03-31 19:36:13.705 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:36:13.722 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:36:13.724 [base.py:1901] : [cached since 9605s ago] {}
+2025-03-31 19:36:13.728 [base.py:1123] : ROLLBACK
+2025-03-31 19:36:13.739 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:36:13.739644, 耗时: 0.047625秒
+2025-03-31 19:36:13.740 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #481 执行耗时: 0.05秒, 将休眠: 19.95秒
+2025-03-31 19:36:33.698 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #481 结束: 2025-03-31 19:36:33, 总耗时: 20.01秒
+2025-03-31 19:36:33.699 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #482 开始: 2025-03-31 19:36:33
+2025-03-31 19:36:33.699 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:36:33.699550
+2025-03-31 19:36:33.708 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:36:33.717 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:36:33.718 [base.py:1901] : [cached since 9625s ago] {}
+2025-03-31 19:36:33.721 [base.py:1123] : ROLLBACK
+2025-03-31 19:36:33.723 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:36:33.723001, 耗时: 0.023451秒
+2025-03-31 19:36:33.723 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #482 执行耗时: 0.02秒, 将休眠: 19.98秒
+2025-03-31 19:36:53.705 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #482 结束: 2025-03-31 19:36:53, 总耗时: 20.01秒
+2025-03-31 19:36:53.706 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #483 开始: 2025-03-31 19:36:53
+2025-03-31 19:36:53.706 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:36:53.706457
+2025-03-31 19:36:53.712 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:36:53.721 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:36:53.722 [base.py:1901] : [cached since 9645s ago] {}
+2025-03-31 19:36:53.726 [base.py:1123] : ROLLBACK
+2025-03-31 19:36:53.728 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:36:53.728750, 耗时: 0.022293秒
+2025-03-31 19:36:53.729 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #483 执行耗时: 0.02秒, 将休眠: 19.98秒
+2025-03-31 19:37:13.712 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #483 结束: 2025-03-31 19:37:13, 总耗时: 20.01秒
+2025-03-31 19:37:13.712 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #484 开始: 2025-03-31 19:37:13
+2025-03-31 19:37:13.712 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:37:13.712816
+2025-03-31 19:37:13.716 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:37:13.723 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:37:13.724 [base.py:1901] : [cached since 9665s ago] {}
+2025-03-31 19:37:13.728 [base.py:1123] : ROLLBACK
+2025-03-31 19:37:13.732 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:37:13.732251, 耗时: 0.019435秒
+2025-03-31 19:37:13.733 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #484 执行耗时: 0.02秒, 将休眠: 19.98秒
+2025-03-31 19:37:33.721 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #484 结束: 2025-03-31 19:37:33, 总耗时: 20.01秒
+2025-03-31 19:37:33.722 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #485 开始: 2025-03-31 19:37:33
+2025-03-31 19:37:33.725 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:37:33.725074
+2025-03-31 19:37:33.742 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:37:33.750 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:37:33.751 [base.py:1901] : [cached since 9685s ago] {}
+2025-03-31 19:37:33.759 [base.py:1123] : ROLLBACK
+2025-03-31 19:37:33.760 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:37:33.760516, 耗时: 0.035442秒
+2025-03-31 19:37:33.761 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #485 执行耗时: 0.04秒, 将休眠: 19.96秒
+2025-03-31 19:37:53.730 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #485 结束: 2025-03-31 19:37:53, 总耗时: 20.00秒
+2025-03-31 19:37:53.731 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #486 开始: 2025-03-31 19:37:53
+2025-03-31 19:37:53.732 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:37:53.732026
+2025-03-31 19:37:53.738 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:37:53.746 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:37:53.747 [base.py:1901] : [cached since 9705s ago] {}
+2025-03-31 19:37:53.760 [base.py:1123] : ROLLBACK
+2025-03-31 19:37:53.762 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:37:53.762793, 耗时: 0.030767秒
+2025-03-31 19:37:53.763 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #486 执行耗时: 0.03秒, 将休眠: 19.97秒
+2025-03-31 19:38:13.735 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #486 结束: 2025-03-31 19:38:13, 总耗时: 20.00秒
+2025-03-31 19:38:13.736 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #487 开始: 2025-03-31 19:38:13
+2025-03-31 19:38:13.736 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:38:13.736474
+2025-03-31 19:38:13.744 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:38:13.746 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:38:13.747 [base.py:1901] : [cached since 9725s ago] {}
+2025-03-31 19:38:13.749 [base.py:1123] : ROLLBACK
+2025-03-31 19:38:13.753 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:38:13.753733, 耗时: 0.017259秒
+2025-03-31 19:38:13.754 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #487 执行耗时: 0.02秒, 将休眠: 19.98秒
+2025-03-31 19:38:33.740 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #487 结束: 2025-03-31 19:38:33, 总耗时: 20.00秒
+2025-03-31 19:38:33.750 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #488 开始: 2025-03-31 19:38:33
+2025-03-31 19:38:33.750 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:38:33.750629
+2025-03-31 19:38:33.767 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:38:33.775 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:38:33.777 [base.py:1901] : [cached since 9745s ago] {}
+2025-03-31 19:38:33.784 [base.py:1123] : ROLLBACK
+2025-03-31 19:38:33.785 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:38:33.785716, 耗时: 0.035087秒
+2025-03-31 19:38:33.786 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #488 执行耗时: 0.04秒, 将休眠: 19.96秒
+2025-03-31 19:38:53.756 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #488 结束: 2025-03-31 19:38:53, 总耗时: 20.01秒
+2025-03-31 19:38:53.756 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #489 开始: 2025-03-31 19:38:53
+2025-03-31 19:38:53.756 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:38:53.756901
+2025-03-31 19:38:53.761 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:38:53.763 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:38:53.763 [base.py:1901] : [cached since 9765s ago] {}
+2025-03-31 19:38:53.771 [base.py:1123] : ROLLBACK
+2025-03-31 19:38:53.773 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:38:53.773212, 耗时: 0.016311秒
+2025-03-31 19:38:53.773 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #489 执行耗时: 0.02秒, 将休眠: 19.98秒
+2025-03-31 19:39:13.763 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #489 结束: 2025-03-31 19:39:13, 总耗时: 20.01秒
+2025-03-31 19:39:13.764 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #490 开始: 2025-03-31 19:39:13
+2025-03-31 19:39:13.764 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:39:13.764741
+2025-03-31 19:39:13.769 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:39:13.779 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:39:13.780 [base.py:1901] : [cached since 9785s ago] {}
+2025-03-31 19:39:13.785 [base.py:1123] : ROLLBACK
+2025-03-31 19:39:13.787 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:39:13.787544, 耗时: 0.022803秒
+2025-03-31 19:39:13.787 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #490 执行耗时: 0.02秒, 将休眠: 19.98秒
+2025-03-31 19:39:33.771 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #490 结束: 2025-03-31 19:39:33, 总耗时: 20.01秒
+2025-03-31 19:39:33.772 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #491 开始: 2025-03-31 19:39:33
+2025-03-31 19:39:33.772 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:39:33.772215
+2025-03-31 19:39:33.783 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:39:33.793 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:39:33.794 [base.py:1901] : [cached since 9805s ago] {}
+2025-03-31 19:39:33.798 [base.py:1123] : ROLLBACK
+2025-03-31 19:39:33.801 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:39:33.801465, 耗时: 0.02925秒
+2025-03-31 19:39:33.801 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #491 执行耗时: 0.03秒, 将休眠: 19.97秒
+2025-03-31 19:39:53.778 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #491 结束: 2025-03-31 19:39:53, 总耗时: 20.01秒
+2025-03-31 19:39:53.780 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #492 开始: 2025-03-31 19:39:53
+2025-03-31 19:39:53.780 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:39:53.780267
+2025-03-31 19:39:53.808 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:39:53.817 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:39:53.819 [base.py:1901] : [cached since 9825s ago] {}
+2025-03-31 19:39:53.826 [base.py:1123] : ROLLBACK
+2025-03-31 19:39:53.827 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:39:53.827579, 耗时: 0.047312秒
+2025-03-31 19:39:53.827 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #492 执行耗时: 0.05秒, 将休眠: 19.95秒
+2025-03-31 19:40:13.785 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #492 结束: 2025-03-31 19:40:13, 总耗时: 20.00秒
+2025-03-31 19:40:13.786 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #493 开始: 2025-03-31 19:40:13
+2025-03-31 19:40:13.786 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:40:13.786924
+2025-03-31 19:40:13.790 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:40:13.799 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:40:13.800 [base.py:1901] : [cached since 9845s ago] {}
+2025-03-31 19:40:13.804 [base.py:1123] : ROLLBACK
+2025-03-31 19:40:13.808 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:40:13.808574, 耗时: 0.02165秒
+2025-03-31 19:40:13.808 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #493 执行耗时: 0.02秒, 将休眠: 19.98秒
+2025-03-31 19:40:33.790 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #493 结束: 2025-03-31 19:40:33, 总耗时: 20.00秒
+2025-03-31 19:40:33.792 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #494 开始: 2025-03-31 19:40:33
+2025-03-31 19:40:33.793 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:40:33.793202
+2025-03-31 19:40:33.798 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:40:33.811 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:40:33.811 [base.py:1901] : [cached since 9865s ago] {}
+2025-03-31 19:40:33.817 [base.py:1123] : ROLLBACK
+2025-03-31 19:40:33.823 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:40:33.823421, 耗时: 0.030219秒
+2025-03-31 19:40:33.824 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #494 执行耗时: 0.03秒, 将休眠: 19.97秒
+2025-03-31 19:40:53.982 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #494 结束: 2025-03-31 19:40:53, 总耗时: 20.08秒
+2025-03-31 19:40:54.059 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #495 开始: 2025-03-31 19:40:54
+2025-03-31 19:40:54.108 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:40:54.108233
+2025-03-31 19:40:54.170 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:40:54.184 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:40:54.186 [base.py:1901] : [cached since 9886s ago] {}
+2025-03-31 19:40:54.203 [base.py:1123] : ROLLBACK
+2025-03-31 19:40:54.227 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:40:54.227467, 耗时: 0.119234秒
+2025-03-31 19:40:54.228 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #495 执行耗时: 0.17秒, 将休眠: 19.83秒
+2025-03-31 19:41:14.070 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #495 结束: 2025-03-31 19:41:14, 总耗时: 20.01秒
+2025-03-31 19:41:14.072 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #496 开始: 2025-03-31 19:41:14
+2025-03-31 19:41:14.072 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:41:14.072771
+2025-03-31 19:41:14.076 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:41:14.092 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:41:14.093 [base.py:1901] : [cached since 9905s ago] {}
+2025-03-31 19:41:14.100 [base.py:1123] : ROLLBACK
+2025-03-31 19:41:14.102 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:41:14.101920, 耗时: 0.029149秒
+2025-03-31 19:41:14.102 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #496 执行耗时: 0.03秒, 将休眠: 19.97秒
+2025-03-31 19:41:34.079 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #496 结束: 2025-03-31 19:41:34, 总耗时: 20.01秒
+2025-03-31 19:41:34.079 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #497 开始: 2025-03-31 19:41:34
+2025-03-31 19:41:34.079 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:41:34.079843
+2025-03-31 19:41:34.083 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:41:34.090 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:41:34.095 [base.py:1901] : [cached since 9925s ago] {}
+2025-03-31 19:41:34.104 [base.py:1123] : ROLLBACK
+2025-03-31 19:41:34.105 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:41:34.105528, 耗时: 0.025685秒
+2025-03-31 19:41:34.105 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #497 执行耗时: 0.03秒, 将休眠: 19.97秒
+2025-03-31 19:41:54.085 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #497 结束: 2025-03-31 19:41:54, 总耗时: 20.00秒
+2025-03-31 19:41:54.088 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #498 开始: 2025-03-31 19:41:54
+2025-03-31 19:41:54.089 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:41:54.089758
+2025-03-31 19:41:54.106 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:41:54.115 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:41:54.116 [base.py:1901] : [cached since 9946s ago] {}
+2025-03-31 19:41:54.126 [base.py:1123] : ROLLBACK
+2025-03-31 19:41:54.134 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:41:54.134336, 耗时: 0.044578秒
+2025-03-31 19:41:54.135 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #498 执行耗时: 0.05秒, 将休眠: 19.95秒
+2025-03-31 19:42:14.095 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #498 结束: 2025-03-31 19:42:14, 总耗时: 20.01秒
+2025-03-31 19:42:14.097 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #499 开始: 2025-03-31 19:42:14
+2025-03-31 19:42:14.097 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:42:14.097325
+2025-03-31 19:42:14.102 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:42:14.119 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:42:14.122 [base.py:1901] : [cached since 9966s ago] {}
+2025-03-31 19:42:14.134 [base.py:1123] : ROLLBACK
+2025-03-31 19:42:14.136 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:42:14.136394, 耗时: 0.039069秒
+2025-03-31 19:42:14.136 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #499 执行耗时: 0.04秒, 将休眠: 19.96秒
+2025-03-31 19:42:34.108 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #499 结束: 2025-03-31 19:42:34, 总耗时: 20.01秒
+2025-03-31 19:42:34.110 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #500 开始: 2025-03-31 19:42:34
+2025-03-31 19:42:34.110 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:42:34.110701
+2025-03-31 19:42:34.123 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:42:34.129 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:42:34.129 [base.py:1901] : [cached since 9986s ago] {}
+2025-03-31 19:42:34.139 [base.py:1123] : ROLLBACK
+2025-03-31 19:42:34.146 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:42:34.146047, 耗时: 0.035346秒
+2025-03-31 19:42:34.146 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #500 执行耗时: 0.04秒, 将休眠: 19.96秒
+2025-03-31 19:42:54.116 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #500 结束: 2025-03-31 19:42:54, 总耗时: 20.01秒
+2025-03-31 19:42:54.118 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #501 开始: 2025-03-31 19:42:54
+2025-03-31 19:42:54.118 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:42:54.118257
+2025-03-31 19:42:54.128 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:42:54.138 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:42:54.140 [base.py:1901] : [cached since 1.001e+04s ago] {}
+2025-03-31 19:42:54.148 [base.py:1123] : ROLLBACK
+2025-03-31 19:42:54.149 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:42:54.149425, 耗时: 0.031168秒
+2025-03-31 19:42:54.149 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #501 执行耗时: 0.03秒, 将休眠: 19.97秒
+2025-03-31 19:43:14.124 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #501 结束: 2025-03-31 19:43:14, 总耗时: 20.01秒
+2025-03-31 19:43:14.124 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #502 开始: 2025-03-31 19:43:14
+2025-03-31 19:43:14.125 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:43:14.125049
+2025-03-31 19:43:14.127 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:43:14.140 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:43:14.141 [base.py:1901] : [cached since 1.003e+04s ago] {}
+2025-03-31 19:43:14.144 [base.py:1123] : ROLLBACK
+2025-03-31 19:43:14.145 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:43:14.145063, 耗时: 0.020014秒
+2025-03-31 19:43:14.145 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #502 执行耗时: 0.02秒, 将休眠: 19.98秒
+2025-03-31 19:43:34.131 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #502 结束: 2025-03-31 19:43:34, 总耗时: 20.01秒
+2025-03-31 19:43:34.133 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #503 开始: 2025-03-31 19:43:34
+2025-03-31 19:43:34.133 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:43:34.133542
+2025-03-31 19:43:34.140 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:43:34.150 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:43:34.151 [base.py:1901] : [cached since 1.005e+04s ago] {}
+2025-03-31 19:43:34.153 [base.py:1123] : ROLLBACK
+2025-03-31 19:43:34.154 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:43:34.154594, 耗时: 0.021052秒
+2025-03-31 19:43:34.154 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #503 执行耗时: 0.02秒, 将休眠: 19.98秒
+2025-03-31 19:43:54.139 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #503 结束: 2025-03-31 19:43:54, 总耗时: 20.01秒
+2025-03-31 19:43:54.140 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #504 开始: 2025-03-31 19:43:54
+2025-03-31 19:43:54.140 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:43:54.140369
+2025-03-31 19:43:54.151 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:43:54.160 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:43:54.160 [base.py:1901] : [cached since 1.007e+04s ago] {}
+2025-03-31 19:43:54.162 [base.py:1123] : ROLLBACK
+2025-03-31 19:43:54.163 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:43:54.163121, 耗时: 0.022752秒
+2025-03-31 19:43:54.163 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #504 执行耗时: 0.02秒, 将休眠: 19.98秒
+2025-03-31 19:44:14.197 [New_DB_Mointor.py:264] : [实例 8b4491c1] 循环 #504 结束: 2025-03-31 19:44:14, 总耗时: 20.04秒
+2025-03-31 19:44:14.207 [New_DB_Mointor.py:245] : [实例 8b4491c1] 循环 #505 开始: 2025-03-31 19:44:14
+2025-03-31 19:44:14.233 [New_DB_Mointor.py:180] : [实例 8b4491c1] 开始检查: 2025-03-31 19:44:14.233368
+2025-03-31 19:44:14.270 [base.py:1097] : BEGIN (implicit)
+2025-03-31 19:44:14.279 [base.py:1896] : SELECT count(user_ticket_monitors.monitor_ticket_id) AS count_1 
+FROM user_ticket_monitors
+2025-03-31 19:44:14.284 [base.py:1901] : [cached since 1.009e+04s ago] {}
+2025-03-31 19:44:14.303 [base.py:1123] : ROLLBACK
+2025-03-31 19:44:14.306 [New_DB_Mointor.py:232] : [实例 8b4491c1] 检查完成: 2025-03-31 19:44:14.306014, 耗时: 0.072646秒
+2025-03-31 19:44:14.306 [New_DB_Mointor.py:257] : [实例 8b4491c1] 循环 #505 执行耗时: 0.10秒, 将休眠: 19.90秒

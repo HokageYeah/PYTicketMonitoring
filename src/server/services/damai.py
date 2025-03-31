@@ -730,6 +730,7 @@ class DamaiService:
             print("响应 Cookies:", response.cookies.get_dict())
             res_data = response.json()
             ret = res_data.get('ret')
+            print('check_ticket_h5------ret', res_data)
             if response.status_code != 200 or 'SUCCESS::调用成功' not in ret:
                 error_msg = ret[0].split('::')[1]
                 return {
@@ -745,35 +746,45 @@ class DamaiService:
                 'performViews': [],
                 'skuList': []
             }
-            for sku_item in result.get("perform").get("skuList"):
-                obj['skuList'].append({
-                    'skuId': sku_item.get('skuId'),
-                    'itemId': sku_item.get('itemId'),
-                    'priceId': sku_item.get('priceId'),
-                    'priceName': sku_item.get('priceName'),
-                    'skuSalable': sku_item.get('skuSalable'),
-                    'price': sku_item.get('price'),
-                    'dashPrice': sku_item.get('dashPrice')
-                })
-            for perform_view in result.get("performCalendar").get("performViews"):
-                obj['performViews'].append({
-                    'performId': perform_view.get('performId'),
-                    'performName': perform_view.get('performName'),
-                    'performDateTS': perform_view.get('performDateTS'),
-                    'performBeginDTStr': perform_view.get('performBeginDTStr'),
-                    'checked': perform_view.get('checked')
-                })
-            return {
-                "platform": PlatformEnum.DM,
-                "api": 'check.ticket.by.platform',
-                "data": {
-                    "result": obj,
-                    "original_data": result,
-                    "traceId": res_data.get('traceId','')
-                },
-                "ret": ["SUCCESS::调用成功"],
-                "v": 1
-            }
+            # 判断result.get("perform")不是none
+            if result.get("perform"):
+                for sku_item in result.get("perform").get("skuList"):
+                    obj['skuList'].append({
+                        'skuId': sku_item.get('skuId'),
+                        'itemId': sku_item.get('itemId'),
+                        'priceId': sku_item.get('priceId'),
+                        'priceName': sku_item.get('priceName'),
+                        'skuSalable': sku_item.get('skuSalable'),
+                        'price': sku_item.get('price'),
+                        'dashPrice': sku_item.get('dashPrice')
+                    })
+                for perform_view in result.get("performCalendar").get("performViews"):
+                    obj['performViews'].append({
+                        'performId': perform_view.get('performId'),
+                        'performName': perform_view.get('performName'),
+                        'performDateTS': perform_view.get('performDateTS'),
+                        'performBeginDTStr': perform_view.get('performBeginDTStr'),
+                        'checked': perform_view.get('checked')
+                    })
+                return {
+                    "platform": PlatformEnum.DM,
+                    "api": 'check.ticket.by.platform',
+                    "data": {
+                        "result": obj,
+                        "original_data": result,
+                        "traceId": res_data.get('traceId','')
+                    },
+                    "ret": ["SUCCESS::调用成功"],
+                    "v": 1
+                }
+            else:
+                return {
+                    "platform": PlatformEnum.DM,
+                    "api": 'check.ticket.by.platform',
+                    "data": {},
+                    "ret": ["ERROR::暂无票务数据"],
+                    "v": 1
+                }
         except Exception as e:
             logger.error(f"获取大麦网数据失败，\n接口: check_ticket_web, \n错误: {e}")
             return {
