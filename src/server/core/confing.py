@@ -14,7 +14,7 @@ env_file = ".env"
 if ENV == "prod":
     env_file = ".env.production"
 elif ENV == "test":
-    env_file = ".env.test"
+    env_file = ".env"
 elif ENV == "dev":
     env_file = ".env.development"
 print(f"加载配置文件: {env_file}")
@@ -63,6 +63,12 @@ class Settings(BaseSettings):
     DB_MAX_OVERFLOW: Optional[int] = 10
     DB_POOL_RECYCLE: Optional[int] = 3600
     DB_POOL_TIMEOUT: Optional[int] = 30
+
+    # docker 数据库字段
+    MYSQL_ROOT_PASSWORD: Optional[str] = "aa123456"
+    MYSQL_DATABASE: Optional[str] = "ticket_monitor_db"
+    MYSQL_USER: Optional[str] = "yy"
+    MYSQL_PASSWORD: Optional[str] = "aa123456"
 
     # 配置文件
     class Config:

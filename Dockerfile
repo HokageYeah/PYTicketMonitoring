@@ -3,12 +3,18 @@ FROM python:3.10.10-slim
 # 设置docker的工作目录
 WORKDIR /app
 
-# 复制依赖文件
-COPY requirements.txt /app/
+# 复制项目文件
+COPY . /app/
 
 # 安装依赖
 RUN pip install --upgrade pip && \
     pip install -r requirements.txt
+
+# 设置docker-entrypoint.sh的权限
+RUN chmod +x src/scripts/docker-entrypoint.sh
+
+# 设置入口点
+ENTRYPOINT ["/app/src/scripts/docker-entrypoint.sh"]
 
 # 设置环境变量
 ENV ENV=production

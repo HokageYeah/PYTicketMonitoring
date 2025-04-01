@@ -381,11 +381,14 @@ def invoke_database_command(command, additional_args):
 
     if command in ["create_db", "create-db"]:
         print("创建数据库...")
-        if is_windows:
-            cmd = f"{sys.executable} {script_path} create_db"
-            subprocess.run(cmd, env=env, shell=True)
-        else:
-            subprocess.run([sys.executable, script_path, "create_db"], env=env)
+        # 使用新的脚本创建数据库
+        subprocess.run([sys.executable, "src/scripts/create_database.py"])
+        # 下面的方法 报错 Error: No such command 'create_db'. 暂时无法定位原因
+        # if is_windows:
+        #     cmd = f"{sys.executable} {script_path} create_db"
+        #     subprocess.run(cmd, env=env, shell=True)
+        # else:
+        #     subprocess.run([sys.executable, script_path, "create_db"], env=env)
     elif command in ["drop_db", "drop-db"]:
         print("删除数据库...")
         if is_windows:

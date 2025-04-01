@@ -11,10 +11,10 @@ services:
     volumes: # 挂载数据卷
       # 将宿主机的src目录挂载到容器的/app/src目录
       # - ./src:/app/src  # 用户挂载了./src目录到容器，这在开发时方便，但生产环境应该将代码打包进镜像，避免修改。因此需要移除volumes中的./src:/app/src挂载。
-      # 将宿主机的.env.production文件挂载到容器的/.env.production文件
-      - ./.env.production:/app/.env.production
+      # 将宿主机的.env文件挂载到容器的/.env文件
+      - ./.env:/app/.env
     env_file: # 从文件加载敏感环境变量（可选） 
-      # 用户之前将.env.production挂载到容器中，但直接在docker-compose里写密码也不安全。应该使用Docker的env_file指令来引入外部环境变量文件，避免敏感信息暴露在compose文件中。
+      # 用户之前将.env挂载到容器中，但直接在docker-compose里写密码也不安全。应该使用Docker的env_file指令来引入外部环境变量文件，避免敏感信息暴露在compose文件中。
       - .env
     environment:
       # 设置环境变量
@@ -57,10 +57,11 @@ services:
       - ticket-network
     # 设置健康检查
     healthcheck:   # 添加健康检查，确保MySQL完全就绪
-      test: ["CMD-SHELL", "mysqladmin ping -h localhost -u root --password=$$DB_PASSWORD"]
+      test: ["CMD-SHELL", "mysqladmin ping -h localhost -u root --password=$$MYSQL_ROOT_PASSWORD"]
       interval: 10s
       timeout: 5s
       retries: 5
+      start_period: 30s # 给MySQL更多的启动时间
 
 # 定义容器间通信的网络
 networks:

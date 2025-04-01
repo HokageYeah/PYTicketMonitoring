@@ -63,6 +63,7 @@ def cli():
 @cli.command()
 def create_db():
     """创建数据库"""
+    # 无法进入此方法 报错 Error: No such command 'create_db'. 暂时无法定位原因
     config = get_database_config()
     # 创建不包含数据库名的连接URL
     url_without_db = f"{config['driver']}://{config['username']}:{config['password']}@{config['host']}:{config['port']}"

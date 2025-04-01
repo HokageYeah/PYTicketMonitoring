@@ -330,6 +330,31 @@ APP_ENV=prod uvicorn app.main:app --reload --port 8001
 $env:APP_ENV="prod"; uvicorn app.main:app --reload --port 8001
 ```
 
+#### docker部署上线
+<!-- 使用docker compose部署上线 -->
+*  使用docker compose部署上线，需要先安装docker compose，然后使用docker compose up -d --build命令启动服务。
+*  docker镜像中初始化数据库：
+   * 确保容器启动时自动创建表结构，已经修改 Dockerfile 文件，在容器启动时执行 python src/scripts/docker-entrypoint.sh自动化在容器启动时创建数据库表
+   * 如果上述失败的平替方案：
+     * 方案一：创建数据库mysql，并设置环境变量MYSQL_ROOT_PASSWORD=aa123456，MYSQL_USER=yy，MYSQL_PASSWORD=aa123456，MYSQL_DATABASE=ticket_monitor_db_prod
+     * 方案二：进入容器 docker exec -it ticket_monitor bash，然后执行python /app/src/scripts/set_env.py prod upgrade（alembic upgrade head）命令更新表。如果表不存在运行python src/scripts/set_env.py prod  migrate revision --autogenerate -m "pro_table"  创建表
+     * 方案三：docker exec -it ticket_monitor python /app/src/scripts/docker_init_db.py
+```bash
+# 构建镜像
+docker compose build
+# 启动服务 合并构建和启动 docker compose up -d --build
+docker compose up -d
+# 停止服务
+docker compose down
+# 查看日志
+docker compose logs -f
+# 进入容器
+docker compose exec ticket-monitor bash
+```
+
+
+
+
 # 注意
 
 程序仅供学习，请勿用于违法活动中，如作他用所承受的法律责任一概与作者无关
