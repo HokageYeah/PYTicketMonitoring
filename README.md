@@ -352,11 +352,155 @@ docker compose logs -f
 docker compose exec ticket-monitor bash
 ```
 
+#### 远程拉取docker镜像后如何操作运行打包后的合并镜像（例如：ticket_monitor:latest、mysql:latest）两个镜像
+* 1. 登录 Docker Hub
+```bash
+docker login
+```
+* 2. 拉取镜像
+```bash
+# 拉取你的应用镜像
+docker pull hokageyeah/private_ticket_monitor:latest
+```
+* 3. 创建必要的文件
+```bash
+mkdir -p /Users/新用户名/PYTicketMonitoring
+cd /Users/新用户名/PYTicketMonitoring
+```
+* 4. 进入新建文件后，创建 docker-compose.yaml 文件
+```bash
+vim docker-compose.yaml
+```
+* 5. 编辑 docker-compose.yaml 文件
+```bash
+# 编辑 docker-compose.yaml 文件
+vi docker-compose.yaml
+# 按 i 键进入编辑模式
+# 按 Esc 键退出编辑模式
+# 按 :wq 键保存并退出
+```
+例如：
+```bash
+# 拉取你的应用镜像
+cat > docker-compose.yaml << 'EOF'
+version: '3'
+services:
+  ticket_monitor:
+    image: hokageyeah/private_ticket_monitor:latest
+    container_name: ticket_monitor
+    restart: unless-stopped
+    ports:
+      - "8001:8001"
+    volumes:
+      - ./.env:/app/.env
+    environment:
+      - ENV=production
+    networks:
+      - ticket-network
+    depends_on:
+      mysql:
+        condition: service_healthy
 
+  mysql:
+    image: mysql:8.0
+    container_name: ticket-mysql
+    restart: unless-stopped
+    environment:
+      - MYSQL_ROOT_PASSWORD=aa123456
+      - MYSQL_DATABASE=ticket_monitor_db_prod
+    volumes:
+      - mysql-data:/var/lib/mysql
+    networks:
+      - ticket-network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-paa123456"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
 
+networks:
+  ticket-network:
+    driver: bridge
+
+volumes:
+  mysql-data:
+EOF
+```
+* 6. 创建 .env.production 文件
+```bash
+cat > .env.production << 'EOF'
+# 编辑 .env.production 文件
+vi .env.production
+# 按 i 键进入编辑模式
+# 按 Esc 键退出编辑模式
+# 按 :wq 键保存并退出
+```
+例如：
+```bash
+cat > .env.production << 'EOF'
+# 环境设置
+ENV=production
+
+# 生产环境数据库
+DB_DRIVER=mysql+mysqlconnector
+DB_USER=root
+DB_PASSWORD=aa123456
+DB_HOST=mysql
+DB_PORT=3306
+DB_NAME=ticket_monitor_db_prod
+DB_CHARSET=utf8mb4
+DB_ECHO=True
+DB_POOL_SIZE=5
+DB_MAX_OVERFLOW=10
+DB_POOL_RECYCLE=3600
+DB_POOL_TIMEOUT=30
+
+# 邮件配置
+QQ_MAIL_SERVER=smtp.qq.com
+QQ_MAIL_PORT=465
+QQ_MAIL_STARTTLS=False
+QQ_MAIL_SSL_TLS=True
+QQ_MAIL_USERNAME=你的邮箱@qq.com
+QQ_MAIL_PASSWORD=你的邮箱授权码
+QQ_MAIL_FROM=你的邮箱@qq.com
+QQ_MAIL_USE_CREDENTIALS=True
+QQ_VALIDATE_CERTS=True
+EOF
+```
+* 7. 启动服务
+```bash
+docker compose up -d
+```
+* 8. 查看日志
+```bash
+# 查看容器运行状态
+docker-compose ps
+# 查看日志
+docker compose logs -f
+```
+* 9. 初始化数据库（如果需要）
+如果应用启动后报数据库表不存在的错误，需要执行数据库迁移：
+```bash
+# 进入应用容器
+docker exec -it ticket_monitor bash
+
+# 在容器内执行数据库迁移
+python src/scripts/set_env.py prod upgrade
+
+# 或者直接执行初始化脚本
+python src/scripts/init_db.py
+```
+* 9. 进入容器
+```bash
+docker compose exec ticket-monitor bash
+```
+* 10. 停止服务
+```bash
+docker compose down
+```
 
 # 注意
-
 程序仅供学习，请勿用于违法活动中，如作他用所承受的法律责任一概与作者无关
 
 编程能力蒟蒻，代码仅供参考^_^
