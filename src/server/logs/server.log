@@ -1798,3 +1798,5 @@ FROM user_ticket_monitors
 2025-04-01 17:10:31.037 [base.py:1123] : ROLLBACK
 2025-04-01 17:10:31.042 [New_DB_Mointor.py:232] : [实例 a4e0fbfe] 检查完成: 2025-04-01 17:10:31.042039, 耗时: 0.228181秒
 2025-04-01 17:10:31.042 [New_DB_Mointor.py:257] : [实例 a4e0fbfe] 循环 #1 执行耗时: 0.23秒, 将休眠: 19.77秒
+2025-04-06 23:22:49.073 [sqlalchemy_db.py:49] : sqlalchemy���ݿ�����ʧ��: (mysql.connector.errors.DatabaseError) 2005 (HY000): Unknown MySQL server host 'mysql' (11001)
+(Background on this error at: https://sqlalche.me/e/20/4xp6)
