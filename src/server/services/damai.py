@@ -722,6 +722,7 @@ class DamaiService:
                 "v": 1
             }
     # 检测当前场次是否有坐次h5（是否又票）
+    @damai_response_handler(api_path='/h5/check.ticket.by.platform', success_msg='获取大麦网数据成功', error_msg='获取大麦网数据失败', error_email=True)
     def check_ticket_h5(self, show_id, session_id):
         try:
             url = DM.get_seat_url()

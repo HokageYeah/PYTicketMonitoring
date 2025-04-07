@@ -41,7 +41,12 @@ class WxService:
         print('WxService---wx_mini_login_code2Session---response-----', login_data)
         session_key = login_data['session_key']
         openid = login_data['openid']
-        user = User(session_key=session_key, openid=openid)
+        # 判断是否是管理员
+        if openid == settings.ADMIN_OPENID:
+            user_role = 2
+        else:
+            user_role = 1
+        user = User(session_key=session_key, openid=openid, user_role=user_role)
         user = user_service.create_user(user)
         tokenStr = user_service.generate_token(user).get('data',{})
         return {
@@ -53,6 +58,7 @@ class WxService:
                 'status': user.status,
                 'create_time': user.create_time,
                 'update_time': user.update_time,
+                'user_role': user.user_role,
             }
     # 检查access_token是否过期
     def is_access_token_expired(self):

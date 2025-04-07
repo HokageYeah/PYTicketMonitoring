@@ -70,6 +70,9 @@ class Settings(BaseSettings):
     MYSQL_USER: Optional[str] = "yy"
     MYSQL_PASSWORD: Optional[str] = "aa123456"
 
+    # 管理员openid
+    ADMIN_OPENID: Optional[str] = "0000000000000000000000000000000000000000000000000000000000000000"
+
     # 配置文件
     class Config:
         env_file = ".env" # 初始化时指定环境变量文件

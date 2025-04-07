@@ -221,7 +221,7 @@ def new_api_response_handler(platform=WxPlatformEnum.WX_MINI.value, api_path=Non
         def process_response(result, execution_time):
             print('result---------1', result)
             # 检查结果是否已经是标准格式
-            if isinstance(result, dict) and all(key in result for key in ['platform', 'ret', 'data', 'v', 'api']):
+            if isinstance(result, dict) and all(key in result for key in ['platform', 'ret', 'data', 'v', 'api']) and error_email == False:
                 return result
             print('result---------2', result)
             # 检查业务错误

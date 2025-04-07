@@ -500,6 +500,93 @@ docker compose exec ticket-monitor bash
 docker compose down
 ```
 
+#### Docker 环境中查看数据库信息的详细指南
+* 1. 通过 MySQL 命令行连接数据库
+```bash
+# 进入 MySQL 容器
+docker exec -it ticket-mysql bash
+
+# 在容器内连接 MySQL
+mysql -u root -paa123456
+
+# 查看所有数据库
+SHOW DATABASES;
+
+# 选择数据库
+USE ticket_monitor_db_prod;
+
+# 查看所有表
+SHOW TABLES;
+
+# 查看表结构
+DESCRIBE 表名;
+# 或
+SHOW COLUMNS FROM 表名;
+
+# 查看表数据
+SELECT * FROM 表名 LIMIT 10;
+
+# 查看表的行数
+SELECT COUNT(*) FROM 表名;
+
+# 退出 MySQL
+exit
+
+# 退出容器
+exit
+```
+* 2.直接从宿主机执行 MySQL 命令
+```bash
+# 进入 MySQL 容器
+# 一行命令执行 MySQL 查询
+docker exec -it ticket-mysql mysql -u root -paa123456 -e "SHOW DATABASES;"
+
+# 查看特定数据库的表
+docker exec -it ticket-mysql mysql -u root -paa123456 -e "USE ticket_monitor_db_prod; SHOW TABLES;"
+
+# 查看表数据
+docker exec -it ticket-mysql mysql -u root -paa123456 -e "USE ticket_monitor_db_prod; SELECT * FROM user_ticket_monitors LIMIT 5;"
+```
+* 3. 导出数据库信息到文件
+```bash
+# 导出数据库结构信息
+docker exec -it ticket-mysql mysqldump -u root -paa123456 --no-data ticket_monitor_db_prod > /Users/yuye/YeahWork/***/PYTicketMonitoring/db_structure.sql
+
+# 导出完整数据库（包含数据）
+docker exec -it ticket-mysql mysqldump -u root -paa123456 ticket_monitor_db_prod > /Users/yuye/YeahWork/***/PYTicketMonitoring/db_full.sql
+
+# 导出特定表
+docker exec -it ticket-mysql mysqldump -u root -paa123456 ticket_monitor_db_prod 表名 > /Users/yuye/YeahWork/***/PYTicketMonitoring/table_data.sql
+```
+* 4. 使用图形化工具
+  * 4.1 通过端口映射使用 MySQL 客户端
+  ```bash
+    # 检查 MySQL 容器的端口映射
+    docker port ticket-mysql
+  ```
+  * 4.2 如果没有映射，需要修改 docker-compose.yaml 文件，添加端口映射
+  ```bash
+    # 修改 docker-compose.yaml 文件
+    vim docker-compose.yaml
+    mysql:
+    # 添加端口映射
+    # ... 其他配置 ...
+    ports:
+      - "3306:3306"  # 将容器的 3306 端口映射到宿主机的 3306 端口
+  ```
+  * 4.3 然后重启容器
+  ```bash
+    docker compose down
+    docker compose up -d
+
+    现在可以使用图形化工具（如 MySQL Workbench、Navicat、DBeaver 等）连接：
+    - 主机: localhost
+    - 端口: 3306
+    - 用户名: root
+    - 密码: aa123456
+    - 数据库: ticket_monitor_db_prod
+  ```
+
 # 注意
 程序仅供学习，请勿用于违法活动中，如作他用所承受的法律责任一概与作者无关
 
