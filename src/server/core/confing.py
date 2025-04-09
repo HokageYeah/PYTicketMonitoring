@@ -73,6 +73,16 @@ class Settings(BaseSettings):
     # 管理员openid
     ADMIN_OPENID: Optional[str] = "0000000000000000000000000000000000000000000000000000000000000000"
 
+    # 测试公众号appid
+    TEST_PUBLIC_APP_ID: Optional[str] = ""
+    # 测试公众号appsecret
+    TEST_PUBLIC_APP_SECRET: Optional[str] = ""
+
+    # 微信小程序appid
+    WX_MINI_APP_ID: Optional[str] = ""
+    # 微信小程序appsecret
+    WX_MINI_APP_SECRET: Optional[str] = ""
+
     # 配置文件
     class Config:
         env_file = ".env" # 初始化时指定环境变量文件

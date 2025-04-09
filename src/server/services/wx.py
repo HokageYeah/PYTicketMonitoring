@@ -15,8 +15,8 @@ class WxService:
     def __init__(self):
         self.BASE_URL = "https://api.weixin.qq.com"
         self.data = {
-            "appid": "wxcce30ba44a2065a5",
-            "secret": "c49f74d704577e5842e84ab43ff3333d",
+            "appid": settings.WX_MINI_APP_ID,
+            "secret": settings.WX_MINI_APP_SECRET,
         }
         # 初始化数据
         self.access_token = ''

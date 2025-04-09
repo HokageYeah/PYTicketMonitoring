@@ -1,12 +1,13 @@
 import requests
 from src.decorators.Res_Handler_Decorator import wx_mini_response_handler
+from src.server.core.confing import settings
 # 微信通知（测试公众号）
 class WX_Notice:
     def __init__(self):
         # 公众号appid
-        self.public_app_id = 'wxa88c9b80089f3171'
+        self.public_app_id = settings.TEST_PUBLIC_APP_ID
         # 公众号appsecret
-        self.public_app_secret = '4f5f6a6e5319b2a0ff1476c7c8062cc0'
+        self.public_app_secret = settings.TEST_PUBLIC_APP_SECRET
         # 获取 access_token 的 URL
         self.public_access_token_url = f'https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid={self.public_app_id}&secret={self.public_app_secret}'
     @wx_mini_response_handler(api_path='https://api.weixin.qq.com/cgi-bin/token', success_msg='获取access_token成功', error_msg='获取access_token调用失败', error_email=True)
