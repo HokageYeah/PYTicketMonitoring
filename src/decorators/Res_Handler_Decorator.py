@@ -208,6 +208,7 @@ def send_error_email(error_info):
 
 def new_api_response_handler(platform=WxPlatformEnum.WX_MINI.value, api_path=None, error_msg=None, success_msg=None, business_error_key='ret', error_email=False):
     def decorator(func):
+        print('new_api_response_handler---------', platform, api_path, error_msg, success_msg, business_error_key, error_email)
         # 检查是否为协程函数
         is_coroutine = inspect.iscoroutinefunction(func)
         # 如果没有提供API路径，则从函数名生成

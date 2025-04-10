@@ -731,8 +731,9 @@ class DamaiService:
             print("响应 Cookies:", response.cookies.get_dict())
             res_data = response.json()
             ret = res_data.get('ret')
-            print('check_ticket_h5------ret', res_data)
+            print('check_ticket_h5------ret1', res_data)
             if response.status_code != 200 or 'SUCCESS::调用成功' not in ret:
+                print('check_ticket_h5------ret2', ret)
                 error_msg = ret[0].split('::')[1]
                 return {
                     "platform": PlatformEnum.DM,
