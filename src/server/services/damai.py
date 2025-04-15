@@ -65,7 +65,7 @@ class DamaiService:
                     'Host': 'mtop.damai.cn',
                     'Accept': 'application/json',
                     'content-type': 'application/x-www-form-urlencoded',
-                    'Referer': 'https://servicewechat.com/wx938b41d0d7e8def0/350/page-frame.html',
+                    'Referer': 'https://m.damai.cn/',
                     'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 17_5_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.53(0x18003531) NetType/WIFI Language/zh_CN',
                 },
                 cookies=inner_cookies,
@@ -173,7 +173,7 @@ class DamaiService:
                 "ret": [f"ERROR::获取大麦网数据失败{e}"],
             }
     # h5接口下搜索演唱会接口请求
-    def search_concert_h5(self, cty: Optional[str] = '852', keyword: Optional[str] = '', ctl: Optional[str] = '演唱会', otherData: Optional[str] = '{}'):
+    def search_concert_h5(self, cty: Optional[str] = '852', keyword: Optional[str] = '', ctl: Optional[str] = '演唱会', otherData: Optional[str] = '{}', retry_count: Optional[int] = 0):
         # 判断other_data是否是空字符串"{}"
         other_data = json.loads(otherData)
         is_have_other_data = other_data is not None and len(other_data) > 0
@@ -251,13 +251,22 @@ class DamaiService:
             all_nodes_list = response.json().get('data',{}).get('nodes')
             if not isinstance(all_nodes_list, list):
                 print('all_nodes_list----response.json()----', response.json())
+                print('all_nodes_list----response----_m_h5_tk----', _m_h5_tk)
+                print('all_nodes_list----response----_m_h5_tk_enc----', _m_h5_tk_enc)
                 ret = response.json().get('ret')
+                # 添加重试次数限制，防止无限循环
+                if retry_count >= 2:  # 最多重试2次，加上初始调用共3次
+                    logger.error(f"获取大麦网数据失败，重试次数已达上限: {retry_count+1}次")
+                    return {
+                        "data": {'msg': 'all_data is not list, max retry reached'},
+                        "ret": ["ERROR::获取大麦网数据失败，重试次数已达上限", "ERRORCODE::mtop.damai.cn/h5/mtop.damai.mec.aristotle.get/3.0"],
+                    }
                 if 'SUCCESS' not in ret[0]:
                     # 说明令牌过期需要删除
                     self.ticket_monitor.db_config["DM"]["_m_h5_tk"] = ''
                     self.ticket_monitor.db_config["DM"]["_m_h5_tk_enc"] = ''
                     self.ticket_monitor.update_db_config()
-                    return self.search_concert_h5(cty, keyword, ctl)
+                    return self.search_concert_h5(cty, keyword, ctl, otherData, retry_count+1)
                 return {
                     "data": {'msg': 'all_data is not list'},
                     "ret": ["ERROR::获取大麦网数据失败"],
@@ -624,7 +633,10 @@ class DamaiService:
         try:
             url = DM.get_show_url()
             _m_h5_tk_str = self.ticket_monitor.db_config["DM"]["_m_h5_tk"]+';'+self.ticket_monitor.db_config["DM"]["_m_h5_tk_enc"]
-            response = self.do_request()(url(show_id, _m_h5_tk_str))
+            url_str = url(show_id, _m_h5_tk_str)
+            print('url_str----', url_str)
+            response = self.do_request()(url_str)
+            print('response----', response)
             res_data = response.json()
             # print('res_data----', res_data)
             ret = res_data.get('ret')
@@ -639,25 +651,24 @@ class DamaiService:
                     "ret": [f"ERROR::获取大麦网数据失败{error_msg}"],
                     "v": 1
                 }
-            legacy = res_data.get('data',{}).get('legacy','')
-            # 去除转义自负
-            legacy = json.loads(legacy)
-            itemBase = legacy.get('detailViewComponentMap',{}).get('item',{}).get('staticData',{}).get('itemBase',{})
-            venue = legacy.get('detailViewComponentMap',{}).get('item',{}).get('staticData',{}).get('venue',{})
-            item = legacy.get('detailViewComponentMap',{}).get('item',{}).get('item',{})
+            # 大麦接口返回格式调整
+            # legacy = res_data.get('data',{}).get('legacy','')
+            legacy_item = res_data.get('data',{}).get('item','')
+            venue = res_data.get('data',{}).get('venue',{})
+            itemPics = legacy_item.get('itemPics',{}).get('itemPicList',[])
             obj = {
-                'showid': itemBase.get('itemId',''),
-                'showname': itemBase.get('itemName',''),
-                'cityname': itemBase.get('cityName',''),
-                'cityid': itemBase.get('nationalStandardCityId',''),
+                'showid': legacy_item.get('itemId',''),
+                'showname': legacy_item.get('itemName',''),
+                'cityname': legacy_item.get('cityName',''),
+                'cityid': legacy_item.get('nationalStandardCityId',''),
                 'description': '',
-                'showtime': itemBase.get('showTime',''),
+                'showtime': legacy_item.get('showTime',''),
                 'venuecity': venue.get('venueProvinceName',''),
                 'venue': venue.get('venueName',''),
                 'venueAddr': venue.get('venueAddr',''),
                 'venueId': venue.get('venueId',''),
-                'verticalPic': itemBase.get('itemPic',''),
-                'price_str': item.get('priceRange',''),
+                'verticalPic': itemPics[0].get('picUrl',''),
+                'price_str': itemPics[0].get('picUrl',''),
                 'showstatus': '',
                 'platform': PlatformEnum.DM
             }
@@ -667,7 +678,7 @@ class DamaiService:
                 "data": {
                     "legacy": obj,
                     # 原始数据
-                    "original_data": legacy,
+                    "original_data": {},
                     "traceId": res_data.get('traceId','')
                 },
                 "ret": ["SUCCESS::调用成功"],
