@@ -2,7 +2,7 @@ version: '3'
 services:
   ticket_monitor:
     build: . # 使用当前目录的 Dockerfile 构建镜像
-    image: hokageyeah/private_ticket_monitor:latest # 指定镜像名称
+    image: hokageyeah/private_ticket_monitor:1.0.0 # 指定镜像名称
     container_name: ticket_monitor # 指定容器名称（否则Docker会随机生成）
     # 当容器因非人为干预的原因退出（如程序崩溃、系统重启等）时，Docker会自动重启容器。
     restart: unless-stopped
