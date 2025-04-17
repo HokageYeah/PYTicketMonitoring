@@ -12,7 +12,7 @@ from datetime import datetime
 import json
 from src.monitor.Monitor_DM import DM
 from requests import Response
-from src.server.schemas.concert import RecordMonitorParams, TicketPerform
+from src.server.schemas.concert import RecordMonitorParams, TicketPerform, WriteDbConfigParams
 from pydantic import BaseModel
 from src.server.untiles.Ticket_Monitor import Ticket_Monitor
 import asyncio
@@ -953,3 +953,23 @@ class DamaiService:
             return {
                  'test': 1
                 }
+    # 写入db_config.json中_m_h5_tk、_m_h5_tk_enc、cookie2、sgcookie
+    @damai_response_handler(api_path='/web/write.db.config.by.platform', error_msg='写入db_config.json失败', success_msg='写入db_config.json成功', error_email=True)
+    def write_db_config_json(self, params: WriteDbConfigParams):
+        print('write_db_config_json------params', params)
+        print('write_db_config_json------params.m_h5_tk', params.m_h5_tk)
+        print('write_db_config_json------self.ticket_monitor.db_config', self.ticket_monitor.db_config)
+        self.ticket_monitor.db_config["DM"]["_m_h5_tk"] = params.m_h5_tk
+        self.ticket_monitor.db_config["DM"]["_m_h5_tk_enc"] = params.m_h5_tk_enc
+        self.ticket_monitor.db_config["DM"]["cookie2"] = params.cookie2
+        self.ticket_monitor.db_config["DM"]["sgcookie"] = params.sgcookie
+        self.ticket_monitor.db_config["DM"]["appKey"] = params.appKey
+        self.ticket_monitor.db_config["DM"]["t"] = params.t
+        self.ticket_monitor.update_db_config()
+        return {
+            "platform": PlatformEnum.DM,
+            "api": 'write.db.config.by.platform',
+            "data": {},
+            "ret": ["SUCCESS::调用成功"],
+            "v": 1
+            }

@@ -1,11 +1,11 @@
 from fastapi import APIRouter, Body, Query, Depends
 import logging
 import json
-from src.server.schemas.concert import RecordMonitorParams
+from src.server.schemas.concert import RecordMonitorParams, WriteDbConfigParams
 from src.server.schemas import PlatformEnum, ApiResponseData
 from src.server.services.damai import DamaiService
 from typing import Optional, Dict, Any
-from src.server.api.endpoints.validate_params import validate_record_monitor_params
+from src.server.api.endpoints.validate_params import validate_record_monitor_params, validate_write_db_config_params
 import asyncio
 import threading
 import time
@@ -176,6 +176,16 @@ async def post_start_monitor(
 @router.get('/web/test.damai.api.error.handler', response_model=ApiResponseData)
 async def get_test_damai_api_error_handler():
     return damai.get_test_damai_api_error_handler()
+
+# 写入db_config.json中_m_h5_tk、_m_h5_tk_enc、cookie2、sgcookie
+@router.post('/web/write.db.config.by.platform', response_model=ApiResponseData)
+async def post_write_db_config(
+    platform: PlatformEnum = Query(PlatformEnum.DM, description="平台名称"),
+    params: WriteDbConfigParams = Depends(validate_write_db_config_params),
+    ):
+    if platform.value == PlatformEnum.DM.value:
+        return damai.write_db_config_json(params)
+    return None
 
 # 测试循环调用接口
 @router.get("/b")

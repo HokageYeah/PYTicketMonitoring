@@ -3,6 +3,7 @@ from fastapi import HTTPException, Body
 from src.server.schemas.wxMiniLoginSchema import WxMiniLoginParams, CreateUserParams, WxMiniSendSubscribeMessageParams, WxMiniGetUserSubscribeMonitorListParams, WxMiniDeleteUserSubscribeMonitorParams
 from pydantic import BaseModel
 from src.server.schemas.wxMiniLoginSchema import WxMiniGetAccessTokenParams
+from src.server.schemas.concert import WriteDbConfigParams
 
 def validate_common_method(params: BaseModel, required_fields: list):
     print('validate_params::required_fields---------', required_fields)
@@ -59,6 +60,11 @@ async def validate_wx_mini_get_access_token_params(params: WxMiniGetAccessTokenP
 async def validate_wx_mini_delete_user_subscribe_monitor_params(params: WxMiniDeleteUserSubscribeMonitorParams = Body(...)) -> WxMiniDeleteUserSubscribeMonitorParams:
     # 获取必需字段
     required_fields = [name for name, field in WxMiniDeleteUserSubscribeMonitorParams.model_fields.items() if field.default is ...]
+    return validate_common_method(params, required_fields)
+
+async def validate_write_db_config_params(params: WriteDbConfigParams = Body(...)) -> WriteDbConfigParams:
+    # 获取必需字段
+    required_fields = [name for name, field in WriteDbConfigParams.model_fields.items() if field.default is ...]
     return validate_common_method(params, required_fields)
 
 # 一下AI生成代码，可以通过装饰器优化上面代码

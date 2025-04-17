@@ -48,3 +48,12 @@ class RecordMonitorParams(BaseModel):
         if not v:
             raise ValueError("wx_token 不能为空")
         return v
+
+# 写入db_config.json中_m_h5_tk、_m_h5_tk_enc、cookie2、sgcookie
+class WriteDbConfigParams(BaseModel):
+    m_h5_tk: str
+    m_h5_tk_enc: str
+    cookie2: str
+    sgcookie: str
+    appKey: Optional[str] = Field('12574478', description="可选参数")
+    t: Optional[int] = Field(1744705294598, description="可选参数")
