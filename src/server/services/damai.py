@@ -172,7 +172,7 @@ class DamaiService:
                 "data": [],
                 "ret": [f"ERROR::获取大麦网数据失败{e}"],
             }
-    # h5接口下搜索演唱会接口请求
+    # h51接口下搜索演唱会接口请求
     def search_concert_h5(self, cty: Optional[str] = '852', keyword: Optional[str] = '', ctl: Optional[str] = '演唱会', otherData: Optional[str] = '{}', retry_count: Optional[int] = 0):
         # 判断other_data是否是空字符串"{}"
         other_data = json.loads(otherData)
@@ -253,6 +253,7 @@ class DamaiService:
                 print('all_nodes_list----response.json()----', response.json())
                 print('all_nodes_list----response----_m_h5_tk----', _m_h5_tk)
                 print('all_nodes_list----response----_m_h5_tk_enc----', _m_h5_tk_enc)
+                print('all_nodes_list----response----retry_count----', retry_count)
                 ret = response.json().get('ret')
                 # 添加重试次数限制，防止无限循环
                 if retry_count >= 2:  # 最多重试2次，加上初始调用共3次
